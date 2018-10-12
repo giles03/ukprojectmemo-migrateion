@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+
+<project name="pmemo3" basedir="." default="usage">
+	<property file="build.properties" />
+
+	<property name="src.dir" value="src" />
+	<property name="web.dir" value="web" />
+	<property name="build.dir" value="build" />
+	<property name="lib.dir" value="lib" />
+	<property name="webinf.dir" value="WEB-INF" />
+	<property name="deploy.dir" value="deployNew" />
+	<property name="config.dir" value="config" />
+	<property name="UAT" value="memo-test.smeukapps.com" />
+	<property name="PROD" value="memo.smeukapps.com" />
+
+	<presetdef name="javac">
+	    <javac includeantruntime="false" />
+	  </presetdef>
+
+
+	<path id="master-classpath">
+		<fileset dir="${web.dir}/WEB-INF/lib">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${lib.dir}">
+			<include name="*.jar" />
+		</fileset>
+		<pathelement path="${build.dir}" />
+	</path>
+
+	<target name="usage">
+		<echo message="" />
+		<echo message="${ant.project.name} build file" />
+		<echo message="-----------------------------------" />
+		<echo message="" />
+		<echo message="Available targets are:" />
+		<echo message="" />
+		<echo message="build     --> Build the application" />
+		<echo
+			message="deploy-prod --> Deploy application for Production - replaces db.properties with prod db config" />
+		<echo
+			message="deploy-test --> Deploy application for Test - replaces db.properties with test db config" />
+		<echo
+			message="deploy-dev --> Deploy application for Development - replaces db.properties with dev db config" />
+		<echo
+			message="deploy-devDE --> Deploy application for Development with db in Germany - replaces db.properties with dev db config" />
+		<echo
+			message="deploy-testDE --> Deploy application for Development with db in Germany - replaces db.properties with dev db config" />
+
+		<echo message="" />
+	</target>
+
+	<!-- Clean -->
+	<target name="clean" description="Clean build artifacts from project">
+		<delete includeemptydirs="true">
+			<fileset dir="${deploy.dir}" />
+			<fileset dir="${build.dir}" />
+		</delete>
+	</target>
+
+	<!-- Build -->
+	<target name="build" description="Compile main source tree java files">
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${build.dir}/classes" />
+		<javac destdir="${build.dir}/classes" source="1.6" target="1.6"
+			debug="true" encoding="iso-8859-1" deprecation="false" optimize="false"
+			failonerror="true">
+			<src path="${src.dir}" />
+			<classpath refid="master-classpath" />
+		</javac>
+		<copy todir="${build.dir}/classes">
+			<fileset dir="${src.dir}">
+				<include name="**/*.properties" />
+				<include name="**/*.xlsx" />
+			</fileset>
+		</copy>
+	</target>
+
+
+
+	<!-- <target name="deploy-prod" depends="deploy" description="Deploy application">
+		<delete includeemptydirs="true">
+			<fileset
+				file="${deploy.dir}/${ant.project.name}/${webinf.dir}/classes/com/sonybmg/struts/db.properties" />
+		</delete>
+		<copy file="${config.dir}/db.properties-prod"
+			tofile="${deploy.dir}/${ant.project.name}/${webinf.dir}/classes/com/sonybmg/struts/db.properties"
+			preservelastmodified="true" />
+	</target>
+
+	<target name="deploy-test" depends="deploy" description="Deploy application">
+		<delete includeemptydirs="true">
+			<fileset
+				file="${deploy.dir}/${ant.project.name}/${webinf.dir}/classes/com/sonybmg/struts/db.properties" />
+		</delete>
+		<copy file="${config.dir}/db.properties-test"
+			tofile="${deploy.dir}/${ant.project.name}/${webinf.dir}/classes/com/sonybmg/struts/db.properties"
+			preservelastmodified="true" />
+	</target> -->
+
+	<target name="deploy-dev" depends="deploy" description="Deploy application">
+		<delete includeemptydirs="true">
+			<fileset
+				file="${deploy.dir}/${ant.project.name}/${webinf.dir}/classes/com/sonybmg/struts/db.properties" />
+		</delete>
+		<copy file="${config.dir}/db.properties-dev"
+			tofile="${deploy.dir}/${ant.project.name}/${webinf.dir}/classes/com/sonybmg/struts/db.properties"
+			preservelastmodified="true" />
+	</target>
+
+	<target name="deploy-devDE" depends="deploy" description="Deploy application">
+		<delete includeemptydirs="true">
+			<fileset
+				file="${deploy.dir}/${ant.project.name}/${webinf.dir}/classes/com/sonybmg/struts/db.properties" />
+		</delete>
+		<copy file="${config.dir}/db.properties-devDE"
+			tofile="${deploy.dir}/${ant.project.name}/${webinf.dir}/classes/com/sonybmg/struts/db.properties"
+			preservelastmodified="true" />
+	</target>
+
+	<target name="deploy-testDE" depends="deploy" description="Deploy application">
+		<delete includeemptydirs="true">
+			<fileset
+				file="${deploy.dir}/${ant.project.name}/${webinf.dir}/classes/com/sonybmg/struts/db.properties" />
+		</delete>
+		<copy file="${config.dir}/db.properties-testDE"
+			tofile="${deploy.dir}/${ant.project.name}/${webinf.dir}/classes/com/sonybmg/struts/db.properties"
+			preservelastmodified="true" />
+	</target>
+
+
+	<!-- Deploy -->
+	<target name="deploy" depends="clean,build" description="Deploy application">
+		<mkdir dir="${deploy.dir}" />
+		<mkdir dir="${deploy.dir}/${ant.project.name}" />
+		<copy todir="${deploy.dir}/${ant.project.name}"
+			preservelastmodified="true">
+			<fileset dir="${web.dir}">
+				<include name="**/*.*" />
+			</fileset>
+		</copy>
+
+		<echo message="${deploy.dir}/${ant.project.name}/${webinf.dir}" />
+		<copy todir="${deploy.dir}/${ant.project.name}/${webinf.dir}"
+			preservelastmodified="true">
+			<fileset dir="${build.dir}">
+				<include name="**/*.*" />
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- Deploy War File -->
+	<target name="DEPLOY-PROD" depends="clean,build"
+		description="Deploy application as a WAR file">
+		<mkdir dir="${deploy.dir}" />
+		<mkdir dir="${deploy.dir}/${ant.project.name}" />
+		<copy todir="${deploy.dir}/${ant.project.name}">
+									<fileset dir="${web.dir}">
+										<include name="**/*.*" />
+									</fileset>
+		</copy>
+		<replace dir="${deploy.dir}/${ant.project.name}/${webinf.dir}/jsp" value="${PROD}" >
+						  <replacetoken>@@@</replacetoken>
+		</replace>
+		<war destfile="${deploy.dir}/${ant.project.name}.war" webxml="${web.dir}/WEB-INF/web.xml">
+			<fileset dir="${deploy.dir}/${ant.project.name}">
+				<include name="**/*.*" />
+				<exclude name="**/PMEMODS-ds.xml" />
+				<exclude name="**/jboss-web.xml" />
+			</fileset>
+			<classes dir="${build.dir}/classes" />
+		</war>
+	</target>
+	
+	<target name="DEPLOY-UAT" depends="clean,build"
+			description="Deploy application as a WAR file">
+			<mkdir dir="${deploy.dir}" />
+			<mkdir dir="${deploy.dir}/${ant.project.name}" />
+			<copy todir="${deploy.dir}/${ant.project.name}">
+										<fileset dir="${web.dir}">
+											<include name="**/*.*" />
+										</fileset>
+			</copy>
+			<replace dir="${deploy.dir}/${ant.project.name}/${webinf.dir}/jsp" value="${UAT}" >
+							  <replacetoken>@@@</replacetoken>
+			</replace>
+			<war destfile="${deploy.dir}/${ant.project.name}.war" webxml="${web.dir}/WEB-INF/web.xml">
+				<fileset dir="${deploy.dir}/${ant.project.name}">
+					<include name="**/*.*" />
+					<exclude name="**/PMEMODS-ds.xml" />
+					<exclude name="**/jboss-web.xml" />
+				</fileset>
+				<classes dir="${build.dir}/classes" />
+			</war>
+		</target>
+	
+	
+</project>

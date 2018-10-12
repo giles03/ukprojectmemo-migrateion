@@ -1,0 +1,75 @@
+<xml xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+ xmlns:oa="urn:schemas-microsoft-com:office:activation">
+ <p:presentation sizeof="A4paper" slidesizex="6240" notessizex="4201"
+  notessizey="6253" gridspacingx="46448" gridspacingy="46448" subsetembed="1">
+  <p:master id="13" slidesn="0,0" type="main" href="master13.htm"
+   xmlhref="master13.xml" template="New REPORT template" preserved="t"
+   layout="title_body" slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="49" slidesn="0,0" type="main" href="master49.htm"
+   xmlhref="master49.xml" template="1_New REPORT template" preserved="t"
+   layout="title_body" slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="1" slidesn="1CBEA42,E17C110" type="notes" href="master01.htm"
+   layout="notes" slots="header,dateTime,slideImage,body,footer,slideNumber"/>
+  <p:master id="2" slidesn="1CBEA42,E665640" type="handout" href="master02.htm"
+   layout="handout" slots="header,dateTime,footer,slideNumber"/>
+  <p:slide id="479" slidesn="0,0" href="slide0479.htm"/>
+  <p:slide id="848" slidesn="0,0" href="slide0848.htm"/>
+  <p:slide id="880" slidesn="0,0" href="slide0880.htm"/>
+  <p:slide id="846" slidesn="0,0" href="slide0846.htm"/>
+  <p:slide id="913" slidesn="0,0" href="slide0913.htm"/>
+  <p:slide id="883" slidesn="0,0" href="slide0883.htm"/>
+  <p:slide id="885" slidesn="0,0" href="slide0885.htm"/>
+  <p:slide id="887" slidesn="0,0" href="slide0887.htm"/>
+  <p:slide id="886" slidesn="0,0" href="slide0886.htm"/>
+  <p:slide id="914" slidesn="0,0" href="slide0914.htm"/>
+  <p:slide id="847" slidesn="0,0" href="slide0847.htm"/>
+  <p:slide id="849" slidesn="0,0" href="slide0849.htm"/>
+  <p:slide id="854" slidesn="0,0" href="slide0854.htm"/>
+  <p:slide id="850" slidesn="0,0" href="slide0850.htm"/>
+  <p:slide id="851" slidesn="0,0" href="slide0851.htm"/>
+  <p:slide id="860" slidesn="0,0" href="slide0860.htm"/>
+  <p:slide id="852" slidesn="0,0" href="slide0852.htm"/>
+  <p:slide id="853" slidesn="0,0" href="slide0853.htm"/>
+  <p:slide id="861" slidesn="0,0" href="slide0861.htm"/>
+  <p:slide id="862" slidesn="0,0" href="slide0862.htm"/>
+  <p:slide id="855" slidesn="0,0" href="slide0855.htm"/>
+  <p:slide id="915" slidesn="0,0" href="slide0915.htm"/>
+  <p:slide id="888" slidesn="0,0" href="slide0888.htm"/>
+  <p:slide id="889" slidesn="0,0" href="slide0889.htm"/>
+  <p:slide id="890" slidesn="0,0" href="slide0890.htm"/>
+  <p:slide id="891" slidesn="0,0" href="slide0891.htm"/>
+  <p:slide id="857" slidesn="0,0" href="slide0857.htm"/>
+  <p:slide id="916" slidesn="0,0" href="slide0916.htm"/>
+  <p:slide id="856" slidesn="0,0" href="slide0856.htm"/>
+  <p:slide id="863" slidesn="0,0" href="slide0863.htm"/>
+  <p:slide id="910" slidesn="0,0" href="slide0910.htm"/>
+  <p:slide id="897" slidesn="0,0" href="slide0897.htm"/>
+  <p:slide id="900" slidesn="0,0" href="slide0900.htm"/>
+  <p:slide id="899" slidesn="0,0" href="slide0899.htm"/>
+  <p:slide id="902" slidesn="0,0" href="slide0902.htm"/>
+  <p:slide id="917" slidesn="0,0" href="slide0917.htm"/>
+  <p:slide id="922" slidesn="0,0" href="slide0922.htm"/>
+  <p:slide id="921" slidesn="0,0" href="slide0921.htm"/>
+  <p:slide id="904" slidesn="0,0" href="slide0904.htm"/>
+  <p:slide id="905" slidesn="0,0" href="slide0905.htm"/>
+  <p:viewstate type="slideView" scale="100" nosnaptogrid="t" sorterscale="100"
+   restoredleft="156" restoredtop="949" vertbarstate="0" horizbarstate="2"
+   manualadjustleft="t" manualadjusttop="t" hideoutlineicons="t"/>
+  <p:slideshowsettings pencolor="schemeText" manualadvance="t"/>
+  <p:guide type="horizontal" position="4216"/>
+  <p:guide type="vertical" position="6239"/>
+  <p:kinsoku language="Japanese" level="levelOne"/>
+  <p:pptdocumentsettings framecolors="WhiteTextOnBlack" hideslideanimation="t"
+   browsersupport="v4"/>
+ </p:presentation>
+ <o:shapedefaults v:ext="edit" spidmax="84996">
+  <o:colormru v:ext="edit" colors="#b2b2b2,#fcf,#ff9,red,#ccecff,#a4a0d8,#9dc2db,#cf9"/>
+ </o:shapedefaults></xml>
