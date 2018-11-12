@@ -152,7 +152,12 @@ function showhide(id){
 			}
 	}
 }
-
+function popupwindow(url, title, win, w, h) {
+	
+    var y = win.top.outerHeight / 2 + win.top.screenY - ( h / 2)
+    var x = win.top.outerWidth / 2 + win.top.screenX - ( w / 2)
+    return win.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+y+', left='+x);
+} 
 function hideDiv(){
 if (document.getElementById){
 obj = document.getElementById("openPMs");
@@ -181,8 +186,14 @@ function clearSearch(){
 
 </head>
 <body style="max-width:1250px;" onLoad="hideDiv(); ">
-	<div align="right" style="float: right; color: blue; font-size: 22px; ">
+	<!-- <div align="right" style="float: right; color: blue; font-size: 22px; ">
 		<a href="/pmemo3/myMemo_Online_Help.htm" target="_blank"><img src="/pmemo3/images/help.gif" border='0'></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</div> -->
+	<div>
+	<div  align="right" style="float: right;">
+	<a href='#' onclick='popupwindow("<%=basePath%>calendarView.jsp?userId=<%=pmUser.getUserId()%>", "Calendar View", window,700,600);' title='Calendar View'>
+	<img src="/pmemo3/calendarView/images/Calendar-icon.png" border='0' height="100" width="100"> </a>
+	</div>
 	</div>
 <div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
 	<left>
