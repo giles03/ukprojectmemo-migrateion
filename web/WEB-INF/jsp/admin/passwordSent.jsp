@@ -36,7 +36,7 @@ background:url(/pmemo3/images/background2.jpg) no-repeat;
 	
 	
 <!-- 	<a href="/pmemo3/enter.do"><img src="/pmemo3/images/logoSonyBMG.gif" border='0'></a>-->
-	<left><a href="/pmemo3/"><img src="/pmemo3/images/myMemo3.jpg" border='0'></a></left>
+	<left><a href="/pmemo3/"><img src="/pmemo3/images/SonyMusicLogo_09_RGB_Smaller.png" border='0'></a></left>
   		<div style="border: thin solid #dde6ec; padding: 20px; margin-left: 22%; margin-right: 22%; margin-top: 10%; margin-bottom: 22%;">
 
 		<div style="margin-left: 20%; margin-right: 20%; text-align: center;">

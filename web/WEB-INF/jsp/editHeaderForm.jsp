@@ -167,7 +167,7 @@ function grasPopupWarning(){
 
 
 	<left>
-	<a href="/pmemo3/"><img src="/pmemo3/images/myMemo3.jpg" border='0'></a>
+	<a href="/pmemo3/"><img src="/pmemo3/images/SonyMusicLogo_09_RGB_Smaller.png" border='0'></a>
 	<br>
 	<br>
 	<strong>HEADER FORM - EDIT EXISTING MEMO</strong>

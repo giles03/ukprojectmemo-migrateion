@@ -267,7 +267,7 @@ div.tracks {
 	<strong>DIGITAL FORM - Add/ Edit Details</strong>
 	<br>
 	<br>
-	<a href="/pmemo3/enter.do"><img src="/pmemo3/images/myMemo3.jpg"
+	<a href="/pmemo3/enter.do"><img src="/pmemo3/images/SonyMusicLogo_09_RGB_Smaller.png"
 		border='0'></a>
 	<br>
 	<br>
@@ -306,7 +306,7 @@ div.tracks {
 			</tr>
 			<tr valign="top">
 				<td style="min-width: 135px" colspan=2>
-				<span style='white-space: nowrap; font-size: 15; width: 150px;padding-right: 18px'>TITLE SUPP'MTL</span>
+				<span style='white-space: nowrap; font-size: 15; width: 150px;padding-right: 7px'>PROD COMMENTS</span>
 				<html:text property="additTitle" maxlength="99" size="99"></html:text>
 				</td>				
 			</tr>
@@ -403,7 +403,7 @@ div.tracks {
 						<table width="100%">
 						<tr>
 		 			  		<td width="260px;">
-					    	 	<span style='white-space: nowrap;max-width: 295px; font-size: 12'><strong>SCHEDULE ON GRPS? &nbsp;&nbsp;</strong></span>
+					    	 	<span style='white-space: nowrap;max-width: 295px; font-size: 12'><strong>SCHEDULE ON GRPS? &nbsp;</strong></span>
 					    		
 					    		<html:select property="scheduleInGRPS" style="width:35px;font-size: 14">
 					    			<html:option value=""> </html:option>

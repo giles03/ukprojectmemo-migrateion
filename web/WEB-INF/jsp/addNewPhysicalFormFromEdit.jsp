@@ -318,7 +318,8 @@ function showHideCustFeedDates(){
 	
 	
 
-	<left><a href="/pmemo3/enter.do"><img src="/pmemo3/images/myMemo3.jpg" border='0'></a></left><br><br>
+	<left><a href="/pmemo3/enter.do"><img src="/pmemo3/images/SonyMusicLogo_09_RGB_Smaller.png" border='0'></a></left><br><br>
+	
 	
     <% if(request.getAttribute("DigiEquivalent")!=null){%>
     <div style="float:right; padding-right:10%">
@@ -345,7 +346,7 @@ function showHideCustFeedDates(){
 		</tr>
 		<tr valign="top">
 			<td>
-				<span style='white-space: nowrap; font-size: 15; width: 150px;padding-right: 30px'>TITLE SUPP'MTL</span>
+				<span style='white-space: nowrap; font-size: 15; width: 150px;padding-right: 18px'>PROD COMMENTS</span>
 				<html:text property="additionalTitle" maxlength="99" size="99"></html:text>
 			</td>
 		</tr>

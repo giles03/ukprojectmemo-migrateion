@@ -31,7 +31,10 @@ background:url(/pmemo3/images/background2.jpg) no-repeat;
 
 	<body style="font-family: verdana; font-size: 12px; max-width:1250px;">
 	<%--<div align="right" style="float: right; color: blue; font-size: 22px"><a href="/pmemo3/myMemo_Online_Help_files/slide0846.htm" target="_blank"><img src="/pmemo3/images/help_smaller.gif" border='0'></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>--%>
-	<div style="float:left"><img src="/pmemo3/images/myMemo3.jpg" border='0'></div>	
+	
+	
+	<div style="float:left"><img src="/pmemo3/images/SonyMusicLogo_09_RGB_Smaller.png" border='0'></div>	
+	
 	
 <br><br><br><br><br><br><br><br>
 	

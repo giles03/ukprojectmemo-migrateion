@@ -197,6 +197,7 @@ function clearSearch(){
 	</div>
 <div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
 	<left>
+	
 	<a href="/pmemo3/enter.do"><img src="/pmemo3/images/SonyMusicLogo_09_RGB_Smaller.png" border='0'></a>
 	</left>
 

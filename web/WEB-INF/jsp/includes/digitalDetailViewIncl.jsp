@@ -209,15 +209,15 @@ function openDiv(anchor){
 	<%}
 		if ((pm2.getAdditTitle() != null)
 				&& (!pm2.getAdditTitle().equals("null"))) {
-%>
-<tr valign="top">
-<td>	
-<span style='white-space: nowrap'>Title Supplemental</span>
-</td>
-<td colspan="2"><%=pm2.getAdditTitle()%>
-</td>
-</tr>
-<%} %>	
+	%>
+	<tr valign="top">
+	<td>	
+	<span style='white-space: nowrap'>Product Comments</span>
+	</td>
+	<td colspan="2"><%=pm2.getAdditTitle()%>
+	</td>
+	</tr>
+	<%} %>	
 	<tr>
 	<td colspan=2>
 <% if ((fh.isMemoCurrentlyBeingEdited(pm2.getMemoRef()).equals("Y") && (!fh.isCurrentUserEditingDraft(pm2.getMemoRef(),userName)))

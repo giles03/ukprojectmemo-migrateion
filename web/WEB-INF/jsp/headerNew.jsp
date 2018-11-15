@@ -200,7 +200,7 @@ background:url(/pmemo3/images/background2.jpg) no-repeat;
 	<br>
 	<br>
 
-	<left><a href="/pmemo3/"><img src="/pmemo3/images/myMemo3.jpg" border='0'></a></left>
+	<left><a href="/pmemo3/"><img src="/pmemo3/images/SonyMusicLogo_09_RGB_Smaller.png" border='0'></a></left>
 	
 
 	<br>

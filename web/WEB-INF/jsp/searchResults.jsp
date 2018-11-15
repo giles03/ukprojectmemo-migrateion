@@ -88,7 +88,7 @@ max-width:1250px;
   <body>
   <%--<div align="right" style="float: right; color: blue; font-size: 22px"><a href="/pmemo3/myMemo_Online_Help_files/slide0886.htm" target="_blank"><img src="/pmemo3/images/help_smaller.gif" border='0'></a></div>--%>
  
-	<left><a href="/pmemo3/enter.do"><img src="/pmemo3/images/myMemo3.jpg" border='0'></a></left>
+	<left><a href="/pmemo3/enter.do"><img src="/pmemo3/images/SonyMusicLogo_09_RGB_Smaller.png" border='0'></a></left>
 	<br/><br/><br/><br/>
 	
 	<jsp:include page="<%=includePage%>"/>
