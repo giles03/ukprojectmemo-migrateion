@@ -459,7 +459,7 @@ background:url(/pmemo3/images/background2.jpg) no-repeat;
 				<td style='width:7%; padding-right:1px; text-align:left;text-decoration: underline;'>G Number</td> 
 				<td style='width:7%; padding-right:1px; text-align:left;text-decoration: underline;'>&nbsp;Barcode</td>				
 				<td style='width:15%; padding-right:1px; text-align:left;text-decoration: underline;'>&nbsp;Title</td>
-				<td style='width:14%; padding-right:1px; text-align:left;text-decoration: underline;'>&nbsp;Title Supplemental</td>
+				<td style='width:14%; padding-right:1px; text-align:left;text-decoration: underline;'>&nbsp;Product Comments</td>
 				<td style='width:12%; padding-right:1px; text-align:left;text-decoration: underline;'>First Function Date<a onMouseover="ddrivetip('Key: <br/>[R] - Release Date <br/> [S] - Stream Date <br/>[P] - Preorder Date ','#efefef', 155 )";
 								onMouseout="hideddrivetip()";>&nbsp;<img src="/pmemo3/images/info_red_smaller.jpg" border='0'></a>
 						
@@ -684,7 +684,7 @@ background:url(/pmemo3/images/background2.jpg) no-repeat;
 		<td style='width:7%; padding-right:1px; text-align:left;text-decoration: underline;'>Cat Number</td> 
 <td style='width:7%; padding-right:1px; text-align:left;text-decoration: underline;'>&nbsp;Barcode</td>				
 <td style='width:15%; padding-right:1px; text-align:left;text-decoration: underline;'>&nbsp;Title</td>
-<td style='width:14%; padding-right:1px; text-align:left;text-decoration: underline;'>&nbsp;Title Supplemental</td>
+<td style='width:14%; padding-right:1px; text-align:left;text-decoration: underline;'>&nbsp;Product Comments</td>
 <td style='width:10%; padding-right:1px; text-align:left;text-decoration: underline;'>Release Date</td>					
 <td style='width:4%; text-align:left;text-decoration: underline;'>Components</td> 
 <td style='width:5%; text-align:center;text-decoration: underline;'>In GRPS</td>

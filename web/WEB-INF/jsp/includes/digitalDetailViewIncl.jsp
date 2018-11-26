@@ -745,7 +745,7 @@ function openDiv(anchor){
 							<a href=# onclick="window.open('viewProductCommentsAction.do?memoRef=<%=pm2.getMemoRef()%>&detailId=<%=pm2.getDigitalDetailId()%>&format=digital', '_blank', 'location=yes,height=370,width=950,scrollbars=yes,status=yes');"><span style='font-size: 12;'><u>Comments History</u></span></a>											
 				    </td>
 				</tr>
-				<%} if (pm2.getDigitalScopeComments() != null) { %>
+				<%} %><%-- if (pm2.getDigitalScopeComments() != null) { --%>
 				<tr valign="top">
 					<td>						
 						<u><i><b>Scope Comments:</b></i></u>						
@@ -757,7 +757,7 @@ function openDiv(anchor){
 							<a href=# onclick="window.open('viewScopeCommentsAction.do?memoRef=<%=pm2.getMemoRef()%>&detailId=<%=pm2.getDigitalDetailId()%>&format=digital&anchor=d1', '_blank', 'location=yes,height=370,width=950,scrollbars=yes,status=yes');"><span style='font-size: 12;'><u>Comments History</u></span></a>											
 				    </td>
 				</tr>
-				<%}%>
+				<%-- }--%>
 		</table>
 		
 	</td>

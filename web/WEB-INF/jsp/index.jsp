@@ -198,7 +198,7 @@ function clearSearch(){
 <div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
 	<left>
 	
-	<a href="/pmemo3/enter.do"><img src="/pmemo3/images/SonyMusicLogo_09_RGB_Smaller.png" border='0'></a>
+	<span style="padding-left:1%"><a href="/pmemo3/enter.do"><img src="/pmemo3/images/SonyMusicLogo_09_RGB_Smaller.png" border='0'></a></span>
 	</left>
 
 <br/>
@@ -230,7 +230,7 @@ function clearSearch(){
 			</table>
 </fieldset>
 <ul style="list-style-type:none">
-			<span id="dateAdvice" style="display:none;color:red;font-size:14px; float:left; padding-left:20%">	
+			<span id="dateAdvice" style="display:none;color:red;font-size:14px; float:left; padding-left:2%">	
 <li>			
 			
 	[Please enter date in the format '22 April 2016']	
@@ -238,6 +238,7 @@ function clearSearch(){
 			</span>
 	<li>
 			<span style="FLOAT:right; padding-right: 30%"> 
+			<span style="text-align: center; font-family:VERDANA; font-size: 24; padding-left:12%;"><img src="/pmemo3/images/PM2.png" border='0'></span><br /><br />
 			<html:form method="get" name="searchForm" type="com.sonybmg.struts.pmemo3.form.SearchForm" action="/pmSearch.do">
 					<b>Search By</b>					
 					<html:select property="searchType" title="SearchType" styleId="searchType">
