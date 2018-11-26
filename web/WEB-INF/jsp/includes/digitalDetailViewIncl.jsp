@@ -733,31 +733,35 @@ function openDiv(anchor){
 					<td>
 					</td>
 				</tr>
-				<% if (pm2.getDigitalComments() != null) { %>
+				 
 				<tr valign="top">
 					<td>						
 						<u><i><b>Product Comments:</b></i></u>						
 					</td>
 				</tr>
 				<tr>	
-					<td colspan="2" width=325 style="WORD-WRAP:break-word">						
-							<%=pm2.getDigitalComments().replaceAll("\n", "<br />")%><br>	
+					<td colspan="2" width=325 style="WORD-WRAP:break-word">		
+					<% if (pm2.getDigitalComments() != null) { %>				
+							<%=pm2.getDigitalComments().replaceAll("\n", "<br />")%><br>
+					<%} %>			
 							<a href=# onclick="window.open('viewProductCommentsAction.do?memoRef=<%=pm2.getMemoRef()%>&detailId=<%=pm2.getDigitalDetailId()%>&format=digital', '_blank', 'location=yes,height=370,width=950,scrollbars=yes,status=yes');"><span style='font-size: 12;'><u>Comments History</u></span></a>											
 				    </td>
 				</tr>
-				<%} %><%-- if (pm2.getDigitalScopeComments() != null) { --%>
+
 				<tr valign="top">
 					<td>						
 						<u><i><b>Scope Comments:</b></i></u>						
 					</td>
 				</tr>
 				<tr>	
-					<td colspan="2" width=325 style="WORD-WRAP:break-word">						
+					<td colspan="2" width=325 style="WORD-WRAP:break-word">	
+					  	<% if (pm2.getDigitalScopeComments() != null) { %>				
 							<%=pm2.getDigitalScopeComments().replaceAll("\n", "<br />")%><br>
+						<%} %>	
 							<a href=# onclick="window.open('viewScopeCommentsAction.do?memoRef=<%=pm2.getMemoRef()%>&detailId=<%=pm2.getDigitalDetailId()%>&format=digital&anchor=d1', '_blank', 'location=yes,height=370,width=950,scrollbars=yes,status=yes');"><span style='font-size: 12;'><u>Comments History</u></span></a>											
 				    </td>
 				</tr>
-				<%-- }--%>
+				
 		</table>
 		
 	</td>
