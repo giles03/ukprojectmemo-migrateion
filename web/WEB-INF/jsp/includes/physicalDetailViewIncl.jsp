@@ -580,31 +580,35 @@ function openDiv(anchor){
 					<td>
 					</td>
 				</tr>
-				<%if ((pm3.getPhysComments() != null) && (!pm3.getPhysComments().equals("null"))){%>
+
 					<tr valign="top">
 						<td>
 							<u><i><b>Product Comments:</b></i></u>
 						</td>
 					</tr>
 					<tr>
-					 	<td colspan="2" width=320 style="WORD-WRAP:break-word">							
-							<%=pm3.getPhysComments().replaceAll("\n", "<br />")%><br>							
+					 	<td colspan="2" width=320 style="WORD-WRAP:break-word">		
+					 	<%if ((pm3.getPhysComments() != null) && (!pm3.getPhysComments().equals("null"))){%>					
+							<%=pm3.getPhysComments().replaceAll("\n", "<br />")%><br>	
+						<%} %>							
 								<a href=# onclick="window.open('viewProductCommentsAction.do?memoRef=<%=pm3.getMemoRef()%>&detailId=<%=pm3.getPhysicalDetailId()%>&format=physical', '_blank', 'location=yes,height=370,width=950,scrollbars=yes,status=yes');"><span style='font-size: 12;'><u>Comments History</u></span></a>
 						</td>							
 					</tr>
-					<%}if ((pm3.getPhysScopeComments() != null) && (!pm3.getPhysScopeComments().equals("null"))){%>
+					
 					<tr valign="top">
 						<td>
 							<u><i><b>Scope Comments:</b></i></u>
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2" width=320 style="WORD-WRAP:break-word">							
+						<td colspan="2" width=320 style="WORD-WRAP:break-word">	
+						<%if ((pm3.getPhysScopeComments() != null) && (!pm3.getPhysScopeComments().equals("null"))){%>						
 							<%=pm3.getPhysScopeComments().replaceAll("\n", "<br />")%>
+						<%}%>
 							<a href=# onclick="window.open('viewScopeCommentsAction.do?memoRef=<%=pm3.getMemoRef()%>&detailId=<%=pm3.getPhysicalDetailId()%>&format=physical', '_blank', 'location=yes,height=370,width=950,scrollbars=yes,status=yes');"><span style='font-size: 12;'><u>Comments History</u></span></a>
 						</td>								
 					</tr>
-					<%}%>
+					
 
 				</table>
 				
