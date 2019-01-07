@@ -34,18 +34,30 @@ public class ProjectMessageAction extends Action {
 		String refId = null;
 		String artist = null;
 		String title = null;
+		String forward = null;
 		ProjectMemo pm = null;
 		HashMap physicalDetails = null;
 		HashMap promoDetails = null;
 		HashMap digitalDetails = null;
-		ArrayList projectMessagesList = null;		
+		ArrayList projectMessagesList = null;	
+		UserDAO userDAO = UserDAOFactory.getInstance();	
 		ProjectMemoDAO pmDAO = ProjectMemoFactoryDAO.getInstance();
+		ProjectMemoUser user= null;		
 
 		/*if(request.getParameter("searchString")!=null){
 		
 			 refId = request.getParameter("searchString");
 			 request.setAttribute("memoRef", refId);
 		}*/
+		
+		if (session.getAttribute("user") != null) {
+			
+ 			user = (ProjectMemoUser)session.getAttribute("user");
+ 		
+ 		} else {
+ 			
+			return mapping.findForward("login");
+		}
 		if(session.getAttribute("dashMemoRef")!=null){
 			
 			 refId = (String) session.getAttribute("dashMemoRef");
@@ -77,61 +89,31 @@ public class ProjectMessageAction extends Action {
 		
 		pm.setMemoRef(dashboardForm.getMemoRef());
 		pm.setRevisionID(pmDAO.getMaxRevisionId(new Integer(dashboardForm.getMemoRef())));			
-		//request.setAttribute("projectMemo", pm);
-		//request.setAttribute("memoRef", refId);
-		
 
-		
-		/*
-    	 * The 'searchingDrafts' session object will be passed into the method and depending on whether this is true or false
-    	 * will search the draft tables or the detail tables accordingly.
-    	 */
-    		
-           // physicalDetails = fh.getPhysicalDetailsForPMForView(pm.getMemoRef(), pm.getRevisionID(), session);
-           // promoDetails = fh.getPromoDetailsForPMForView(pm.getMemoRef(), pm.getRevisionID(), session);
-           // digitalDetails = fh.getDigitalDetailsForPMForView(pm.getMemoRef(), pm.getRevisionID(), session);                     
-           // projectMessagesList = (ArrayList) fh.getAllProjectMessages(dashboardForm.getMemoRef());
-		
-
-            
-    		/*
-			 * need to add header details to the projectMemo request object for
-			 * returning to listDetails.jsp
-			 */
-		//	ProjectMemo headerDetails = pmDAO.getPMHeaderDetailsFromDrafts(pm.getMemoRef());
-		//	pm.setArtist(headerDetails.getArtist());
-		//	pm.setTitle(headerDetails.getTitle());
-		//	pm.setProductType(headerDetails.getProductType());
-		//	pm.setLocalLabel(headerDetails.getLocalLabel());
-		//	pm.setProductManagerId(headerDetails.getProductManagerId());
-			
-						           
-			//request.setAttribute("projectMemo", pm); 
-            // request.setAttribute("physicaldetails", physicalDetails);
-            //request.setAttribute("promoDetails", promoDetails);
-            //request.setAttribute("digitaldetails", digitalDetails);
-            //request.setAttribute("projectMessagesList", projectMessagesList);
-				
-			
-			
-
-			//fh.returnAllDraftRelatedFormats(pm, request);
 			fh.returnAllDraftRelatedFormatsToEdit(pm, request);
 			
 			/*
 			 * need to add header details to the projectMemo request object for
 			 * returning to listDetails.jsp
-			 */
+			 
 						ProjectMemo headerDetails = pmDAO.getPMHeaderDetailsFromDrafts(pm.getMemoRef());
 						pm.setArtist(headerDetails.getArtist());
 						pm.setTitle(headerDetails.getTitle());
 						pm.setProductType(headerDetails.getProductType());
 						pm.setLocalLabel(headerDetails.getLocalLabel());
 						pm.setProductManagerId(headerDetails.getProductManagerId());
+						pm.setIsBeingEdited("Y");
 						
 						request.setAttribute("projectMemo", pm);
+					*/
+			int memoRefAsInt = Integer.parseInt(pm.getMemoRef()); 
 			
-		return mapping.getInputForward();
+			if (!(fh.isCurrentUserEditingDraft(pm.getMemoRef()+"", user.getId()) || fh.isCurrentUserCreatingDraft(pm.getMemoRef()+"", user.getId()))){
+				pmDAO.createNewDraft(memoRefAsInt, user.getId());
+			}
+			
+						//return mapping.getInputForward();
+						return mapping.findForward("success");
 		
 	}
 }

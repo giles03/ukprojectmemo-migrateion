@@ -88,20 +88,29 @@ public class ListDetailsAction extends Action {
    		}
 
 		/*
-		 * memoRef coming from Parameter (forwarded from search results page)
+		 * memoRef coming from Parameter (forwarded from search results page) or Attribute (create header stage)
 		 */
 		
 		
 			if(request.getParameter("searchString")!=null){
 				memoRefAsString = request.getParameter("searchString");
 				memoRef = new Integer(memoRefAsString);
+			}else if(request.getAttribute("searchString")!=null){
+				memoRefAsString = (String)request.getAttribute("searchString");
+				memoRef = new Integer(memoRefAsString);
 			}else if(request.getParameter("memoRef")!=null){
 				memoRefAsString = request.getParameter("memoRef");
 				memoRef = new Integer(memoRefAsString);
 			}		
 			pm = pmDAO.getPMHeaderDetailsFromDrafts(memoRefAsString);
+			
+		if (fh.isCurrentUserCreatingDraft(memoRefAsString, user.getId())){  // project still in initial draft state being edited by current user			
 				
-		if (pm.getIsBeingEdited().equals("Y") && (fh.isCurrentUserEditingDraft(memoRefAsString, user.getId()))){ // project being edited by current user but not in initial draft state
+				headerDetails = pmDAO.getPMHeaderDetailsFromDrafts(memoRefAsString);
+				fh.returnAllDraftRelatedFormatsToEdit(pm, request);
+				request.setAttribute("isBeingEdited", "Y");
+				
+		}else if (pm.getIsBeingEdited().equals("Y") && (fh.isCurrentUserEditingDraft(memoRefAsString, user.getId()))){ // project being edited by current user but not in initial draft state
 	
 						headerDetails = pmDAO.getPMHeaderDetailsFromDrafts(pm.getMemoRef());
 						fh.returnAllDraftRelatedFormatsToEdit(pm, request);
@@ -112,18 +121,15 @@ public class ListDetailsAction extends Action {
 						headerDetails = pmDAO.getPMHeaderDetails(pm.getMemoRef());
 						fh.returnAllRelatedFormats(pm, request);
 						request.setAttribute("isBeingEdited", "Y");
-		}else if (fh.isCurrentUserCreatingDraft(memoRefAsString, user.getId())){  // project still in initial draft state being edited by current user			
-						
-						headerDetails = pmDAO.getPMHeaderDetailsFromDrafts(memoRefAsString);
-						fh.returnAllDraftRelatedFormatsToEdit(pm, request);
-						request.setAttribute("isBeingEdited", "Y");
+		
 		}else if (pm.getIsBeingEdited().equals("N") && (!fh.isCurrentUserCreatingDraft(memoRefAsString, user.getId()))){ // project not being edited and not in initial draft state
 						pm = null;
 						pm = pmDAO.getPMHeaderDetails(memoRefAsString);
 						headerDetails = pmDAO.getPMHeaderDetails(pm.getMemoRef());
 						fh.returnAllRelatedFormats(pm, request);
 						request.setAttribute("isBeingEdited", "N");			
-		}
+		} 
+					
 				
 		
 		/*

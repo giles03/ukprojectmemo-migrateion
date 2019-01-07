@@ -1,14 +1,11 @@
 package com.sonybmg.struts.pmemo3.action;
 
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
+
 import java.net.UnknownHostException;
-import java.sql.SQLException;
-import java.util.HashMap;
+import java.sql.Connection;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
 import com.sonybmg.struts.pmemo3.db.ProjectMemoDAO;
 import com.sonybmg.struts.pmemo3.db.ProjectMemoFactoryDAO;
 import com.sonybmg.struts.pmemo3.form.HeaderForm;
@@ -19,8 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.apache.struts.action.Action;
-import org.apache.struts.action.ActionError;
-import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -32,7 +27,9 @@ public class HeaderAction extends Action {
 		HttpSession session = request.getSession();
 		HeaderForm headerForm = (HeaderForm)form;
 		ProjectMemo pm = new ProjectMemo();
+		ProjectMemoDAO pmDAO = ProjectMemoFactoryDAO.getInstance();
 		FormHelper fh;
+		String memoRefAsString;
 		
 		ProjectMemoUser user = (ProjectMemoUser)session.getAttribute("user");
 		String userId = user.getId();
@@ -46,10 +43,23 @@ public class HeaderAction extends Action {
 
 			session.removeAttribute( "trackList" );
 		}
+		
+ 		Connection connection =null;
 
+ 		
+     		connection = pmDAO.getConnection();
+			Long memoRef = null;
+			try {
+				memoRef = pmDAO.selectSequenceNextVal(connection, "SEQ_PM_HEADER_REF_ID");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			memoRefAsString = memoRef.toString();
+ 			
 
 		String forward = "";
-		ProjectMemoDAO pmDAO = ProjectMemoFactoryDAO.getInstance();
+		
 
 
 		if (headerForm != null) {
@@ -59,8 +69,7 @@ public class HeaderAction extends Action {
 			
 			fh = new FormHelper();
 
-
-			pm.setMemoRef(headerForm.getMemoRef());
+			pm.setMemoRef(memoRefAsString);
 			pm.setRevisionID("1");
 			pm.setProductManagerId(headerForm.getProductManagerId());
 			pm.setDateSubmitted(headerForm.getDateSubmitted());
@@ -96,7 +105,7 @@ public class HeaderAction extends Action {
 			pm.setMarketingLabel("");
 			pm.setSplitRepOwner(headerForm.getSplitRepOwner());
 			pm.setuSProductManagerId(headerForm.getuSProductManagerId());
-			request.setAttribute("pmRef", headerForm.getMemoRef());	
+			request.setAttribute("searchString", pm.getMemoRef());	
 			request.setAttribute("projectMemo", pm);
 			request.setAttribute("headerDetails", pm);
 
@@ -111,12 +120,9 @@ public class HeaderAction extends Action {
 				try {
 					i = java.net.InetAddress.getLocalHost();
 				} catch (UnknownHostException e1) {
-					e1.printStackTrace();
-					//String exceptionInString = "User ID null when committing draft header. UserId="+pm.getFrom()+", IP Address = "+ i.toString(); 
+					e1.printStackTrace(); 
 					pmDAO.sendCommitErrorEmail(e1.toString(), pm.getFrom(), pm.getMemoRef(), pm.getRevisionID() );
 				}
-
-
 
 				return mapping.findForward("error");
 
@@ -132,14 +138,11 @@ public class HeaderAction extends Action {
 				
 			}
 			Map physicalDetails = (LinkedHashMap) fh.getPhysicalDetailsForPM(pm.getMemoRef(), pm.getRevisionID());
-			Map promoDetails = (LinkedHashMap)fh.getPromoDetailsForPM(pm.getMemoRef(), pm.getRevisionID());
 			Map digitalDetails = (LinkedHashMap)fh.getDigitalDetailsForPM(pm.getMemoRef(), pm.getRevisionID());
 
 			request.setAttribute("physicaldetails", physicalDetails);
-			request.setAttribute("promoDetails", promoDetails);
 			request.setAttribute("digitaldetails", digitalDetails);			
 			forward = "showDetails";
-
 
 
 		}

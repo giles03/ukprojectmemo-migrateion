@@ -255,7 +255,7 @@ public class SaveTracksAction extends Action {
              }
 			
              
-             if(pm.getGrasSetComplete().equals("Y")){
+             if(pm.getGrasSetComplete()!=null && pm.getGrasSetComplete().equals("Y")){
                request.setAttribute("grasComplete", true);
              }
 			return mapping.findForward(forward);
