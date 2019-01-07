@@ -583,7 +583,7 @@ function openDiv(anchor){
 
 					<tr valign="top">
 						<td>
-							<u><i><b>Product Comments:</b></i></u>
+							<u><i><b>Comments:</b></i></u>
 						</td>
 					</tr>
 					<tr>

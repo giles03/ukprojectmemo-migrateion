@@ -34,7 +34,7 @@
 	    <exception
 	      key="error.global.message"
 	      type="java.lang.Exception"
-	      path="/error.jsp" />
+	      path="/onepage.jsp" />
 	</global-exceptions>
 
   <global-forwards />
@@ -76,7 +76,7 @@
       type="com.sonybmg.struts.pmemo3.action.CommitDraftsAction" >
       <forward name="success" path="/enter.do" />
       <forward name="error" path="/WEB-INF/jsp/errors/commitDraftsError.jsp" />
-      <forward name="commitDraftError" path="/WEB-INF/jsp/errors/commitDraftsError2.jsp" />     
+      <forward name="commitDraftError" path="/WEB-INF/jsp/errors/commitDraftsError.jsp" />     
       <forward name="digiEquivIncomplete" path="/returnToDetailsPage.do" />      
     </action>
     
@@ -109,11 +109,11 @@
     <action 
       path="/addProjectMessage"
       name="dashboardForm"
-      scope="session"
+      scope="request"
       validate="true"
       input="/WEB-INF/jsp/detailsListNew.jsp"
       type="com.sonybmg.struts.pmemo3.action.ProjectMessageAction" >
-      <forward name="success" path="/nextEditPage.do" /> 
+      <forward name="success" path="/listDetails.do" /> 
       <forward name="error" path="/popUp.jsp" />
     </action>
     <action 
@@ -138,7 +138,7 @@
       validate="true"
       input="/WEB-INF/jsp/headerNew.jsp"
       type="com.sonybmg.struts.pmemo3.action.HeaderAction" >
-      <forward name="showDetails" path="/WEB-INF/jsp/detailsListNew.jsp" />
+      <forward name="showDetails" path="/listDetails.do" />
       <forward name="error" path="/WEB-INF/jsp/errors/commitDraftsError.jsp" />
     </action>
     

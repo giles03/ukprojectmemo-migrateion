@@ -759,7 +759,7 @@ public class ProjectMemoDAO extends PMDAO {
              int resultsTotal;
 
 
-             protected Long selectSequenceNextVal(Connection connection, String sequenceName) throws Exception {
+             public Long selectSequenceNextVal(Connection connection, String sequenceName) throws Exception {
          		Long sequenceValue;
          		sequenceValue = null;
          		Statement statement = null;
@@ -818,7 +818,7 @@ public class ProjectMemoDAO extends PMDAO {
          		}
          		try {
              		connection = getConnection();
-    				memoRef = selectSequenceNextVal(connection, "SEQ_PM_HEADER_REF_ID");
+    				//memoRef = selectSequenceNextVal(connection, "SEQ_PM_HEADER_REF_ID");
              		String sql = "INSERT INTO PM_DRAFT_HEADER(PM_REF_ID, SUBMIT_DATE, " +
              				"IS_LOCAL_ACT, " +
              				"ARTIST_ID, " +
@@ -852,7 +852,7 @@ public class ProjectMemoDAO extends PMDAO {
              				"SPLIT_REP_OWNER_ID, " +
              				"UK_INTL_PROD_MGR_ID, " +             				
              				"GCLS_NUMBER) " +
-             				"VALUES(" + memoRef + "," + 
+             				"VALUES(" + pm.getMemoRef() + "," + 
              				"SYSDATE, " 
              				+ "'" 
              				+ pm.getLocalOrInternational() + "', " 
@@ -884,7 +884,7 @@ public class ProjectMemoDAO extends PMDAO {
                             + "'" + pm.getSplitRepOwner() + "', "
                             + "'" + pm.getuSProductManagerId() + "', "                                         				
              				+ "'" + fh.replaceApostrophesInString(pm.getGclsNumber()) + "') ";
-             		pm.setMemoRef(memoRef.toString());
+             		//pm.setMemoRef(memoRef.toString());
              		pm.setDateSubmitted((new Date()).toString());
          			statement = connection.createStatement();
          			statement.executeUpdate(sql);
@@ -8695,7 +8695,11 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             	 updated = false;
             	 ProjectMemoUser user = message.getUser();
             	 FormHelper fh = new FormHelper();
-            	 updateProjectMessages = (new StringBuilder("INSERT INTO MONIS_SCHEDULE_UPDATE(PM_REF_ID, EDIT_DATE, USER_ID, COMMENTS, MONIS_WORKLOG) VALUES('")).append(message.getMemoRefId()).append("', CURRENT_DATE, '").append(user.getId()).append("', ").append("'").append(fh.replaceApostrophesInString(message.getMessage())).append("', ").append("'N')").toString();
+            	 updateProjectMessages = (new StringBuilder("INSERT INTO MONIS_SCHEDULE_UPDATE(PM_REF_ID, EDIT_DATE, USER_ID, COMMENTS, MONIS_WORKLOG) VALUES('"))
+            			 .append(message.getMemoRefId()).append("', CURRENT_DATE, '")
+            			 .append(user.getId()).append("', ")
+            			 .append("'").append(fh.replaceApostrophesInString(message.getMessage())).append("', ")
+            			 .append("'N')").toString();
 
             	 try {
             		 connection = getConnection();

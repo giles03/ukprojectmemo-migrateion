@@ -208,7 +208,7 @@ if((document.forms[0].preOrder.value=="N") && (document.forms[0].videoStream.val
 
 }else if(document.forms[0].preOrder.value=="Y"){
 	
-	document.getElementById('relText').innerHTML = "<strong>STREET DATE:&nbsp;&nbsp;</strong>";
+	document.getElementById('relText').innerHTML = "<strong>STREET DATE:&nbsp;</strong>";
 
 }else if(document.forms[0].videoStream.value=="Y"){
 	
