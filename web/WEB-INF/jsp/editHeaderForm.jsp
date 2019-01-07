@@ -73,6 +73,31 @@ function grasPopupWarning(){
 }
 
 
+function limitText(limitField, limitCount, limitNum) {
+	if (limitField.value.length > limitNum) {
+		limitField.value = limitField.value.substring(0, limitNum);
+	} else {
+		limitCount.value = limitNum - limitField.value.length;
+	}
+}
+
+function hideDiv(){
+	if (document.getElementById){
+		obj = document.getElementById("messageEditor");		
+		obj.style.visibility = "visible";
+	}
+}
+
+function showEdit(){
+	if (document.getElementById){
+		obj = document.getElementById("messageEditor");
+		obj2 = document.getElementById("workLog");
+		obj.style.display="block";
+		obj2.style.display="none";
+		var messagesBox = document.getElementById("dashboardComments");
+	messagesBox.focus(); 
+	}
+}
 
 
 	 function populateHiddenField(id){   
@@ -157,14 +182,14 @@ function grasPopupWarning(){
 			HashMap localGenres = fh.getLocalGenre();
 			HashMap productManagers = fh.getProductManagers();
 			ProjectMemo pm = (ProjectMemo) session.getAttribute("projectMemo");
+			ArrayList projectMessagesList = null;
+			ArrayList draftProjectMessagesList = null;
+			String memoRef = pm.getMemoRef();
+			projectMessagesList = (ArrayList) fh.getAllProjectMessages(memoRef);
 
 			%>
 
 <body style="max-width:1250px;" onload="checkDistributedLabel()">
-	<%--<div align="right" style="float: right; color: blue; font-size: 22px">
-		<a href="/pmemo3/myMemo_Online_Help_files/slide0915.htm" target="_blank"><img src="/pmemo3/images/help_smaller.gif" border='0'></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	</div>--%>
-
 
 	<left>
 	<a href="/pmemo3/"><img src="/pmemo3/images/SonyMusicLogo_09_RGB_Smaller.png" border='0'></a>

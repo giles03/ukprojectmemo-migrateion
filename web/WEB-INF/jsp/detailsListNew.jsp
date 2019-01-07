@@ -873,9 +873,9 @@ background:url(/pmemo3/images/background2.jpg) no-repeat;
 	
 <ul style="list-style-type: none;padding-top: 20px">
 	<li>		
-		 
+		 <% if ((isBeingEdited) && ((fh.isCurrentUserCreatingDraft(memoRef, user.getId())) | (fh.isCurrentUserEditingDraft(memoRef, user.getId())))) {%>
 		<center><html:link page="/commitDrafts.do" name="commitParams"><img src="/pmemo3/images/submit_lrg.jpg" border="0" /></html:link>
-		
+			<%} %>
 		
 	</li>
 	</ul>			

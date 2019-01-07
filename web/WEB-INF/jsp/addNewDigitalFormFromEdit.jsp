@@ -306,7 +306,7 @@ div.tracks {
 			</tr>
 			<tr valign="top">
 				<td style="min-width: 135px" colspan=2>
-				<span style='white-space: nowrap; font-size: 15; width: 150px;padding-right: 7px'>PROD COMMENTS</span>
+				<span style='white-space: nowrap; font-size: 15; width: 150px;padding-right: 6px'>PROD COMMENTS</span>
 				<html:text property="additTitle" maxlength="99" size="99"></html:text>
 				</td>				
 			</tr>
@@ -403,7 +403,7 @@ div.tracks {
 						<table width="100%">
 						<tr>
 		 			  		<td width="260px;">
-					    	 	<span style='white-space: nowrap;max-width: 295px; font-size: 12'><strong>SCHEDULE ON GRPS? &nbsp;</strong></span>
+					    	 	<span style='white-space: nowrap;max-width: 295px; font-size: 15;padding-right: 15px'><strong>ADD TO GRPS? &nbsp;</strong></span>
 					    		
 					    		<html:select property="scheduleInGRPS" style="width:35px;font-size: 14">
 					    			<html:option value=""> </html:option>
@@ -435,8 +435,7 @@ div.tracks {
 							<div id="gridNum">
 							<table width="100%">
 							<tr>
-								<td><span style='white-space: nowrap; min-width: 295px; font-size: 14'>G
-										NUMBER:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+								<td><span style='white-space: nowrap; min-width: 295px; font-size: 15; padding-right: 39px'>G NUMBER:</span></td>
 								<td><html:text property="gridNumber" maxlength="20"
 										style="width:200px;"></html:text>
 									<div style="color: red">

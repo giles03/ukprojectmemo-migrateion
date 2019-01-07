@@ -306,7 +306,7 @@ function showHideCustFeedDates(){
 	<%-- <center><a href="/pmemo3/myMemo_Online_Help_files/slide0851.htm" target="_blank"><img src="/pmemo3/images/help_smaller.gif" border='0' ></a></center>--%>
 	<br>
 
-	<jsp:include page="includes/existingFormats_incl.jsp" />
+	<%-- <jsp:include page="includes/existingFormats_incl.jsp" />--%>
 	
   	</div>
 
@@ -391,7 +391,7 @@ function showHideCustFeedDates(){
     
      <tr>
 	   <td>
-    	 <span style='white-space: nowrap;font-size: 13; padding-right:7px'><strong>SCHEDULE ON GRPS?</strong></span>
+    	 <span style='white-space: nowrap;font-size: 15; padding-right:38px'><strong>ADD TO GRPS?</strong></span>
   		</td>
   		<td>
 	    		<html:select property="scheduleInGRPS" style="width:35px;font-size: 14">

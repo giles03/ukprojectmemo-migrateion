@@ -259,7 +259,7 @@ function clearSearch(){
 					| (userRole.equals(Consts.ADMIN))) {%>
 
 			<span style="padding-left: 3%" >
-						<html:link action="/index.do" style="border: outset; border-width:1.0pt; color:black; text-decoration: none">&nbsp;<b>CREATE MEMO</b>&nbsp;</html:link>		
+						<html:link action="/index.do" style="border: outset; border-width:1.0pt; color:red; text-decoration: none;">&nbsp;<b>CREATE MEMO</b>&nbsp;</html:link>		
 				</span>
 			<%}%>				
 </li>		
