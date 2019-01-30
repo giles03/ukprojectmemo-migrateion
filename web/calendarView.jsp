@@ -60,7 +60,7 @@
 	 			editable: false,
 	 			eventLimit: true, // allow "more" link when too many events
 	 			//events: list,
-	 			eventSources: [ list, 'en.german#holiday@group.v.calendar.google.com', 'en.uk#holiday@group.v.calendar.google.com' ,'en.french#holiday@group.v.calendar.google.com'],
+	 			eventSources: [ list, 'en.german#holiday@group.v.calendar.google.com','en.usa#holiday@group.v.calendar.google.com', 'en.uk#holiday@group.v.calendar.google.com' ,'en.french#holiday@group.v.calendar.google.com'],
 	 			eventColor: '#378006',
 	 			  eventRender: function eventRender(event, element, view) {
 	 				// var str = $('#label_selector').val();
