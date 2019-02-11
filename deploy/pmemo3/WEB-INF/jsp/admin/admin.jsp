@@ -59,7 +59,7 @@ height: 30px;
   
   <body style="max-width:1250px;">
   
-<left><a href="/pmemo3/enter.do"><img src="/pmemo3/images/myMemo3.jpg" border='0'></a></left>
+<left><a href="/pmemo3/enter.do"><img src="/pmemo3/images/SonyMusicLogo_09_RGB_Smaller.png" border='0'></a></left>
 	<br>
 	<br> <br>
 

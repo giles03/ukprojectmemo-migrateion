@@ -45,7 +45,7 @@ background:url(/pmemo3/images/background2.jpg) no-repeat;
   <div align="right" style="float: right; color: blue; font-size: 22px"><a href="/pmemo3/myMemo_Online_Help_files/slide0857.htm" target="_blank"><img src="/pmemo3/images/help_smaller.gif" border='0'></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
   
 <!-- 	<a href="/pmemo3/enter.do"><img src="/pmemo3/images/logoSonyBMG.gif" border='0'></a>-->
-	<left><a href="/pmemo3/"><img src="/pmemo3/images/myMemo3.jpg" border='0'></a></left>
+	<left><a href="/pmemo3/"><img src="/pmemo3/images/SonyMusicLogo_09_RGB_Smaller.png" border='0'></a></left>
 	<br>
 	<br>
 		

@@ -60,7 +60,7 @@ body
 	<jsp:include page="includes/existingFormats_incl.jsp" />
 	
 	<!-- 	<a href="/pmemo3/enter.do"><img src="/pmemo3/images/logoSonyBMG.gif" border='0'></a>-->
-	<left><a href="/pmemo3/enter.do"><img src="/pmemo3/images/myMemo3.jpg" border='0'></a></left>
+	<left><a href="/pmemo3/enter.do"><img src="/pmemo3/images/SonyMusicLogo_09_RGB_Smaller.png" border='0'></a></left>
     <br><br><br><br><br><br>
     <html:form method="POST" name="physicalForm" type="com.sonybmg.struts.pmemo3.form.PhysicalForm"action="/editPMPhysical.do">
      

@@ -265,7 +265,9 @@ div.tracks {
 	<strong>DIGITAL FORM - Add/ Edit Details</strong>
 	<br>
 	<br>
-	<a href="/pmemo3/enter.do"><img src="/pmemo3/images/myMemo3.jpg"
+	
+	
+	<a href="/pmemo3/enter.do"><img src="/pmemo3/images/SonyMusicLogo_09_RGB_Smaller.png"
 		border='0'></a>
 	<br>
 	<br>

@@ -162,7 +162,7 @@ background:url(/pmemo3/images/background2.jpg) no-repeat;
 		<script language="JavaScript" src="/pmemo3/js/tooltip.js" type="text/javascript"></script>
   <div align="right" style="float: right; color: blue"><a href="/pmemo3/myMemo_Online_Help_files/slide0890.htm" target="_blank"><img src="/pmemo3/images/help_smaller.gif" border='0'></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> 		
     
-	<left><a href="/pmemo3/enter.do"><img src="/pmemo3/images/myMemo3.jpg" border='0'></a></left>
+	<left><a href="/pmemo3/enter.do"><img src="/pmemo3/images/SonyMusicLogo_09_RGB_Smaller.png" border='0'></a></left>
 
 <br>
 <span style="font-weight: bold; padding-left: 1%">EDIT OPTIONS - ADD/EDIT FORMATS</span>

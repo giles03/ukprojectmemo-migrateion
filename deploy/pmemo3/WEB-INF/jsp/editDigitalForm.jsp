@@ -209,7 +209,8 @@ body
 	</table>	
 
 
-	<left><a href="/pmemo3/"><img src="/pmemo3/images/myMemo3.jpg" border='0'></a></left>
+
+	<left><a href="/pmemo3/"><img src="/pmemo3/images/SonyMusicLogo_09_RGB_Smaller.png" border='0'></a></left>
 	<br><br><br><br><br>
 <html:form method="POST" name="digitalForm" type="com.sonybmg.struts.pmemo3.form.DigitalForm" action="/editPMDigital.do">
 <table width="60%">

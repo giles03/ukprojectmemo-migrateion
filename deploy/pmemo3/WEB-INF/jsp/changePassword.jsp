@@ -30,7 +30,7 @@
 	<body style="font-family: verdana; font-size: 12px;max-width:1250px;">
 	
 
-	<left><img src="/pmemo3/images/myMemo3.jpg" border='0'></left>
+	<left><img src="/pmemo3/images/SonyMusicLogo_09_RGB_Smaller.png" border='0'></left>
     
     
 		 <div align="center" style="border: thin solid #dde6ec; width:750px; padding: 20px; margin-left: 42%; margin-right: 12%; margin-top: 10%; margin-bottom: 22%;">
