@@ -727,6 +727,8 @@ background:url(/pmemo3/images/background2.jpg) no-repeat;
 								SimpleDateFormat sf2 = (SimpleDateFormat) dateFormat2;
 								sf.applyPattern("dd-MMMM-yyyy");
 								modifiedCustTickDate = dateFormat.format(feedTickDate);
+							} else {
+								modifiedCustTickDate = "";
 							}
 
 				HashMap params = new HashMap();

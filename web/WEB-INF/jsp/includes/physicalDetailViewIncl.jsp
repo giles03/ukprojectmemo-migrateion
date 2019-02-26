@@ -108,14 +108,14 @@ function openDiv(anchor){
 	</td>
 	<td colspan="2"><%=pm3.getSupplementTitle()%></td></tr>	
 	<%}
-	if ((pm3.getAdditTitle() != null)
-				&& (!pm3.getAdditTitle().equals("null"))) {
+	if ((pm3.getAdditionalTitle() != null)
+				&& (!pm3.getAdditionalTitle().equals("null"))) {
 	%>
 	<tr valign="top">
 	<td>	
 	<span style='white-space: nowrap'>Product Comments</span>
 	</td>
-	<td colspan="2"><%=pm3.getAdditTitle()%>
+	<td colspan="2"><%=pm3.getAdditionalTitle()%>
 	</td>
 	</tr>
 	<%} %>	
