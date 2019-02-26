@@ -827,7 +827,7 @@ div.tracks {
 			    		<span style='white-space: nowrap;font-size: 15'>FULL PUBLISH:</span>
 			    </td>
 			    <td>			    		
-						<html:checkbox property="fullPublish" disabled="true"></html:checkbox>
+						<html:checkbox property="fullPublish"></html:checkbox>
 				</td>		 
 				</tr>
 				<tr>
@@ -835,7 +835,7 @@ div.tracks {
 			    		<span style='white-space: nowrap;font-size: 15'>XML PUBLISH:</span>	
 			    </td>
 			    <td>
-    					<html:checkbox property="xmlPublish" disabled="true"></html:checkbox>	    								   			    				   
+    					<html:checkbox property="xmlPublish"></html:checkbox>	    								   			    				   
 			    </td>
 			 </tr> 	
 			 <%}else{ %>
