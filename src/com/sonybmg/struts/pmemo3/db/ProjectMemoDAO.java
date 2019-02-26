@@ -780,8 +780,9 @@ public class ProjectMemoDAO extends PMDAO {
          			throw e;
          		}
          		finally {
-         			resultSet.close();
-         			statement.close();                 			
+         			 try {resultSet.close();} catch (SQLException e) {e.printStackTrace();}
+	                 try {statement.close();} catch (SQLException e) {e.printStackTrace();}
+	                 try {connection.close();} catch (SQLException e) {e.printStackTrace();}
          		}
          		return sequenceValue;
          	}
