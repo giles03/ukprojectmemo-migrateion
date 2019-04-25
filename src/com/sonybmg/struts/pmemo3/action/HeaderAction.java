@@ -98,6 +98,7 @@ public class HeaderAction extends Action {
 			pm.setLocalGenre(headerForm.getLocalGenre());
 			pm.setIsBeingEdited("N");
 			pm.setGrasConfidentialProject(headerForm.isGrasConfidentialProject());
+			pm.setForwardPlanner(headerForm.isForwardPlanner());
 			pm.setGclsNumber(headerForm.getGclsNumber());
 			//pm.setMarketingLabel(headerForm.getMarketingLabel());
 			pm.setProjectNumber(headerForm.getProjectNumber());

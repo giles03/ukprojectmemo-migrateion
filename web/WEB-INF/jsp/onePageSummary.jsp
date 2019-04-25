@@ -531,7 +531,20 @@ td.mobiletracks
 									<span style='color:RED'>YES</span>
 								</logic:equal>
 							</td>
-							</tr>								
+							</tr>	
+							<tr>
+							<td>	
+								<span style='white-space: nowrap'>Forward Planner?</span>
+							</td>	
+							<td>
+								<logic:equal name="viewOnePageForm" property="forwardPlanner" value="false">										
+									<span style='color:GREEN'>NO</span>
+								</logic:equal>
+								<logic:equal name="viewOnePageForm" property="forwardPlanner" value="true">
+									<span style='color:RED'>YES</span>
+								</logic:equal>
+							</td>
+							</tr>							
 						</table>
 
 						<%params.put("memoRef", pm);

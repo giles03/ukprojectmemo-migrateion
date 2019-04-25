@@ -56,6 +56,7 @@ public class ProjectMemo {
             private boolean linkProjects;
             private String initManufOrderOnly;
             private boolean grasConfidentialProject;
+            private boolean forwardPlanner;
             
             /*
              * Digital details from here
@@ -239,6 +240,14 @@ public class ProjectMemo {
 	
 		   public void setGrasConfidentialProject(boolean grasConfidentialProject) {
 				this.grasConfidentialProject = grasConfidentialProject;
+			}
+		   
+           public boolean isForwardPlanner() {
+           	return forwardPlanner;
+			}
+	
+		   public void setForwardPlanner(boolean forwardPlanner) {
+				this.forwardPlanner = forwardPlanner;
 			}
 
 			public char storeDigital() {
@@ -435,6 +444,16 @@ public class ProjectMemo {
             public char storeGrasConfidentialProject() {
             	char pAdv = '\0';
             	if (isGrasConfidentialProject()) {
+            		pAdv = 'Y';
+            	} else {
+            		pAdv = 'N';
+            	}
+            	return pAdv;
+            }
+            
+            public char storeForwardPlanner() {
+            	char pAdv = '\0';
+            	if (isForwardPlanner()) {
             		pAdv = 'Y';
             	} else {
             		pAdv = 'N';

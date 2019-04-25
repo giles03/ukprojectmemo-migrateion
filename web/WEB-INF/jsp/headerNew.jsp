@@ -415,6 +415,14 @@ background:url(/pmemo3/images/background2.jpg) no-repeat;
 					    	<td>	 		 
 								<html:checkbox property="grasConfidentialProject"></html:checkbox>	
 					    	</td>
+					    </tr>					    
+					    <tr>
+							<td align="right">
+					    		 <span style='white-space: nowrap;'>FORWARD PLANNER?</span>	
+					    	</td>
+					    	<td>	 		 
+								<html:checkbox property="forwardPlanner" styleId="forwardPlanner"></html:checkbox>	
+					    	</td>
 					    </tr>							
 					</table>
 

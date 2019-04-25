@@ -111,6 +111,12 @@ public class ReturnSinglePageSummaryAction extends Action {
 		} else {
 			viewOnePageForm.setGrasConfidentialProject(false);
 		}		
+		viewOnePageForm.setForwardPlanner(pm.isForwardPlanner());
+		if (pm.isForwardPlanner()==true) {
+			viewOnePageForm.setForwardPlanner(true);
+		} else {
+			viewOnePageForm.setForwardPlanner(false);
+		}		
 		
 			if (pm.getLocalOrInternational().equals("Y")) {
 				viewOnePageForm.setLocalAct("LOCAL ACT");

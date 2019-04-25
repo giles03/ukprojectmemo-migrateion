@@ -61,12 +61,13 @@ public class ViewPMDetailsAction extends Action {
 						pm.setParentalAdvisory(editHeaderForm.isParentalAdvisory());
 						pm.setUkGeneratedParts(editHeaderForm.isUkGeneratedParts());
 						pm.setGrasConfidentialProject(editHeaderForm.isGrasConfidentialProject());
+						pm.setForwardPlanner(editHeaderForm.isForwardPlanner());
 						pm.setGenre(editHeaderForm.getGenre());
 						pm.setLocalGenre(editHeaderForm.getLocalGenre());
 						pm.setGclsNumber(editHeaderForm.getGclsNumber());
 						pm.setProjectNumber(editHeaderForm.getProjectNumber());
 						pm.setMarketingLabel(editHeaderForm.getMarketingLabel());
-				        pm.setUsLabel(editHeaderForm.getUsLabel());				        
+				        			        
 				        pm.setSplitRepOwner(editHeaderForm.getSplitRepOwner());
 				        pm.setuSProductManagerId(editHeaderForm.getuSProductManagerId());				    
 				        pm.setLinkProjects(editHeaderForm.getLinkProjects());
@@ -75,6 +76,45 @@ public class ViewPMDetailsAction extends Action {
 						}else{	
 							pm.setDistributedLabel("");
 						}
+		         		if((pm.getDistributionRights().equals("1") ||
+		         		    pm.getDistributionRights().equals("3") ||	
+		         		    pm.getDistributionRights().equals("4") ||
+		         		    pm.getDistributionRights().equals("6") ||
+		         		    pm.getDistributionRights().equals("9") ||
+		         		    pm.getDistributionRights().equals("10") ||
+			         		pm.getDistributionRights().equals("12") ||
+			         		pm.getDistributionRights().equals("14") ||
+			         		pm.getDistributionRights().equals("16") ||
+			         		pm.getDistributionRights().equals("18") ||
+			         		pm.getDistributionRights().equals("20") ||
+			         		pm.getDistributionRights().equals("23") ||
+			         		pm.getDistributionRights().equals("24") ||
+			         		pm.getDistributionRights().equals("27") ||
+			         		pm.getDistributionRights().equals("28")) && (pm.getLocalOrInternational().equals("Y"))) {
+	         				pm.setUsLabel("zz033");	
+	         				
+		         		} else if ((!(pm.getDistributionRights().equals("1") ||
+			         		    pm.getDistributionRights().equals("3") ||	
+			         		    pm.getDistributionRights().equals("4") ||
+			         		    pm.getDistributionRights().equals("6") ||
+			         		    pm.getDistributionRights().equals("9") ||
+			         		    pm.getDistributionRights().equals("10") ||
+				         		pm.getDistributionRights().equals("12") ||
+				         		pm.getDistributionRights().equals("14") ||
+				         		pm.getDistributionRights().equals("16") ||
+				         		pm.getDistributionRights().equals("18") ||
+				         		pm.getDistributionRights().equals("20") ||
+				         		pm.getDistributionRights().equals("23") ||
+				         		pm.getDistributionRights().equals("24") ||
+				         		pm.getDistributionRights().equals("27") ||
+				         		pm.getDistributionRights().equals("28"))) && (pm.getLocalOrInternational().equals("Y")) 
+		         														  && (pm.getProductManagerId().equals("gran016"))) {
+		         			pm.setUsLabel("zz019");	
+		         		} else if (pm.getDistributionRights().equals("7")){
+		         			pm.setUsLabel("");	
+		         		}  else{
+		         			pm.setUsLabel(editHeaderForm.getUsLabel());	
+		         		}
 						
 						
 						/*

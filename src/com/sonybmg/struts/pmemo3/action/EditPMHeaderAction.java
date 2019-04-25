@@ -209,6 +209,7 @@ public class EditPMHeaderAction extends Action {
 			editHeaderForm.setMarketingLabel("");
 		    editHeaderForm.setUsLabel(pm.getUsLabel());
 		    editHeaderForm.setGrasConfidentialProject(pm.isGrasConfidentialProject());
+		    editHeaderForm.setForwardPlanner(pm.isForwardPlanner());
 	        editHeaderForm.setuSProductManagerId(pm.getuSProductManagerId());
 	        editHeaderForm.setSplitRepOwner(pm.getSplitRepOwner());
 			session.setAttribute("projectMemo", pm);

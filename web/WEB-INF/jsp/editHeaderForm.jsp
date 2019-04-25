@@ -357,31 +357,6 @@ function showEdit(){
 							</td>
 
 						</tr>
-					<%-- 	<tr>
-							<td align="right">
-								<strong>MARKETING LABEL</strong>
-							</td>
-							<td>
-								<html:select property="marketingLabel" style="width:400px;">
-									<html:option value="" >
-									</html:option>
-									<%Iterator labelIter4 = marketingLabelIds.keySet().iterator();
-				while (labelIter4.hasNext()) {
-
-					String marketingLabelID = (String) labelIter4.next();
-					String marketingLabelName = (String) marketingLabelIds
-							.get(marketingLabelID);%>
-									<html:option value="<%=marketingLabelID%>">
-										<%=marketingLabelName%>
-									</html:option>
-									<%}%>
-								</html:select>
-								<div style="color:red">
-									<html:errors property="marketingLabel" />
-								</div>
-							</td>
-						</tr>--%>
-
 						<tr>
 							<td align="right">
 								<strong>UK LABEL GROUP</strong>
@@ -445,6 +420,14 @@ function showEdit(){
 					    	</td>
 					    	<td>	 		 
 								<html:checkbox property="grasConfidentialProject" styleId="grasConfidentialProject" onchange="grasPopupWarning();"></html:checkbox>	
+					    	</td>
+					    </tr>
+					    <tr>
+							<td align="right">
+					    		 <span style='white-space: nowrap;'>FORWARD PLANNER?</span>	
+					    	</td>
+					    	<td>	 		 
+								<html:checkbox property="forwardPlanner" styleId="forwardPlanner"></html:checkbox>	
 					    	</td>
 					    </tr>
 					</table>

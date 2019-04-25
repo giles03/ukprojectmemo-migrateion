@@ -151,7 +151,7 @@ public class FormatLinkToPhysicalAction extends Action {
 				physicalForm.setPhysicalImport(pm.isPhysImport());
 				physicalForm.setVmp(pm.isVmp());
 				physicalForm.setGrasConfidential(pm.isGrasConfidentialPhysicalProduct());
-				physicalForm.setExplicit(pm.isExplicit());
+				physicalForm.setExplicit(pm.isPhysExplicit());
 				physicalForm.setShrinkwrapRequired(pm.isPhysShrinkwrapRequired());
 				physicalForm.setUkSticker(pm.isPhysUkSticker());
 				physicalForm.setInsertRequirements(pm.isPhysInsertRequirements());

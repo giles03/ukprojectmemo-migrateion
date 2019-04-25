@@ -813,7 +813,51 @@ public class ProjectMemoDAO extends PMDAO {
          		boolean inserted =  false;    
          		Statement statement = null;
          		Connection connection =null;
-         		String distributedLabel = "";         		
+         		String distributedLabel = "";    
+         		
+         		
+         		if(pm.getDistributionRights()=="1" && pm.getLocalOrInternational()=="1") {
+         				pm.setUsLabel("zz033");	
+         		}
+        		if((pm.getDistributionRights().equals("1") ||
+	         		    pm.getDistributionRights().equals("3") ||	
+	         		    pm.getDistributionRights().equals("4") ||
+	         		    pm.getDistributionRights().equals("6") ||
+	         		    pm.getDistributionRights().equals("9") ||
+	         		    pm.getDistributionRights().equals("10") ||
+		         		pm.getDistributionRights().equals("12") ||
+		         		pm.getDistributionRights().equals("14") ||
+		         		pm.getDistributionRights().equals("16") ||
+		         		pm.getDistributionRights().equals("18") ||
+		         		pm.getDistributionRights().equals("20") ||
+		         		pm.getDistributionRights().equals("23") ||
+		         		pm.getDistributionRights().equals("24") ||
+		         		pm.getDistributionRights().equals("27") ||
+		         		pm.getDistributionRights().equals("28")) && (pm.getLocalOrInternational().equals("Y"))) {
+         				pm.setUsLabel("zz033");	
+         				
+	         		} else if ((!(pm.getDistributionRights().equals("1") ||
+		         		    pm.getDistributionRights().equals("3") ||	
+		         		    pm.getDistributionRights().equals("4") ||
+		         		    pm.getDistributionRights().equals("6") ||
+		         		    pm.getDistributionRights().equals("9") ||
+		         		    pm.getDistributionRights().equals("10") ||
+			         		pm.getDistributionRights().equals("12") ||
+			         		pm.getDistributionRights().equals("14") ||
+			         		pm.getDistributionRights().equals("16") ||
+			         		pm.getDistributionRights().equals("18") ||
+			         		pm.getDistributionRights().equals("20") ||
+			         		pm.getDistributionRights().equals("23") ||
+			         		pm.getDistributionRights().equals("24") ||
+			         		pm.getDistributionRights().equals("27") ||
+			         		pm.getDistributionRights().equals("28"))) && (pm.getLocalOrInternational().equals("Y")) 
+	         														  && (pm.getProductManagerId().equals("gran016"))) {
+	         			pm.setUsLabel("zz019");	
+	         		} else if (pm.getDistributionRights().equals("7")){
+	         			pm.setUsLabel("");	
+	         		} 
+         		
+         		
          		if(pm.getDistributedLabel()!=null){
          			distributedLabel = pm.getDistributedLabel();
          		}
@@ -844,6 +888,7 @@ public class ProjectMemoDAO extends PMDAO {
              				"IS_PHYSICAL, " +
              				"IS_PROMO, " +
              				"IS_GRAS_CONFIDENTIAL, " +
+             				"FORWARD_PLANNER, " +
              				"IS_BEING_EDITED, " +
              				"LOCAL_GENRE_ID, " +
              				"PROJECT_NUMBER, " +
@@ -876,6 +921,7 @@ public class ProjectMemoDAO extends PMDAO {
              				+ "'N', " 
              				+ "'N', " 
              				+ "'" + pm.storeGrasConfidentialProject()+ "', "
+             				+ "'" + pm.storeForwardPlanner()+ "', "
              				+ "'" + pm.getIsBeingEdited()+ "', " 
              				+ "'" + pm.getLocalGenre() + "', " 
              				+ "'" + fh.replaceApostrophesInString(pm.getProjectNumber())+ "', " 
@@ -3451,7 +3497,12 @@ public class ProjectMemoDAO extends PMDAO {
             				 pmHeaderDetail.setGrasConfidentialProject(false);
             			 } else {
             				 pmHeaderDetail.setGrasConfidentialProject(true);
-            			 }            			 
+            			 }
+            			 if (rs.getString("FORWARD_PLANNER").equals("N")) {
+            				 pmHeaderDetail.setForwardPlanner(false);
+            			 } else {
+            				 pmHeaderDetail.setForwardPlanner(true);
+            			 } 
             			 pmHeaderDetail.setFrom(rs.getString("SUBMIT_BY"));
             			 pmHeaderDetail.setReleasingLabel(rs.getString("UK_LABEL_GRP_ID"));
             			 pmHeaderDetail.setProductManagerId(rs.getString("PROD_MGR_ID"));
@@ -3544,6 +3595,11 @@ public class ProjectMemoDAO extends PMDAO {
             				 pmHeaderDetail.setGrasConfidentialProject(false);
             			 } else {
             				 pmHeaderDetail.setGrasConfidentialProject(true);
+            			 }
+            			 if (rs.getString("FORWARD_PLANNER").equals("N")) {
+            				 pmHeaderDetail.setForwardPlanner(false);
+            			 } else {
+            				 pmHeaderDetail.setForwardPlanner(true);
             			 }
             			 
             			 pmHeaderDetail.setFrom(rs.getString("SUBMIT_BY"));
@@ -3640,7 +3696,12 @@ public class ProjectMemoDAO extends PMDAO {
             				 pmHeaderDetail.setGrasConfidentialProject(false);
             			 } else {
             				 pmHeaderDetail.setGrasConfidentialProject(true);
-            			 }            			 
+            			 }     
+            			 if (rs.getString("FORWARD_PLANNER").equals("N")) {
+            				 pmHeaderDetail.setForwardPlanner(false);
+            			 } else {
+            				 pmHeaderDetail.setForwardPlanner(true);
+            			 }    
             			 pmHeaderDetail.setFrom(rs.getString("SUBMIT_BY"));
             			 pmHeaderDetail.setReleasingLabel(rs.getString("UK_LABEL_GRP_ID"));
             			 pmHeaderDetail.setProductManagerId(rs.getString("PROD_MGR_ID"));
@@ -7764,6 +7825,19 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             	 } else {
             		 ukGenParts = "N";
             	 }
+            	 String grasConfidentialProject;
+            	 if (hForm.isGrasConfidentialProject()) {
+            		 grasConfidentialProject = "Y";
+            	 } else {
+            		 grasConfidentialProject = "N";
+            	 }  
+            	 String forwardPlanner;
+            	 if (hForm.isForwardPlanner()) {
+            		 forwardPlanner = "Y";
+            	 } else {
+            		 forwardPlanner = "N";
+            	 }      
+            	 
             	 String parentalAdv;
             	 if (hForm.isParentalAdvisory()) {
             		 parentalAdv = "Y";
@@ -7856,12 +7930,18 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             	 } else {
             		 ukGenParts = "N";
             	 }
-            	 String grasConfidentialProject;;
+            	 String grasConfidentialProject;
             	 if (pm.isGrasConfidentialProject()) {
             		 grasConfidentialProject = "Y";
             	 } else {
             		 grasConfidentialProject = "N";
-            	 }            	 
+            	 }  
+            	 String forwardPlanner;
+            	 if (pm.isForwardPlanner()) {
+            		 forwardPlanner = "Y";
+            	 } else {
+            		 forwardPlanner = "N";
+            	 }           	 
             	 String parentalAdv;
             	 if (pm.isParentalAdvisory()) {
             		 parentalAdv = "Y";
@@ -7886,6 +7966,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             			 .append("REPERTOIRE_OWNER_ID='").append(pm.getRepOwner()).append("', ")
             			 .append("IS_UK_GEN_PARTS='").append(ukGenParts).append("', ")
             			 .append("IS_GRAS_CONFIDENTIAL='").append(grasConfidentialProject).append("', ")            			 
+            			 .append("FORWARD_PLANNER='").append(forwardPlanner).append("', ") 
             			 .append("IS_PARENTAL_ADVISORY='").append(parentalAdv).append("', ")            			 
             			 .append("PROD_MGR_ID='").append(pm.getProductManagerId()).append("', ")
             			 .append("UK_INTL_PROD_MGR_ID='").append(pm.getuSProductManagerId()).append("', ")

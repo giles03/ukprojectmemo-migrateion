@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/j2ee-1.4.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/lib/ajaxanywhere-1.2.1.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/lib/commons-beanutils.jar"/>
@@ -52,5 +52,6 @@
 	<classpathentry kind="lib" path="web/WEB-INF/lib/spring-web-4.0.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/lib/spring-webmvc-4.0.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/lib/standard.jar"/>
+	<classpathentry kind="lib" path="web/images/PM2.png"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

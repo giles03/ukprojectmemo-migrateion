@@ -47,7 +47,7 @@ public class HeaderForm extends ActionForm {
             private String usLabel;
             private String splitRepOwner;
             private String uSProductManagerId;   
-            
+            boolean forwardPlanner;
 
 
             public String getIsBeingEdited() {
@@ -261,6 +261,15 @@ public class HeaderForm extends ActionForm {
 			public void setGrasConfidentialProject(boolean grasConfidentialProject) {
 				this.grasConfidentialProject = grasConfidentialProject;
 			}
+			
+
+			public boolean isForwardPlanner() {
+				return forwardPlanner;
+			}
+
+			public void setForwardPlanner(boolean forwardPlanner) {
+				this.forwardPlanner = forwardPlanner;
+			}
 
 			public String getTitle() {
             	return title;
@@ -392,6 +401,7 @@ public class HeaderForm extends ActionForm {
             	setParentalAdvisory(false);
             	setLinkProjects(false);
             	setGrasConfidentialProject(false);
+            	setForwardPlanner(false);
             	
             }
 
