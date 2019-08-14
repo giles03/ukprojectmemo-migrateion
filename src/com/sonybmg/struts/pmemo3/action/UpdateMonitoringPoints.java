@@ -29,42 +29,9 @@ public class UpdateMonitoringPoints extends Action{
 			HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
-	      String forward;
-	      FormHelper fh = null;
-	      fh = new FormHelper();	    
-
-	
+	 
 		
-		if (fh.updateDailyDashMonitoringPoints()){
-			
-			forward = "success"; 
-			
-		} else {
-			
-			/*
-			 * call procedure to send error message to admin team.
-			 */
-			HttpSession session = request.getSession();
-			ProjectMemoUser user = (ProjectMemoUser)session.getAttribute("user");
-			String userId = user.getId();
-			String memoRef = request.getParameter("searchString");
-			String revisionId = "n/a";
-			String sqlErrorMsg = "There has been an error updating the Daily Dash Monitoring Points( DAILY_DASH_CSS_UPDATE )." +
-								 "Check Exception Tables for details ";
-
-			ProjectMemoDAO pmDAO = ProjectMemoFactoryDAO.getInstance();
-			//try {
-				pmDAO.sendCommitErrorEmail( sqlErrorMsg, userId, memoRef,  revisionId);
-			//} catch (SQLException e) {
-			//	// TODO Auto-generated catch block
-			//	e.printStackTrace();
-			//}
-	
-			forward = "fail";
-			
-		}
-		
-		return mapping.findForward(forward);
+		return mapping.findForward(null);
 		
 		
 	}

@@ -327,60 +327,7 @@ public class TracksAction extends Action {
 					
 					forward = "newDigitalFromEdit";
 					
-				}else if (returnPage.equals("EDIT_PROMO")) {
-						fh = new FormHelper();
-						if (fh.tracksExistForPromoFormat(pm.getMemoRef(), pm.getRevisionID(), pm.getPromoDetailId())) {
-							fh.deleteAssociatedPromoTracks(pm.getMemoRef(), pm.getRevisionID(), pm.getPromoDetailId());
-						}
-						if (session.getAttribute("projectMemo") != null) {
-							pm = (ProjectMemo)session.getAttribute("projectMemo");
-						}
-						Track track = new Track();
-						count = 0;
-						if (session.getAttribute("trackList") != null) {
-							list = (ArrayList)session.getAttribute("trackList");
-							if (list.size() < 1) {
-								list = null;
-							}
-						}
-						if (list != null) {
-							tracksToSave = (ArrayList)session.getAttribute("trackList");
-							Track trackToSave;
-							for (Iterator iter = tracksToSave.iterator(); iter.hasNext(); fh.savePromoTrack(pm, trackToSave)) {
-								trackToSave = (Track)iter.next();
-							}
-							
-							session.setAttribute("trackList", list);
-						}
-						forward = "editPromoReturn";
-						
-				}else if (returnPage.equals("NEW_PROMO_FROM_EDIT")) {
-							fh = new FormHelper();
-							if (fh.tracksExistForPromoFormat(pm.getMemoRef(), pm.getRevisionID(), pm.getPromoDetailId())) {
-								fh.deleteAssociatedPromoTracks(pm.getMemoRef(), pm.getRevisionID(), pm.getPromoDetailId());
-							}
-							if (session.getAttribute("projectMemo") != null) {
-								pm = (ProjectMemo)session.getAttribute("projectMemo");
-							}
-							Track track = new Track();
-							count = 0;
-							if (session.getAttribute("trackList") != null) {
-								list = (ArrayList)session.getAttribute("trackList");
-								if (list.size() < 1) {
-									list = null;
-								}
-							}
-							if (list != null) {
-								tracksToSave = (ArrayList)session.getAttribute("trackList");
-								Track trackToSave;
-								for (Iterator iter = tracksToSave.iterator(); iter.hasNext(); fh.savePromoTrack(pm, trackToSave)) {
-									trackToSave = (Track)iter.next();
-								}
-								
-								session.setAttribute("trackList", list);
-							}
-							forward = "newPromoFromEdit";	
-						
+									
 					} else if (returnPage.equals("PHYSICAL")) {
 							fh = new FormHelper();
 							if (fh.tracksExistForPhysicalFormat(pm.getMemoRef(), pm.getRevisionID(), pm.getPhysicalDetailId())) {
@@ -407,31 +354,7 @@ public class TracksAction extends Action {
 								
 							}
 							forward = "physicalReturn";
-						} else if (returnPage.equals("PROMO")) {
-								fh = new FormHelper();
-								if (fh.tracksExistForPromoFormat(pm.getMemoRef(), pm.getRevisionID(), pm.getPhysicalDetailId())) {
-									fh.deleteAssociatedPromoTracks(pm.getMemoRef(), pm.getRevisionID(), pm.getPhysicalDetailId());
-								}
-								if (session.getAttribute("projectMemo") != null) {
-									pm = (ProjectMemo)session.getAttribute("projectMemo");
-									Track track = new Track();
-									count = 0;
-									if (session.getAttribute("trackList") != null) {
-										list = (ArrayList)session.getAttribute("trackList");
-									} else {
-										list = null;
-									}
-								}
-								if (list != null) {
-									Track trackToSave = null;
-									tracksToSave = (ArrayList)session.getAttribute("trackList");
-									for (Iterator iter = tracksToSave.iterator(); iter.hasNext(); fh.savePromoTrack(pm, trackToSave)) {
-										trackToSave = (Track)iter.next();
-									}
-									
-								}
-								forward = "promoReturn";
-							}
+						} 
 			session.removeAttribute("nextTrackNum");
 			
 			

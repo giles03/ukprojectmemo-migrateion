@@ -523,7 +523,7 @@ function openDiv(anchor){
 							<%} %>
 						</td>
 					</tr>	
-					<%} if ((pm3.getAgeRating() == null)|| (pm3.getAgeRating().equals(""))) {
+					<%} if ((pm3.getAgeRating() == null) || (pm3.getAgeRating().equals("")) || (pm3.getAgeRating().equals("0"))) {
 								// Do nothing					
 				 	  } else {
 				 		 String ageRating = pmDAO.getStringFromId(pm3.getAgeRating(), "SELECT AGE_RATING_DESC FROM PM_AGE_RATING WHERE AGE_RATING_ID="); 

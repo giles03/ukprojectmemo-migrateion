@@ -118,8 +118,13 @@ public class AddNewDigitalFromEditAction extends Action {
             }
             
 		} else if(digiForm.getPreOrder().equals("N")){
-		  
-            pmDAO.deletePreorders(digiForm.getMemoRef(), digiForm.getRevisionId(), digiForm.getDetailId());         
+			
+			Map preOrdersObject = pmDAO.getAllPreOrders(digiForm.getMemoRef(), digiForm.getDetailId());
+
+			if(preOrdersObject!=null){
+				
+				pmDAO.deletePreorders(digiForm.getMemoRef(), digiForm.getRevisionId(), digiForm.getDetailId());   
+			}
 		}
 		
 		if (session.getAttribute("user") != null) {
@@ -229,13 +234,22 @@ public class AddNewDigitalFromEditAction extends Action {
 					pm.setPreOrderDate(null);
 					pm.setVideoStreamingDate(digiForm.getVideoStreamingDate());
 				}	
-				
+				/**
+				 * if Preorder = N explictly set PreOrderDate to null 
+				 */	
+				if(digiForm.getPreOrder().equals("N")){
+					//pm.setPreOrderDate(digiForm.getPreOrderDate());
+					//pm.setStreamingDate(null);
+					pm.setPreOrderDate(null);
+				}
 				/**
 				 * if audioStream = Y, videoStream must be null but pre_order can be Y or N 
 				 */
 				if (digiForm.getAudioStream().equals("Y")){ 
 					pm.setAltAudioStreamDate(digiForm.getAltAudioStreamingDate());
 					pm.setVideoStreamingDate(null); 
+				}else if (digiForm.getAudioStream().equals("N")){ 
+					pm.setAltAudioStreamDate(null);
 				}
 	/* if detailID is "" then this is the first time this 
 	 * format is being entered so need to use an insert

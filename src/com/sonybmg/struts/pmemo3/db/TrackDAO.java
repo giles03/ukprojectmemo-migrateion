@@ -21,7 +21,7 @@ public class TrackDAO extends PMDAO {
                 sql = "";
                 String trackName = "";
                 FormHelper fh = new FormHelper();
-				ResultSet rs = null;
+				//ResultSet rs = null;
 				Statement statement = null;
 				Connection connection = null;
 				if(t.getPreOrderOnlyFlag()==null){
@@ -85,13 +85,13 @@ public class TrackDAO extends PMDAO {
 				try {
 					connection = getConnection();
 					statement = connection.createStatement();
-					rs = statement.executeQuery(sql);
-					rs.next();
+					statement.execute(sql);
+					//rs.next();
                 } catch (SQLException e) {
 					e.printStackTrace();				
 				} finally {
 				 	try {
-				 		 rs.close();
+				 		// rs.close();
 				 		 statement.close();
 		                 connection.close();
 				 	} catch (SQLException e) {
@@ -107,7 +107,7 @@ public class TrackDAO extends PMDAO {
               String digiEquivComments = "";
               String digiEquivDSPComments = "";
               FormHelper fh = new FormHelper();
-              ResultSet rs = null;
+             //ResultSet rs = null;
               Statement statement = null;
               Connection connection = null;
               if(t.getPreOrderOnlyFlag()==null){
@@ -133,13 +133,13 @@ public class TrackDAO extends PMDAO {
               try {
                   connection = getConnection();
                   statement = connection.createStatement();
-                  rs = statement.executeQuery(sql);
-                  rs.next();
+                  statement.executeQuery(sql);
+                  //rs.next();
               } catch (SQLException e) {
                   e.printStackTrace();                
               } finally {
                   try {
-                       rs.close();
+                       //rs.close();
                        statement.close();
                        connection.close();
                   } catch (SQLException e) {
@@ -152,21 +152,21 @@ public class TrackDAO extends PMDAO {
             
             public void DeleteDigitalTracks(Track t, ProjectMemo pm)  {
                 String sql;
-				ResultSet rs = null;
+				//ResultSet rs = null;
 				Statement statement = null;
 				Connection connection = null;
                 sql = (new StringBuilder("DELETE FROM PM_DRAFT_DIGITAL_TRACKS(TRACK_ORDER, TRACK_NAME, COMMENTS, PM_REF_ID, PM_REVISION_ID, PM_DETAIL_ID )VALUES(")).append(t.getTrackOrder()).append(",").append("'").append(t.getTrackName()).append("', ").append("'").append(t.getComments()).append("', ").append(pm.getMemoRef()).append(",").append("1 ,").append(pm.getDigitalDetailId()).append(") ").toString();
-				rs = null;
+				//rs = null;
 					try {
 						connection = getConnection();
 						statement = connection.createStatement();
-						rs = statement.executeQuery(sql);
-						rs.next();	
+						statement.execute(sql);
+						//rs.next();	
 					} catch (SQLException e) {
 						e.printStackTrace();						
 					} finally {
 					 	try {
-					 		 rs.close();
+					 		 //rs.close();
 					 		 statement.close();
 			                 connection.close();
 					 	} catch (SQLException e) {
@@ -183,7 +183,7 @@ public class TrackDAO extends PMDAO {
             	String sql;
             	FormHelper fh = new FormHelper();
             	String trackName = "";
-				ResultSet rs = null;
+				//ResultSet rs = null;
 				Statement statement = null;
 				Connection connection = null;
             	if (t.getTrackName() != null) {
@@ -202,13 +202,13 @@ public class TrackDAO extends PMDAO {
 	            	try {
 	            		connection = getConnection();
 	            		statement = connection.createStatement();
-	            		rs = statement.executeQuery(sql);
-	            		rs.next();
+	            		statement.execute(sql);
+	            		//rs.next();
 	            	} catch (SQLException e) {
 	            		e.printStackTrace();
 	            	} finally {
 					 	try {
-					 		 rs.close();
+					 		 //rs.close();
 					 		 statement.close();
 			                 connection.close();
 					 	} catch (SQLException e) {
@@ -222,7 +222,7 @@ public class TrackDAO extends PMDAO {
             
             
             
-            public void insertPromoTrack(ProjectMemo pm, Track t) {
+         /*   public void insertPromoTrack(ProjectMemo pm, Track t) {
                 String sql;                
                 ResultSet rs = null;
                 Statement statement = null;
@@ -251,7 +251,7 @@ public class TrackDAO extends PMDAO {
 					 		e.printStackTrace();
 					 	}
 					}
-            }
+            }*/
 
             
             
@@ -435,20 +435,20 @@ public class TrackDAO extends PMDAO {
                 String sql;
                 deleted = false;
 				sql = (new StringBuilder("DELETE FROM PM_DRAFT_PROMO_TRACKS WHERE PM_REF_ID = ")).append(memoRef).append(" ").append("AND PM_REVISION_ID = ").append(revisionID).append(" ").append("AND PM_DETAIL_ID = ").append(detailId).toString();
-				ResultSet rs = null;
+				//ResultSet rs = null;
 				Statement statement = null;
 				Connection connection = null;
 				try {
 					connection = getConnection();
 					statement = connection.createStatement();
-					rs = statement.executeQuery(sql);
-					deleted = true;
+					deleted= statement.execute(sql);
+					//deleted = true;
 
 				} catch (SQLException e) {
 				    e.printStackTrace();				
 				} finally{
 				 	try {
-				 		 rs.close();
+				 		// rs.close();
 				 		 statement.close();
 		                 connection.close();
 				 	} catch (SQLException e) {
@@ -466,20 +466,20 @@ public class TrackDAO extends PMDAO {
                 String sql;
                 deleted = false;
 				sql = (new StringBuilder("DELETE FROM PM_DRAFT_PHYSICAL_TRACKS WHERE PM_REF_ID = ")).append(memoRef).append(" AND PM_REVISION_ID = ").append(revisionID).append(" AND PM_DETAIL_ID = ").append(detailId).toString();
-				ResultSet rs = null;
+				//ResultSet rs = null;
 				Statement statement = null;
 				Connection connection = null;
 				try {
 					connection = getConnection();
 					statement = connection.createStatement();
-					rs = statement.executeQuery(sql);
-					deleted = true;
+					deleted = statement.execute(sql);
+					//deleted = true;
 
 				} catch (SQLException e) {
 				    e.printStackTrace();					    
 				} finally { 				
 				 	try {
-				 		 rs.close();
+				 		// rs.close();
 				 		 statement.close();
 		                 connection.close();
 				 	} catch (SQLException e) {
@@ -496,7 +496,7 @@ public class TrackDAO extends PMDAO {
             public boolean deleteTracksForDigitalFormat(String memoRef, String revisionID, String detailId) {
                 boolean deleted;
                 String sql;
-                ResultSet rs = null;
+               // ResultSet rs = null;
                 Statement statement = null;
                 Connection connection = null;
                 deleted = false;
@@ -505,13 +505,13 @@ public class TrackDAO extends PMDAO {
 				try {
 					connection = getConnection();
 					statement = connection.createStatement();
-					rs = statement.executeQuery(sql);
-           			deleted = true;
+					deleted = statement.execute(sql);
+           			//deleted = true;
 				} catch (Exception e) {
 				    e.printStackTrace();				
 				} finally{
 				 	try {
-				 		 rs.close();
+				 		//rs.close();
 				 		 statement.close();
 		                 connection.close();
 				 	} catch (Exception e) {
@@ -527,7 +527,7 @@ public class TrackDAO extends PMDAO {
             public boolean deleteTracksForPreOrders(String memoRef, String revisionID, String detailId)  {
                 boolean deleted;
                 String sql;
-                ResultSet rs = null;
+               //ResultSet rs = null;
                 Statement statement = null;
                 Connection connection = null;
                 deleted = false;
@@ -535,13 +535,13 @@ public class TrackDAO extends PMDAO {
 				try {
 					connection = getConnection();
 					statement = connection.createStatement();
-					rs = statement.executeQuery(sql);
-					deleted = true;
+					deleted  = statement.execute(sql);
+					//deleted = true;
 				} catch (SQLException e) {
 				    e.printStackTrace();				
 				}  finally { 				
 				 	try {
-				 		 rs.close();
+				 		 //rs.close();
 				 		 statement.close();
 		                 connection.close();
 				 	} catch (SQLException e) {

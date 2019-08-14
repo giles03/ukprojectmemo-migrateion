@@ -143,10 +143,7 @@
 				<td style='width:350px'>
 					
 					<html:link action="/listDetails.do" name="paramsName">
-
- 						<!--  <img src="/pmemo3/images/open-image3.png" border="0" align="middle"/> -->
  						<button type="button">Overview</button>
-								
 						</html:link> 
 			
 				</td>

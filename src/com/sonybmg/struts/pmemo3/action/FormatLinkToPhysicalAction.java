@@ -201,7 +201,7 @@ public class FormatLinkToPhysicalAction extends Action {
                     user.getId().equals("baxk003") |
                     user.getId().equals("robe081") |
                     user.getId().equals("woo0001") |
-		            user.getId().equals("wijes01"))){
+		            user.getId().equals("gain002"))){
 		          
 		          request.setAttribute("canEdit", true);
 		          

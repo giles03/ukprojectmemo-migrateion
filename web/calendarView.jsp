@@ -29,7 +29,7 @@
 		var list;
 		var labels =[ "all"];
 	 jQuery.ajax({
-		    url: "http://memo.smeukapps.com/css/css/jsonData?userid=<%= request.getParameter("userId")%>",
+		    url: "http://memo-uat.smeukapps.com/css/css/jsonData?userid=<%= request.getParameter("userId")%>",
 		    type: 'GET',
 		    async: true,
 		   // data: {userid:id},

@@ -36,36 +36,33 @@ public class CSSHelper {
 		log.info("In CSSHelper Constructor");
 	}
             
-	public void returnAllFormatsForCSS(CSSDetail css, HttpServletRequest request) {
+/**	public void returnAllFormatsForCSS(CSSDetail css, HttpServletRequest request) {
 
 		CSSDAO cssDAO = new CSSDAO();
 		ProjectMemoDAO pmDAO = ProjectMemoFactoryDAO.getInstance();
-		/**Physical lists**/
+		/**Physical lists**
 		List physList= cssDAO.getAllPhysicalMemoDetails(css.getMemoRef());
 		List deletedPhysList= cssDAO.getAllDeletedPhysicalMemoDetails(css.getMemoRef());
 		request.setAttribute("physicaldetails", physList);
 		request.setAttribute("deletedphysicaldetails", deletedPhysList);
-		/**Digital lists**/		
+		/**Digital lists**	
 		List digiList= cssDAO.getAllDigitalMemoDetails(css.getMemoRef());
 		List deletedDigiList = cssDAO.getAllDeletedDigitalMemoDetails(css.getMemoRef());		
 		request.setAttribute("digitaldetails", digiList);   
 		request.setAttribute("deleteddigitaldetails", deletedDigiList); 
-		/**Mobile lists**/		
+		/**Mobile lists**		
 		List mobilesList= cssDAO.getAllMobileMemoDetails(css.getMemoRef());
 		List deletedMobileList = cssDAO.getAllDeletedMobileMemoDetails(css.getMemoRef());			
 		request.setAttribute("mobiledetails", mobilesList);
 		request.setAttribute("deletedmobiledetails", deletedMobileList); 	
-		/**Promo lists**/				
-		Map promoMap = (LinkedHashMap)pmDAO.getAllPromoDetails(css.getMemoRef(), css.getRevisionID());
-		request.setAttribute("promoDetails", promoMap);
-		request.setAttribute("existingPromoFormats", promoMap);  
+
 	}
             
 
 
   /*
    * Return the first product from, if exists, 1. Digital, 2. Mobile or 3.Physical          
-   */
+   *
 	public ArrayList<String> returnInitialDetailIdForCSS(CSSDetail css) {
 		String key = null;
 		String detailID = null;

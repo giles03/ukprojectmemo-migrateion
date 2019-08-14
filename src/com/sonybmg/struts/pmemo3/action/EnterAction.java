@@ -120,24 +120,24 @@ public class EnterAction extends Action {
 		if (userRole.equals("Create")) {		
 			ArrayList creatorHeaderSummary = fh.getAllUsersPMs(pmUser.getId(), userGroups);
 			iter = creatorHeaderSummary.iterator();
-			ArrayList creatorRedHeaderSummary = fh.getAllRedCreatorPMs(pmUser.getId());
-			redIter = creatorRedHeaderSummary.iterator();
+			//ArrayList creatorRedHeaderSummary = fh.getAllRedCreatorPMs(pmUser.getId());
+			//redIter = creatorRedHeaderSummary.iterator();
 		} else if (userRole.equals("Edit")) {
 			ArrayList editorHeaderSummary = fh.getAllEditorPMs(userGroups);
 			iter = editorHeaderSummary.iterator();
-			ArrayList editorRedHeaderSummary = fh.getAllRedEditorPMs(userGroups);
-			redIter = editorRedHeaderSummary.iterator();
+			//ArrayList editorRedHeaderSummary = fh.getAllRedEditorPMs(userGroups);
+			//redIter = editorRedHeaderSummary.iterator();
 		} else {
 			ArrayList viewerHeaderSummary = fh.getAllEditorPMs(userGroups);
 			iter = viewerHeaderSummary.iterator();
-			ArrayList viewerRedHeaderSummary = fh.getAllRedEditorPMs(userGroups);
-			redIter = viewerRedHeaderSummary.iterator();
+			//ArrayList viewerRedHeaderSummary = fh.getAllRedEditorPMs(userGroups);
+			//redIter = viewerRedHeaderSummary.iterator();
 		}
 		ArrayList myOpenPMs = fh.getMyOpenPMs(pmUser.getId());
 		Iterator editIter = myOpenPMs.iterator();
 		request.setAttribute("myRecentProjectsIterator", iter);
 		request.setAttribute("myLockedProjectsIterator", editIter);
-		request.setAttribute("myRedProjectsIterator", redIter);
+		//request.setAttribute("myRedProjectsIterator", redIter);
 		return mapping.findForward("success");
 	}
 }

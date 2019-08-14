@@ -113,7 +113,7 @@
 			</td>
 	
 			<td style='width:250px; padding-right:5px; text-align:center;'>
-					<%=pmDAO.getStringFromId(res.getFrom(), "SELECT last_name ||', '|| first_name FROM PM_SECURITY_USER WHERE LOGON_NAME = ")%>				
+					<%=pmDAO.getStringFromId(res.getFrom(), "SELECT concat(first_name,' ', last_name)  FROM PM_SECURITY_USER WHERE LOGON_NAME = ")%>				
 			</td>
 
 			<%			HashMap params = new HashMap();

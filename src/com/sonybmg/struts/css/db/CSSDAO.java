@@ -41,7 +41,7 @@ public class CSSDAO extends PMDAO {
 	 
   
 	//SQL QUERIES FOR PREPARED STATEMENTS
-	public static String RETURN_MEMO_DIGITAL_DETAILS = "SELECT * " +
+	/**	public static String RETURN_MEMO_DIGITAL_DETAILS = "SELECT * " +
 			"  FROM pm_detail_digital d, pm_header h, pm_d2c c " +
 			" WHERE	  d.pm_ref_id = h.pm_ref_id " +
 			"		 AND d.pm_revision_id = h.pm_revision_id " +
@@ -214,7 +214,7 @@ public class CSSDAO extends PMDAO {
 			"											 WHERE x.pm_ref_id = a.pm_ref_id) " +
 			"ORDER BY release_date ASC "; 
 	
-	/**public static String RETURN_DELETED_PHYSICAL_MEMO_LIST="SELECT P.CATALOGUE_NUM, " +
+	public static String RETURN_DELETED_PHYSICAL_MEMO_LIST="SELECT P.CATALOGUE_NUM, " +
 			"    P.PM_REF_ID, " +
 			"    A.LAST_REV, " +
 			"    A.PM_DETAIL_ID, " +
@@ -839,10 +839,10 @@ public class CSSDAO extends PMDAO {
 	"         AND  A.CSS_PHYSICAL_ID = ? "; 
 
 
-
+/**
 	/*
 	 *  METHOD TO RETURN ALL HEADER INFO FOR CSS PORTAL     
-	 */
+	 *
 	public CSSDetail getMemoHeaderDetails(String pmID, String detailId) {
 		CSSDetail cssDetail;
 		cssDetail = null;
@@ -885,7 +885,7 @@ public class CSSDAO extends PMDAO {
 
 	/*
 	 * METHOD TO RETURN ALL DIGITAL INFO FROM MEMO TABLES FOR CSS PORTAL FOR A SPECIFIC MEMO DIGITAL PRODUCT           
-	 */
+	 *
 	public CSSDetail getMemoDigitalDetails(String pmID, String detailId) {
 		CSSDetail cssDetail;
 		cssDetail = null;
@@ -993,7 +993,7 @@ public class CSSDAO extends PMDAO {
 				/* product with  a pre-order date and an audio stream date 
 				 * assumption is that either will always be earlier than the release date 
 				 * - if there is one. Thereby allowing the scenario where release date is null. 
-				 */
+				 *
 				if(preReleaseDate!=null && audioStreamDate!=null) {
     					if(preReleaseDate.before(audioStreamDate)){ // pre-order earlier than audio-stream
     						labelCopyDueDate = returnCalculatedDate(preReleaseDate,LABEL_COPY_DUE_DATE);
@@ -1109,7 +1109,7 @@ public class CSSDAO extends PMDAO {
 	
 	/*
 	 * METHOD TO RETURN ALL DIGITAL INFO FROM MEMO TABLES FOR CSS PORTAL FOR A SPECIFIC MEMO DIGITAL PRODUCT           
-	 */
+	 *
 	public CSSDetail getDeletedMemoDigitalDetails(String pmID, String detailId, String revId) {
 		CSSDetail cssDetail;
 		cssDetail = null;
@@ -1202,7 +1202,7 @@ public class CSSDAO extends PMDAO {
 	
 	/*
 	 * OVERLOADED METHOD TO RETURN ALL HEADER INFO FROM MEMO TABLES FOR CSS PORTAL FOR A SPECIFIC MEMO WHICH HAS NO PRODUCTS CREATED FOR IT YET         
-	 */
+	 *
 	public CSSDetail getMemoHeaderDetails(String pmID) {
 		CSSDetail cssDetail;
 		cssDetail = null;
@@ -1244,7 +1244,7 @@ public class CSSDAO extends PMDAO {
 
 	/*
 	 * METHOD TO RETURN ALL VIDEO INFO FROM MEMO TABLES FOR CSS PORTAL FOR A SPECIFIC MEMO VIDEO PRODUCT           
-	 */        
+	 *       
 	public CSSDetail getMemoVideoDetails(String pmID, String detailId, String formatType, String earliestPreOrderDate) {
 		CSSDetail cssDetail;
 		cssDetail = null;
@@ -1401,7 +1401,7 @@ public class CSSDAO extends PMDAO {
 
 	/*
 	 * METHOD TO RETURN ALL VIDEO INFO FROM MEMO TABLES FOR CSS PORTAL FOR A SPECIFIC MEMO VIDEO PRODUCT           
-	 */        
+	 *       
 	public CSSDetail getDeletedMemoVideoDetails(String pmID, String detailId, String revId, String formatType) {
 		CSSDetail cssDetail;
 		cssDetail = null;
@@ -1496,7 +1496,7 @@ public class CSSDAO extends PMDAO {
 
 	/*
 	 * METHOD TO RETURN ALL PRODUCT LEVEL-ONLY MOBILE DETAILS FROM MEMO TABLES FOR CSS PORTAL FOR A SPECIFIC MOBILE MEMO PRODUCT           
-	 */         
+	 *         
 	public CSSDetail getMemoMobileDetails(String pmID, String detailId) {
 		CSSDetail cssDetail;
 		cssDetail = null;
@@ -1630,7 +1630,7 @@ public class CSSDAO extends PMDAO {
 	
 	/*
 	 * METHOD TO RETURN ALL PRODUCT LEVEL-ONLY MOBILE DETAILS FROM MEMO TABLES FOR CSS PORTAL FOR A SPECIFIC MOBILE MEMO PRODUCT           
-	 */         
+	 *         
 	public CSSDetail getDeletedMemoMobileDetails(String pmID, String detailId, String revId) {
 		CSSDetail cssDetail;
 		cssDetail = null;
@@ -1713,7 +1713,7 @@ public class CSSDAO extends PMDAO {
 
 	/*
 	 * METHOD TO RETURN ALL MOBILE TRACK-LEVEL INFO FROM MEMO TABLES FOR CSS PORTAL FOR A SPECIFIC MEMO PRODUCT           
-	 */          
+	 *         
 	public CSSDetail getMemoMobileTrackDetails(String pmID, String detailId, String trackNum) {
 		CSSDetail cssDetail;
 		cssDetail = null;	
@@ -1821,7 +1821,7 @@ public class CSSDAO extends PMDAO {
 	
 	/*
 	 * METHOD TO RETURN ALL DELETED MOBILE TRACK-LEVEL INFO FROM MEMO TABLES FOR CSS PORTAL FOR A SPECIFIC MEMO PRODUCT           
-	 */     
+	 *     
 	    
 	public CSSDetail getDeletedMemoMobileTrackDetails(String pmID, String detailId, String trackNum, String revId) {
 		CSSDetail cssDetail;
@@ -1882,7 +1882,7 @@ public class CSSDAO extends PMDAO {
 
 	/*
 	 * METHOD TO RETURN ALL PHYSICAL INFO FROM MEMO TABLES FOR CSS PORTAL FOR A SPECIFIC MEMO PRODUCT           
-	 */
+	 *
 	public CSSDetail getMemoPhysicalDetails(String pmID, String detailId) {
 		CSSDetail cssDetail;
 		cssDetail = null;
@@ -1978,7 +1978,7 @@ public class CSSDAO extends PMDAO {
 	
 	/*
 	 * METHOD TO RETURN ALL PHYSICAL INFO FROM MEMO TABLES FOR CSS PORTAL FOR A SPECIFIC MEMO PRODUCT           
-	 */
+	 *
 	public CSSDetail getDeletedMemoPhysicalDetails(String pmID, String detailId, String revId) {
 		CSSDetail cssDetail;
 		cssDetail = null;
@@ -2072,7 +2072,7 @@ public class CSSDAO extends PMDAO {
 
 	/*
 	 *  RETURNS AN ARRAYLIST OF ALL PHYSICAL PRODUCTS ASSOCIATED WITH A SPECIFIC PM
-	 */
+	 *
 	public ArrayList getAllPhysicalMemoDetails(String pmID) {
 		ArrayList physDetailsList = null;
 		String trimmedTitle;
@@ -2137,7 +2137,7 @@ public class CSSDAO extends PMDAO {
 
 	/*
 	 *  RETURNS AN ARRAYLIST OF ALL PHYSICAL PRODUCTS ASSOCIATED WITH A SPECIFIC PM
-	 */
+	 *
 	@SuppressWarnings("rawtypes")
 	public ArrayList getAllDeletedPhysicalMemoDetails(String pmID) {
 		ArrayList physDetailsList = null;
@@ -2206,7 +2206,7 @@ public class CSSDAO extends PMDAO {
 
 	/*
 	 *  RETURNS AN ARRAYLIST OF ALL DIGITAL PRODUCTS ASSOCIATED WITH A SPECIFIC PM
-	 */
+	 *
 	public ArrayList getAllDigitalMemoDetails(String pmID) {
 		ArrayList digiDetailsList = null;
 		String trimmedTitle;
@@ -2338,7 +2338,7 @@ public class CSSDAO extends PMDAO {
 	
 	/*
 	 *  RETURNS AN ARRAYLIST OF ALL DIGITAL PRODUCTS ASSOCIATED WITH A SPECIFIC PM
-	 */
+	 *
 	public ArrayList getAllDeletedDigitalMemoDetails(String pmID) {
 		ArrayList digiDetailsList = null;
 		ResultSet rs = null;
@@ -2418,7 +2418,7 @@ public class CSSDAO extends PMDAO {
 
 	/*
 	 *  RETURNS AN ARRAYLIST OF ALL MOBILE PRODUCTS ASSOCIATED WITH A SPECIFIC PM
-	 */
+	 *
 	public ArrayList getAllMobileMemoDetails(String pmID) {
 		ArrayList mobileDetailsList = null;
 		String trimmedTitle;
@@ -2583,9 +2583,9 @@ public class CSSDAO extends PMDAO {
 				value.setProductType(rs.getString("PROD_FORMAT_ID"));
 				value.setDigitalDetailId(rs.getString("PM_DETAIL_ID"));
 				value.setRevisionID(rs.getString("LAST_REV"));				
-				String modReleaseDate = (new ReturnCSSAction().returnModifiedDateForCSSProducts(rs.getString("EARLIEST_DATE")));
+			//	String modReleaseDate = (new ReturnCSSAction().returnModifiedDateForCSSProducts(rs.getString("EARLIEST_DATE")));
 
-				String key = rs.getString("prod_format_desc") +"&&&&&"+rs.getString("PM_DETAIL_ID")+"&&&&&"+rs.getString("PM_REF_ID")+"&&&&&"+modReleaseDate;
+				String key = null;
 				untrimmedTitle = rs.getString("TRACK_NAME");
 				if (untrimmedTitle!=null && untrimmedTitle.length() > 65){
 					trimmedTitle = untrimmedTitle.substring(0, 65);
@@ -2999,7 +2999,7 @@ public class CSSDAO extends PMDAO {
 	public void insertDigitalCSSID(CSSDetail cssDetail)   {
       Connection connection=null;
       PreparedStatement pstmt=null;
-      String insertDigitalCSSDetailsStatement = "INSERT INTO PM_DETAIL_DIGITAL_CSS (CSS_DIGITAL_ID, CREATED_BY, CREATED_DATE , SUPPLEMENTARY_TITLE) VALUES (?, ?, CURRENT_DATE, ?)";
+      String insertDigitalCSSDetailsStatement = "INSERT INTO PM_DETAIL_DIGITAL_CSS (CSS_DIGITAL_ID, CREATED_BY, CREATED_DATE , SUPPLEMENTARY_TITLE) VALUES (?, ?, CURRENT_TIMESTAMP, ?)";
       try {
           connection = getConnection();
           connection.setAutoCommit(false);
@@ -3010,7 +3010,7 @@ public class CSSDAO extends PMDAO {
           pstmt.setInt(1, cssID);
           pstmt.setString(2, "Auto");
           pstmt.setString(3, cssDetail.getSuppTitle());
-          pstmt.executeQuery();
+          pstmt.execute();
           
           updateDigitalCSSID(cssDetail.getMemoRef(), cssDetail.getDetailId(), cssID, connection);
           
@@ -3038,7 +3038,7 @@ public class CSSDAO extends PMDAO {
 	      Connection connection=null;
 	      PreparedStatement pstmt=null;
 	      
-	      String insertMobileCSSDetailsStatement = "INSERT INTO PM_DETAIL_DIGITAL_CSS (CSS_DIGITAL_ID, CREATED_BY, CREATED_DATE ) VALUES (?, ?, CURRENT_DATE )";
+	      String insertMobileCSSDetailsStatement = "INSERT INTO PM_DETAIL_DIGITAL_CSS (CSS_DIGITAL_ID, CREATED_BY, CREATED_DATE ) VALUES (?, ?, CURRENT_TIMESTAMP )";
 	      try {
 	          connection = getConnection();
 	          connection.setAutoCommit(false);
@@ -3048,7 +3048,7 @@ public class CSSDAO extends PMDAO {
 	          pstmt = connection.prepareStatement(insertMobileCSSDetailsStatement);
 	          pstmt.setInt(1, cssID);
 	          pstmt.setString(2, "Auto");	         
-	          pstmt.executeQuery();
+	          pstmt.execute();
 	          
 	          updateMobileCSSID(cssDetail.getMemoRef(), cssDetail.getDetailId(), cssID, cssDetail.getTrackNum(), connection);
 	          
@@ -3084,7 +3084,7 @@ public class CSSDAO extends PMDAO {
           pstmt = connection.prepareStatement(updateSuppTitle);          
           pstmt.setString(1, cssDetail.getSuppTitle());
           pstmt.setInt(2, cssID);          
-          pstmt.executeQuery();
+          pstmt.execute();
                     
               connection.commit();
       } catch (Exception e) {                 
@@ -3122,7 +3122,7 @@ public class CSSDAO extends PMDAO {
           pstmt = connection.prepareStatement(updateSuppTitle);          
           pstmt.setString(1, cssDetail.getSuppTitle());
           pstmt.setInt(2, cssID);          
-          pstmt.executeQuery();
+          pstmt.execute();
                     
               connection.commit();
       } catch (Exception e) {                 
@@ -3145,7 +3145,7 @@ public class CSSDAO extends PMDAO {
 	   public void insertPhysicalCSSID(CSSDetail cssDetail)   {
 	      Connection connection=null;
 	      PreparedStatement pstmt=null;
-	      String insertPhysicalCSSDetailsStatement = "INSERT INTO PM_DETAIL_PHYSICAL_CSS (CSS_PHYSICAL_ID, CREATED_BY, CREATED_DATE, SUPPLEMENTARY_TITLE ) VALUES (?, ?, CURRENT_DATE, ?)";
+	      String insertPhysicalCSSDetailsStatement = "INSERT INTO PM_DETAIL_PHYSICAL_CSS (CSS_PHYSICAL_ID, CREATED_BY, CREATED_DATE, SUPPLEMENTARY_TITLE ) VALUES (?, ?, CURRENT_TIMESTAMP, ?)";
 	      try {
 	          connection = getConnection();
 	          connection.setAutoCommit(false);
@@ -3155,7 +3155,7 @@ public class CSSDAO extends PMDAO {
 	          pstmt.setInt(1, cssID);
 	          pstmt.setString(2, "Auto");
 	          pstmt.setString(3, cssDetail.getSuppTitle());
-	          pstmt.executeQuery();
+	          pstmt.execute();
 	          
 	          updatePhysicalCSSID(cssDetail.getMemoRef(), cssDetail.getDetailId(), cssID, connection);
 	          
@@ -3193,7 +3193,7 @@ public class CSSDAO extends PMDAO {
 	          pstmt = connection.prepareStatement(updateSuppTitle);          
 	          pstmt.setString(1, cssDetail.getLabelCopyRecd());
 	          pstmt.setInt(2, cssID);          
-	          pstmt.executeQuery();
+	          pstmt.execute();
 	                    
 	              connection.commit();
 	      } catch (Exception e) {                 
@@ -3227,7 +3227,7 @@ public class CSSDAO extends PMDAO {
              pstmt = connection.prepareStatement(updateSuppTitle);          
              pstmt.setString(1, cssDetail.getLabelCopyRecd());
              pstmt.setInt(2, cssID);          
-             pstmt.executeQuery();
+             pstmt.execute();
                        
                  connection.commit();
          } catch (Exception e) {                 
@@ -3257,15 +3257,16 @@ public class CSSDAO extends PMDAO {
 		boolean updated;
 		String updateCssId;
 		updated = false;
-		updateCssId = "UPDATE PM_DETAIL_PHYSICAL A SET CSS_PHYSICAL_ID = ? " +
+		updateCssId = "UPDATE PM_DETAIL_PHYSICAL SET CSS_PHYSICAL_ID = ? " +
 		"WHERE PM_REF_ID= ? " +
 		"AND PM_DETAIL_ID=? " +
-		"AND pm_revision_id = (SELECT MAX (pm_revision_id) FROM pm_header B WHERE  A.pm_ref_id = B.pm_ref_id)";
+		"AND pm_revision_id = (SELECT MAX (pm_revision_id) FROM pm_header  WHERE pm_ref_id = ?)";
 		try {
 			pstmt = conn.prepareStatement(updateCssId);
 			pstmt.setInt(1, cssID);
 			pstmt.setString(2, memoRef);
 			pstmt.setString(3, detailId);
+			pstmt.setString(4, memoRef);
 			pstmt.executeQuery();
 		} catch (SQLException e) {			
 			log.error(e.toString());
@@ -3285,10 +3286,10 @@ public class CSSDAO extends PMDAO {
 		boolean updated;
 		String updateCssId;
 		updated = false;
-		updateCssId = "UPDATE PM_DETAIL_DIGITAL A SET CSS_DIGITAL_ID = ? " +
+		updateCssId = "UPDATE PM_DETAIL_DIGITAL SET CSS_DIGITAL_ID = ? " +
 		"WHERE PM_REF_ID= ? " +
 		"AND PM_DETAIL_ID=? " +
-		"AND pm_revision_id = (SELECT MAX (pm_revision_id) FROM pm_header B WHERE  A.pm_ref_id = B.pm_ref_id)";
+		"AND pm_revision_id = (SELECT MAX (pm_revision_id) FROM pm_header where pm_ref_id = ?)";
 		PreparedStatement pstmt = null;
 		try {
 
@@ -3296,7 +3297,8 @@ public class CSSDAO extends PMDAO {
 			pstmt.setInt(1, cssID);
 			pstmt.setString(2, memoRef);
 			pstmt.setString(3, detailId);
-			pstmt.executeQuery();
+			pstmt.setString(4, memoRef);
+			pstmt.execute();
 
 		}catch (SQLException e) {
 			log.error(e.toString());
@@ -3321,11 +3323,11 @@ public class CSSDAO extends PMDAO {
 		updated = false;
 		Connection connection=null;
 		PreparedStatement pstmt=null;
-		updateCssId = "UPDATE PM_TRACK_LISTING_DIGITAL A SET CSS_DIGITAL_ID = ? " +
+		updateCssId = "UPDATE PM_TRACK_LISTING_DIGITAL SET CSS_DIGITAL_ID = ? " +
 		"WHERE PM_REF_ID= ? " +
 		"AND PM_DETAIL_ID=? " +
 		"AND TRACK_NUM= ? "+
-		"AND pm_revision_id = (SELECT MAX (pm_revision_id) FROM pm_header B WHERE  A.pm_ref_id = B.pm_ref_id)";
+		"AND pm_revision_id = (SELECT MAX (pm_revision_id) FROM pm_header WHERE  pm_ref_id = ?)";
 		try {
 
 			pstmt = conn.prepareStatement(updateCssId);
@@ -3333,7 +3335,8 @@ public class CSSDAO extends PMDAO {
 			pstmt.setString(2, memoRef);
 			pstmt.setString(3, detailId);
 			pstmt.setString(4, trackNum);
-			pstmt.executeQuery();
+			pstmt.setString(5, memoRef);
+			pstmt.execute();
 
 		}catch (SQLException e) {
 			log.error(e.toString());
@@ -3919,9 +3922,8 @@ public class CSSDAO extends PMDAO {
 		sequenceValue = null;
 		ResultSet resultSet = null;
 		Connection connection=null;
-		StringBuffer sqlStatement = new StringBuffer("SELECT ");
+		StringBuffer sqlStatement = new StringBuffer("SELECT NEXT VALUE FOR ");
 		sqlStatement.append(sequenceName);
-		sqlStatement.append(".NEXTVAL FROM dual");
 		Statement statement = null;
 		try {
 			connection = getConnection();

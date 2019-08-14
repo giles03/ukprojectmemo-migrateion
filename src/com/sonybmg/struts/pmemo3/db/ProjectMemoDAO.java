@@ -112,7 +112,9 @@ public class ProjectMemoDAO extends PMDAO {
 	            		 "											FROM pm_header x " +
 	            		 "										  WHERE x.pm_ref_id = a.pm_ref_id) " +
 	            		 "ORDER BY pm_detail_id ASC "; **/
-            public static String RETURN_PHYSICAL_LIST_TO_VIEW= "SELECT A.ARTIST_ID, A.PRODUCT_TITLE, B.SUPPLEMENTARY_TITLE, B.TITLE_ADDITIONAL, A.IS_BEING_EDITED, A.EDITED_BY, A.PM_REF_ID, B.AGE_RATING_ID, " +
+          /**ORACLE CODE**/
+             
+             /* public static String RETURN_PHYSICAL_LIST_TO_VIEW= "SELECT A.ARTIST_ID, A.PRODUCT_TITLE, B.SUPPLEMENTARY_TITLE, B.TITLE_ADDITIONAL, A.IS_BEING_EDITED, A.EDITED_BY, A.PM_REF_ID, B.AGE_RATING_ID, " +
             		"B.PM_REVISION_ID, B.PM_DETAIL_ID,B.CATALOGUE_NUM, B.EXCLUSIVE_TO, B.EXCLUSIVE_DETAIL, B.D2C, B.IS_IN_GRPS_SCHEDULE, " +
             		"B.DVD_REGION_CODE, B.DVD_FORMAT, B.IS_EXCLUSIVE, B.IS_IMPORT, B.VMP, B.IS_UK_STICKER, B.IS_SHRINKWRAP_REQUIRED, " +
             		"B.IS_GRAS_SET_COMPLETE, B.IS_INSERT_REQUIREMENT, B.IS_LIMITED_EDITION,B.IS_GRAS_CONFIDENTIAL, B.IS_EXPLICIT,B.LOCAL_CAT_NUM,B.RELEASE_DATE, " +
@@ -126,7 +128,68 @@ public class ProjectMemoDAO extends PMDAO {
             		"         AND b.pm_revision_id = (SELECT MAX (pm_revision_id)  " +
             		"                                            FROM pm_header x  " +
             		"                                          WHERE x.pm_ref_id = a.pm_ref_id)  " +
-            		"ORDER BY pm_detail_id ASC"; 
+            		"ORDER BY pm_detail_id ASC"; */
+             /**ANSI CODE**/
+             public static String RETURN_PHYSICAL_LIST_TO_VIEW= "  SELECT ARTIST_ID, " +
+             "         PRODUCT_TITLE, " +
+             "         SUPPLEMENTARY_TITLE, " +
+             "         TITLE_ADDITIONAL, " +
+             "         IS_BEING_EDITED, " +
+             "         EDITED_BY, " +
+             "         A.PM_REF_ID, " +
+             "         AGE_RATING_ID, " +
+             "         B.PM_REVISION_ID, " +
+             "         PM_DETAIL_ID, " +
+             "         CATALOGUE_NUM, " +
+             "         EXCLUSIVE_TO, " +
+             "         EXCLUSIVE_DETAIL, " +
+             "         B.D2C, " +
+             "         IS_IN_GRPS_SCHEDULE, " +
+             "         DVD_REGION_CODE, " +
+             "         DVD_FORMAT, " +
+             "         IS_EXCLUSIVE, " +
+             "         IS_IMPORT, " +
+             "         VMP, " +
+             "         IS_UK_STICKER, " +
+             "         IS_SHRINKWRAP_REQUIRED, " +
+             "         IS_GRAS_SET_COMPLETE, " +
+             "         IS_INSERT_REQUIREMENT, " +
+             "         IS_LIMITED_EDITION, " +
+             "         B.IS_GRAS_CONFIDENTIAL, " +
+             "         IS_EXPLICIT, " +
+             "         LOCAL_CAT_NUM, " +
+             "         RELEASE_DATE, " +
+             "         CUST_FEED_RESTRICT_DATE, " +
+             "         NUM_OF_DISCS, " +
+             "         IS_DIG_EQUIV, " +
+             "         PM_DETAIL_LINK, " +
+             "         DIGITAL_EQUIVALENT, " +
+             "         DE_BARCODE, " +
+             "         COMMENTS, " +
+             "         SCOPE_COMMENTS, " +
+             "         PRICE_LINE_ID, " +
+             "         PACK_SPEC_ID, " +
+             "         PROD_FORMAT_ID, " +
+             "         STICKER_POS_ID, " +
+             "         IS_INIT_MFG_ORDER, " +
+             "         BARCODE, " +
+             "         RESTRICT_DATE, " +
+             "         IS_INTL_REL, " +
+             "         DEALER_PRICE, " +
+             "         D2C_DESC, " +
+             "         CSS_PHYSICAL_ID " +
+             "    FROM PM_HEADER A " +
+             "         INNER JOIN PM_DETAIL_PHYSICAL B " +
+             "             ON     (A.PM_REVISION_ID = B.PM_REVISION_ID) " +
+             "                AND (A.PM_REF_ID = B.PM_REF_ID) " +
+             "         LEFT OUTER JOIN PM_D2C D ON (B.D2C = D.D2C) " +
+             "   WHERE     (B.PM_REF_ID = ?) " +
+             "         AND (B.PM_REVISION_ID = (SELECT MAX (X.PM_REVISION_ID) " +
+             "                                    FROM PM_HEADER X " +
+             "                                   WHERE X.PM_REF_ID = A.PM_REF_ID)) " +
+             "ORDER BY PM_DETAIL_ID ASC "; 
+
+             
            
            /**  public static String RETURN_PHYSICAL_DRAFT_LIST_TO_VIEW = "SELECT * " +
             		 "  FROM pm_draft_header a, pm_draft_physical b, pm_d2c d " +
@@ -151,8 +214,8 @@ public class ProjectMemoDAO extends PMDAO {
             		 "	ORDER BY pm_detail_id ASC "; **/
 
             
-            
-            public static String RETURN_PHYSICAL_DRAFT_LIST_TO_VIEW = "SELECT a.ARTIST_ID,         " +
+            /**OLD ORACLE QUERY**/
+           /* public static String RETURN_PHYSICAL_DRAFT_LIST_TO_VIEW = "SELECT a.ARTIST_ID,         " +
             "       b.SUPPLEMENTARY_TITLE,  " +
             "       b.TITLE_ADDITIONAL,  " +
             "       a.PRODUCT_TITLE,  " +
@@ -204,13 +267,66 @@ public class ProjectMemoDAO extends PMDAO {
             "		 AND b.pm_revision_id = (SELECT MAX (pm_revision_id)  " +
             "											FROM pm_draft_header x  " +
             "										  WHERE x.pm_ref_id = a.pm_ref_id)  " +
-            "	ORDER BY pm_detail_id ASC  "; 
+            "	ORDER BY pm_detail_id ASC  "; */
 
-            
-            
-            
-             
-             public static String RETURN_PHYSICAL_DETAIL_LIST_TO_LANDING_PAGE ="SELECT a.ARTIST_ID, " +
+            public static String RETURN_PHYSICAL_DRAFT_LIST_TO_VIEW = " SELECT ARTIST_ID, " +
+            "         SUPPLEMENTARY_TITLE, " +
+            "         TITLE_ADDITIONAL, " +
+            "         PRODUCT_TITLE, " +
+            "         IS_BEING_EDITED, " +
+            "         EDITED_BY, " +
+            "         B.PM_REF_ID, " +
+            "         AGE_RATING_ID, " +
+            "         B.PM_REVISION_ID, " +
+            "         PM_DETAIL_ID, " +
+            "         CATALOGUE_NUM, " +
+            "         EXCLUSIVE_TO, " +
+            "         IS_IN_GRPS_SCHEDULE, " +
+            "         EXCLUSIVE_DETAIL, " +
+            "         D2C_DESC, " +
+            "         DVD_REGION_CODE, " +
+            "         DVD_FORMAT, " +
+            "         IS_EXCLUSIVE, " +
+            "         B.IS_GRAS_CONFIDENTIAL, " +
+            "         IS_IMPORT, " +
+            "         VMP, " +
+            "         IS_UK_STICKER, " +
+            "         IS_SHRINKWRAP_REQUIRED, " +
+            "         IS_GRAS_SET_COMPLETE, " +
+            "         IS_INSERT_REQUIREMENT, " +
+            "         IS_LIMITED_EDITION, " +
+            "         LOCAL_CAT_NUM, " +
+            "         RELEASE_DATE, " +
+            "         CUST_FEED_RESTRICT_DATE, " +
+            "         NUM_OF_DISCS, " +
+            "         IS_DIG_EQUIV, " +
+            "         DIGITAL_EQUIVALENT, " +
+            "         DE_BARCODE, " +
+            "         COMMENTS, " +
+            "         SCOPE_COMMENTS, " +
+            "         PRICE_LINE_ID, " +
+            "         PACK_SPEC_ID, " +
+            "         PROD_FORMAT_ID, " +
+            "         RESTRICT_DATE, " +
+            "         BARCODE, " +
+            "         STICKER_POS_ID, " +
+            "         IS_INIT_MFG_ORDER, " +
+            "         IS_INTL_REL, " +
+            "         DEALER_PRICE " +
+            "    FROM PM_DRAFT_HEADER A " +
+            "         INNER JOIN PM_DRAFT_PHYSICAL B " +
+            "             ON     (A.PM_REVISION_ID = B.PM_REVISION_ID) " +
+            "                AND (A.PM_REF_ID = B.PM_REF_ID) " +
+            "         LEFT OUTER JOIN PM_D2C D ON (B.D2C = D.D2C) " +
+            "   WHERE     (B.PM_REF_ID = ?) " +
+            "         AND (B.PM_REVISION_ID = (SELECT MAX (X.PM_REVISION_ID) " +
+            "                                    FROM PM_DRAFT_HEADER X " +
+            "                                   WHERE X.PM_REF_ID = A.PM_REF_ID)) " +
+            "ORDER BY PM_DETAIL_ID ASC " ;
+
+           
+            /**OLD ORACLE QUERY**/
+            /*    public static String RETURN_PHYSICAL_DETAIL_LIST_TO_LANDING_PAGE ="SELECT a.ARTIST_ID, " +
              "       b.SUPPLEMENTARY_TITLE, " +
              "       b.TITLE_ADDITIONAL, " +
              "       a.PRODUCT_TITLE, " +
@@ -261,12 +377,74 @@ public class ProjectMemoDAO extends PMDAO {
              "		 AND b.pm_ref_id = ?  " +
              "		 AND b.pm_revision_id = (SELECT MAX (pm_revision_id) FROM pm_header x " +
              "  								WHERE x.pm_ref_id = a.pm_ref_id)  " + 
-             "	ORDER BY pm_detail_id ASC  "; 
+             "	ORDER BY pm_detail_id ASC  ";*/ 
+            
+            
+            // converted ANSI code //
+            public static String RETURN_PHYSICAL_DETAIL_LIST_TO_LANDING_PAGE ="  SELECT ARTIST_ID, " +
+            		"         SUPPLEMENTARY_TITLE, " +
+            		"         TITLE_ADDITIONAL, " +
+            		"         PRODUCT_TITLE, " +
+            		"         IS_BEING_EDITED, " +
+            		"         EDITED_BY, " +
+            		"         B.PM_REF_ID, " +
+            		"         AGE_RATING_ID, " +
+            		"         B.PM_REVISION_ID, " +
+            		"         PM_DETAIL_ID, " +
+            		"         CATALOGUE_NUM, " +
+            		"         EXCLUSIVE_TO, " +
+            		"         IS_IN_GRPS_SCHEDULE, " +
+            		"         EXCLUSIVE_DETAIL, " +
+            		"         D2C_DESC, " +
+            		"         DVD_REGION_CODE, " +
+            		"         DVD_FORMAT, " +
+            		"         IS_EXCLUSIVE, " +
+            		"         B.IS_GRAS_CONFIDENTIAL, " +
+            		"         IS_IMPORT, " +
+            		"         VMP, " +
+            		"         IS_UK_STICKER, " +
+            		"         IS_SHRINKWRAP_REQUIRED, " +
+            		"         IS_GRAS_SET_COMPLETE, " +
+            		"         IS_INSERT_REQUIREMENT, " +
+            		"         IS_LIMITED_EDITION, " +
+            		"         LOCAL_CAT_NUM, " +
+            		"         RELEASE_DATE, " +
+            		"         CUST_FEED_RESTRICT_DATE, " +
+            		"         NUM_OF_DISCS, " +
+            		"         IS_DIG_EQUIV, " +
+            		"         DIGITAL_EQUIVALENT, " +
+            		"         DE_BARCODE, " +
+            		"         COMMENTS, " +
+            		"         SCOPE_COMMENTS, " +
+            		"         PRICE_LINE_ID, " +
+            		"         PACK_SPEC_ID, " +
+            		"         RESTRICT_DATE, " +
+            		"         PROD_FORMAT_ID, " +
+            		"         BARCODE, " +
+            		"         STICKER_POS_ID, " +
+            		"         IS_INIT_MFG_ORDER, " +
+            		"         IS_INTL_REL, " +
+            		"         DEALER_PRICE " +
+            		"    FROM PM_HEADER A " +
+            		"         INNER JOIN PM_DETAIL_PHYSICAL B " +
+            		"             ON     (A.PM_REVISION_ID = B.PM_REVISION_ID) " +
+            		"                AND (A.PM_REF_ID = B.PM_REF_ID) " +
+            		"         LEFT OUTER JOIN PM_D2C D ON (B.D2C = D.D2C) " +
+            		"   WHERE     (B.PM_REF_ID = ?) " +
+            		"         AND (B.PM_REVISION_ID = (SELECT MAX (X.PM_REVISION_ID) " +
+            		"                                    FROM PM_HEADER X " +
+            		"                                   WHERE X.PM_REF_ID = A.PM_REF_ID)) " +
+            		"	ORDER BY PM_DETAIL_ID ASC";
+
+
+
 
              
-             public static String RETURN_PROMO_LIST_TO_VIEW = "SELECT * FROM PM_HEADER A, PM_DETAIL_PROMOS B WHERE A.PM_REF_ID = B.PM_REF_ID AND A.PM_REVISION_ID = B.PM_REVISION_ID AND B.PM_REF_ID = ?  AND B.pm_revision_id = (SELECT MAX(pm_revision_id) FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id  )  ORDER BY PM_DETAIL_ID ASC";
-             public static String RETURN_PROMO_DRAFT_LIST_TO_VIEW = "SELECT * FROM PM_DRAFT_HEADER A, PM_DRAFT_PROMOS B WHERE A.PM_REF_ID = B.PM_REF_ID AND A.PM_REVISION_ID = B.PM_REVISION_ID AND B.PM_REF_ID = ?  AND B.pm_revision_id = (SELECT MAX(pm_revision_id) FROM  pm_draft_header x WHERE x.pm_ref_id = A.pm_ref_id  ) ORDER BY PM_DETAIL_ID ASC";
-             public static String RETURN_DIGITAL_LIST_TO_VIEW = "SELECT   a.pm_ref_id,  " +
+            // public static String RETURN_PROMO_LIST_TO_VIEW = "SELECT * FROM PM_HEADER A, PM_DETAIL_PROMOS B WHERE A.PM_REF_ID = B.PM_REF_ID AND A.PM_REVISION_ID = B.PM_REVISION_ID AND B.PM_REF_ID = ?  AND B.pm_revision_id = (SELECT MAX(pm_revision_id) FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id  )  ORDER BY PM_DETAIL_ID ASC";
+            // public static String RETURN_PROMO_DRAFT_LIST_TO_VIEW = "SELECT * FROM PM_DRAFT_HEADER A, PM_DRAFT_PROMOS B WHERE A.PM_REF_ID = B.PM_REF_ID AND A.PM_REVISION_ID = B.PM_REVISION_ID AND B.PM_REF_ID = ?  AND B.pm_revision_id = (SELECT MAX(pm_revision_id) FROM  pm_draft_header x WHERE x.pm_ref_id = A.pm_ref_id  ) ORDER BY PM_DETAIL_ID ASC";
+            
+            /**ORACLE CODE**/
+           /* public static String RETURN_DIGITAL_LIST_TO_VIEW = "SELECT   a.pm_ref_id,  " +
             		 "                      a.pm_revision_id,  " +
             		 "                      a.submit_date,  " +
             		 "                      a.submit_by,  " +
@@ -380,11 +558,125 @@ public class ProjectMemoDAO extends PMDAO {
             		 "                      AND b.pm_revision_id = (SELECT MAX (pm_revision_id)  " +
             		 "                                                         FROM pm_header x  " +
             		 "                                                        WHERE x.pm_ref_id = a.pm_ref_id)  " +
-            		 "          ORDER BY c.prod_format_type ASC, b.pm_detail_id ASC "; 
+            		 "          ORDER BY c.prod_format_type ASC, b.pm_detail_id ASC "; */
+            
+            /** ANSI CODE **/
+            public static String RETURN_DIGITAL_LIST_TO_VIEW = "SELECT A.PM_REF_ID, " +
+            "       A.PM_REVISION_ID, " +
+            "       SUBMIT_DATE, " +
+            "       SUBMIT_BY, " +
+            "       IS_LOCAL_ACT, " +
+            "       PRODUCT_TITLE, " +
+            "       SUPP_PRODUCT_TITLE, " +
+            "       IS_UK_GEN_PARTS, " +
+            "       IS_PARENTAL_ADVISORY, " +
+            "       IS_FULL_ALBUM_DELIVERY, " +
+            "       PROJECT_NUMBER, " +
+            "       PROJECT_NUM_DATE, " +
+            "       GCLS_NUMBER, " +
+            "       GCLS_NUM_DATE, " +
+            "       REVISION_COMMENT, " +
+            "       LOGO_FILE_LOCATION, " +
+            "       IS_DIGITAL, " +
+            "       IS_PHYSICAL, " +
+            "       IS_PROMO, " +
+            "       IS_BEING_EDITED, " +
+            "       LOCAL_LABEL_ID, " +
+            "       PROD_TYPE_ID, " +
+            "       GENRE_ID, " +
+            "       LOCAL_GENRE_ID, " +
+            "       DIST_RIGHT_ID, " +
+            "       REPERTOIRE_OWNER_ID, " +
+            "       ARTIST_ID, " +
+            "       UK_LABEL_GRP_ID, " +
+            "       PROD_MGR_ID, " +
+            "       EDITED_BY, " +
+            "       EDIT_DATE, " +
+            "       IS_JOINT_VENTURE, " +
+            "       A.MONIS_STATUS, " +
+            "       MKT_LABEL_ID, " +
+            "       DISTRIBUTED_LABEL, " +
+            "       US_LABEL_ID, " +
+            "       SPLIT_REP_OWNER_ID, " +
+            "       UK_INTL_PROD_MGR_ID, " +
+            "       B.PM_DETAIL_ID, " +
+            "       CATALOGUE_NUM, " +
+            "       CAT_ASSIGN_DATE, " +
+            "       RELEASE_DATE, " +
+            "       IS_EXCLUSIVE, " +
+            "       EXCLUSIVE_TO, " +
+            "       EXCLUSIVE_DETAIL, " +
+            "       IS_NEW_ARTWORK, " +
+            "       IS_EXPLICIT, " +
+            "       IS_RINGTONE_APPROVAL, " +
+            "       GRID_NUMBER, " +
+            "       GRID_NUM_DATE, " +
+            "       B.COMMENTS, " +
+            "       B.PROD_FORMAT_ID, " +
+            "       COMBO_REF, " +
+            "       BARCODE, " +
+            "       RELDT_WARN, " +
+            "       IS_TV_ADVERTISED, " +
+            "       DEALER_PRICE, " +
+            "       IS_INTL_REL, " +
+            "       IS_PRE_ORDER, " +
+            "       IS_VID_STREAM, " +
+            "       PREVIEW_CLIPS, " +
+            "       PREVIEW_REL_DATE, " +
+            "       IS_AUDIO_STREAM, " +
+            "       AUDIO_STREAM_DATE, " +
+            "       PM_DETAIL_LINK, " +
+            "       SUPPLEMENTARY_TITLE, " +
+            "       TITLE_ADDITIONAL, " +
+            "       B.CSS_DIGITAL_ID, " +
+            "       B.D2C, " +
+            "       RESTRICT_DATE, " +
+            "       AGE_RATING_ID, " +
+            "       VIDEO_DURATION, " +
+            "       BIT_RATE, " +
+            "       IS_GRAS_SET_COMPLETE, " +
+            "       IS_DRA_CLEAR_COMPLETE, " +
+            "       B.IS_GRAS_CONFIDENTIAL, " +
+            "       SCOPE_COMMENTS, " +
+            "       VIDEO_PREMIER_TIME, " +
+            "       XML_PUBLISH, " +
+            "       FULL_PUBLISH, " +
+            "       IS_IN_GRPS_SCHEDULE, " +
+            "       PROD_FORMAT_DESC, " +
+            "       PROD_FORMAT_TYPE, " +
+            "       RMS_FORMAT_CODE, " +
+            "       D2C_DESC, " +
+            "       TRACK_NUM, " +
+            "       TRACK_NAME, " +
+            "       T.COMMENTS TRACK_COMMENTS, " +
+            "       ISRC_NUMBER, " +
+            "       ISRC_NUM_DATE, " +
+            "       MOBILE_GRID_NUMBER, " +
+            "       TRACK_ORDER, " +
+            "       PRE_ORDER_ONLY, " +
+            "       PM_PARTNER_NAME, " +
+            "       PULL_DATE " +
+            "  FROM PM_HEADER  A " +
+            "       INNER JOIN PM_DETAIL_DIGITAL B " +
+            "           ON     (A.PM_REVISION_ID = B.PM_REVISION_ID) " +
+            "              AND (A.PM_REF_ID = B.PM_REF_ID) " +
+            "       INNER JOIN PM_PRODUCT_FORMAT C " +
+            "           ON (B.PROD_FORMAT_ID = C.PROD_FORMAT_ID) " +
+            "       LEFT OUTER JOIN PM_PARTNER P " +
+            "           ON (PULL_PARTNER_ID = PM_PARTNER_ID) " +
+            "       LEFT OUTER JOIN PM_D2C D ON (B.D2C = D.D2C) " +
+            "       LEFT OUTER JOIN PM_TRACK_LISTING_DIGITAL T " +
+            "           ON     (B.PM_REF_ID = T.PM_REF_ID) " +
+            "              AND (B.PM_REVISION_ID = T.PM_REVISION_ID) " +
+            "              AND (B.PM_DETAIL_ID = T.PM_DETAIL_ID) " +
+            " WHERE (((TRACK_ORDER IS NULL) OR (TRACK_ORDER = 1)) AND (B.PM_REF_ID = ?)) AND (B.PM_REVISION_ID = (SELECT MAX(X.PM_REVISION_ID) FROM PM_HEADER X " +
+            "WHERE X.PM_REF_ID = A.PM_REF_ID)) " +
+            "ORDER BY PROD_FORMAT_TYPE ASC, B.PM_DETAIL_ID ASC  " ;
+
 
              
-             
-             public static String RETURN_MOBILE_LIST_TO_VIEW = "SELECT   a.pm_ref_id, " +
+             /**ORACLE CODE**/
+             /*public static String RETURN_MOBILE_LIST_TO_VIEW = "SELECT   a.pm_ref_id, " +
                  "                      a.pm_revision_id, " +
                  "                      a.submit_date, " +
                  "                      a.submit_by, " +
@@ -491,11 +783,117 @@ public class ProjectMemoDAO extends PMDAO {
                  "                      AND b.pm_revision_id = (SELECT MAX (pm_revision_id) " +
                  "                                                         FROM pm_header x " +
                  "                                                        WHERE x.pm_ref_id = a.pm_ref_id) " +
-                 "          ORDER BY c.prod_format_type ASC, b.pm_detail_id ASC"; 
+                 "          ORDER BY c.prod_format_type ASC, b.pm_detail_id ASC"; */
+            
+            /**ANSI CODE**/
+            public static String RETURN_MOBILE_LIST_TO_VIEW ="SELECT A.PM_REF_ID, " +
+            		"       A.PM_REVISION_ID, " +
+            		"       SUBMIT_DATE, " +
+            		"       SUBMIT_BY, " +
+            		"       IS_LOCAL_ACT, " +
+            		"       PRODUCT_TITLE, " +
+            		"       SUPP_PRODUCT_TITLE, " +
+            		"       IS_UK_GEN_PARTS, " +
+            		"       IS_PARENTAL_ADVISORY, " +
+            		"       IS_FULL_ALBUM_DELIVERY, " +
+            		"       PROJECT_NUMBER, " +
+            		"       PROJECT_NUM_DATE, " +
+            		"       GCLS_NUMBER, " +
+            		"       GCLS_NUM_DATE, " +
+            		"       REVISION_COMMENT, " +
+            		"       LOGO_FILE_LOCATION, " +
+            		"       IS_DIGITAL, " +
+            		"       IS_PHYSICAL, " +
+            		"       IS_PROMO, " +
+            		"       IS_BEING_EDITED, " +
+            		"       LOCAL_LABEL_ID, " +
+            		"       PROD_TYPE_ID, " +
+            		"       GENRE_ID, " +
+            		"       LOCAL_GENRE_ID, " +
+            		"       DIST_RIGHT_ID, " +
+            		"       REPERTOIRE_OWNER_ID, " +
+            		"       ARTIST_ID, " +
+            		"       UK_LABEL_GRP_ID, " +
+            		"       PROD_MGR_ID, " +
+            		"       EDITED_BY, " +
+            		"       EDIT_DATE, " +
+            		"       IS_JOINT_VENTURE, " +
+            		"       A.MONIS_STATUS, " +
+            		"       MKT_LABEL_ID, " +
+            		"       DISTRIBUTED_LABEL, " +
+            		"       US_LABEL_ID, " +
+            		"       SPLIT_REP_OWNER_ID, " +
+            		"       UK_INTL_PROD_MGR_ID, " +
+            		"       B.PM_DETAIL_ID, " +
+            		"       CATALOGUE_NUM, " +
+            		"       CAT_ASSIGN_DATE, " +
+            		"       RELEASE_DATE, " +
+            		"       IS_EXCLUSIVE, " +
+            		"       EXCLUSIVE_TO, " +
+            		"       EXCLUSIVE_DETAIL, " +
+            		"       IS_NEW_ARTWORK, " +
+            		"       IS_RINGTONE_APPROVAL, " +
+            		"       GRID_NUMBER, " +
+            		"       GRID_NUM_DATE, " +
+            		"       B.COMMENTS, " +
+            		"       B.PROD_FORMAT_ID, " +
+            		"       COMBO_REF, " +
+            		"       BARCODE, " +
+            		"       RELDT_WARN, " +
+            		"       IS_TV_ADVERTISED, " +
+            		"       DEALER_PRICE, " +
+            		"       IS_INTL_REL, " +
+            		"       IS_PRE_ORDER, " +
+            		"       IS_VID_STREAM, " +
+            		"       PREVIEW_CLIPS, " +
+            		"       PREVIEW_REL_DATE, " +
+            		"       IS_AUDIO_STREAM, " +
+            		"       AUDIO_STREAM_DATE, " +
+            		"       PM_DETAIL_LINK, " +
+            		"       SUPPLEMENTARY_TITLE, " +
+            		"       TITLE_ADDITIONAL, " +
+            		"       B.D2C, " +
+            		"       RESTRICT_DATE, " +
+            		"       AGE_RATING_ID, " +
+            		"       VIDEO_DURATION, " +
+            		"       BIT_RATE, " +
+            		"       IS_GRAS_SET_COMPLETE, " +
+            		"       IS_DRA_CLEAR_COMPLETE, " +
+            		"       SCOPE_COMMENTS, " +
+            		"       VIDEO_PREMIER_TIME, " +
+            		"       XML_PUBLISH, " +
+            		"       FULL_PUBLISH, " +
+            		"       PROD_FORMAT_DESC, " +
+            		"       PROD_FORMAT_TYPE, " +
+            		"       RMS_FORMAT_CODE, " +
+            		"       D2C_DESC, " +
+            		"       TRACK_NUM, " +
+            		"       TRACK_NAME, " +
+            		"       ISRC_NUMBER, " +
+            		"       ISRC_NUM_DATE, " +
+            		"       MOBILE_GRID_NUMBER, " +
+            		"       TRACK_ORDER, " +
+            		"       PRE_ORDER_ONLY, " +
+            		"       T.CSS_DIGITAL_ID " +
+            		"  FROM PM_HEADER  A " +
+            		"       INNER JOIN PM_DETAIL_DIGITAL B " +
+            		"           ON     (A.PM_REVISION_ID = B.PM_REVISION_ID) " +
+            		"              AND (A.PM_REF_ID = B.PM_REF_ID) " +
+            		"       INNER JOIN PM_PRODUCT_FORMAT C " +
+            		"           ON (B.PROD_FORMAT_ID = C.PROD_FORMAT_ID) " +
+            		"       LEFT OUTER JOIN PM_D2C D ON (B.D2C = D.D2C) " +
+            		"       LEFT OUTER JOIN PM_TRACK_LISTING_DIGITAL T " +
+            		"           ON     (B.PM_DETAIL_ID = T.PM_DETAIL_ID) " +
+            		"              AND (B.PM_REF_ID = T.PM_REF_ID) " +
+            		"              AND (B.PM_REVISION_ID = T.PM_REVISION_ID) " +
+            		" WHERE ((((TRACK_ORDER IS NULL) OR (TRACK_ORDER = 1)) AND (B.PM_REF_ID = ?)) AND (PROD_FORMAT_TYPE = 'M')) AND (B.PM_REVISION_ID = (SELECT MAX(X.PM_REVISION_ID) FROM PM_HEADER X " +
+            		"WHERE X.PM_REF_ID = A.PM_REF_ID)) " +
+            		"ORDER BY PROD_FORMAT_TYPE ASC, B.PM_DETAIL_ID ASC "; 
 
 
 
-             public static String RETURN_DIGITAL_DRAFT_LIST_TO_VIEW = "SELECT	* " +
+            /**ORACLE CODE**/
+            /* public static String RETURN_DIGITAL_DRAFT_LIST_TO_VIEW = "SELECT	* " +
             		 "	 FROM pm_draft_header a, " +
             		 "			pm_draft_digital b, " +
             		 "			pm_product_format c, " +
@@ -513,8 +911,26 @@ public class ProjectMemoDAO extends PMDAO {
             		 "											  FROM pm_draft_header x " +
             		 "											 WHERE x.pm_ref_id = a.pm_ref_id) " +
             		 "ORDER BY prod_format_type ASC, b.pm_detail_id ASC " ;
+            */
+            /**ANSI CODE**/
+            public static String RETURN_DIGITAL_DRAFT_LIST_TO_VIEW = "SELECT * " +
+            		"  FROM PM_DRAFT_HEADER  A " +
+            		"       INNER JOIN PM_DRAFT_DIGITAL B " +
+            		"           ON     (A.PM_REVISION_ID = B.PM_REVISION_ID) " +
+            		"              AND (A.PM_REF_ID = B.PM_REF_ID) " +
+            		"       INNER JOIN PM_PRODUCT_FORMAT C " +
+            		"           ON (B.PROD_FORMAT_ID = C.PROD_FORMAT_ID) " +
+            		"       INNER JOIN PM_DRAFT_DIGITAL_TRACKS D " +
+            		"           ON     (B.PM_DETAIL_ID = D.PM_DETAIL_ID) " +
+            		"              AND (B.PM_REVISION_ID = D.PM_REVISION_ID) " +
+            		"              AND (B.PM_REF_ID = D.PM_REF_ID) " +
+            		"       LEFT OUTER JOIN PM_D2C E ON (B.D2C = E.D2C) " +
+            		" WHERE (B.PM_REF_ID = ?) AND (B.PM_REVISION_ID = (SELECT MAX(X.PM_REVISION_ID) FROM PM_DRAFT_HEADER X " +
+            		"WHERE X.PM_REF_ID = A.PM_REF_ID)) " +
+            		"ORDER BY PROD_FORMAT_TYPE ASC, B.PM_DETAIL_ID ASC"; 
+
              
-             
+            /**ORACLE CODE**/
             /* public static String RETURN_DIGITAL_DRAFT_LIST_FOR_EDIT_FORMATS_PAGE = "SELECT B.PM_REF_ID, B.PM_REVISION_ID, B.PM_DETAIL_ID, GRID_NUMBER, RESTRICT_DATE, BARCODE, b.PROD_FORMAT_ID, SUPPLEMENTARY_TITLE, AUDIO_STREAM_DATE, IS_AUDIO_STREAM, PREVIEW_REL_DATE, RELEASE_DATE, IS_PRE_ORDER, IS_VID_STREAM, IS_EXCLUSIVE, PROD_FORMAT_DESC, COMMENTS, null as track_name FROM pm_draft_header a, pm_draft_digital b, pm_product_format c   " +
              "            WHERE a.pm_ref_id = b.pm_ref_id AND a.pm_revision_id = b.pm_revision_id   " +
              "            AND b.prod_format_id = c.prod_format_id   " +
@@ -539,9 +955,8 @@ public class ProjectMemoDAO extends PMDAO {
              "	ORDER BY D.TRACK_ORDER ASC)";*/
              
              
-             //Amended to incorporate multiple pre-order partners
-             
-             public static String RETURN_DIGITAL_DRAFT_LIST_FOR_EDIT_FORMATS_PAGE = "  SELECT * FROM(   " +
+             /**ORACLE CODE**/
+            /* public static String RETURN_DIGITAL_DRAFT_LIST_FOR_EDIT_FORMATS_PAGE = "  SELECT * FROM(   " +
             		 "    SELECT B.PM_REF_ID, B.PM_REVISION_ID, B.PM_DETAIL_ID, B.IS_GRAS_CONFIDENTIAL, GRID_NUMBER, RESTRICT_DATE, BARCODE, b.PROD_FORMAT_ID, SUPPLEMENTARY_TITLE, TITLE_ADDITIONAL, AUDIO_STREAM_DATE, IS_AUDIO_STREAM,     " +
             		 "       MIN(PD.START_DATE) as PREVIEW_REL_DATE,     " +
             		 "       RELEASE_DATE,     " +
@@ -611,9 +1026,61 @@ public class ProjectMemoDAO extends PMDAO {
             		 "            AND b.pm_revision_id = (SELECT MAX (pm_revision_id) FROM pm_draft_header x      " +
             		 "                                             WHERE x.pm_ref_id = a.pm_ref_id)     " +
             		 "              AND D.TRACK_ORDER (+)= 1     " +
-            		 "    ORDER BY D.TRACK_ORDER ASC)    "; 
-             
-             public static String RETURN_DIGITAL_DETAIL_LIST_FOR_EDIT_FORMATS_PAGE = "  SELECT * FROM(   " +
+            		 "    ORDER BY D.TRACK_ORDER ASC)    "; */
+            
+            
+            /** ANSI CODE**/
+             public static String RETURN_DIGITAL_DRAFT_LIST_FOR_EDIT_FORMATS_PAGE ="  SELECT  * " +
+            		 "  FROM (SELECT TOP 1000 B.PM_REF_ID, " +
+            		 "               B.PM_REVISION_ID, " +
+            		 "               B.PM_DETAIL_ID, " +
+            		 "               B.IS_GRAS_CONFIDENTIAL, " +
+            		 "               GRID_NUMBER, " +
+            		 "               RESTRICT_DATE, " +
+            		 "               BARCODE, " +
+            		 "               B.PROD_FORMAT_ID, " +
+            		 "               SUPPLEMENTARY_TITLE, " +
+            		 "               TITLE_ADDITIONAL, " +
+            		 "               AUDIO_STREAM_DATE, " +
+            		 "               IS_AUDIO_STREAM, " +
+            		 "               MIN (START_DATE) PREVIEW_REL_DATE, " +
+            		 "               RELEASE_DATE, " +
+            		 "               IS_PRE_ORDER, " +
+            		 "               IS_VID_STREAM, " +
+            		 "               IS_EXCLUSIVE, " +
+            		 "               PROD_FORMAT_DESC, " +
+            		 "               COMMENTS, " +
+            		 "               IS_IN_GRPS_SCHEDULE, " +
+            		 "               SCOPE_COMMENTS, " +
+            		 "               PULL_PARTNER_ID, " +
+            		 "               NULL             TRACK_NAME " +
+            		 "          FROM PM_DRAFT_HEADER  A " +
+            		 "               INNER JOIN PM_DRAFT_DIGITAL B " +
+            		 "                   ON     (A.PM_REVISION_ID = B.PM_REVISION_ID) " +
+            		 "                      AND (A.PM_REF_ID = B.PM_REF_ID) " +
+            		 "               INNER JOIN PM_PRODUCT_FORMAT C " +
+            		 "                   ON (B.PROD_FORMAT_ID = C.PROD_FORMAT_ID) " +
+            		 "               LEFT OUTER JOIN PM_DRAFT_PREORDERS PD " +
+            		 "                   ON     (B.PM_REVISION_ID = PD.PM_REVISION_ID) " +
+            		 "                      AND (B.PM_REF_ID = PD.PM_REF_ID) " +
+            		 "                      AND (B.PM_DETAIL_ID = PD.PM_DETAIL_ID) " +
+            		 "         WHERE ((B.PM_REF_ID = ?) AND (B.PROD_FORMAT_ID NOT IN (715,719,700,723,724))) AND (B.PM_REVISION_ID = (SELECT MAX(X.PM_REVISION_ID) FROM PM_DRAFT_HEADER X " +
+            		 "WHERE X.PM_REF_ID = A.PM_REF_ID)) " +
+            		 "GROUP BY B.PM_REF_ID, B.PM_REVISION_ID, B.PM_DETAIL_ID, B.IS_GRAS_CONFIDENTIAL, GRID_NUMBER, RESTRICT_DATE, BARCODE, B.PROD_FORMAT_ID, SUPPLEMENTARY_TITLE, TITLE_ADDITIONAL, AUDIO_STREAM_DATE, IS_AUDIO_STREAM, RELEASE_DATE, IS_PRE_ORDER, IS_VID_STREAM, IS_EXCLUSIVE, PROD_FORMAT_DESC, COMMENTS, IS_IN_GRPS_SCHEDULE, SCOPE_COMMENTS, PULL_PARTNER_ID " +
+            		 "ORDER BY MIN(START_DATE) ASC) INLINEVIEW_1 " +
+            		 "UNION " +
+            		 "SELECT B.PM_REF_ID, B.PM_REVISION_ID, PM_DETAIL_ID, B.IS_GRAS_CONFIDENTIAL, GRID_NUMBER, RESTRICT_DATE, BARCODE, B.PROD_FORMAT_ID, SUPPLEMENTARY_TITLE, TITLE_ADDITIONAL, AUDIO_STREAM_DATE, IS_AUDIO_STREAM, PREVIEW_REL_DATE, RELEASE_DATE, IS_PRE_ORDER, IS_VID_STREAM, IS_EXCLUSIVE, PROD_FORMAT_DESC, COMMENTS, IS_IN_GRPS_SCHEDULE, SCOPE_COMMENTS, PULL_PARTNER_ID, null TRACK_NAME FROM PM_DRAFT_HEADER A INNER JOIN PM_DRAFT_DIGITAL B ON (A.PM_REVISION_ID = B.PM_REVISION_ID) AND (A.PM_REF_ID = B.PM_REF_ID) INNER JOIN PM_PRODUCT_FORMAT C ON (B.PROD_FORMAT_ID = C.PROD_FORMAT_ID) " +
+            		 "WHERE (((B.PM_REF_ID = ?) AND (IS_PRE_ORDER = 'N')) AND (B.PROD_FORMAT_ID NOT IN (715,719,700,723,724))) AND (B.PM_REVISION_ID = (SELECT MAX(X.PM_REVISION_ID) FROM PM_DRAFT_HEADER X " +
+            		 "WHERE X.PM_REF_ID = A.PM_REF_ID)) " +
+            		 "UNION " +
+            		 "SELECT *  FROM  (SELECT TOP 1000 B.PM_REF_ID, B.PM_REVISION_ID, B.PM_DETAIL_ID, B.IS_GRAS_CONFIDENTIAL, GRID_NUMBER, RESTRICT_DATE, BARCODE, B.PROD_FORMAT_ID, SUPPLEMENTARY_TITLE, TITLE_ADDITIONAL, AUDIO_STREAM_DATE, IS_AUDIO_STREAM, PREVIEW_REL_DATE, RELEASE_DATE, IS_PRE_ORDER, IS_VID_STREAM, IS_EXCLUSIVE, PROD_FORMAT_DESC, B.COMMENTS, IS_IN_GRPS_SCHEDULE, SCOPE_COMMENTS, PULL_PARTNER_ID, TRACK_NAME FROM PM_DRAFT_HEADER A INNER JOIN PM_DRAFT_DIGITAL B ON (A.PM_REVISION_ID = B.PM_REVISION_ID) AND (A.PM_REF_ID = B.PM_REF_ID) INNER JOIN PM_PRODUCT_FORMAT C ON (B.PROD_FORMAT_ID = C.PROD_FORMAT_ID) LEFT OUTER JOIN PM_DRAFT_DIGITAL_TRACKS D ON (B.PM_DETAIL_ID = D.PM_DETAIL_ID) AND (B.PM_REVISION_ID = D.PM_REVISION_ID) AND (B.PM_REF_ID = D.PM_REF_ID) " +
+            		 "WHERE (((B.PM_REF_ID = ?) AND (B.PROD_FORMAT_ID IN (715,719,700,723,724))) AND (B.PM_REVISION_ID = (SELECT MAX(X.PM_REVISION_ID) FROM PM_DRAFT_HEADER X " +
+            		 "WHERE X.PM_REF_ID = A.PM_REF_ID))) " +
+            		 "AND ((TRACK_ORDER IS NULL) OR (TRACK_ORDER =1)) " +
+            		 "ORDER BY TRACK_ORDER ASC) INLINEVIEW_2"; 
+
+             /**ORACLE CODE**/
+             /*public static String RETURN_DIGITAL_DETAIL_LIST_FOR_EDIT_FORMATS_PAGE = "  SELECT * FROM(   " +
             		 "    SELECT B.PM_REF_ID, B.PM_REVISION_ID, B.PM_DETAIL_ID, B.IS_GRAS_CONFIDENTIAL, GRID_NUMBER, RESTRICT_DATE, BARCODE, b.PROD_FORMAT_ID, SUPPLEMENTARY_TITLE, TITLE_ADDITIONAL, AUDIO_STREAM_DATE, IS_AUDIO_STREAM,     " +
             		 "       MIN(PD.START_DATE) as PREVIEW_REL_DATE,     " +
             		 "       RELEASE_DATE,     " +
@@ -686,7 +1153,57 @@ public class ProjectMemoDAO extends PMDAO {
             		 "            AND b.pm_revision_id = (SELECT MAX (pm_revision_id) FROM pm_header x      " +
             		 "                                             WHERE x.pm_ref_id = a.pm_ref_id)     " +
             		 "              AND D.TRACK_ORDER (+)= 1     " +
-            		 "    ORDER BY D.TRACK_ORDER ASC)    "; 
+            		 "    ORDER BY D.TRACK_ORDER ASC)    "; */
+             
+             /**ANSI CODE**/
+             public static String RETURN_DIGITAL_DETAIL_LIST_FOR_EDIT_FORMATS_PAGE ="  SELECT * " +
+            		 "  FROM (SELECT TOP 1000 B.PM_REF_ID, " +
+            		 "               B.PM_REVISION_ID, " +
+            		 "               B.PM_DETAIL_ID, " +
+            		 "               B.IS_GRAS_CONFIDENTIAL, " +
+            		 "               GRID_NUMBER, " +
+            		 "               RESTRICT_DATE, " +
+            		 "               BARCODE, " +
+            		 "               B.PROD_FORMAT_ID, " +
+            		 "               SUPPLEMENTARY_TITLE, " +
+            		 "               TITLE_ADDITIONAL, " +
+            		 "               AUDIO_STREAM_DATE, " +
+            		 "               IS_AUDIO_STREAM, " +
+            		 "               MIN (START_DATE) PREVIEW_REL_DATE, " +
+            		 "               RELEASE_DATE, " +
+            		 "               IS_PRE_ORDER, " +
+            		 "               IS_VID_STREAM, " +
+            		 "               IS_EXCLUSIVE, " +
+            		 "               PROD_FORMAT_DESC, " +
+            		 "               COMMENTS, " +
+            		 "               IS_IN_GRPS_SCHEDULE, " +
+            		 "               SCOPE_COMMENTS, " +
+            		 "               PULL_PARTNER_ID, " +
+            		 "               NULL   TRACK_NAME " +
+            		 "          FROM PM_HEADER  A " +
+            		 "               INNER JOIN PM_DETAIL_DIGITAL B " +
+            		 "                   ON     (A.PM_REVISION_ID = B.PM_REVISION_ID) " +
+            		 "                      AND (A.PM_REF_ID = B.PM_REF_ID) " +
+            		 "               INNER JOIN PM_PRODUCT_FORMAT C " +
+            		 "                   ON (B.PROD_FORMAT_ID = C.PROD_FORMAT_ID) " +
+            		 "               LEFT OUTER JOIN PM_DETAIL_PREORDERS PD " +
+            		 "                   ON     (B.PM_REVISION_ID = PD.PM_REVISION_ID) " +
+            		 "                      AND (B.PM_REF_ID = PD.PM_REF_ID) " +
+            		 "                      AND (B.PM_DETAIL_ID = PD.PM_DETAIL_ID) " +
+            		 "         WHERE ((B.PM_REF_ID = ?) AND (B.PROD_FORMAT_ID NOT IN (715,719,700,723,724))) AND (B.PM_REVISION_ID = (SELECT MAX(X.PM_REVISION_ID) FROM PM_HEADER X " +
+            		 "WHERE X.PM_REF_ID = A.PM_REF_ID)) " +
+            		 "GROUP BY B.PM_REF_ID, B.PM_REVISION_ID, B.PM_DETAIL_ID, B.IS_GRAS_CONFIDENTIAL, GRID_NUMBER, RESTRICT_DATE, BARCODE, B.PROD_FORMAT_ID, SUPPLEMENTARY_TITLE, TITLE_ADDITIONAL, AUDIO_STREAM_DATE, IS_AUDIO_STREAM, RELEASE_DATE, IS_PRE_ORDER, IS_VID_STREAM, IS_EXCLUSIVE, PROD_FORMAT_DESC, COMMENTS, IS_IN_GRPS_SCHEDULE, SCOPE_COMMENTS, PULL_PARTNER_ID " +
+            		 "ORDER BY MIN(START_DATE) ASC) INLINEVIEW_1 " +
+            		 "UNION " +
+            		 "SELECT B.PM_REF_ID, B.PM_REVISION_ID, PM_DETAIL_ID, B.IS_GRAS_CONFIDENTIAL, GRID_NUMBER, RESTRICT_DATE, BARCODE, B.PROD_FORMAT_ID, SUPPLEMENTARY_TITLE, TITLE_ADDITIONAL, AUDIO_STREAM_DATE, IS_AUDIO_STREAM, PREVIEW_REL_DATE, RELEASE_DATE, IS_PRE_ORDER, IS_VID_STREAM, IS_EXCLUSIVE, PROD_FORMAT_DESC, COMMENTS, IS_IN_GRPS_SCHEDULE, SCOPE_COMMENTS, PULL_PARTNER_ID, null TRACK_NAME FROM PM_HEADER A INNER JOIN PM_DETAIL_DIGITAL B ON (A.PM_REVISION_ID = B.PM_REVISION_ID) AND (A.PM_REF_ID = B.PM_REF_ID) INNER JOIN PM_PRODUCT_FORMAT C ON (B.PROD_FORMAT_ID = C.PROD_FORMAT_ID) " +
+            		 "WHERE (((B.PM_REF_ID = ?) AND (IS_PRE_ORDER = 'N')) AND (B.PROD_FORMAT_ID NOT IN (715,719,700,723,724))) AND (B.PM_REVISION_ID = (SELECT MAX(X.PM_REVISION_ID) FROM PM_HEADER X " +
+            		 "WHERE X.PM_REF_ID = A.PM_REF_ID)) " +
+            		 "UNION " +
+            		 "SELECT *  FROM  (SELECT TOP 1000 B.PM_REF_ID, B.PM_REVISION_ID, B.PM_DETAIL_ID, B.IS_GRAS_CONFIDENTIAL, GRID_NUMBER, RESTRICT_DATE, BARCODE, B.PROD_FORMAT_ID, SUPPLEMENTARY_TITLE, TITLE_ADDITIONAL, AUDIO_STREAM_DATE, IS_AUDIO_STREAM, PREVIEW_REL_DATE, RELEASE_DATE, IS_PRE_ORDER, IS_VID_STREAM, IS_EXCLUSIVE, PROD_FORMAT_DESC, B.COMMENTS, IS_IN_GRPS_SCHEDULE, SCOPE_COMMENTS, PULL_PARTNER_ID, TRACK_NAME FROM PM_HEADER A INNER JOIN PM_DETAIL_DIGITAL B ON (A.PM_REVISION_ID = B.PM_REVISION_ID) AND (A.PM_REF_ID = B.PM_REF_ID) INNER JOIN PM_PRODUCT_FORMAT C ON (B.PROD_FORMAT_ID = C.PROD_FORMAT_ID) LEFT OUTER JOIN PM_TRACK_LISTING_DIGITAL D ON (B.PM_DETAIL_ID = D.PM_DETAIL_ID) AND (B.PM_REVISION_ID = D.PM_REVISION_ID) AND (B.PM_REF_ID = D.PM_REF_ID) " +
+            		 "WHERE (((B.PM_REF_ID = ?) AND (B.PROD_FORMAT_ID IN (715,719,700,723,724))) AND (B.PM_REVISION_ID = (SELECT MAX(X.PM_REVISION_ID) FROM PM_HEADER X " +
+            		 "WHERE X.PM_REF_ID = A.PM_REF_ID))) AND ((TRACK_ORDER IS NULL) OR (TRACK_ORDER =1))   " +
+            		 "ORDER BY TRACK_ORDER ASC) INLINEVIEW_2";
+
 
           
  
@@ -697,25 +1214,26 @@ public class ProjectMemoDAO extends PMDAO {
 												           "FROM pm_draft_header x " +
 												           "WHERE x.pm_ref_id = B.pm_ref_id )";
 
-             public static String RETURN_CAT_ID_NOT_IN_CURRENT_MONIS_REPORT = "                (SELECT * FROM monis_schedule WHERE cat_it_cd IN                           (SELECT cat_num                           FROM (SELECT cat_num, monis_status                                 FROM (SELECT grid_number AS cat_num,                                             monis_status                                       FROM pm_detail_digital                                       WHERE grid_number = ?                                       UNION                                       SELECT catalogue_num AS cat_num,                                             monis_status                                       FROM pm_detail_promos                                       WHERE catalogue_num = ?                                       UNION                                       SELECT catalogue_num AS cat_num,                                             monis_status                                       FROM pm_detail_physical                                       WHERE catalogue_num = ?) \t\t\t\t\t\t\t\t\t\tWHERE monis_status <> 'F') \t\t\t\t\t\t\t\t\t\t) AND CAT_IT_CD = ? AND CAT_IT_CD <> (SELECT CAT_IT_CD FROM MONIS_SCHEDULE WHERE CAT_IT_CD= ? AND LOAD_DATE=(SELECT MAX (load_date) FROM monis_schedule)))";
-             public static String RETURN_PRODUCT_NUMBER_NOT_IN_DAILY_DASH_REPORT = "(SELECT * FROM DAILY_DASH WHERE PRODUCT_NUMBER IN                            (SELECT cat_num                            FROM (SELECT cat_num, monis_status                                  FROM (SELECT grid_number AS cat_num,                                              monis_status                                        FROM pm_detail_digital                                        WHERE grid_number = ?                                        UNION                                        SELECT catalogue_num AS cat_num,                                              monis_status                                        FROM pm_detail_promos                                        WHERE catalogue_num = ?                                        UNION                                        SELECT catalogue_num AS cat_num,                                              monis_status                                        FROM pm_detail_physical                                        WHERE catalogue_num = ?)                                          WHERE monis_status <> 'F')                                          ) AND PRODUCT_NUMBER = ? ) ";
+             //public static String RETURN_CAT_ID_NOT_IN_CURRENT_MONIS_REPORT = "                (SELECT * FROM monis_schedule WHERE cat_it_cd IN                           (SELECT cat_num                           FROM (SELECT cat_num, monis_status                                 FROM (SELECT grid_number AS cat_num,                                             monis_status                                       FROM pm_detail_digital                                       WHERE grid_number = ?                                       UNION                                       SELECT catalogue_num AS cat_num,                                             monis_status                                       FROM pm_detail_promos                                       WHERE catalogue_num = ?                                       UNION                                       SELECT catalogue_num AS cat_num,                                             monis_status                                       FROM pm_detail_physical                                       WHERE catalogue_num = ?) \t\t\t\t\t\t\t\t\t\tWHERE monis_status <> 'F') \t\t\t\t\t\t\t\t\t\t) AND CAT_IT_CD = ? AND CAT_IT_CD <> (SELECT CAT_IT_CD FROM MONIS_SCHEDULE WHERE CAT_IT_CD= ? AND LOAD_DATE=(SELECT MAX (load_date) FROM monis_schedule)))";
+             //public static String RETURN_PRODUCT_NUMBER_NOT_IN_DAILY_DASH_REPORT = "(SELECT * FROM DAILY_DASH WHERE PRODUCT_NUMBER IN                            (SELECT cat_num                            FROM (SELECT cat_num, monis_status                                  FROM (SELECT grid_number AS cat_num,                                              monis_status                                        FROM pm_detail_digital                                        WHERE grid_number = ?                                        UNION                                        SELECT catalogue_num AS cat_num,                                              monis_status                                        FROM pm_detail_promos                                        WHERE catalogue_num = ?                                        UNION                                        SELECT catalogue_num AS cat_num,                                              monis_status                                        FROM pm_detail_physical                                        WHERE catalogue_num = ?)                                          WHERE monis_status <> 'F')                                          ) AND PRODUCT_NUMBER = ? ) ";
              //public static String NEW_RETURN_PRODUCT_NUMBER_NOT_IN_DAILY_DASH_REPORT = "SELECT cat_num FROM (SELECT cat_num, monis_status       FROM (SELECT grid_number AS cat_num, monis_status             FROM pm_detail_digital             WHERE grid_number = ?             UNION             SELECT catalogue_num AS cat_num, monis_status             FROM pm_detail_promos             WHERE catalogue_num = ?             UNION             SELECT catalogue_num AS cat_num, monis_status             FROM pm_detail_physical             WHERE catalogue_num = ?             UNION             SELECT MOBILE_GRID_NUMBER AS cat_num, monis_status             FROM pm_track_listing_digital             WHERE MOBILE_GRID_NUMBER = ? )       WHERE (monis_status is null or monis_status <> 'F')) WHERE cat_num NOT IN (SELECT product_number                       FROM daily_dash d1                       WHERE d1.country = 'GB') ";
              //public static String NEW_RETURN_PRODUCT_NUMBER_NOT_IN_DAILY_DASH_REPORT = "SELECT cat_num FROM (SELECT cat_num, monis_status       FROM (SELECT grid_number AS cat_num, monis_status             FROM pm_detail_digital             WHERE grid_number = ?             UNION             SELECT catalogue_num AS cat_num, monis_status             FROM pm_detail_promos             WHERE catalogue_num = ?             UNION             SELECT catalogue_num AS cat_num, monis_status             FROM pm_detail_physical             WHERE catalogue_num = ?             UNION             SELECT MOBILE_GRID_NUMBER AS cat_num, monis_status             FROM pm_track_listing_digital             WHERE MOBILE_GRID_NUMBER = ? )       WHERE (monis_status is null or monis_status <> 'F')) WHERE cat_num NOT IN (SELECT product_number                       FROM daily_dash d1                       WHERE d1.country = 'GB') ";
-             public static String NEW_RETURN_PRODUCT_NUMBER_NOT_IN_DAILY_DASH_REPORT = "SELECT cat_num FROM (SELECT cat_num, monis_status       FROM (SELECT grid_number AS cat_num, monis_status             FROM pm_detail_digital             WHERE grid_number = ?             UNION             SELECT catalogue_num AS cat_num, monis_status             FROM pm_detail_promos             WHERE catalogue_num = ?             UNION             SELECT catalogue_num AS cat_num, monis_status             FROM pm_detail_physical             WHERE catalogue_num = ?             UNION             SELECT MOBILE_GRID_NUMBER AS cat_num, monis_status             FROM pm_track_listing_digital             WHERE MOBILE_GRID_NUMBER = ? )       WHERE (monis_status is null or monis_status <> 'F')) WHERE cat_num NOT IN (SELECT product_number                       FROM daily_dash d1                       WHERE d1.country = ?) ";
+             //public static String NEW_RETURN_PRODUCT_NUMBER_NOT_IN_DAILY_DASH_REPORT = "SELECT cat_num FROM (SELECT cat_num, monis_status       FROM (SELECT grid_number AS cat_num, monis_status             FROM pm_detail_digital             WHERE grid_number = ?             UNION             SELECT catalogue_num AS cat_num, monis_status             FROM pm_detail_promos             WHERE catalogue_num = ?             UNION             SELECT catalogue_num AS cat_num, monis_status             FROM pm_detail_physical             WHERE catalogue_num = ?             UNION             SELECT MOBILE_GRID_NUMBER AS cat_num, monis_status             FROM pm_track_listing_digital             WHERE MOBILE_GRID_NUMBER = ? )       WHERE (monis_status is null or monis_status <> 'F')) WHERE cat_num NOT IN (SELECT product_number                       FROM daily_dash d1                       WHERE d1.country = ?) ";
              public static String GET_ARTIST_NAME = "SELECT ARTIST_NAME FROM PM_ARTIST WHERE ARTIST_ID=";
              public static String GET_PRODUCT_TYPE = "SELECT PRODUCT_TYPE_DESC FROM PM_PRODUCT_TYPE WHERE PRODUCT_TYPE_ID=";
-             public static String RETURN_PROMO_CAT_NUM_LIST = "SELECT * FROM PM_DETAIL_PROMOS A WHERE A.MONIS_STATUS!='F' and PM_REF_ID = ? AND pm_revision_id = (SELECT MAX(pm_revision_id) FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id  )";
+             //public static String RETURN_PROMO_CAT_NUM_LIST = "SELECT * FROM PM_DETAIL_PROMOS A WHERE A.MONIS_STATUS!='F' and PM_REF_ID = ? AND pm_revision_id = (SELECT MAX(pm_revision_id) FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id  )";
              public static String RETURN_PHYS_CAT_NUM_LIST = "SELECT * FROM PM_DETAIL_PHYSICAL A WHERE PM_REF_ID = ? and A.MONIS_STATUS!='F' AND pm_revision_id = (SELECT MAX(pm_revision_id) FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id  )";
              public static String RETURN_DIGI_EQUIVALENT_NUM_LIST = "SELECT DIGITAL_EQUIVALENT FROM PM_DETAIL_PHYSICAL A WHERE PM_REF_ID = ? and A.MONIS_STATUS!='F' AND pm_revision_id = (SELECT MAX(pm_revision_id) FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id  )";
              public static String RETURN_DIGI_G_NUM_LIST = "SELECT * FROM PM_DETAIL_DIGITAL A WHERE PM_REF_ID = ? and A.MONIS_STATUS!='F' AND pm_revision_id = (SELECT MAX(pm_revision_id) FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id  )";
              public static String RETURN_MOBILE_G_NUM_LIST = "SELECT * FROM PM_DETAIL_DIGITAL A, PM_TRACK_LISTING_DIGITAL B WHERE B.PM_REF_ID = ? AND A.PM_REF_ID = B.PM_REF_ID and A.MONIS_STATUS!='F' AND A.PM_REVISION_ID = B.PM_REVISION_ID AND A.PM_DETAIL_ID = B.PM_DETAIL_ID AND A.pm_revision_id = (SELECT MAX(pm_revision_id)FROM pm_header x WHERE x.pm_ref_id = A.pm_ref_id ) AND B.pm_revision_id = (SELECT MAX(pm_revision_id)FROM pm_header x WHERE x.pm_ref_id = B.pm_ref_id )";
-             public static String RETURN_MOBILE_G_NUM_LIST_FOR_DASHBOARD = "SELECT * FROM PM_DETAIL_DIGITAL A, PM_TRACK_LISTING_DIGITAL B  WHERE B.PM_REF_ID = ?  AND A.PM_REF_ID = B.PM_REF_ID  and A.MONIS_STATUS!='F'  and B.MOBILE_GRID_NUMBER is not null AND A.PM_REVISION_ID = B.PM_REVISION_ID  AND A.PM_DETAIL_ID = B.PM_DETAIL_ID  AND A.pm_revision_id = (SELECT MAX(pm_revision_id)FROM pm_header x WHERE x.pm_ref_id = A.pm_ref_id )  AND B.pm_revision_id = (SELECT MAX(pm_revision_id)FROM pm_header x WHERE x.pm_ref_id = B.pm_ref_id ) ";
-             public static String RETURN_UNMATCHED_DIGITAL_EQUIVALENTS_FOR_DASHBOARD = "SELECT TRIM(digital_equivalent), RELEASE_DATE FROM pm_detail_physical A WHERE pm_ref_id = ? AND A.MONIS_STATUS NOT IN ('F') AND pm_revision_id = (SELECT MAX (pm_revision_id) FROM pm_header x WHERE A.pm_ref_id = x.pm_ref_id) AND TRIM(A.digital_equivalent) NOT IN (SELECT  CAT_IT_CD from monis_schedule WHERE LOAD_DATE =(SELECT MAX(LOAD_DATE) FROM MONIS_SCHEDULE))";
-             public static String AMENDED_RETURN_UNMATCHED_DIGITAL_EQUIVALENTS_FOR_DASHBOARD = "SELECT TRIM(digital_equivalent) AS DIGITAL_EQUIVALENT, RELEASE_DATE, MONIS_STATUS FROM pm_detail_physical A WHERE pm_ref_id = ? AND A.MONIS_STATUS NOT IN ('F') AND pm_revision_id = (SELECT MAX (pm_revision_id) FROM pm_header x WHERE A.pm_ref_id = x.pm_ref_id) AND TRIM(A.digital_equivalent) NOT IN (SELECT  PRODUCT_NUMBER from DAILY_DASH WHERE LOAD_DATE =(SELECT MAX(LOAD_DATE) FROM DAILY_DASH))";
+             //public static String RETURN_MOBILE_G_NUM_LIST_FOR_DASHBOARD = "SELECT * FROM PM_DETAIL_DIGITAL A, PM_TRACK_LISTING_DIGITAL B  WHERE B.PM_REF_ID = ?  AND A.PM_REF_ID = B.PM_REF_ID  and A.MONIS_STATUS!='F'  and B.MOBILE_GRID_NUMBER is not null AND A.PM_REVISION_ID = B.PM_REVISION_ID  AND A.PM_DETAIL_ID = B.PM_DETAIL_ID  AND A.pm_revision_id = (SELECT MAX(pm_revision_id)FROM pm_header x WHERE x.pm_ref_id = A.pm_ref_id )  AND B.pm_revision_id = (SELECT MAX(pm_revision_id)FROM pm_header x WHERE x.pm_ref_id = B.pm_ref_id ) ";
+             //public static String RETURN_UNMATCHED_DIGITAL_EQUIVALENTS_FOR_DASHBOARD = "SELECT TRIM(digital_equivalent), RELEASE_DATE FROM pm_detail_physical A WHERE pm_ref_id = ? AND A.MONIS_STATUS NOT IN ('F') AND pm_revision_id = (SELECT MAX (pm_revision_id) FROM pm_header x WHERE A.pm_ref_id = x.pm_ref_id) AND TRIM(A.digital_equivalent) NOT IN (SELECT  CAT_IT_CD from monis_schedule WHERE LOAD_DATE =(SELECT MAX(LOAD_DATE) FROM MONIS_SCHEDULE))";
+             //public static String AMENDED_RETURN_UNMATCHED_DIGITAL_EQUIVALENTS_FOR_DASHBOARD = "SELECT TRIM(digital_equivalent) AS DIGITAL_EQUIVALENT, RELEASE_DATE, MONIS_STATUS FROM pm_detail_physical A WHERE pm_ref_id = ? AND A.MONIS_STATUS NOT IN ('F') AND pm_revision_id = (SELECT MAX (pm_revision_id) FROM pm_header x WHERE A.pm_ref_id = x.pm_ref_id) AND TRIM(A.digital_equivalent) NOT IN (SELECT  PRODUCT_NUMBER from DAILY_DASH WHERE LOAD_DATE =(SELECT MAX(LOAD_DATE) FROM DAILY_DASH))";
              public static String RETURN_MOBILE_LIST_WHERE_G_NUM_IS_NULL = "SELECT A.PROD_FORMAT_ID, A.RELEASE_DATE, A.MONIS_STATUS  FROM PM_DETAIL_DIGITAL A, PM_TRACK_LISTING_DIGITAL B, PM_PRODUCT_FORMAT C  WHERE A.PM_REF_ID = ?  AND A.MONIS_STATUS!='F' AND A.PM_REF_ID = B.PM_REF_ID  AND C.PROD_FORMAT_TYPE ='M'  AND A.PROD_FORMAT_ID = C.PROD_FORMAT_ID  AND A.PM_REVISION_ID = B.PM_REVISION_ID  AND A.PM_DETAIL_ID = B.PM_DETAIL_ID  AND A.pm_revision_id = (SELECT MAX(pm_revision_id)  FROM pm_header x  WHERE x.pm_ref_id = A.pm_ref_id )  AND B.pm_revision_id = (SELECT MAX(pm_revision_id)  FROM pm_header x WHERE x.pm_ref_id = B.pm_ref_id )  AND B.MOBILE_GRID_NUMBER IS NULL ";
              public static String RETURN_MOBILE_LIST_WHERE_G_NUM_IS_NOT_NULL = "SELECT distinct A.PROD_FORMAT_ID, A.RELEASE_DATE, B.MOBILE_GRID_NUMBER FROM PM_DETAIL_DIGITAL A, PM_TRACK_LISTING_DIGITAL B, PM_PRODUCT_FORMAT C  WHERE A.PM_REF_ID = ?  AND A.MONIS_STATUS!='F' AND A.PM_REF_ID = B.PM_REF_ID  AND C.PROD_FORMAT_TYPE ='M'  AND A.PROD_FORMAT_ID = C.PROD_FORMAT_ID  AND A.PM_REVISION_ID = B.PM_REVISION_ID  AND A.PM_DETAIL_ID = B.PM_DETAIL_ID  AND A.pm_revision_id = (SELECT MAX(pm_revision_id)  FROM pm_header x  WHERE x.pm_ref_id = A.pm_ref_id )  AND B.pm_revision_id = (SELECT MAX(pm_revision_id)  FROM pm_header x WHERE x.pm_ref_id = B.pm_ref_id )  AND B.MOBILE_GRID_NUMBER IS NOT NULL ";
              public static String RETURN_MOBILE_LIST_WHERE_TRACKLISTING_EMPTY = "SELECT A.PROD_FORMAT_ID, A.RELEASE_DATE, A.MONIS_STATUS FROM PM_DETAIL_DIGITAL A, PM_PRODUCT_FORMAT C  WHERE A.PM_REF_ID = ?  AND C.PROD_FORMAT_TYPE ='M'  AND A.PROD_FORMAT_ID = C.PROD_FORMAT_ID   AND A.pm_revision_id = (SELECT MAX(pm_revision_id) FROM pm_header x WHERE x.pm_ref_id = A.pm_ref_id )  and not exists (select pm_detail_id from PM_TRACK_LISTING_DIGITAL  d where d.pm_ref_id = a.pm_ref_id and d.pm_revision_id = a.pm_revision_id and d.pm_detail_id = A.pm_detail_id ) ";
-             public static String RETURN_PREORDER_LIST="SELECT PO.PM_PARTNER_ID, PO.START_DATE, PO.PREVIEW_CLIPS FROM PM_DRAFT_DIGITAL D, PM_DRAFT_PREORDERS PO " +
+            /** ORACLE CODE **/
+             /*public static String RETURN_PREORDER_LIST="SELECT PO.PM_PARTNER_ID, PO.START_DATE, PO.PREVIEW_CLIPS FROM PM_DRAFT_DIGITAL D, PM_DRAFT_PREORDERS PO " +
                                                          "WHERE D.PM_REF_ID = PO.PM_REF_ID " +
                                                          "AND D.PM_REVISION_ID = PO.PM_REVISION_ID " +
                                                          "AND D.PM_DETAIL_ID = PO.PM_DETAIL_ID " +
@@ -723,9 +1241,23 @@ public class ProjectMemoDAO extends PMDAO {
                                                          "                                                  FROM pm_draft_header b " +
                                                          "                                                 WHERE D.pm_ref_id = b.pm_ref_id) " +
                                                          "AND D.PM_REF_ID=? " +
-                                                         "AND D.PM_DETAIL_ID = ? ORDER BY PO.START_DATE ASC"; 
-             
-             public static String RETURN_PREORDER_LIST_FOR_VIEW="SELECT PA.PM_PARTNER_NAME, PO.START_DATE, PO.PREVIEW_CLIPS FROM PM_DETAIL_DIGITAL D, PM_DETAIL_PREORDERS PO, PM_PARTNER PA  " +
+                                                         "AND D.PM_DETAIL_ID = ? ORDER BY PO.START_DATE ASC"; */
+             /** ANSI CODE **/
+             public static String RETURN_PREORDER_LIST= "SELECT PO.PM_PARTNER_ID, convert(varchar, PO.START_DATE, 23) as START_DATE, PO.PREVIEW_CLIPS " +
+									            		 "  FROM PM_DRAFT_DIGITAL D CROSS JOIN PM_DRAFT_PREORDERS PO " +
+									            		 " WHERE (D.PM_REF_ID = PO.PM_REF_ID) AND (D.PM_REVISION_ID = PO.PM_REVISION_ID)  " +
+									            		 "    AND D.PM_DETAIL_ID = PO.PM_DETAIL_ID  " +
+									            		 "AND D.PM_REVISION_ID = (SELECT MAX (pm_revision_id) " +
+									            		 "                         FROM pm_draft_header b " +
+									            		 "                         WHERE D.pm_ref_id = b.pm_ref_id) " +
+									            		 "                         AND D.PM_REF_ID= ? " +
+									            		 "                         AND D.PM_DETAIL_ID = PO.PM_DETAIL_ID " +
+									            		 "                         AND PO.PM_DETAIL_ID = ?  " +
+									            		 "                         ORDER BY START_DATE ASC "; 
+ 
+
+             /** ORACLE CODE **/
+            /* public static String RETURN_PREORDER_LIST_FOR_VIEW="SELECT PA.PM_PARTNER_NAME, PO.START_DATE, PO.PREVIEW_CLIPS FROM PM_DETAIL_DIGITAL D, PM_DETAIL_PREORDERS PO, PM_PARTNER PA  " +
                  "WHERE D.PM_REF_ID = PO.PM_REF_ID  " +
                  "AND D.PM_REVISION_ID = PO.PM_REVISION_ID  " +
                  "AND D.PM_DETAIL_ID = PO.PM_DETAIL_ID  " +
@@ -734,10 +1266,25 @@ public class ProjectMemoDAO extends PMDAO {
                  "                                                  FROM PM_HEADER b  " +
                  "                                                 WHERE D.pm_ref_id = b.pm_ref_id)  " +
                  "AND D.PM_REF_ID=?  " +
-                 "AND D.PM_DETAIL_ID = ? ORDER BY PO.START_DATE ASC"; 
+                 "AND D.PM_DETAIL_ID = ? ORDER BY PO.START_DATE ASC"; */
+             /**ANSI CODE**/
+             public static String RETURN_PREORDER_LIST_FOR_VIEW="SELECT PM_PARTNER_NAME, PO.START_DATE, PO.PREVIEW_CLIPS " +
+													             "  FROM PM_DETAIL_DIGITAL  D " +
+													             "       INNER JOIN PM_DETAIL_PREORDERS PO " +
+													             "           ON     (D.PM_DETAIL_ID = PO.PM_DETAIL_ID) " +
+													             "              AND (D.PM_REVISION_ID = PO.PM_REVISION_ID) " +
+													             "              AND (D.PM_REF_ID = PO.PM_REF_ID) " +
+													             "       INNER JOIN PM_PARTNER PA " +
+													             "           ON (PA.PM_PARTNER_ID = PO.PM_PARTNER_ID) " +
+													             " WHERE (    (D.PM_REVISION_ID = (SELECT MAX (B.PM_REVISION_ID) " +
+													             "                                   FROM PM_HEADER B " +
+													             "                                  WHERE D.PM_REF_ID = B.PM_REF_ID)) " +
+													             "        AND (D.PM_REF_ID =  ?)) AND (D.PM_DETAIL_ID = ?) " +
+													             "ORDER BY START_DATE ASC "; 
+
  
-             
-             public static String RETURN_EARLIEST_PREORDER_DATE="SELECT * FROM (SELECT PO.START_DATE FROM PM_DETAIL_DIGITAL D, PM_DETAIL_PREORDERS PO, PM_PARTNER PA   " +
+             /** ORACLE CODE**/
+            /* public static String RETURN_EARLIEST_PREORDER_DATE="SELECT * FROM (SELECT PO.START_DATE FROM PM_DETAIL_DIGITAL D, PM_DETAIL_PREORDERS PO, PM_PARTNER PA   " +
                  "WHERE D.PM_REF_ID = PO.PM_REF_ID   " +
                  "AND D.PM_REVISION_ID = PO.PM_REVISION_ID   " +
                  "AND D.PM_DETAIL_ID = PO.PM_DETAIL_ID   " +
@@ -747,11 +1294,30 @@ public class ProjectMemoDAO extends PMDAO {
                  "                                                 WHERE D.pm_ref_id = b.pm_ref_id)   " +
                  "AND D.PM_REF_ID=?   " +
                  "AND D.PM_DETAIL_ID = ? ORDER BY PO.START_DATE ASC " +
-                 ")where rownum < 2 "; 
+                 ")where rownum < 2 "; */
+             
+             /** ANSI CODE**/
+             public static String RETURN_EARLIEST_PREORDER_DATE="SELECT * " +
+            		 "  FROM (SELECT top 1 START_DATE " +
+            		 "          FROM PM_DETAIL_DIGITAL  D " +
+            		 "               INNER JOIN PM_DETAIL_PREORDERS PO " +
+            		 "                   ON     (D.PM_DETAIL_ID = PO.PM_DETAIL_ID) " +
+            		 "                      AND (D.PM_REVISION_ID = PO.PM_REVISION_ID) " +
+            		 "                      AND (D.PM_REF_ID = PO.PM_REF_ID) " +
+            		 "               INNER JOIN PM_PARTNER PA " +
+            		 "                   ON (PA.PM_PARTNER_ID = PO.PM_PARTNER_ID) " +
+            		 "         WHERE (    (D.PM_REVISION_ID = (SELECT MAX (B.PM_REVISION_ID) " +
+            		 "                                           FROM PM_HEADER B " +
+            		 "                                          WHERE D.PM_REF_ID = B.PM_REF_ID)) " +
+            		 "                AND (D.PM_REF_ID = ?)) AND (D.PM_DETAIL_ID = ?) " +
+            		 "ORDER BY START_DATE ASC) INLINEVIEW_1"; 
 
-             public static String DELETE_PREORDER_LIST="DELETE FROM PM_DRAFT_PREORDERS P WHERE P.PM_REF_ID =? AND P.PM_REVISION_ID = ? AND P.PM_DETAIL_ID = ?";
-
-
+             
+/**ORACLE CODE**/
+             //public static String DELETE_PREORDER_LIST="DELETE FROM PM_DRAFT_PREORDERS P WHERE P.PM_REF_ID =? AND P.PM_REVISION_ID = ? AND P.PM_DETAIL_ID = ?";
+/**ANSI CODE**/ public static String DELETE_PREORDER_LIST="DELETE FROM PM_DRAFT_PREORDERS " +
+            		 "      WHERE     ((PM_REF_ID = ?) AND (PM_REVISION_ID = ?)) " +
+            		 "            AND (PM_DETAIL_ID = ?) ";
              public static String UPDATE_LINKED_PROJECTS="UPDATE PM_HEADER H SET H.UK_INTL_PROD_MGR_ID = ?, H.US_LABEL_ID = ? WHERE H.PROJECT_NUMBER = ? AND H.PM_REVISION_ID = (SELECT MAX (PM_REVISION_ID) FROM PM_HEADER B WHERE H.PM_REF_ID = B.PM_REF_ID)"; 
              public static String UPDATE_PHYSICAL_GRAS_FLAG="UPDATE PM_DRAFT_PHYSICAL P SET P.IS_GRAS_CONFIDENTIAL = 'N' WHERE P.PM_REF_ID = ? AND P.PM_REVISION_ID = ?";
              public static String UPDATE_DIGITAL_GRAS_FLAG="UPDATE PM_DRAFT_DIGITAL P SET P.IS_GRAS_CONFIDENTIAL = 'N' WHERE P.PM_REF_ID = ? AND P.PM_REVISION_ID = ?";
@@ -764,9 +1330,8 @@ public class ProjectMemoDAO extends PMDAO {
          		sequenceValue = null;
          		Statement statement = null;
          		ResultSet resultSet = null;
-         		StringBuffer sqlStatement = new StringBuffer("SELECT ");
+         		StringBuffer sqlStatement = new StringBuffer("SELECT NEXT VALUE FOR ");
          		sqlStatement.append(sequenceName);
-         		sqlStatement.append(".NEXTVAL FROM dual");
          		try {
          			  statement = connection.createStatement();
          			resultSet = statement.executeQuery(sqlStatement.toString());
@@ -788,7 +1353,7 @@ public class ProjectMemoDAO extends PMDAO {
          	}
              
              
-             public String getNextCSSPlanNumber(){
+            /* public String getNextCSSPlanNumber(){
             	 
             	 Connection connection =null; 
             	 Long planNum = null;
@@ -803,7 +1368,7 @@ public class ProjectMemoDAO extends PMDAO {
 	         		}
             	 
             	 return "PLAN"+planNum;
-             }
+             }*/
              
              
 
@@ -899,7 +1464,7 @@ public class ProjectMemoDAO extends PMDAO {
              				"UK_INTL_PROD_MGR_ID, " +             				
              				"GCLS_NUMBER) " +
              				"VALUES(" + pm.getMemoRef() + "," + 
-             				"SYSDATE, " 
+             				"CURRENT_TIMESTAMP, " 
              				+ "'" 
              				+ pm.getLocalOrInternational() + "', " 
              				+ "'" + pm.getArtist() + "', " 
@@ -911,13 +1476,13 @@ public class ProjectMemoDAO extends PMDAO {
              				+ pm.getDistributionRights() + "," 
              				+ "'" + pm.getUkLabelGroup() + "', "
              				+ "'" + distributedLabel + "', "
-             				+ "'" + pm.getRepOwner() + "', " + "'" 
-             				+ pm.storeUkGeneratedParts() + "', " 
+             				+ "'" + pm.getRepOwner() + "', " 
+             				+ "'" + pm.storeUkGeneratedParts() + "', " 
              				+ "'" + pm.storeParentalAdvisory() + "', " 
-             				+ "'Y', " + "1, " + "NULL, " + "'" 
-             				+ pm.getFrom() + "', " + "'" 
+             				+ "'Y', 1, NULL, "  
+             				+ "'" +  pm.getFrom() + "', '" 
              				+ pm.getProductManagerId() + "', " 
-             				+ "NULL, " + "'N', " 
+             				+ "NULL, 'N', " 
              				+ "'N', " 
              				+ "'N', " 
              				+ "'" + pm.storeGrasConfidentialProject()+ "', "
@@ -955,43 +1520,73 @@ public class ProjectMemoDAO extends PMDAO {
 
          	public void insertDigitalDetails(ProjectMemo pm, List preOrders)  {
         		String previewDate = null;
+        		String digiReleaseDate = null;
         		String altAudioStreamingDate = null;
-        		String exclusive = "";
-        		String grasConfidential ="";
-        		String videoDuration = "";
+        		String exclusive = null;
+        		String grasConfidential =null;
+        		String grasSetComplete = null;
+        		String videoDuration = "NULL, ";
         		String restrictDate = null;
+        		String associatedFormatID = null;
         		String sql = null;
+        		String gridNumber = null;
+        		String barcode = null;
+        		String comments = null;
+        		String scopeComments = null;
+        		String previewClips = "N";
+        		String suppTitle  = null;
+        		String exclusiveDetails = null;
+        		String exclusiveTo= null;
+        		String additTitle = null;
+        		String ageRating = null;
+        		String isExplicit = "N, ";
+        		String videoPremierTime = null;
         		FormHelper fh = new FormHelper();
         		Statement statement = null;
         		Connection connection = null;
         		
         		
+        		
+        		
         		 if (!pm.isExclusive()) {       
-        	            pm.setExclusiveTo("");
-        	            pm.setExclusivityDetails("");
+        			    exclusiveTo = "NULL, ";
+        			    exclusiveDetails = "NULL, ";
+        			    exclusive = "'N', ";
         		 }
         		 
         		 if (pm.isExclusive()) {
-        	            exclusive = "Y";      
+        	            exclusive = "'Y', ";      
         		 } else {
-        	            exclusive = "N";
-        	            pm.setExclusiveTo("");
-        	            pm.setExclusivityDetails("");
+        	            exclusive = "'N', ";
+           			    exclusiveTo = "NULL, ";
+        			    exclusiveDetails = "NULL, ";
         		 }
         		 
         		 if (pm.isGrasConfidentialDigitalProduct()) {
-        			 	grasConfidential = "Y";      
+        			 	grasConfidential = "'Y', ";      
 	     		 } else {
-	     			 	grasConfidential = "N";
-	
+	     			 	grasConfidential = "'N', ";	
+	     		 }
+        		 
+        		 if (pm.getGrasSetComplete() == "Y") {
+     			 	grasSetComplete = "'Y', ";      
+	     		 } else {
+	     			grasSetComplete = "'N', ";	
 	     		 }
         		 
         		 
-
         		 
+        		 
+        		 
+        		 if (pm.isExplicit()) {
+     			 		isExplicit = "'Y', ";      
+	     		 } else {
+	     			 	isExplicit = "'N', ";	
+	     		 }
+
                  
         		 if (!pm.getConfigurationId().equals("711")){	        
-        				pm.setComboRef("");
+        				pm.setComboRef("NULL");
         		 }
 
         		 /*
@@ -1002,50 +1597,141 @@ public class ProjectMemoDAO extends PMDAO {
         		//	 previewDate = pm.getPreOrderDate();			 
         			 
         		// } else 
-        		 if(pm.getVideoStreamingDate()!=null && !pm.getVideoStreamingDate().equals("")){
-        			 previewDate = pm.getVideoStreamingDate();			 			 
-        		 }
         		 
-        		 if (pm.getAltAudioStreamDate()!=null && !pm.getAltAudioStreamDate().equals("")){			 
-        			 altAudioStreamingDate = pm.getAltAudioStreamDate();			 
+        		 
+        		 
+        		 if ((pm.getDigitalReleaseDate()==null) || (pm.getDigitalReleaseDate().equals(""))){	
+        			 digiReleaseDate = "NULL ,";
+        		 } else {	 
+        			 digiReleaseDate ="CONVERT(DATETIME,'" + pm.getDigitalReleaseDate() + "') ,";
+        			 
+        		 }		 
+        		 
+        		 if ((pm.getVideoStreamingDate()==null) || (pm.getVideoStreamingDate().equals(""))){	
+        			 previewDate = "NULL ,";
+        		 } else {	 
+        			 previewDate ="CONVERT(DATETIME,'" + pm.getVideoStreamingDate() + "') ,";
         			 
         		 }
         		 
-        		 if (pm.getRestrictDate()!=null){		 
-        			 restrictDate = "TO_DATE('" + pm.getRestrictDate() + "', 'DD/MM/YYYY HH24:MI:SS') ,'";		         			 
-        		 } else {
-        			 restrictDate = "NULL ,'";
+        		 if ((pm.getAltAudioStreamDate()==null) || (pm.getAltAudioStreamDate().equals(""))){	
+        			 altAudioStreamingDate = "NULL ,";
+        		 } else {	 
+        			 altAudioStreamingDate ="CONVERT(DATETIME,'" + pm.getAltAudioStreamDate() + "') ,";
+        			 
         		 }
+        		 
+        		 if ((pm.getRestrictDate()==null) || (pm.getRestrictDate().equals(""))) {		 
+        			 restrictDate = "NULL ,'";		         			 
+        		 } else {        			 
+        			 restrictDate = "CONVERT(DATETIME,'" + pm.getRestrictDate() + "') ,'";
+        		 }
+        		 
+        		 if ((pm.getAgeRating()==null) || (pm.getAgeRating().equals(""))) {		 
+        			 ageRating = "NULL ,";		         			 
+        		 } else {        			 
+        			 ageRating = "'"+pm.getAgeRating()+"',";
+        		 }
+        		 
+        		 
+        		 
+        		 if ((pm.getAssociatedPhysicalFormatDetailId()==null) || (pm.getAssociatedPhysicalFormatDetailId().equals(""))) {
+        			 associatedFormatID = "NULL, ";
+        		 } else {
+        			 associatedFormatID = "'"+pm.getAssociatedPhysicalFormatDetailId()+"',";
+        		 }
+        		 
+ 
+        		 if ((fh.replaceApostrophesInString(pm.getGridNumber())==null) || (fh.replaceApostrophesInString(pm.getGridNumber()).equals(""))) {
+        			 gridNumber = "NULL, ";
+        		 } else {
+        			 gridNumber = "'"+fh.replaceApostrophesInString(pm.getGridNumber())+"',";
+        		 }
+        		 
+        		 
+        		 if ((fh.replaceApostrophesInString(pm.getDigitalBarcode())==null) || (fh.replaceApostrophesInString(pm.getDigitalBarcode()).equals(""))) {
+        			 barcode = "NULL) ";
+        		 } else {
+        			 barcode = "'"+fh.replaceApostrophesInString(pm.getDigitalBarcode())+"')";
+        		 }
+        		 
+        		 
+        		 if ((fh.replaceApostrophesInString(pm.getSupplementTitle())==null) || (fh.replaceApostrophesInString(pm.getSupplementTitle()).equals(""))) {
+        			 suppTitle = "NULL, ";
+        		 } else {
+        			 suppTitle = "'"+fh.replaceApostrophesInString(pm.getSupplementTitle())+"', ";
+        		 }
+        		 
+        		 
+        		 if ((fh.replaceApostrophesInString(pm.getExclusivityDetails())==null) || (fh.replaceApostrophesInString(pm.getExclusivityDetails()).equals(""))) {
+        			 exclusiveDetails = "NULL, ";
+        		 } else {
+        			 exclusiveDetails = "'"+fh.replaceApostrophesInString(pm.getExclusivityDetails())+"', ";
+        		 }
+        		 
+        		 if ((fh.replaceApostrophesInString(pm.getExclusiveTo())==null) || (fh.replaceApostrophesInString(pm.getExclusiveTo()).equals(""))) {
+        			 exclusiveTo = "NULL, ";
+        		 } else {
+        			 exclusiveTo = "'"+fh.replaceApostrophesInString(pm.getExclusiveTo())+"', ";
+        		 }
+        		 
+
+        		 if ((fh.replaceApostrophesInString(pm.getAdditTitle())==null) || (fh.replaceApostrophesInString(pm.getAdditTitle()).equals(""))) {
+        			 additTitle = "NULL, ";
+        		 } else {
+        			 additTitle = "'"+fh.replaceApostrophesInString(pm.getAdditTitle())+"', ";
+        		 }
+        		 
+        		 
+        		 
+        		 if ((fh.replaceApostrophesInString(pm.getDigitalComments())==null) || (fh.replaceApostrophesInString(pm.getDigitalComments()).equals(""))) {
+        			 comments = "NULL, ";
+        		 } else {
+        			 comments = "'"+fh.replaceApostrophesInString(pm.getDigitalComments())+"',";
+        		 }
+
+        		 
+        		 if ((fh.replaceApostrophesInString(pm.getDigitalScopeComments())==null) || (fh.replaceApostrophesInString(pm.getDigitalScopeComments()).equals(""))) {
+        			 scopeComments = "NULL, ";
+        		 } else {
+        			 scopeComments = "'"+fh.replaceApostrophesInString(pm.getDigitalScopeComments())+"',";
+        		 }        		 
+        		 
         		 
 				 String d2c = pm.getDigitalD2C().equals("") ? null : pm.getDigitalD2C();	        		 
         		 
-        		 if(pm.getDigitalDealerPrice()==null){
-        			 pm.setDigitalDealerPrice("");
+        		 if((pm.getDigitalDealerPrice()==null) || (pm.getDigitalDealerPrice().equals(""))) {
+        			 
+        			 pm.setDigitalDealerPrice("NULL " );
         		 }
         		 
-        		 if(pm.getVideoPremierTime()==null){
-        			 pm.setVideoPremierTime("");
-        		 }
+        		 if((pm.getVideoPremierTime()==null) || (pm.getVideoPremierTime().equals(""))){
+        			 videoPremierTime = "NULL, ";
+        		 } else
+        			 videoPremierTime = "'"+pm.getVideoPremierTime()+"', ";
         		 
         		 
         		 if(pm.getConfigurationId().equals("715") || 
         			pm.getConfigurationId().equals("719") ||
         			pm.getConfigurationId().equals("723") || 
         			pm.getConfigurationId().equals("724")){
-        		 
-                   if(pm.getVideoDurationMins().equals("") && pm.getVideoDurationSecs().equals("")){
+        			 
+        			 
+        		   videoDuration = "NULL ,";
+                   if((pm.getVideoDurationMins().equals("") || pm.getVideoDurationMins()==null)  &&  (pm.getVideoDurationSecs().equals("") || pm.getVideoDurationSecs()==null)){
+                	   videoDuration = "NULL ,";
                      
-                     // only seconds field is populated, add proceding zeroes for minutes and a single zero if seconds are under 10
+                     // only seconds field is populated, add preceding zeroes for minutes and a single zero if seconds are under 10
                       }else if(pm.getVideoDurationMins().equals("") && (!pm.getVideoDurationSecs().equals(""))){
                        
                            String vidsecs = pm.getVideoDurationSecs();
                            if(vidsecs.length()<2){
                              
-                             videoDuration = "00:0"+pm.getVideoDurationSecs();
+                             videoDuration = "'00:0"+pm.getVideoDurationSecs()+"', ";
                              
                            } else{
                              
-                             videoDuration = "00:"+pm.getVideoDurationSecs();
+                             videoDuration = "'00:"+pm.getVideoDurationSecs()+"', ";
                            }
                        
                       
@@ -1056,11 +1742,11 @@ public class ProjectMemoDAO extends PMDAO {
                        String vidmins = pm.getVideoDurationMins();
                        if(vidmins.length()<2){
                          
-                         videoDuration = "0"+pm.getVideoDurationMins()+":00";
+                         videoDuration = "'0"+pm.getVideoDurationMins()+":00', ";
                          
                        } else{
                          
-                         videoDuration = pm.getVideoDurationMins()+":00";
+                         videoDuration = "'"+pm.getVideoDurationMins()+":00', ";
                        }
                        
                      
@@ -1071,30 +1757,29 @@ public class ProjectMemoDAO extends PMDAO {
                        String vidmins = pm.getVideoDurationMins();
                        if((vidsecs.length()<2) && (vidmins.length()<2)){
                          
-                         videoDuration = "0"+pm.getVideoDurationMins()+":0"+pm.getVideoDurationSecs();
+                         videoDuration = "'0"+pm.getVideoDurationMins()+":0"+pm.getVideoDurationSecs()+"', ";
                          
                        } else if (vidsecs.length()<2 && vidmins.length()>1){
                          
-                         videoDuration = pm.getVideoDurationMins()+":0"+pm.getVideoDurationSecs();
+                         videoDuration = "'"+pm.getVideoDurationMins()+":0"+pm.getVideoDurationSecs()+"', ";
                          
                        } else if (vidsecs.length()>1 && vidmins.length()<2){
                          
-                         videoDuration = "0"+pm.getVideoDurationMins()+":"+pm.getVideoDurationSecs();
+                         videoDuration = "'0"+pm.getVideoDurationMins()+":"+pm.getVideoDurationSecs()+"', ";
                          
                        } else{
                          
-                         videoDuration = pm.getVideoDurationMins()+":"+pm.getVideoDurationSecs();
+                         videoDuration = "'"+pm.getVideoDurationMins()+":"+pm.getVideoDurationSecs()+"', ";
                        }
                        
                      }
         		 }
         		 
-
-        	if(previewDate!=null && altAudioStreamingDate!=null){
         		 sql = "INSERT INTO PM_DRAFT_DIGITAL(CATALOGUE_NUM, " +
         				"RELEASE_DATE, " +
         				"PM_DETAIL_ID," +
         				"IS_EXCLUSIVE, " +
+        				"IS_NEW_ARTWORK, " +
         				"IS_GRAS_CONFIDENTIAL, " +
         				"IS_GRAS_SET_COMPLETE, " +
         				"IS_DRA_CLEAR_COMPLETE, " +        				        			
@@ -1102,10 +1787,11 @@ public class ProjectMemoDAO extends PMDAO {
         				"EXCLUSIVE_DETAIL, " +         				
         				"SUPPLEMENTARY_TITLE, "+  
         				"TITLE_ADDITIONAL, "+  
-        				"IS_NEW_ARTWORK, " +
         				"AGE_RATING_ID, "+
         				"GRID_NUMBER, " +
         				"PM_REF_ID, " +
+        				"MONIS_STATUS, " +
+        				"RELDT_WARN, " +
         				"PM_REVISION_ID, " +
         				"IS_RINGTONE_APPROVAL, " +
         				"XML_PUBLISH, "+
@@ -1124,302 +1810,59 @@ public class ProjectMemoDAO extends PMDAO {
         				"D2C, "+
         				"PREVIEW_REL_DATE, "+
         				"PM_DETAIL_LINK, "+
-        				"RESTRICT_DATE, "+
+        				"IS_EXPLICIT," +
+         				"RESTRICT_DATE, "+
         				"BIT_RATE, "+
         				"IS_IN_GRPS_SCHEDULE, "+
         				"VIDEO_DURATION, "+
         				"VIDEO_PREMIER_TIME, "+
         				"BARCODE)" +
         				"VALUES" +
-        				"(null, TO_DATE('" + pm.getDigitalReleaseDate() + "', " + "'DD/MM/YYYY HH24:MI:SS'), "
-        				+ pm.getDigitalDetailId() + ", '" 
-        				+ exclusive  + "', '" 
-        				+ grasConfidential + "', '"
-        				+ pm.getGrasSetComplete()  + "', '"
-        				+ pm.getdRAClearComplete()  + "', '"        				
-        				+ fh.replaceApostrophesInString(pm.getExclusiveTo()) + "', " + "'" 
-        				+ fh.replaceApostrophesInString(pm.getExclusivityDetails()) + "', " + "'" 
-        				+ fh.replaceApostrophesInString(pm.getSupplementTitle()) + "', " + "'" 
-        				+ fh.replaceApostrophesInString(pm.getAdditTitle()) + "', " + "'" 
-        				+ pm.getArtwork() + "', '" 
-        				+ pm.getAgeRating() + "', '"
-        				+ fh.replaceApostrophesInString(pm.getGridNumber()) + "', " 
-        				+ pm.getMemoRef() + "," 
+        				"(NULL, "
+        				+ digiReleaseDate
+        				+ pm.getDigitalDetailId() + ", " 
+        				+ exclusive 
+        				+ "NULL ,"
+        				+ grasConfidential 
+        				+ grasSetComplete
+        				+ "'"+pm.getdRAClearComplete()  + "', "        				
+        				+ exclusiveTo
+        				+ exclusiveDetails 
+        				+ suppTitle
+        				+ additTitle
+        				+ ageRating
+        				+ gridNumber 
+        				+ pm.getMemoRef() + ","
+        				+"'G', "
+        				+"'N', "
         				+ pm.getRevisionID() + ", '" 
         				+ pm.storeRingtoneApproval() + "', '"
         				+ pm.storeXmlPublish() + "', '"
-        				+ pm.storeFullPublish() + "', '" 
-        				+ fh.replaceApostrophesInString(pm.getDigitalComments()) + "', '("
-        				+ fh.replaceApostrophesInString(pm.getDigitalScopeComments()) + "', " 
-        				+ pm.getConfigurationId() + ", '" 
-        				+ fh.replaceApostrophesInString(pm.getComboRef())+ "', '" 
+        				+ pm.storeFullPublish() + "', " 
+        				+ comments
+        				+ scopeComments 
+        				+ pm.getConfigurationId() + ", " 
+        				+ "NULL ,'" 
         				+ pm.getDigitalIntlRelease()+ "', '" 				
         				+ pm.getPreOrder()+"' ,'"
         				+ pm.getVideoStream()+"' ,'"
-        				+ pm.getAudioStream()+"' ,'"					
-        				+ pm.getPreviewClips()+"' ,"
-        				+ "TO_DATE('" + altAudioStreamingDate +"','DD/MM/YYYY HH24:MI:SS'), '"
-        				+ pm.getDigitalDealerPrice()+"' ,"
+        				+ pm.getAudioStream()+"' ,"					
+        				+ "'N' ,"
+        				+ altAudioStreamingDate 
+        				+ pm.getDigitalDealerPrice()+" ,"
         				+ d2c+" ,"	
-        				+ "TO_DATE('" + previewDate +"','DD/MM/YYYY HH24:MI:SS'), '"
-        				+ pm.getAssociatedPhysicalFormatDetailId()+"' ,"	
+        				+ previewDate 
+        				+ associatedFormatID
+        				+ isExplicit
         				+ restrictDate
         				+ pm.getBitRate() + "', '"
-        				+ pm.getDigitalDealerPrice()+ "', '"
-        				+ pm.getDigiScheduleInGRPS()+ "', '"        				
-        				+ videoDuration + "', '"
-        				+ pm.getVideoPremierTime() + "', '"
-        				+ fh.replaceApostrophesInString(pm.getDigitalBarcode())+ "') ";
+        				+ pm.getDigiScheduleInGRPS()+ "', "        				
+        				+ videoDuration 
+        				+ videoPremierTime 
+        				+ barcode;
         		 
         		 
-        	}else if(previewDate==null && altAudioStreamingDate!=null){
-           		 sql = "INSERT INTO PM_DRAFT_DIGITAL(CATALOGUE_NUM, " +
-           				"RELEASE_DATE, " +
-           				"PM_DETAIL_ID," +
-           				"IS_EXCLUSIVE, " +
-        				"IS_GRAS_CONFIDENTIAL, " +           				
-                        "IS_GRAS_SET_COMPLETE, " +
-                        "IS_DRA_CLEAR_COMPLETE, " +      
-           				"EXCLUSIVE_TO, " +
-           				"EXCLUSIVE_DETAIL, " +
-        				"SUPPLEMENTARY_TITLE, "+ 
-           				"TITLE_ADDITIONAL, "+
-           				"IS_NEW_ARTWORK, " +
-           				"AGE_RATING_ID, "+
-           				"GRID_NUMBER, " +
-           				"PM_REF_ID, " +
-           				"PM_REVISION_ID, " +
-           				"IS_RINGTONE_APPROVAL, " +
-                        "XML_PUBLISH, "+
-                        "FULL_PUBLISH, "+                                 				
-           				"COMMENTS, " +
-           				"SCOPE_COMMENTS, " +
-           				"PROD_FORMAT_ID, " +
-           				"COMBO_REF, " +
-           				"IS_INTL_REL, " +
-           				"IS_PRE_ORDER, " +
-           				"IS_VID_STREAM, " +
-           				"IS_AUDIO_STREAM, " +				
-           				"PREVIEW_CLIPS, "+
-           				"AUDIO_STREAM_DATE, "+
-           				"DEALER_PRICE, "+	
-           				"D2C, "+
-           				"PREVIEW_REL_DATE, "+	
-           				"PM_DETAIL_LINK, "+
-           				"RESTRICT_DATE, "+
-                        "BIT_RATE, "+
-        				"IS_IN_GRPS_SCHEDULE, "+           				
-                        "VIDEO_DURATION, "+
-                        "VIDEO_PREMIER_TIME, "+
-           				"BARCODE)" +
-           				"VALUES" +
-           				"(null, TO_DATE('" + pm.getDigitalReleaseDate() + "', " + "'DD/MM/YYYY HH24:MI:SS'), "
-           				+ pm.getDigitalDetailId() + ", '" 
-           				+  exclusive  + "', '" 
-        				+ grasConfidential + "', '"
-           				+ pm.getGrasSetComplete()  + "', '"
-                        + pm.getdRAClearComplete()  + "', '"   
-           				+ fh.replaceApostrophesInString(pm.getExclusiveTo()) + "', " + "'" 
-           				+ fh.replaceApostrophesInString(pm.getExclusivityDetails()) + "', " + "'" 
-        				+ fh.replaceApostrophesInString(pm.getSupplementTitle()) + "', " + "'"    
-        				+ fh.replaceApostrophesInString(pm.getAdditionalTitle()) + "', " + "'" 
-           				+ pm.getArtwork() + "', '"
-           				+ pm.getAgeRating() + "', '"
-           				+ fh.replaceApostrophesInString(pm.getGridNumber()) + "', " 
-           				+ pm.getMemoRef() + "," 
-           				+ pm.getRevisionID() + ", '" 
-           				+ pm.storeRingtoneApproval() + "', '" 
-                        + pm.storeXmlPublish() + "', '"
-                        + pm.storeFullPublish() + "', '"            				
-           				+ fh.replaceApostrophesInString(pm.getDigitalComments()) + "', '"
-           				+ fh.replaceApostrophesInString(pm.getDigitalScopeComments()) + "', "
-           				+ pm.getConfigurationId() + ", '" 
-           				+ fh.replaceApostrophesInString(pm.getComboRef())+ "', '" 
-           				+ pm.getDigitalIntlRelease()+ "', '" 				
-           				+ pm.getPreOrder()+"' ,'"
-           				+ pm.getVideoStream()+"' ,'"
-           				+ pm.getAudioStream()+"' ,"					
-           				+ "'N', "
-           				+ "TO_DATE('" + altAudioStreamingDate +"','DD/MM/YYYY HH24:MI:SS'), '"
-           				+ pm.getDigitalDealerPrice()+"' ,"
-           				+ d2c+" ,"	
-           				+ "'', '"		
-           				+ pm.getAssociatedPhysicalFormatDetailId()+"' ,"
-           				+ restrictDate
-                        + pm.getBitRate() + "', '" 
-        				+ pm.getDigiScheduleInGRPS()+ "', '"                        
-                        + videoDuration + "', '"
-                        + pm.getVideoPremierTime() + "', '"
-           				+ fh.replaceApostrophesInString(pm.getDigitalBarcode())+ "') ";
-           		         		
-        		
-        		 
-        		
-        	}else if(previewDate!=null && altAudioStreamingDate==null){
-        		 
-        		 sql = "INSERT INTO PM_DRAFT_DIGITAL(CATALOGUE_NUM, " +
-        			"RELEASE_DATE, " +
-        			"PM_DETAIL_ID," +
-        			"IS_EXCLUSIVE, " +
-    				"IS_GRAS_CONFIDENTIAL, " +        			
-                    "IS_GRAS_SET_COMPLETE, " +
-                    "IS_DRA_CLEAR_COMPLETE, " + 
-        			"EXCLUSIVE_TO, " +
-        			"EXCLUSIVE_DETAIL, " +
-    				"SUPPLEMENTARY_TITLE, "+ 
-    				"TITLE_ADDITIONAL, "+
-        			"IS_NEW_ARTWORK, " +
-        			"AGE_RATING_ID, "+
-        			"GRID_NUMBER, " +
-        			"PM_REF_ID, " +
-        			"PM_REVISION_ID, " +
-        			"IS_RINGTONE_APPROVAL, " +
-                    "XML_PUBLISH, "+
-                    "FULL_PUBLISH, "+                               			
-        			"COMMENTS, " +
-        			"SCOPE_COMMENTS, " +
-        			"PROD_FORMAT_ID, " +
-        			"COMBO_REF, " +
-        			"IS_INTL_REL, " +
-        			"IS_PRE_ORDER, " +
-        			"IS_VID_STREAM, " +		
-        			"IS_AUDIO_STREAM, " +				
-        			"PREVIEW_CLIPS, "+
-        			"AUDIO_STREAM_DATE, "+
-        			"DEALER_PRICE, "+	
-        			"D2C, "+
-        			"PREVIEW_REL_DATE, "+	
-        			"PM_DETAIL_LINK, "+
-        			"RESTRICT_DATE, "+
-                    "BIT_RATE, "+
-    				"IS_IN_GRPS_SCHEDULE, "+            			
-                    "VIDEO_DURATION, "+
-                    "VIDEO_PREMIER_TIME, "+
-        			"BARCODE)" +
-        			"VALUES" +
-        			"(null, TO_DATE('" + pm.getDigitalReleaseDate() + "', " + "'DD/MM/YYYY HH24:MI:SS'), "
-        			+ pm.getDigitalDetailId() + ", '" 
-        			+ exclusive  + "', '" 
-        			+ grasConfidential + "', '"        			
-                    + pm.getGrasSetComplete()  + "', '"
-                    + pm.getdRAClearComplete()  + "', '"           			
-        			+ fh.replaceApostrophesInString(pm.getExclusiveTo()) + "', " + "'" 
-        			+ fh.replaceApostrophesInString(pm.getExclusivityDetails()) + "', " + "'" 
-    				+ fh.replaceApostrophesInString(pm.getSupplementTitle()) + "', " + "'"   
-    				+ fh.replaceApostrophesInString(pm.getAdditTitle()) + "', " + "'"  
-        			+ pm.getArtwork() + "', '"
-        			+ pm.getAgeRating() + "', '"
-        			+ fh.replaceApostrophesInString(pm.getGridNumber()) + "', " 
-        			+ pm.getMemoRef() + "," 
-        			+ pm.getRevisionID() + ", '" 
-        			+ pm.storeRingtoneApproval() + "', '" 
-                    + pm.storeXmlPublish() + "', '"
-                    + pm.storeFullPublish() + "', '"         			
-        			+ fh.replaceApostrophesInString(pm.getDigitalComments()) + "', '"
-        			+ fh.replaceApostrophesInString(pm.getDigitalScopeComments()) + "', "
-        			+ pm.getConfigurationId() + ", '" 
-        			+ fh.replaceApostrophesInString(pm.getComboRef())+ "', '" 
-        			+ pm.getDigitalIntlRelease()+ "', '"
-        			+ pm.getPreOrder()+"' ,'"
-        			+ pm.getVideoStream()+"' ,'"		
-        			+ pm.getAudioStream()+"' ,'"					
-        			+ pm.getPreviewClips()+"' ,"	
-        			+ "'', '"
-        			+ pm.getDigitalDealerPrice()+"' ,"
-        			+ d2c+" ,"	
-        			+ "TO_DATE('" + previewDate +"','DD/MM/YYYY HH24:MI:SS'), '"	
-        			+ pm.getAssociatedPhysicalFormatDetailId()+"' ,"
-        			+ restrictDate
-                    + pm.getBitRate() + "', '" 
-        			+ pm.getDigiScheduleInGRPS()+ "', '"                    
-                    + videoDuration + "', '"
-                    + pm.getVideoPremierTime() + "', '"
-        			+ fh.replaceApostrophesInString(pm.getDigitalBarcode())+ "') ";
-        		 
-        	/**
-        	 * Audio Stream Date & Preview Date both null	 
-        	 */
-        	} else {
-       		 
-       		 sql = "INSERT INTO PM_DRAFT_DIGITAL(CATALOGUE_NUM, " +
-       			"RELEASE_DATE, " +
-       			"PM_DETAIL_ID," +
-       			"IS_EXCLUSIVE, " +
-				"IS_GRAS_CONFIDENTIAL, " +       			
-                "IS_GRAS_SET_COMPLETE, " +
-                "IS_DRA_CLEAR_COMPLETE, " + 
-       			"EXCLUSIVE_TO, " +
-       			"EXCLUSIVE_DETAIL, " +
-				"SUPPLEMENTARY_TITLE, "+   
-       			"TITLE_ADDITIONAL, "+
-       			"IS_NEW_ARTWORK, " +
-       		    "AGE_RATING_ID, "+
-       			"GRID_NUMBER, " +
-       			"PM_REF_ID, " +
-       			"PM_REVISION_ID, " +
-       			"IS_RINGTONE_APPROVAL, " +
-                "XML_PUBLISH, "+
-                "FULL_PUBLISH, "+                              			
-       			"COMMENTS, " +
-       			"SCOPE_COMMENTS, " +
-       			"PROD_FORMAT_ID, " +
-       			"COMBO_REF, " +
-       			"IS_INTL_REL, " +
-       			"IS_PRE_ORDER, " +
-       			"IS_VID_STREAM, " +		
-       			"IS_AUDIO_STREAM, " +				
-       			"PREVIEW_CLIPS, "+
-       			"AUDIO_STREAM_DATE, "+
-       			"DEALER_PRICE, "+	
-       			"D2C, "+
-       			"PREVIEW_REL_DATE, "+
-       			"PM_DETAIL_LINK, "+
-       			"RESTRICT_DATE, "+
-                "BIT_RATE, "+
-				"IS_IN_GRPS_SCHEDULE, "+           			
-                "VIDEO_DURATION, "+
-                "VIDEO_PREMIER_TIME, "+
-       			"BARCODE)" +
-       			"VALUES" +
-       			"(null, TO_DATE('" + pm.getDigitalReleaseDate() + "', " + "'DD/MM/YYYY HH24:MI:SS'), "
-       			+ pm.getDigitalDetailId() + ", '" 
-       			+ exclusive  + "', '" 
-        		+ grasConfidential + "', '"       			
-                + pm.getGrasSetComplete()  + "', '"
-                + pm.getdRAClearComplete()  + "', '"          			
-       			+ fh.replaceApostrophesInString(pm.getExclusiveTo()) + "', " + "'" 
-       			+ fh.replaceApostrophesInString(pm.getExclusivityDetails()) + "', " + "'" 
-				+ fh.replaceApostrophesInString(pm.getSupplementTitle()) + "', " + "'" 
-				+ fh.replaceApostrophesInString(pm.getAdditTitle()) + "', " + "'"  
-       			+ pm.getArtwork() + "', '"
-       			+ pm.getAgeRating() + "', '"
-       			+ fh.replaceApostrophesInString(pm.getGridNumber()) + "', " 
-       			+ pm.getMemoRef() + "," 
-       			+ pm.getRevisionID() + ", '" 
-       			+ pm.storeRingtoneApproval() + "', '" 
-                + pm.storeXmlPublish() + "', '"
-                + pm.storeFullPublish() + "', '"        			
-       			+ fh.replaceApostrophesInString(pm.getDigitalComments()) + "', '"
-       			+ fh.replaceApostrophesInString(pm.getDigitalScopeComments()) + "', "
-       			+ pm.getConfigurationId() + ", '" 
-       			+ fh.replaceApostrophesInString(pm.getComboRef())+ "', '" 
-       			+ pm.getDigitalIntlRelease()+ "', '"
-       			+ pm.getPreOrder()+"' ,'"
-       			+ pm.getVideoStream()+"' ,'"		
-       			+ pm.getAudioStream()+"' ,'"					
-       			+ pm.getPreviewClips()+"' ,"	
-       			+ "'', '"
-       			+ pm.getDigitalDealerPrice()+"' ,"	
-       			+ d2c+" ,"	
-       			+ "'', '"		
-       			+ pm.getAssociatedPhysicalFormatDetailId()+"' ,"
-       			+ restrictDate
-                + pm.getBitRate() + "', '" 
-        		+ pm.getDigiScheduleInGRPS()+ "', '"                  
-                + videoDuration + "', '"       
-                + pm.getVideoPremierTime() + "', '"
-       			+ fh.replaceApostrophesInString(pm.getDigitalBarcode())+ "') ";
-       	}
+
         		
         		try {
         			connection = getConnection();
@@ -1455,20 +1898,115 @@ public class ProjectMemoDAO extends PMDAO {
         		FormHelper fh = new FormHelper();
         		String restrictDate = null;
         		String custRestrictDate=null;
+        	    String physCatalogueNumber = null;
+        	    String comments = null;
+        	    String scopeComments = null;
+        	    String titleAdditional = null;
+        	    String supplTitle = null;
+        	    String barcode = null;
+        	    String regionCode = null;
+        	    String dvdFormat = null;
+        	    String initManufOrder = null;
+        	    String ageRating = null;
+        	    String intlRelease = null;
+        	    String detailLink = null;
         		String d2c = pm.getPhysicalD2C().equals("") ? null : pm.getPhysicalD2C();
        		 
-        		if (pm.getRestrictDate()!=null){		 
-        			restrictDate = "TO_DATE('" + pm.getRestrictDate() + "', 'DD/MM/YYYY HH24:MI:SS') ,'";		     			 
-        		}  else {
-       			 restrictDate = "NULL ,'";
+        		if ((pm.getRestrictDate()==null) || (pm.getRestrictDate().equals(""))){		 
+        			restrictDate = "NULL ,";		     			 
+        		}  else {        			
+        			restrictDate = "CONVERT(DATETIME,'" + pm.getRestrictDate() + "') ,";
        		 	}
         		
                 if (pm.getCustFeedRestrictDate()!=null){         
-                  custRestrictDate = "TO_DATE('" + pm.getCustFeedRestrictDate() + "', 'DD/MM/YYYY HH24:MI:SS') ,";                        
+                  custRestrictDate = "CONVERT(DATETIME,'" + pm.getCustFeedRestrictDate() + "') ,";                        
                 }  else {
                   custRestrictDate = "NULL ,";
                 }
+ 
+                if (( pm.getAgeRating()==null) || (pm.getAgeRating().equals(""))){         
+                	ageRating = "NULL ,";                	                      
+                  }  else {
+                	ageRating = "'"+pm.getAgeRating() + "' ,";  
+                  }
+
               
+                if (( pm.getPhysCatalogNumber()==null) || (pm.getPhysCatalogNumber().equals(""))){         
+                	physCatalogueNumber = "NULL ,";                	                      
+                  }  else {
+                	physCatalogueNumber = "'"+fh.replaceApostrophesInString(pm.getPhysCatalogNumber()) + "' ,";  
+                  }
+                
+                if ((pm.getPhysComments()==null) || (pm.getPhysComments().equals(""))){         
+                	comments = "NULL ,";                       
+                  }  else {                	 
+                	 comments = "'"+fh.replaceApostrophesInString(pm.getPhysComments()) + "' ,";
+                  }
+                
+                
+                if ((pm.getPhysScopeComments()==null) || (pm.getPhysScopeComments().equals(""))){         
+                	scopeComments = "NULL ,";                       
+                  }  else {                	 
+                	 scopeComments = "'"+fh.replaceApostrophesInString(pm.getPhysScopeComments()) + "' ,";
+                  }
+                
+                
+                if ((pm.getAdditionalTitle()==null) || (pm.getAdditionalTitle().equals(""))){         
+                	titleAdditional = "NULL ,";                     
+                  }  else {                	
+                	 titleAdditional = "'"+fh.replaceApostrophesInString(pm.getAdditionalTitle()) + "' ,";  
+                  }
+                
+                if ((pm.getSupplementTitle()==null)|| (pm.getSupplementTitle().equals(""))){         
+                	 supplTitle = "NULL ,";                	                       
+                  }  else {
+                	  supplTitle = "'"+fh.replaceApostrophesInString(pm.getSupplementTitle()) + "' ,"; 
+                  }
+                
+                if ((pm.getPhysicalBarcode()==null) || (pm.getPhysicalBarcode().equals(""))){         
+                	barcode = "NULL)";                
+                  }  else {                	
+                	barcode = "'"+fh.replaceApostrophesInString(pm.getPhysicalBarcode()) + "')"; 
+                  }
+                
+                if ((pm.getDvdFormat()==null) || (pm.getDvdFormat().equals(""))){         
+                	dvdFormat = "NULL ,";                	                       
+                  }  else {
+                	dvdFormat = "'"+pm.getDvdFormat() + "',"; 
+                  }
+                
+                if ((pm.getDigitalIntlRelease()==null) || (pm.getDigitalIntlRelease().equals(""))){         
+                	intlRelease = "NULL ,";                	                       
+                  }  else {
+                	  intlRelease = "'"+pm.getDigitalIntlRelease() + "',"; 
+                  }
+                
+                
+                if ((pm.getRegionCode()==null) || (pm.getRegionCode().equals(""))) {        
+                	regionCode = "NULL ,";                     
+                  }  else {                	
+                	regionCode = "'"+pm.getRegionCode() + "',";   
+                  }
+                
+                if ((pm.getInitManufOrderOnly()==null)|| (pm.getInitManufOrderOnly().equals(""))) {         
+                	  initManufOrder = "NULL ,";                	                        
+                  }  else {
+                	  initManufOrder = "'"+pm.getInitManufOrderOnly() + "',";
+                  }
+                
+            
+                if ((pm.getAssociatedDigitalFormatDetailId()==null)|| (pm.getAssociatedDigitalFormatDetailId().equals(""))) {         
+                	detailLink = "NULL ,";                	                        
+                }  else {
+                	detailLink = pm.getAssociatedDigitalFormatDetailId() + ",";
+                }                
+                
+                
+                
+                
+                
+                
+                
         		
         		
         		Statement statement = null;
@@ -1483,6 +2021,7 @@ public class ProjectMemoDAO extends PMDAO {
         					 "VMP," +
         					 "IS_UK_STICKER," +
         					 "AGE_RATING_ID, "+
+        					 "PM_DETAIL_LINK, " +
         					 "IS_SHRINKWRAP_REQUIRED," +      					 
         					 "IS_INSERT_REQUIREMENT," +
         					 "IS_LIMITED_EDITION," +
@@ -1491,6 +2030,8 @@ public class ProjectMemoDAO extends PMDAO {
         					 "LIMITED_QTY," +
         					 "RELEASE_DATE," +
         					 "CUST_FEED_RESTRICT_DATE, "+
+        					 "MONIS_STATUS, "+
+        					 "RELDT_WARN, "+
         					 "PACK_SPEC_COMMENT," +
         					 "NUM_OF_DISCS," +
         					 "IS_DIG_EQUIV," +
@@ -1521,45 +2062,48 @@ public class ProjectMemoDAO extends PMDAO {
         					 + pm.getMemoRef() + "," 
         					 + pm.getRevisionID() + "," 
         					 + pm.getPhysicalDetailId() + "," 
-        					 + "'" + fh.replaceApostrophesInString(pm.getPhysCatalogNumber()) + "', " 
+        					 + physCatalogueNumber
         					 + "'" + pm.storePhysImport() + "', " 
         					 + "'" + pm.storeVmp() + "', " 
         					 + "'" + pm.storePhysUkSticker() + "', " 
-        					 + "'" + pm.getAgeRating() + "', "
+        					 + ageRating
+        					 + detailLink
         					 + "'" + pm.storePhysShrinkwrapRequired() + "', "    					 
         					 + "'" + pm.storePhysInsertRequirements() + "', " 
         					 + "'" + pm.storePhysLimitedEdition() + "', " 
-        					 + "'" + fh.replaceApostrophesInString(pm.getPhysLocalCatNumber()) + "', " 
         					 + "NULL, " 
         					 + "NULL, " 
-        					 + "TO_DATE('" + pm.getPhysReleaseDate() + "', " + "'DD/MM/YYYY HH24:MI:SS'), "
+        					 + "NULL, " 
+        					 + "CONVERT(DATETIME,'" + pm.getPhysReleaseDate() + "'), "
         					 + custRestrictDate 
+        					 +"'G', "
+        					 +"'N', "
         					 + "NULL, " 
         					 + pm.getPhysNumberDiscs() + ", '" 
-        					 + pm.getDigiEquivCheck() + "', '"					 
-        					 + fh.replaceApostrophesInString(pm.getPhysDigitalEquivalent()) + "', '" 
-        					 + fh.replaceApostrophesInString(pm.getPhysDigitalEquivBarcode()) + "', '"					 
-        					 + fh.replaceApostrophesInString(pm.getPhysComments()) + "', '"
-                             + fh.replaceApostrophesInString(pm.getPhysScopeComments()) + "', "         					 
+        					 + pm.getDigiEquivCheck() + "', "					 
+        					 + "NULL, " 
+        					 + "NULL, " 				 
+        					 + comments
+        					 + scopeComments
         					 + pm.getPhysPriceLine() + "," 
         					 + "NULL, " 
         					 + pm.getPhysPackagingSpec() + "," 
-        					 + d2c + ", '"
-        					 + fh.replaceApostrophesInString(pm.getSupplementTitle()) + "', '" 
-        			    	 + fh.replaceApostrophesInString(pm.getAdditionalTitle()) + "', "   
+        					 + d2c + ", "
+        					 + supplTitle
+        			    	 + titleAdditional  
         					 + pm.getPhysFormat()+ ", " 
         					 + pm.getDealerPrice()+ ", " 
-        					 + pm.getPhysStickerID()+ ", '"
-        					 + pm.getInitManufOrderOnly()+ "', '"
-        					 + pm.getPhysicalIntlRelease()+"', '"
-        					 + pm.getPhysScheduleInGRPS()+"', '"
+        					 + pm.getPhysStickerID()+ ", "
+        					 + initManufOrder
+        					 + intlRelease
+        					 + "'"+pm.getPhysScheduleInGRPS()+"', '"
         					 + pm.getGrasSetComplete()+"', '"
         					 + pm.storeGrasConfidentialPhysicalProduct()+"', '"
-        					 + pm.storePhysExplicit()+"', '"
-        					 + pm.getDvdFormat()+"', '"
-							 + pm.getRegionCode()+"', "
+        					 + pm.storePhysExplicit()+"', "
+        					 + dvdFormat
+							 + regionCode
         					 + restrictDate 
-        					 + fh.replaceApostrophesInString(pm.getPhysicalBarcode())+ "') ";
+        					 + barcode;
 
         		try {
         			connection = getConnection();
@@ -1592,7 +2136,7 @@ public class ProjectMemoDAO extends PMDAO {
         		FormHelper fh = new FormHelper();
         		Statement statement = null;
         		Connection connection = null;
-        		String sql = "INSERT INTO PM_DRAFT_PROMOS(PM_REF_ID,PM_REVISION_ID,PM_DETAIL_ID,CATALOGUE_NUM,LOCAL_CAT_NUM,PACK_SPEC_COMMENT,NUM_OF_DISCS,COMMENTS,SCOPE_COMMENTS,PARTS_DUE_DATE,STOCK_REQ_DATE,PROD_FORMAT_ID)VALUES(" + pm.getMemoRef() + "," + pm.getRevisionID() + "," + pm.getPromoDetailId() + "," + "'" + fh.replaceApostrophesInString(pm.getCatalogNumber()) + "', " + "'" + fh.replaceApostrophesInString(pm.getLocalCatNumber()) + "', " + "'" + fh.replaceApostrophesInString(pm.getPackagingSpec()) + "', " + "'" + pm.getComponents() + "', " + "'" + fh.replaceApostrophesInString(pm.getPromoComments()) + "', " + "TO_DATE('" + pm.getPartsDueDate() + "', " + "'DD/MM/YYYY HH24:MI:SS'), " + "TO_DATE('" + pm.getStockReqDate() + "', " + "'DD/MM/YYYY HH24:MI:SS'), " + pm.getPromoFormat() + ") ";
+        		String sql = "INSERT INTO PM_DRAFT_PROMOS(PM_REF_ID,PM_REVISION_ID,PM_DETAIL_ID,CATALOGUE_NUM,LOCAL_CAT_NUM,PACK_SPEC_COMMENT,NUM_OF_DISCS,COMMENTS,SCOPE_COMMENTS,PARTS_DUE_DATE,STOCK_REQ_DATE,PROD_FORMAT_ID)VALUES(" + pm.getMemoRef() + "," + pm.getRevisionID() + "," + pm.getPromoDetailId() + "," + "'" + fh.replaceApostrophesInString(pm.getCatalogNumber()) + "', " + "'" + fh.replaceApostrophesInString(pm.getLocalCatNumber()) + "', " + "'" + fh.replaceApostrophesInString(pm.getPackagingSpec()) + "', " + "'" + pm.getComponents() + "', " + "'" + fh.replaceApostrophesInString(pm.getPromoComments()) + "', " + "CONVERT(DATETIME,'" + pm.getPartsDueDate() + "'), " + "CONVERT(DATETIME,'" + pm.getStockReqDate() + "'), " + pm.getPromoFormat() + ") ";
         		try {
         			connection = getConnection();
         			statement = connection.createStatement();
@@ -1619,7 +2163,7 @@ public class ProjectMemoDAO extends PMDAO {
 
         	public void insertPromoDetailsFromEdit(ProjectMemo pm) {
         		FormHelper fh = new FormHelper(); 
-        		String sql = "INSERT INTO PM_DRAFT_PROMOS(PM_REF_ID,PM_REVISION_ID,PM_DETAIL_ID,CATALOGUE_NUM,LOCAL_CAT_NUM,PACK_SPEC_COMMENT,NUM_OF_DISCS,COMMENTS,PARTS_DUE_DATE,STOCK_REQ_DATE,PROD_FORMAT_ID)VALUES(" + pm.getMemoRef() + ","+ pm.getRevisionID()+ " , " + pm.getPromoDetailId() + "," + "'" + fh.replaceApostrophesInString(pm.getCatalogNumber()) + "', " + "'" + fh.replaceApostrophesInString(pm.getLocalCatNumber()) + "', " + "'" + pm.getPackagingSpec() + "', " + "'" + pm.getComponents() + "', " + "'" + fh.replaceApostrophesInString(pm.getPromoComments()) + "', " + "TO_DATE('" + pm.getPartsDueDate() + "', " + "'DD/MM/YYYY HH24:MI:SS'), " + "TO_DATE('" + pm.getStockReqDate() + "', " + "'DD/MM/YYYY HH24:MI:SS'), " + pm.getPromoFormat() + ") ";
+        		String sql = "INSERT INTO PM_DRAFT_PROMOS(PM_REF_ID,PM_REVISION_ID,PM_DETAIL_ID,CATALOGUE_NUM,LOCAL_CAT_NUM,PACK_SPEC_COMMENT,NUM_OF_DISCS,COMMENTS,PARTS_DUE_DATE,STOCK_REQ_DATE,PROD_FORMAT_ID)VALUES(" + pm.getMemoRef() + ","+ pm.getRevisionID()+ " , " + pm.getPromoDetailId() + "," + "'" + fh.replaceApostrophesInString(pm.getCatalogNumber()) + "', " + "'" + fh.replaceApostrophesInString(pm.getLocalCatNumber()) + "', " + "'" + pm.getPackagingSpec() + "', " + "'" + pm.getComponents() + "', " + "'" + fh.replaceApostrophesInString(pm.getPromoComments()) + "', " + "CONVERT(DATETIME,'"+ pm.getPartsDueDate()+"'), " + "CONVERT(DATETIME,'" + pm.getStockReqDate() + "'), " + pm.getPromoFormat() + ") ";
         		Statement statement = null;
         		Connection connection = null;
         		try {
@@ -1653,15 +2197,14 @@ public class ProjectMemoDAO extends PMDAO {
                  Statement statement = null;
                  Connection connection = null;
                  
-/*  949*/        artists = null;
-/*  950*/        sql = "SELECT artist_id, artist_name FROM pm_artist WHERE artist_id IN ( SELECT MIN(artist_id)  FROM pm_artist GROUP BY artist_name )ORDER BY lower(artist_name)";
-/*  951*/        rs = null;
-
-/*  955*/        try {
-/*  955*/            artists = new LinkedHashMap();
-/*  956*/            connection = getConnection();
-/*  957*/            statement = connection.createStatement();
-/*  958*/            for (rs = statement.executeQuery(sql); rs.next(); artists.put(rs.getString(1), rs.getString(2))) { }
+                artists = null;
+				sql = "SELECT artist_id, artist_name FROM pm_artist WHERE artist_id IN ( SELECT MIN(artist_id)  FROM pm_artist GROUP BY artist_name )ORDER BY lower(artist_name)";				   
+                rs = null;
+				try {
+					 artists = new LinkedHashMap();
+					 connection = getConnection();
+					 statement = connection.createStatement();
+				for (rs = statement.executeQuery(sql); rs.next(); artists.put(rs.getString(1), rs.getString(2))) { }
 
                  } catch (Exception e) {                	 
                 	 e.printStackTrace();   
@@ -1689,10 +2232,19 @@ public class ProjectMemoDAO extends PMDAO {
                  Connection connection = null;                 
                  artists = null;
                  String amendedStr = fh.replaceApostrophesInString(str);
-				 sql= "SELECT artist_id, trim(artist_name) FROM ( SELECT artist_id, artist_name " +
+				/**ORACLE CODE**/
+                 /*sql= "SELECT artist_id, trim(artist_name) FROM ( SELECT artist_id, artist_name " +
 					  "           FROM pm_artist " +
 					  "           WHERE to_char(LOWER(artist_name)) LIKE (LOWER('%"+amendedStr+"%')) ORDER BY trim(artist_name) asc) " +
-					  " WHERE ROWNUM <= 1000";
+					  " WHERE ROWNUM <= 1000";*/
+                 /** ANSI CODE**/
+				   sql="SELECT ARTIST_ID, TRIM (ARTIST_NAME) AS ARTIST_NAME " +
+					   " FROM ( SELECT TOP 999 ARTIST_ID, ARTIST_NAME " +
+						 "            FROM PM_ARTIST " +
+						 "           WHERE (LOWER (ARTIST_NAME)) LIKE LOWER ('%"+amendedStr+"%') " +
+						 "        ORDER BY TRIM (artist_name) ASC) INLINEVIEW_1 "; 
+
+				 
 				 rs = null;
 				try {
 					 artists = new LinkedHashMap();
@@ -1725,9 +2277,8 @@ public class ProjectMemoDAO extends PMDAO {
                  Statement statement = null;
                  Connection connection = null;                 
                  distLabels = null;
-				 sql= "SELECT DISTINCT DISTRIBUTED_LABEL FROM PM_HEADER WHERE LOWER(DISTRIBUTED_LABEL) like LOWER('%"+str+"%') AND DISTRIBUTED_LABEL IS NOT NULL order by DISTRIBUTED_LABEL ASC";
-				 rs = null;
-
+                 sql= "SELECT DISTINCT DISTRIBUTED_LABEL FROM PM_HEADER WHERE LOWER(DISTRIBUTED_LABEL) like LOWER('%"+str+"%') AND DISTRIBUTED_LABEL IS NOT NULL order by DISTRIBUTED_LABEL ASC";
+                 rs = null;
 				try {
 				     distLabels = new ArrayList();
 					 connection = getConnection();
@@ -1997,7 +2548,7 @@ public class ProjectMemoDAO extends PMDAO {
                  PreparedStatement pstmt =null;
                  Connection connection = null;
                  labelDetails = null;
-				 sql = "SELECT L.LABEL_ID, L.LABEL_DESC  " +
+	/**ANSI OK**/		 sql = "SELECT L.LABEL_ID, L.LABEL_DESC  " +
 						 "FROM PM_LABEL_UK L,  PM_LABEL_USER_MAPPING U " +
 						 "WHERE L.LABEL_ID NOT IN ('L10', 'L11')  " +
 						 "AND U.LABEL_ID = L.LABEL_ID " +
@@ -2192,7 +2743,7 @@ public class ProjectMemoDAO extends PMDAO {
             	 PreparedStatement pstmt =null;
             	 Connection connection = null;
             	// sql = "SELECT A.PROD_FORMAT_ID, A.PROD_FORMAT_DESC  FROM PM_PRODUCT_FORMAT A, PM_PRODUCT_TYPE T, PM_PROD_FORMAT_TYPE_MAPPING M WHERE A.PROD_FORMAT_ID = M.PROD_FORMAT_ID AND T.PROD_TYPE_ID = M.PROD_TYPE_ID AND T.PROD_TYPE_ID = ?  AND A.prod_format_type ='P' ORDER BY PROD_FORMAT_DESC ";
-            	 sql="SELECT a.prod_format_id, a.prod_format_desc " +
+/**ANSI OK**/     sql="SELECT a.prod_format_id, a.prod_format_desc " +
 					"	 FROM pm_product_format a, pm_product_type t, pm_prod_format_type_mapping m " +
 					"	WHERE 	 a.prod_format_id = m.prod_format_id " +
 					"			AND t.prod_type_id = m.prod_type_id " +
@@ -2235,7 +2786,7 @@ public class ProjectMemoDAO extends PMDAO {
             	/** sql = "SELECT A.PROD_FORMAT_ID, A.PROD_FORMAT_DESC  FROM PM_PRODUCT_FORMAT A, PM_PRODUCT_TYPE T, PM_PROD_FORMAT_TYPE_MAPPING M WHERE A.PROD_FORMAT_ID = M.PROD_FORMAT_ID AND " +
             			 " A.PROD_FORMAT_DESC NOT IN('Digital Equivalent') AND" +
             			 " T.PROD_TYPE_ID = M.PROD_TYPE_ID AND T.PROD_TYPE_ID = ?  AND A.prod_format_type IN ('D','M') ORDER BY PROD_FORMAT_DESC ";**/
-            	 sql="SELECT a.prod_format_id, a.prod_format_desc " +
+            	 /*sql="SELECT a.prod_format_id, a.prod_format_desc " +
 						"	 FROM pm_product_format a, pm_product_type t, pm_prod_format_type_mapping m " +
 						"	WHERE 	 a.prod_format_id = m.prod_format_id " +
 						"			AND a.prod_format_id NOT IN " +
@@ -2243,7 +2794,28 @@ public class ProjectMemoDAO extends PMDAO {
 						"			AND t.prod_type_id = m.prod_type_id " +
 						"			AND t.prod_type_id = ? " +
 						"			AND a.prod_format_type IN ('D', 'M') " +
-						"ORDER BY prod_format_desc " ;
+						"ORDER BY prod_format_desc " ;*/
+            	/**ANSI CODE**/
+            	 sql =   "SELECT A.PROD_FORMAT_ID, PROD_FORMAT_DESC " +
+		            	 "  FROM PM_PRODUCT_FORMAT  A " +
+		            	 "       INNER JOIN PM_PROD_FORMAT_TYPE_MAPPING M " +
+		            	 "           ON (A.PROD_FORMAT_ID = M.PROD_FORMAT_ID) " +
+		            	 "       INNER JOIN PM_PRODUCT_TYPE T " +
+		            	 "           ON (T.PROD_TYPE_ID = M.PROD_TYPE_ID) " +
+		            	 " WHERE (    (A.PROD_FORMAT_ID NOT IN (706, " +
+		            	 "                                      707, " +
+		            	 "                                      708, " +
+		            	 "                                      709, " +
+		            	 "                                      710, " +
+		            	 "                                      712, " +
+		            	 "                                      713, " +
+		            	 "                                      714, " +
+		            	 "                                      717, " +
+		            	 "                                      718)) " +
+		            	 "        AND (T.PROD_TYPE_ID = ?)) AND (PROD_FORMAT_TYPE IN ('D','M')) " +
+		            	 "ORDER BY PROD_FORMAT_DESC  "; 
+
+            	 
 
             	 try {
             		 productFormat = new LinkedHashMap();
@@ -2462,7 +3034,8 @@ public class ProjectMemoDAO extends PMDAO {
             	 String sql;
             	 projectList = null;
             	 pm = null;
-            	 sql = "SELECT * FROM (SELECT A.PM_REF_ID, A.SUBMIT_DATE, A.PRODUCT_TITLE, A.MONIS_STATUS, b.ARTIST_NAME, c.LABEL_DESC, pm_revision_id FROM PM_HEADER A, PM_ARTIST b, PM_LABEL c WHERE A.ARTIST_ID = b.ARTIST_ID AND A.LOCAL_LABEL_ID = c.LABEL_ID AND A.pm_revision_id = (SELECT MAX(pm_revision_id) FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id  ) ORDER BY A.SUBMIT_DATE DESC) WHERE ROWNUM < 10 ";
+            	 //sql = "SELECT * FROM (SELECT A.PM_REF_ID, A.SUBMIT_DATE, A.PRODUCT_TITLE, A.MONIS_STATUS, b.ARTIST_NAME, c.LABEL_DESC, pm_revision_id FROM PM_HEADER A, PM_ARTIST b, PM_LABEL c WHERE A.ARTIST_ID = b.ARTIST_ID AND A.LOCAL_LABEL_ID = c.LABEL_ID AND A.pm_revision_id = (SELECT MAX(pm_revision_id) FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id  ) ORDER BY A.SUBMIT_DATE DESC) WHERE ROWNUM < 10 ";
+            	 sql="SELECT top 10 * FROM (SELECT A.PM_REF_ID, A.SUBMIT_DATE, A.PRODUCT_TITLE, A.MONIS_STATUS, b.ARTIST_NAME, c.LABEL_DESC, pm_revision_id FROM PM_HEADER A, PM_ARTIST b, PM_LABEL c WHERE A.ARTIST_ID = b.ARTIST_ID AND A.LOCAL_LABEL_ID = c.LABEL_ID AND A.pm_revision_id = (SELECT MAX(pm_revision_id) FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id  ))s ORDER BY SUBMIT_DATE DESC";
             	 ResultSet rs = null;
             	 PreparedStatement pstmt =null;
             	 Connection connection = null;
@@ -2561,8 +3134,8 @@ public class ProjectMemoDAO extends PMDAO {
             		 counter++;
             	 }
             	 
-            	 sql = "SELECT * FROM (SELECT A.PM_REF_ID, A.SUBMIT_DATE, A.PRODUCT_TITLE, A.MONIS_STATUS, b.ARTIST_NAME, c.LABEL_DESC, pm_revision_id FROM PM_HEADER A, PM_ARTIST b, PM_LABEL c WHERE A.ARTIST_ID = b.ARTIST_ID AND A.LOCAL_LABEL_ID = c.LABEL_ID AND A.UK_LABEL_GRP_ID in ("+groupsBuffer+")  AND A.pm_revision_id = (SELECT MAX(pm_revision_id) FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id  ) ORDER BY A.SUBMIT_DATE DESC) WHERE ROWNUM < 22 ";
-
+            	/**oracle code **/ /* sql = "SELECT * FROM (SELECT A.PM_REF_ID, A.SUBMIT_DATE, A.PRODUCT_TITLE, A.MONIS_STATUS, b.ARTIST_NAME, c.LABEL_DESC, pm_revision_id FROM PM_HEADER A, PM_ARTIST b, PM_LABEL c WHERE A.ARTIST_ID = b.ARTIST_ID AND A.LOCAL_LABEL_ID = c.LABEL_ID AND A.UK_LABEL_GRP_ID in ("+groupsBuffer+")  AND A.pm_revision_id = (SELECT MAX(pm_revision_id) FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id  ) ORDER BY A.SUBMIT_DATE DESC) WHERE ROWNUM < 22 ";*/
+            	/** ANSI CODE**/   sql = "select TOP 22 * from (SELECT A.PM_REF_ID, A.SUBMIT_DATE, A.PRODUCT_TITLE, A.MONIS_STATUS, b.ARTIST_NAME, c.LABEL_DESC, pm_revision_id FROM PM_HEADER A, PM_ARTIST b, PM_LABEL c WHERE A.ARTIST_ID = b.ARTIST_ID AND A.LOCAL_LABEL_ID = c.LABEL_ID AND A.UK_LABEL_GRP_ID in ("+groupsBuffer+")  AND A.pm_revision_id = (SELECT MAX(pm_revision_id) FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id ))S ORDER BY SUBMIT_DATE DESC";    
             	try {
 	        		projectList = new ArrayList();
 	        		connection = getConnection();
@@ -2651,8 +3224,8 @@ public class ProjectMemoDAO extends PMDAO {
             		 counter++;
             	 }
             	             	 
-            	 sql = "SELECT * FROM (SELECT A.PM_REF_ID, A.SUBMIT_DATE, A.PRODUCT_TITLE, A.MONIS_STATUS, B.ARTIST_NAME, C.LABEL_DESC, pm_revision_id FROM PM_HEADER A, PM_ARTIST b, PM_LABEL c WHERE A.ARTIST_ID = b.ARTIST_ID AND A.LOCAL_LABEL_ID = c.LABEL_ID AND A.SUBMIT_BY = ? AND A.UK_LABEL_GRP_ID in("+groupsBuffer+") AND A.pm_revision_id = (SELECT MAX(pm_revision_id) FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id ) ORDER BY A.SUBMIT_DATE DESC) WHERE ROWNUM < 22 ";
-            
+            	 //sql = "SELECT * FROM (SELECT A.PM_REF_ID, A.SUBMIT_DATE, A.PRODUCT_TITLE, A.MONIS_STATUS, B.ARTIST_NAME, C.LABEL_DESC, pm_revision_id FROM PM_HEADER A, PM_ARTIST b, PM_LABEL c WHERE A.ARTIST_ID = b.ARTIST_ID AND A.LOCAL_LABEL_ID = c.LABEL_ID AND A.SUBMIT_BY = ? AND A.UK_LABEL_GRP_ID in("+groupsBuffer+") AND A.pm_revision_id = (SELECT MAX(pm_revision_id) FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id ) ORDER BY A.SUBMIT_DATE DESC) WHERE ROWNUM < 22 ";
+                   sql = "select TOP 22 * from  (SELECT A.PM_REF_ID, A.SUBMIT_DATE, A.PRODUCT_TITLE, A.MONIS_STATUS, B.ARTIST_NAME, C.LABEL_DESC, pm_revision_id FROM PM_HEADER A, PM_ARTIST b, PM_LABEL c WHERE A.ARTIST_ID = b.ARTIST_ID AND A.LOCAL_LABEL_ID = c.LABEL_ID AND A.SUBMIT_BY = ? AND A.UK_LABEL_GRP_ID in ("+groupsBuffer+") AND A.pm_revision_id = (SELECT MAX(pm_revision_id) FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id ))S ORDER BY SUBMIT_DATE DESC";
             	 try {
             		 projectList = new ArrayList();
             		 connection = getConnection();
@@ -2692,7 +3265,7 @@ public class ProjectMemoDAO extends PMDAO {
             	 String sql;
             	 projectList = null;
             	 pm = null;
-            	 sql = (new StringBuilder("SELECT * FROM (SELECT DISTINCT A.pm_ref_id, c.artist_name , A.product_title , d.label_desc , A.monis_status , A.SUBMIT_DATE FROM pm_header A, pm_detail_physical b, pm_artist c, pm_label_uk d WHERE A.pm_revision_id = (SELECT MAX(pm_revision_id) FROM pm_header c WHERE A.pm_ref_id = c.pm_ref_id ) AND A.pm_ref_id = b.pm_ref_id AND A.pm_revision_id = b.pm_revision_id AND A.artist_id = c.artist_id AND A.uk_label_grp_id = d.label_id AND A.monis_status = 'R' AND b.release_date >= (SYSDATE - 30) AND (A.prod_mgr_id ='")).append(userId).append("' OR A.submit_by = '").append(userId).append("') ").append("AND b.release_date = (SELECT MAX(release_date)  FROM pm_detail_physical x WHERE b.pm_ref_id = x.pm_ref_id AND b.pm_revision_id = x.pm_revision_id AND b.pm_detail_id = x.pm_detail_id ) ").append("UNION ").append("SELECT DISTINCT A.pm_ref_id, c.artist_name , A.product_title , d.label_desc , A.monis_status, A.SUBMIT_DATE ").append("FROM pm_header A, pm_detail_digital b, pm_artist c, pm_label_uk d ").append("WHERE A.pm_revision_id = (SELECT MAX(pm_revision_id) FROM pm_header c WHERE A.pm_ref_id = c.pm_ref_id ) AND ").append("A.pm_ref_id = b.pm_ref_id AND A.pm_revision_id = b.pm_revision_id AND A.artist_id = c.artist_id AND A.uk_label_grp_id = d.label_id ").append("AND A.monis_status = 'R' AND b.release_date >= (SYSDATE - 30) ").append("AND (A.prod_mgr_id = '").append(userId).append("' OR A.submit_by = '").append(userId).append("') ").append("AND b.release_date = (SELECT MAX(release_date)  FROM pm_detail_digital x WHERE b.pm_ref_id = x.pm_ref_id AND b.pm_revision_id = x.pm_revision_id AND b.pm_detail_id = x.pm_detail_id ) ").append("UNION ").append("SELECT DISTINCT A.pm_ref_id, c.artist_name , A.product_title , d.label_desc , A.monis_status, A.SUBMIT_DATE ").append("FROM pm_header A, pm_detail_promos b, pm_artist c, pm_label_uk d ").append("WHERE A.pm_revision_id = (SELECT MAX(pm_revision_id) FROM pm_header c WHERE A.pm_ref_id = c.pm_ref_id ) AND ").append("A.pm_ref_id = b.pm_ref_id AND A.pm_revision_id = b.pm_revision_id AND A.artist_id = c.artist_id AND A.uk_label_grp_id = d.label_id ").append("AND A.monis_status = 'R' AND b.stock_req_date >= (SYSDATE - 30) ").append("AND (A.prod_mgr_id = '").append(userId).append("' OR A.submit_by = '").append(userId).append("') ").append("AND b.stock_req_date = (SELECT MAX(stock_req_date)  FROM pm_detail_promos x WHERE b.pm_ref_id = x.pm_ref_id AND b.pm_revision_id = x.pm_revision_id AND b.pm_detail_id = x.pm_detail_id ) ").append(") ORDER BY submit_date desc, pm_ref_id ASC ").toString();
+            	 sql = (new StringBuilder("SELECT * FROM (SELECT DISTINCT A.pm_ref_id, c.artist_name , A.product_title , d.label_desc , A.monis_status , A.SUBMIT_DATE FROM pm_header A, pm_detail_physical b, pm_artist c, pm_label_uk d WHERE A.pm_revision_id = (SELECT MAX(pm_revision_id) FROM pm_header c WHERE A.pm_ref_id = c.pm_ref_id ) AND A.pm_ref_id = b.pm_ref_id AND A.pm_revision_id = b.pm_revision_id AND A.artist_id = c.artist_id AND A.uk_label_grp_id = d.label_id AND A.monis_status = 'R' AND b.release_date >= (CURRENT_TIMESTAMP - 30) AND (A.prod_mgr_id ='")).append(userId).append("' OR A.submit_by = '").append(userId).append("') ").append("AND b.release_date = (SELECT MAX(release_date)  FROM pm_detail_physical x WHERE b.pm_ref_id = x.pm_ref_id AND b.pm_revision_id = x.pm_revision_id AND b.pm_detail_id = x.pm_detail_id ) ").append("UNION ").append("SELECT DISTINCT A.pm_ref_id, c.artist_name , A.product_title , d.label_desc , A.monis_status, A.SUBMIT_DATE ").append("FROM pm_header A, pm_detail_digital b, pm_artist c, pm_label_uk d ").append("WHERE A.pm_revision_id = (SELECT MAX(pm_revision_id) FROM pm_header c WHERE A.pm_ref_id = c.pm_ref_id ) AND ").append("A.pm_ref_id = b.pm_ref_id AND A.pm_revision_id = b.pm_revision_id AND A.artist_id = c.artist_id AND A.uk_label_grp_id = d.label_id ").append("AND A.monis_status = 'R' AND b.release_date >= (SYSDATE - 30) ").append("AND (A.prod_mgr_id = '").append(userId).append("' OR A.submit_by = '").append(userId).append("') ").append("AND b.release_date = (SELECT MAX(release_date)  FROM pm_detail_digital x WHERE b.pm_ref_id = x.pm_ref_id AND b.pm_revision_id = x.pm_revision_id AND b.pm_detail_id = x.pm_detail_id ) ").append("UNION ").append("SELECT DISTINCT A.pm_ref_id, c.artist_name , A.product_title , d.label_desc , A.monis_status, A.SUBMIT_DATE ").append("FROM pm_header A, pm_detail_promos b, pm_artist c, pm_label_uk d ").append("WHERE A.pm_revision_id = (SELECT MAX(pm_revision_id) FROM pm_header c WHERE A.pm_ref_id = c.pm_ref_id ) AND ").append("A.pm_ref_id = b.pm_ref_id AND A.pm_revision_id = b.pm_revision_id AND A.artist_id = c.artist_id AND A.uk_label_grp_id = d.label_id ").append("AND A.monis_status = 'R' AND b.stock_req_date >= (CURRENT_TIMESTAMP - 30) ").append("AND (A.prod_mgr_id = '").append(userId).append("' OR A.submit_by = '").append(userId).append("') ").append("AND b.stock_req_date = (SELECT MAX(stock_req_date)  FROM pm_detail_promos x WHERE b.pm_ref_id = x.pm_ref_id AND b.pm_revision_id = x.pm_revision_id AND b.pm_detail_id = x.pm_detail_id ) ").append(") ORDER BY submit_date desc, pm_ref_id ASC ").toString();
             	 try {
             		 projectList = new ArrayList();
             		 connection = getConnection();
@@ -2734,8 +3307,8 @@ public class ProjectMemoDAO extends PMDAO {
             	 ResultSet rs = null;
             	 PreparedStatement pstmt =null;
             	 Connection connection = null;
-            	 sql = "SELECT * FROM pm_draft_header A, PM_ARTIST J, PM_LABEL C WHERE A.is_being_edited = 'Y' AND A.edited_by= ? AND A.artist_id = J.artist_id AND A.LOCAL_LABEL_ID = c.LABEL_ID AND A.pm_revision_id = (SELECT MAX(pm_revision_id) FROM pm_draft_header b WHERE A.pm_ref_id= b.pm_ref_id) UNION (SELECT * FROM pm_draft_header A, PM_ARTIST J, PM_LABEL C WHERE A.artist_id = J.artist_id AND A.LOCAL_LABEL_ID = c.LABEL_ID AND A.PM_REF_ID IN ( SELECT pm_ref_id  FROM pm_draft_header X WHERE X.submit_by= ? MINUS SELECT pm_ref_id FROM pm_header Y WHERE Y.submit_by=?))ORDER BY 3 DESC ";
-
+            	 //sql = "SELECT * FROM pm_draft_header A, PM_ARTIST J, PM_LABEL C WHERE A.is_being_edited = 'Y' AND A.edited_by= ? AND A.artist_id = J.artist_id AND A.LOCAL_LABEL_ID = c.LABEL_ID AND A.pm_revision_id = (SELECT MAX(pm_revision_id) FROM pm_draft_header b WHERE A.pm_ref_id= b.pm_ref_id) UNION (SELECT * FROM pm_draft_header A, PM_ARTIST J, PM_LABEL C WHERE A.artist_id = J.artist_id AND A.LOCAL_LABEL_ID = c.LABEL_ID AND A.PM_REF_ID IN ( SELECT pm_ref_id  FROM pm_draft_header X WHERE X.submit_by= ? MINUS SELECT pm_ref_id FROM pm_header Y WHERE Y.submit_by=?))ORDER BY 3 DESC ";
+            	 sql= "SELECT TOP 100 * FROM pm_draft_header A, PM_ARTIST J, PM_LABEL C WHERE A.is_being_edited = 'Y' AND A.edited_by= ? AND A.artist_id = J.artist_id AND A.LOCAL_LABEL_ID = c.LABEL_ID AND A.pm_revision_id = (SELECT MAX(pm_revision_id) FROM pm_draft_header b WHERE A.pm_ref_id= b.pm_ref_id) UNION (SELECT * FROM pm_draft_header A, PM_ARTIST J, PM_LABEL C WHERE A.artist_id = J.artist_id AND A.LOCAL_LABEL_ID = c.LABEL_ID AND A.PM_REF_ID IN (SELECT pm_ref_id  FROM pm_draft_header X WHERE X.submit_by= ? EXCEPT SELECT pm_ref_id FROM pm_header Y WHERE Y.submit_by=?)) ORDER BY SUBMIT_DATE DESC";
             	 try {
             		 projectList = new ArrayList();
             		 connection = getConnection();
@@ -4121,7 +4694,7 @@ public class ProjectMemoDAO extends PMDAO {
                            
                           
                            if(rs.getString("VIDEO_DURATION") != null){
-                             if(rs.getString("VIDEO_DURATION") != ("")){
+                             if(!rs.getString("VIDEO_DURATION").equals("")){
                                                                 
                                String videoDuration = rs.getString("VIDEO_DURATION");
                                 
@@ -4887,7 +5460,7 @@ public class ProjectMemoDAO extends PMDAO {
              
              
              
-             public Map getAllPromoDetailsForView(String pmID) {
+             /*public Map getAllPromoDetailsForView(String pmID) {
             	 LinkedHashMap promoDetailsList;
             	 ProjectMemo pmPromoDetail;
             	 ResultSet rs = null;
@@ -4990,7 +5563,7 @@ public class ProjectMemoDAO extends PMDAO {
             	 return promoDetailsList;
              }
 
-             
+             */
              
              
              
@@ -5215,14 +5788,14 @@ public class ProjectMemoDAO extends PMDAO {
 /* 3146*/                pmDigitalDetail.setDigitalIntlRelease(rs.getString("IS_INTL_REL"));
 /* 3146*/                pmDigitalDetail.setVideoPremierTime(rs.getString("VIDEO_PREMIER_TIME"));
 
-                        if(rs.getString("VIDEO_DURATION") != null){
-                          if((rs.getString("VIDEO_DURATION") != ("") || rs.getString("VIDEO_DURATION") != (":"))){
+                        
                             String videoDuration = rs.getString("VIDEO_DURATION");
+                            if ((videoDuration !=null) && (!(videoDuration.equals("")))){
                             String[] units = videoDuration.split(":");
                             pmDigitalDetail.setVideoDurationMins(units[0]);
                             pmDigitalDetail.setVideoDurationSecs(units[1]);
                           }
-                        }
+                        
 
 
 
@@ -6171,10 +6744,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             		 if (searchType.equals("artist")) {
             		    
             			 searchLike = (new StringBuilder("%")).append(searchString).append("%").toString();            			 
-            			 pstmt = connection.prepareStatement("SELECT * " +
-            					 "  FROM (SELECT ROW_NUMBER () " +
-            					 "					OVER (ORDER BY submit_date DESC, artist_name ASC, product_title, pm_ref_id DESC) " +
-            					 "						AS rn, " +
+            			 pstmt = connection.prepareStatement("SELECT TOP 50 " +
             					 "					product_title, " +
             					 "					artist_name, " +
             					 "					pm_ref_id, " +
@@ -6186,19 +6756,19 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             					 "					submit_by,  " +
             					 "                    submit_date, " +
             					 "                    prod_type_desc " +
-            					 "			 FROM pm_header a, pm_artist b, pm_label_uk c, pm_product_type d " +
-            					 "			WHERE 	 a.uk_label_grp_id = c.label_id " +
+            					 "			 	FROM pm_header a, pm_artist b, pm_label_uk c, pm_product_type d " +
+            					 "			    WHERE a.uk_label_grp_id = c.label_id " +
             					 "					AND c.label_id in ("+groupsBuffer.toString()+") "+ 
             					 "					AND b.artist_id = a.artist_id " +
             					 "                    AND D.PROD_TYPE_ID = A.PROD_TYPE_ID " +
-            					 "					AND to_char(LOWER (b.artist_name)) LIKE LOWER (?) " +            					            					 
+            					 "					AND (LOWER (b.artist_name)) LIKE LOWER (?) " +            					            					 
             					 "					AND a.pm_revision_id = (SELECT MAX (pm_revision_id) " +
-            					 "													  FROM pm_header x " +
-            					 " WHERE x.pm_ref_id = a.pm_ref_id)) WHERE rn BETWEEN ? AND ? ");
+            					 "											FROM pm_header x " +
+            					 " 											WHERE x.pm_ref_id = a.pm_ref_id) "
+            					 + "			ORDER BY submit_date DESC, artist_name ASC, product_title, pm_ref_id DESC");
 
             			 pstmt.setString(1, searchLike);
-            			 pstmt.setLong(2, lowNumber);
-            			 pstmt.setLong(3, upperNumber);
+            			 
 
             			 ProjectMemo pmReturned;
             			 for (rs = pstmt.executeQuery(); rs.next(); returnedResults.add(pmReturned)) {
@@ -6217,7 +6787,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             				 String submittedDate = formatter.format(datesubmitted);
             				 pmReturned.setDateSubmitted(submittedDate);
             				 pmReturned.setProductType(rs.getString("PROD_TYPE_DESC"));
-            				 pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
+            				// pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
             			 }
 
 
@@ -6227,19 +6797,17 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             				 NumberFormat.getInstance().parse(searchString);
 
             				 searchLike = searchString;
-            				 pstmt = connection.prepareStatement("SELECT * FROM (SELECT ROW_NUMBER () " +
-            						 "OVER (ORDER BY pm_ref_id DESC) AS rn, PRODUCT_TITLE, ARTIST_NAME, PM_REF_ID, MONIS_STATUS, PROD_MGR_ID, IS_BEING_EDITED, LOCAL_LABEL_ID, EDITED_BY, SUBMIT_BY " +
+            				 pstmt = connection.prepareStatement("SELECT TOP 50 PRODUCT_TITLE, ARTIST_NAME, PM_REF_ID, MONIS_STATUS, PROD_MGR_ID, IS_BEING_EDITED, LOCAL_LABEL_ID, EDITED_BY, SUBMIT_BY " +
             						 "FROM PM_HEADER A, PM_ARTIST B, PM_LABEL_UK C WHERE A.UK_LABEL_GRP_ID = C.LABEL_ID " +
             						 "AND c.label_id in ("+groupsBuffer.toString()+") " +
             						 "AND B.ARTIST_ID = A.ARTIST_ID " +
             						 "AND A.PM_REF_ID =  ? " +
             						 "AND A.PM_REVISION_ID = (SELECT MAX(pm_revision_id) " +
-            						 "FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id  )) " +
-            						 "WHERE  rn BETWEEN ? AND ?");
+            						 "FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id) " +
+            						 "ORDER BY pm_ref_id DESC");
 
             				 pstmt.setString(1, searchLike);
-            				 pstmt.setLong(2, lowNumber);
-            				 pstmt.setLong(3, upperNumber);
+
 
             				 ProjectMemo pmReturned;
             				 for (rs = pstmt.executeQuery(); rs.next(); returnedResults.add(pmReturned)) {
@@ -6253,7 +6821,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             					 pmReturned.setLocalLabel(rs.getString("LOCAL_LABEL_ID"));
             					 pmReturned.setEditedBy(rs.getString("EDITED_BY"));
             					 pmReturned.setFrom(rs.getString("SUBMIT_BY"));
-            					 pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
+            					// pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
             				 }
             			 }
             			 catch(Exception e)
@@ -6263,9 +6831,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
 
             		 } else if (searchType.equals("title")) {
             			 	       searchLike = (new StringBuilder("%")).append(searchString).append("%").toString();
-            				       pstmt = connection.prepareStatement("SELECT *   FROM (SELECT ROW_NUMBER () " +
-            					 " OVER (ORDER BY submit_date DESC, artist_name ASC, product_title, pm_ref_id DESC) " +
-            					 " AS rn,                      " +
+            				       pstmt = connection.prepareStatement("SELECT TOP 50 " +
             					 " product_title,                      " +
             					 " artist_name,                      " +
             					 " pm_ref_id,                      " +
@@ -6279,17 +6845,16 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             					 " prod_type_desc " +
             					 " FROM pm_header a, pm_artist b, pm_label_uk c, pm_product_type d" +
             					 " WHERE  a.uk_label_grp_id = c.label_id " +
-            					 " AND c.label_id in ("+groupsBuffer.toString()+") " +
-            					 " AND b.artist_id = a.artist_id  " +
-            					 " AND D.PROD_TYPE_ID = A.PROD_TYPE_ID" +
-            					 " AND LOWER (A.PRODUCT_TITLE) LIKE LOWER (?)" +
-            					 " AND a.pm_revision_id = (SELECT MAX (pm_revision_id) " +
-            					 " FROM pm_header x " +
-            					 " WHERE x.pm_ref_id = a.pm_ref_id)) WHERE rn BETWEEN ? AND ? ");
+            					 "	 	AND c.label_id in ("+groupsBuffer.toString()+") " +
+            					 " 		AND b.artist_id = a.artist_id  " +
+            					 " 		AND D.PROD_TYPE_ID = A.PROD_TYPE_ID" +
+            					 " 		AND LOWER (A.PRODUCT_TITLE) LIKE LOWER (?)" +
+            					 " 		AND a.pm_revision_id = (SELECT MAX (pm_revision_id) " +
+	            				 " 								FROM pm_header x " +
+	            				 " 								WHERE x.pm_ref_id = a.pm_ref_id)  "
+            					 + "ORDER BY submit_date DESC, artist_name ASC, product_title, pm_ref_id DESC ");
 
             			 pstmt.setString(1, searchLike);
-            			 pstmt.setLong(2, lowNumber);
-            			 pstmt.setLong(3, upperNumber);
 
             			 ProjectMemo pmReturned;
             			 for (rs = pstmt.executeQuery(); rs.next(); returnedResults.add(pmReturned)) {
@@ -6308,13 +6873,12 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             				 String submittedDate = formatter.format(datesubmitted);
             				 pmReturned.setDateSubmitted(submittedDate);
             				 pmReturned.setProductType(rs.getString("PROD_TYPE_DESC"));
-            				 pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
+            				// pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
             			 }
 
             		 } else if (searchType.equals("label")) {
             			 searchLike = (new StringBuilder("%")).append(searchString).append("%").toString();
-            			 pstmt = connection.prepareStatement("Select * from (SELECT ROW_NUMBER () " +
-            					 "OVER (ORDER BY D.LABEL_DESC, ARTIST_NAME) AS rn, PRODUCT_TITLE, ARTIST_NAME, PM_REF_ID, MONIS_STATUS, PROD_MGR_ID, IS_BEING_EDITED, D.LABEL_DESC AS "+localDesc+", " +
+            			 pstmt = connection.prepareStatement("Select TOP 100 PRODUCT_TITLE, ARTIST_NAME, PM_REF_ID, MONIS_STATUS, PROD_MGR_ID, IS_BEING_EDITED, D.LABEL_DESC AS "+localDesc+", " +
             					 "C.LABEL_DESC AS "+ukDesc+", LOCAL_LABEL_ID, EDITED_BY, SUBMIT_BY " +
             					 "FROM PM_HEADER A, PM_ARTIST B, PM_LABEL_UK C, PM_LABEL D " +
             					 "WHERE A.UK_LABEL_GRP_ID = C.LABEL_ID " +
@@ -6323,11 +6887,10 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             					 "AND B.ARTIST_ID = A.ARTIST_ID " +
             					 "AND lower(D.LABEL_DESC) LIKE lower( ? ) " +
             					 "AND A.PM_REVISION_ID = (SELECT MAX(pm_revision_id) " +
-            					 "FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id  )) WHERE  rn BETWEEN ? AND ?");
+            					 "FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id )ORDER BY D.LABEL_DESC, ARTIST_NAME");
 
             			 pstmt.setString(1, searchLike);
-            			 pstmt.setLong(2, lowNumber);
-            			 pstmt.setLong(3, upperNumber);
+
 
             			 ProjectMemo pmReturned;
             			 for (rs = pstmt.executeQuery(); rs.next(); returnedResults.add(pmReturned)) {
@@ -6342,13 +6905,12 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             				 pmReturned.setUkLabelGroup(rs.getString("UK_LABEL"));
             				 pmReturned.setEditedBy(rs.getString("EDITED_BY"));
             				 pmReturned.setFrom(rs.getString("SUBMIT_BY"));
-            				 pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
+            				// pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
             			 }
 
                      } else if (searchType.equals("usLabel")) {
                        searchLike = (new StringBuilder("%")).append(searchString).append("%").toString();
-                       pstmt = connection.prepareStatement("Select * from (SELECT ROW_NUMBER () " +
-                               "OVER (ORDER BY D.LABEL_DESC, ARTIST_NAME) AS rn, PRODUCT_TITLE, ARTIST_NAME, PM_REF_ID, MONIS_STATUS, PROD_MGR_ID, IS_BEING_EDITED, D.LABEL_DESC AS US_LABEL, " +
+                       pstmt = connection.prepareStatement("Select TOP 100 PRODUCT_TITLE, ARTIST_NAME, PM_REF_ID, MONIS_STATUS, PROD_MGR_ID, IS_BEING_EDITED, D.LABEL_DESC AS US_LABEL, " +
                                "C.LABEL_DESC AS UK_LABEL_GROUP, LOCAL_LABEL_ID, EDITED_BY, SUBMIT_BY " +
                                "FROM PM_HEADER A, PM_ARTIST B, PM_LABEL_UK C, PM_LABEL D " +
                                "WHERE A.UK_LABEL_GRP_ID = C.LABEL_ID " +
@@ -6357,11 +6919,10 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
                                "AND B.ARTIST_ID = A.ARTIST_ID " +
                                "AND lower(D.LABEL_DESC) LIKE lower( ? ) " +
                                "AND A.PM_REVISION_ID = (SELECT MAX(pm_revision_id) " +
-                               "FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id  )) WHERE  rn BETWEEN ? AND ?");
+                               "FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id  )ORDER BY D.LABEL_DESC, ARTIST_NAME");
 
                        pstmt.setString(1, searchLike);
-                       pstmt.setLong(2, lowNumber);
-                       pstmt.setLong(3, upperNumber);
+
 
                        ProjectMemo pmReturned;
                        for (rs = pstmt.executeQuery(); rs.next(); returnedResults.add(pmReturned)) {
@@ -6376,49 +6937,13 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
                            pmReturned.setUsLabel(rs.getString("US_LABEL"));
                            pmReturned.setEditedBy(rs.getString("EDITED_BY"));
                            pmReturned.setFrom(rs.getString("SUBMIT_BY"));
-                           pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
+                          // pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
                        }
             			 
             			 
-            		 } else if (searchType.equals("marketingLabel")) {
+            		 }  else if (searchType.equals("UKlabelGroup")) {
             			 searchLike = "%"+searchString+"%";
-            			 pstmt = connection.prepareStatement("Select * from (SELECT ROW_NUMBER () OVER (ORDER BY C.LABEL_DESC, ARTIST_NAME) " +
-            					 "AS rn, PRODUCT_TITLE, ARTIST_NAME, PM_REF_ID, MONIS_STATUS, PROD_MGR_ID, IS_BEING_EDITED, C.LABEL_DESC AS "+mktingDesc+", D.LABEL_DESC AS "+ukDesc+", MKT_LABEL_ID, EDITED_BY, SUBMIT_BY " +
-            					 "FROM PM_HEADER A, PM_ARTIST B, PM_LABEL_UK C, PM_LABEL_UK D " +
-            					 "WHERE  a.uk_label_grp_id = d.label_id " +
-            					 "AND a.mkt_label_id = c.label_id " +
-            					 "AND B.ARTIST_ID = A.ARTIST_ID " +
-            					 "AND lower(C.LABEL_DESC) LIKE lower( ? ) " +
-            					 "AND d.label_id in ("+groupsBuffer.toString()+") " +
-            					 "AND A.PM_REVISION_ID = (SELECT MAX(pm_revision_id) " +
-            					 "FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id  ))" +
-            					 "WHERE  rn BETWEEN ? AND ?");
-
-            			 pstmt.setString(1, searchLike);
-            			 pstmt.setLong(2, lowNumber);
-            			 pstmt.setLong(3, upperNumber);
-
-            			 ProjectMemo pmReturned;
-            			 for (rs = pstmt.executeQuery(); rs.next(); returnedResults.add(pmReturned)) {
-            				 pmReturned = new ProjectMemo();
-            				 FormHelper fh = new FormHelper();
-            				 pmReturned.setMemoRef(rs.getString("PM_REF_ID"));
-            				 pmReturned.setArtist(rs.getString("ARTIST_NAME"));
-            				 pmReturned.setTitle(rs.getString("PRODUCT_TITLE"));
-            				 pmReturned.setProductManagerId(rs.getString("PROD_MGR_ID"));
-            				 pmReturned.setIsBeingEdited(rs.getString("IS_BEING_EDITED"));
-            				 pmReturned.setMarketingLabel(rs.getString("MARKETING_LABEL"));
-            				 pmReturned.setUkLabelGroup(rs.getString("UK_LABEL"));
-            				 pmReturned.setEditedBy(rs.getString("EDITED_BY"));
-            				 pmReturned.setFrom(rs.getString("SUBMIT_BY"));
-            				 pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
-            			 }
-
-
-            		 } else if (searchType.equals("UKlabelGroup")) {
-            			 searchLike = "%"+searchString+"%";
-            			 pstmt = connection.prepareStatement("Select * from (SELECT ROW_NUMBER () OVER (ORDER BY C.LABEL_DESC, ARTIST_NAME) " +
-            					 "AS rn, PRODUCT_TITLE, ARTIST_NAME, PM_REF_ID, MONIS_STATUS, PROD_MGR_ID, IS_BEING_EDITED, D.LABEL_DESC AS "+localDesc+" , C.LABEL_DESC AS "+ukDesc+", LOCAL_LABEL_ID, EDITED_BY, SUBMIT_BY " +
+            			 pstmt = connection.prepareStatement("Select TOP 100 PRODUCT_TITLE, ARTIST_NAME, PM_REF_ID, MONIS_STATUS, PROD_MGR_ID, IS_BEING_EDITED, D.LABEL_DESC AS "+localDesc+" , C.LABEL_DESC AS "+ukDesc+", LOCAL_LABEL_ID, EDITED_BY, SUBMIT_BY " +
             					 "FROM PM_HEADER A, PM_ARTIST B, PM_LABEL_UK C, PM_LABEL D " +
             					 "WHERE A.UK_LABEL_GRP_ID = C.LABEL_ID " +
             					 "AND A.LOCAL_LABEL_ID = D.LABEL_ID " +
@@ -6426,13 +6951,11 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             					 "AND B.ARTIST_ID = A.ARTIST_ID " +
             					 "AND lower(C.LABEL_DESC) LIKE lower( ? ) " +
             					 "AND A.PM_REVISION_ID = (SELECT MAX(pm_revision_id) " +
-            					 "FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id  )) " +
-            					 "WHERE  rn BETWEEN ? AND ?");
+            					 "FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id ) ORDER BY C.LABEL_DESC, ARTIST_NAME");
 
 
             			 pstmt.setString(1, searchLike);
-            			 pstmt.setLong(2, lowNumber);
-            			 pstmt.setLong(3, upperNumber);
+      
 
             			 ProjectMemo pmReturned;
             			 for (rs = pstmt.executeQuery(); rs.next(); returnedResults.add(pmReturned)) {
@@ -6447,13 +6970,12 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             				 pmReturned.setUkLabelGroup(rs.getString("UK_LABEL"));
             				 pmReturned.setEditedBy(rs.getString("EDITED_BY"));
             				 pmReturned.setFrom(rs.getString("SUBMIT_BY"));
-            				 pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
+            				// pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
             			 }
 
             		 } else if (searchType.equals("prodMan")) {
             			 searchLike = "%"+searchString+"%";
-            			 pstmt = connection.prepareStatement("Select * from (SELECT ROW_NUMBER () OVER (ORDER BY PROD_MGR_NAME DESC, ARTIST_NAME) " +
-            					 "AS rn, PRODUCT_TITLE, ARTIST_NAME, PM_REF_ID, MONIS_STATUS, A.PROD_MGR_ID, PROD_MGR_NAME, IS_BEING_EDITED, LOCAL_LABEL_ID, EDITED_BY, SUBMIT_BY " +
+            			 pstmt = connection.prepareStatement("Select TOP 100 PRODUCT_TITLE, ARTIST_NAME, PM_REF_ID, MONIS_STATUS, A.PROD_MGR_ID, PROD_MGR_NAME, IS_BEING_EDITED, LOCAL_LABEL_ID, EDITED_BY, SUBMIT_BY " +
             					 "FROM PM_HEADER A, PM_ARTIST B, PM_PRODUCT_MANAGER C, PM_LABEL_UK D " +
             					 "WHERE A.UK_LABEL_GRP_ID = D.LABEL_ID " +
             					 "AND d.label_id in ("+groupsBuffer.toString()+") " +
@@ -6461,12 +6983,9 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             					 "AND A.PROD_MGR_ID = C.PROD_MGR_ID " +
             					 "AND lower(C.PROD_MGR_NAME) LIKE lower ( ? ) " +
             					 "AND A.PM_REVISION_ID = (SELECT MAX(pm_revision_id) " +
-            					 "FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id  )) " +
-            					 "WHERE  rn BETWEEN ? AND ?");
+            					 "FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id ) ORDER BY PROD_MGR_NAME DESC, ARTIST_NAME");
 
             			 pstmt.setString(1, searchLike);
-            			 pstmt.setLong(2, lowNumber);
-            			 pstmt.setLong(3, upperNumber);
 
             			 ProjectMemo pmReturned;
             			 for (rs = pstmt.executeQuery(); rs.next(); returnedResults.add(pmReturned)) {
@@ -6480,15 +6999,14 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             				 pmReturned.setLocalLabel(rs.getString("LOCAL_LABEL_ID"));
             				 pmReturned.setEditedBy(rs.getString("EDITED_BY"));
             				 pmReturned.setFrom(rs.getString("SUBMIT_BY"));
-            				 pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
+            				
             			 }
 
 
 
             		 } else if (searchType.equals("submitBy")) {
             			 searchLike = "%"+searchString+"%";
-            			 pstmt = connection.prepareStatement("Select * from (SELECT ROW_NUMBER () OVER (ORDER BY SUBMIT_BY ASC, ARTIST_NAME) " +
-            					 "AS rn, PRODUCT_TITLE, ARTIST_NAME, PM_REF_ID, MONIS_STATUS, PROD_MGR_ID, IS_BEING_EDITED, LOCAL_LABEL_ID, EDITED_BY, SUBMIT_BY " +
+            			 pstmt = connection.prepareStatement("Select TOP 100 PRODUCT_TITLE, ARTIST_NAME, PM_REF_ID, MONIS_STATUS, PROD_MGR_ID, IS_BEING_EDITED, LOCAL_LABEL_ID, EDITED_BY, SUBMIT_BY " +
             					 "FROM PM_HEADER A, PM_ARTIST B, PM_SECURITY_USER C, PM_LABEL_UK D " +
             					 "WHERE A.UK_LABEL_GRP_ID = D.LABEL_ID " +
             					 "AND d.label_id in ("+groupsBuffer.toString()+") " +
@@ -6496,12 +7014,10 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             					 "AND B.ARTIST_ID = A.ARTIST_ID " +
             					 "AND LOWER(CONCAT(c.first_name, c.last_name)) LIKE LOWER ( ? )" +
             					 "AND A.PM_REVISION_ID = (SELECT MAX(pm_revision_id) " +
-            					 "FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id )) " +
-            					 "WHERE  rn BETWEEN ? AND ? ");
+            					 "FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id )ORDER BY SUBMIT_BY ASC, ARTIST_NAME ");
 
             			 pstmt.setString(1, searchLike);
-            			 pstmt.setLong(2, lowNumber);
-            			 pstmt.setLong(3, upperNumber);
+
 
             			 ProjectMemo pmReturned;
             			 for (rs = pstmt.executeQuery(); rs.next(); returnedResults.add(pmReturned)) {
@@ -6515,46 +7031,47 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             				 pmReturned.setLocalLabel(rs.getString("LOCAL_LABEL_ID"));
             				 pmReturned.setEditedBy(rs.getString("EDITED_BY"));
             				 pmReturned.setFrom(rs.getString("SUBMIT_BY"));
-            				 pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
+            				// pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
             			 }
 
 
             		 } else if (searchType.equals("reldate")) {
             			 searchLike = "%"+searchString+"%";
-            			 pstmt = connection.prepareStatement("SELECT * FROM( SELECT ROW_NUMBER () OVER (ORDER BY RELEASE_DATE, ARTIST_NAME, PRODUCT_TITLE) AS rn, PM_REF_ID, RELEASE_DATE, PRODUCT_TITLE, ARTIST_NAME, IS_BEING_EDITED,MONIS_STATUS " +
-            					 "FROM " +
-            					 "(SELECT * FROM (" +
-            					 "SELECT A.pm_ref_id, A.release_date, H.IS_BEING_EDITED, h.product_title, T.artist_name, h.monis_status " +
-            					 "FROM pm_detail_physical  A, pm_product_format P, pm_header h, pm_artist T, PM_LABEL_UK D  " +
-            					 "WHERE A.prod_format_id = P.prod_format_id AND  A.pm_revision_id = (SELECT MAX(pm_revision_id) FROM pm_header x WHERE A.pm_ref_id = x.pm_ref_id  ) " +
-            					 "AND H.UK_LABEL_GRP_ID = D.LABEL_ID " +
-            					 "AND d.label_id in ("+groupsBuffer.toString()+") " +
-            					 "AND A.pm_ref_id = h.pm_ref_id " +
-            					 "AND A.pm_revision_id = h.pm_revision_id " +
-            					 "AND h.artist_id = T.artist_id " +
-            					 "UNION " +
-            					 "SELECT A.pm_ref_id, A.stock_req_date, H.IS_BEING_EDITED, h.product_title, T.artist_name, h.monis_status "+  
-            					 "FROM pm_detail_promos  A, pm_product_format P, pm_header h, pm_artist T, PM_LABEL_UK D  " +
-            					 "WHERE A.prod_format_id = P.prod_format_id " +
-            					 "AND  A.pm_revision_id = (SELECT MAX(pm_revision_id) FROM pm_header x WHERE A.pm_ref_id = x.pm_ref_id  ) " +
-            					 "AND H.UK_LABEL_GRP_ID = D.LABEL_ID " +
-            					 "AND d.label_id in ("+groupsBuffer.toString()+") " +
-            					 "AND A.pm_ref_id = h.pm_ref_id AND A.pm_revision_id = h.pm_revision_id AND h.artist_id = T.artist_id " +
-            					 "UNION " + 
-            					 "SELECT A.pm_ref_id, A.release_date, H.IS_BEING_EDITED, h.product_title, T.artist_name, h.monis_status " +
-            					 "FROM pm_detail_digital  A, pm_product_format P, pm_header h, pm_artist T, PM_LABEL_UK D  " +
-            					 "WHERE A.prod_format_id = P.prod_format_id " +
-            					 "AND  A.pm_revision_id = (SELECT MAX(pm_revision_id) FROM pm_header x WHERE A.pm_ref_id = x.pm_ref_id  ) " +
-            					 "AND H.UK_LABEL_GRP_ID = D.LABEL_ID " +
-            					 "AND d.label_id in ("+groupsBuffer.toString()+") " +
-            					 "AND A.pm_ref_id = h.pm_ref_id " +
-            					 "AND A.pm_revision_id = h.pm_revision_id " +
-            					 "AND h.artist_id = T.artist_id) " +
-            					 "WHERE TO_CHAR(release_date, 'DD FMMONTH YYYY' ) LIKE '"+searchLike.toUpperCase()+"'))" +
-            					 " WHERE  rn BETWEEN ? AND ? ");
+            			 pstmt = connection.prepareStatement("SELECT TOP 100 PM_REF_ID, RELEASE_DATE, PRODUCT_TITLE, ARTIST_NAME, IS_BEING_EDITED,MONIS_STATUS  " +
+            					 "FROM ( " +
+            					 "        SELECT A.pm_ref_id, A.release_date, H.IS_BEING_EDITED, h.product_title, T.artist_name, h.monis_status  " +
+            					 "        FROM pm_detail_physical  A, pm_product_format P, pm_header h, pm_artist T, PM_LABEL_UK D   " +
+            					 "        WHERE A.prod_format_id = P.prod_format_id AND  A.pm_revision_id =  " +
+            					 "                (SELECT MAX(pm_revision_id) FROM pm_header x WHERE A.pm_ref_id = x.pm_ref_id  )  " +
+            					 "        AND H.UK_LABEL_GRP_ID = D.LABEL_ID  " +
+            					 "        AND d.label_id in ("+groupsBuffer.toString()+")  " +
+            					 "        AND A.pm_ref_id = h.pm_ref_id  " +
+            					 "        AND A.pm_revision_id = h.pm_revision_id  " +
+            					 "        AND h.artist_id = T.artist_id  " +
+            					 "UNION  " +
+            					 "        SELECT A.pm_ref_id, A.stock_req_date, H.IS_BEING_EDITED, h.product_title, T.artist_name, h.monis_status  " +
+            					 "        FROM pm_detail_promos  A, pm_product_format P, pm_header h, pm_artist T, PM_LABEL_UK D   " +
+            					 "        WHERE A.prod_format_id = P.prod_format_id  " +
+            					 "        AND  A.pm_revision_id =  " +
+            					 "                (SELECT MAX(pm_revision_id) FROM pm_header x WHERE A.pm_ref_id = x.pm_ref_id  ) " +
+            					 "        AND H.UK_LABEL_GRP_ID = D.LABEL_ID  " +
+            					 "        AND d.label_id in ("+groupsBuffer.toString()+")  " +
+            					 "        AND A.pm_ref_id = h.pm_ref_id  " +
+            					 "        AND A.pm_revision_id = h.pm_revision_id  " +
+            					 "        AND h.artist_id = T.artist_id  " +
+            					 "UNION  " +
+            					 "        SELECT A.pm_ref_id, A.release_date, H.IS_BEING_EDITED, h.product_title, T.artist_name, h.monis_status  " +
+            					 "        FROM pm_detail_digital  A, pm_product_format P, pm_header h, pm_artist T, PM_LABEL_UK D   " +
+            					 "        WHERE A.prod_format_id = P.prod_format_id  " +
+            					 "        AND  A.pm_revision_id =  " +
+            					 "                (SELECT MAX(pm_revision_id) FROM pm_header x WHERE A.pm_ref_id = x.pm_ref_id  ) " +
+            					 "        AND H.UK_LABEL_GRP_ID = D.LABEL_ID  " +
+            					 "        AND d.label_id in ("+groupsBuffer.toString()+")  " +
+            					 "        AND A.pm_ref_id = h.pm_ref_id  " +
+            					 "        AND A.pm_revision_id = h.pm_revision_id  " +
+            					 "        AND h.artist_id = T.artist_id)s " +
+            					 "        WHERE convert(varchar, release_date, 106) LIKE ('"+searchLike.toUpperCase()+"') ORDER BY RELEASE_DATE, ARTIST_NAME, PRODUCT_TITLE");
 
-            			 pstmt.setLong(1, lowNumber);
-            			 pstmt.setLong(2, upperNumber);
 
             			 ProjectMemo pmReturned;
             			 for (rs = pstmt.executeQuery(); rs.next(); returnedResults.add(pmReturned)) {
@@ -6565,7 +7082,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             				 pmReturned.setTitle(rs.getString("PRODUCT_TITLE"));
             				 pmReturned.setDigitalReleaseDate(rs.getString("RELEASE_DATE"));
             				 pmReturned.setIsBeingEdited(rs.getString("IS_BEING_EDITED"));
-            				 pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
+            				// pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
             			 }
 
 
@@ -6574,7 +7091,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             			 {
             				 NumberFormat.getInstance().parse(searchString);
 
-            			 searchLike = "%"+searchString+"%";
+            			 searchLike = "('%"+searchString+"%')";
             			// pstmt = connection.prepareStatement("SELECT * FROM" +
             				//	 "( SELECT ROW_NUMBER () OVER (ORDER BY ARTIST_NAME, PRODUCT_TITLE) AS rn, PRODUCT_TITLE, ARTIST_NAME, PM_REF_ID, MONIS_STATUS, IS_BEING_EDITED, BARCODE, EDITED_BY, SUBMIT_BY, PM_DETAIL_ID " +
             				//	 "FROM (" +
@@ -6610,48 +7127,104 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             			 
             			 
             			 
-            			 pstmt = connection.prepareStatement("SELECT * FROM" +
-            			 "( SELECT ROW_NUMBER () OVER (ORDER BY ARTIST_NAME, PRODUCT_TITLE) AS rn, PRODUCT_TITLE, ARTIST_NAME, PM_REF_ID, MONIS_STATUS, IS_BEING_EDITED, BARCODE, EDITED_BY, SUBMIT_BY, PM_DETAIL_ID, LOWER(PROD_FORMAT_TYPE)  " +
-            			 "FROM ( " +
-            			 "SELECT A.PRODUCT_TITLE, C.ARTIST_NAME, B.PM_REF_ID, A.MONIS_STATUS, A.IS_BEING_EDITED, B.BARCODE, A.EDITED_BY, A.SUBMIT_BY, B.PM_DETAIL_ID, F.PROD_FORMAT_TYPE  " +
-            			 "FROM PM_HEADER A, PM_DETAIL_DIGITAL B, PM_ARTIST C, PM_LABEL_UK D, PM_PRODUCT_FORMAT F " +
-            			 "WHERE A.UK_LABEL_GRP_ID = D.LABEL_ID  " +
-            			 "AND d.label_id in ("+groupsBuffer.toString()+") " +
-            			 "AND C.ARTIST_ID = A.ARTIST_ID   " +
-            			 "AND B.PM_REVISION_ID = (SELECT MAX(pm_revision_id)  FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id )  " +
-            			 "AND A.PM_REF_ID = B.PM_REF_ID  " +
-            			 "AND A.PM_REVISION_ID = B.PM_REVISION_ID  " +
-            			 "AND F.PROD_FORMAT_ID = B.PROD_FORMAT_ID " +
-            			 "UNION  " +
-            			 "SELECT A.PRODUCT_TITLE, C.ARTIST_NAME, B.PM_REF_ID, A.MONIS_STATUS, A.IS_BEING_EDITED, B.BARCODE, A.EDITED_BY, A.SUBMIT_BY, B.PM_DETAIL_ID, F.PROD_FORMAT_TYPE  " +
-            			 "FROM PM_HEADER A, PM_DETAIL_PHYSICAL B, PM_ARTIST C, PM_LABEL_UK D , PM_PRODUCT_FORMAT F " +
-            			 "WHERE A.UK_LABEL_GRP_ID = D.LABEL_ID  " +
-            			 "AND d.label_id in ("+groupsBuffer.toString()+") " +
-            			 "AND A.PM_REVISION_ID = B.PM_REVISION_ID  " +
-            			 "AND B.PM_REVISION_ID = (SELECT MAX(pm_revision_id) FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id)  " +
-            			 "AND C.ARTIST_ID = A.ARTIST_ID   " +
-            			 "AND A.PM_REF_ID = B.PM_REF_ID   " +
-            			 "AND F.PROD_FORMAT_ID = B.PROD_FORMAT_ID " +
-            			 "UNION  " +
-            			 "SELECT a.product_title, c.artist_name, b.pm_ref_id, a.monis_status, a.is_being_edited, b.de_barcode as barcode, a.edited_by, a.submit_by, B.PM_DETAIL_ID, F.PROD_FORMAT_TYPE   " +
-            			 "FROM pm_header a, pm_detail_physical b, pm_artist c, pm_label_uk d , PM_PRODUCT_FORMAT F " +
-            			 "WHERE a.uk_label_grp_id = d.label_id  " +
-            			 "AND d.label_id in ("+groupsBuffer.toString()+") " +
-            			 "AND A.PM_REVISION_ID = B.PM_REVISION_ID " +
-            			 "AND F.PROD_FORMAT_ID = B.PROD_FORMAT_ID  " +
-            			 "AND B.PM_REVISION_ID = (SELECT MAX(pm_revision_id) FROM  pm_header x WHERE x.pm_ref_id = A.pm_ref_id)  " +
-            			 "AND C.ARTIST_ID = A.ARTIST_ID   " +
-            			 "AND A.PM_REF_ID = B.PM_REF_ID )  " +
-            			 "WHERE BARCODE LIKE ?)  WHERE  rn BETWEEN ? AND ? ");
+            			 pstmt = connection.prepareStatement("SELECT TOP 100 PRODUCT_TITLE, ARTIST_NAME, " +
+            					 "                       PM_REF_ID, " +
+            					 "                       MONIS_STATUS, " +
+            					 "                       IS_BEING_EDITED, " +
+            					 "                       BARCODE, " +
+            					 "                       EDITED_BY, " +
+            					 "                       SUBMIT_BY, " +
+            					 "                       PM_DETAIL_ID, " +
+            					 "                       PROD_FORMAT_TYPE FROM( " +
+            					 "						SELECT PRODUCT_TITLE, " +
+            					 "                       ARTIST_NAME, " +
+            					 "                       B.PM_REF_ID, " +
+            					 "                       A.MONIS_STATUS, " +
+            					 "                       IS_BEING_EDITED, " +
+            					 "                       BARCODE, " +
+            					 "                       EDITED_BY, " +
+            					 "                       SUBMIT_BY, " +
+            					 "                       PM_DETAIL_ID, " +
+            					 "                       PROD_FORMAT_TYPE " +
+            					 "                  FROM PM_HEADER  A " +
+            					 "                       INNER JOIN PM_DETAIL_DIGITAL B " +
+            					 "                           ON (A.PM_REF_ID = B.PM_REF_ID) " +
+            					 "                              AND (A.PM_REVISION_ID = B.PM_REVISION_ID) " +
+            					 "                       INNER JOIN PM_LABEL_UK D " +
+            					 "                           ON (UK_LABEL_GRP_ID = LABEL_ID) " +
+            					 "                       INNER JOIN PM_ARTIST C " +
+            					 "                           ON (C.ARTIST_ID = A.ARTIST_ID) " +
+            					 "                       INNER JOIN PM_PRODUCT_FORMAT F " +
+            					 "                           ON (F.PROD_FORMAT_ID = B.PROD_FORMAT_ID) " +
+            					 "                       WHERE   LABEL_ID IN  ("+groupsBuffer.toString()+")  " +
+            					 "                       AND (B.PM_REVISION_ID = " +
+            					 "                            (SELECT MAX (X.PM_REVISION_ID) " +
+            					 "                               FROM PM_HEADER X " +
+            					 "                              WHERE X.PM_REF_ID = A.PM_REF_ID)) " +
+            					 "                              AND BARCODE LIKE "+searchLike+"  " +
+            					 " 						union      " +
+            					 " 						SELECT PRODUCT_TITLE, " +
+            					 "                       ARTIST_NAME, " +
+            					 "                       B.PM_REF_ID, " +
+            					 "                       A.MONIS_STATUS, " +
+            					 "                       IS_BEING_EDITED, " +
+            					 "                       BARCODE, " +
+            					 "                       EDITED_BY, " +
+            					 "                       SUBMIT_BY, " +
+            					 "                       PM_DETAIL_ID, " +
+            					 "                       PROD_FORMAT_TYPE " +
+            					 "                  FROM PM_HEADER  A " +
+            					 "                       INNER JOIN PM_DETAIL_PHYSICAL B " +
+            					 "                           ON (A.PM_REF_ID = B.PM_REF_ID) " +
+            					 "                              AND (A.PM_REVISION_ID = B.PM_REVISION_ID) " +
+            					 "                       INNER JOIN PM_LABEL_UK D " +
+            					 "                           ON (UK_LABEL_GRP_ID = LABEL_ID) " +
+            					 "                       INNER JOIN PM_ARTIST C " +
+            					 "                           ON (C.ARTIST_ID = A.ARTIST_ID) " +
+            					 "                       INNER JOIN PM_PRODUCT_FORMAT F " +
+            					 "                           ON (F.PROD_FORMAT_ID = B.PROD_FORMAT_ID) " +
+            					 "                       WHERE LABEL_ID IN  ("+groupsBuffer.toString()+")  " +
+            					 "                       AND (B.PM_REVISION_ID = " +
+            					 "                            (SELECT MAX (X.PM_REVISION_ID) " +
+            					 "                               FROM PM_HEADER X " +
+            					 "                              WHERE X.PM_REF_ID = A.PM_REF_ID)) " +
+            					 "                       AND BARCODE LIKE "+searchLike+" " +
+            					 "UNION " +
+            					 "                SELECT PRODUCT_TITLE, " +
+            					 "                       ARTIST_NAME, " +
+            					 "                       B.PM_REF_ID, " +
+            					 "                       A.MONIS_STATUS, " +
+            					 "                       IS_BEING_EDITED, " +
+            					 "                       DE_BARCODE BARCODE, " +
+            					 "                       EDITED_BY, " +
+            					 "                       SUBMIT_BY, " +
+            					 "                       PM_DETAIL_ID, " +
+            					 "                       PROD_FORMAT_TYPE " +
+            					 "                  FROM PM_HEADER  A " +
+            					 "                       INNER JOIN PM_DETAIL_PHYSICAL B " +
+            					 "                           ON     (A.PM_REF_ID = B.PM_REF_ID) " +
+            					 "                              AND (A.PM_REVISION_ID = B.PM_REVISION_ID) " +
+            					 "                       INNER JOIN PM_LABEL_UK D " +
+            					 "                           ON (UK_LABEL_GRP_ID = LABEL_ID) " +
+            					 "                       INNER JOIN PM_ARTIST C " +
+            					 "                           ON (C.ARTIST_ID = A.ARTIST_ID) " +
+            					 "                       INNER JOIN PM_PRODUCT_FORMAT F " +
+            					 "                           ON (F.PROD_FORMAT_ID = B.PROD_FORMAT_ID) " +
+            					 "                       WHERE LABEL_ID IN ("+groupsBuffer.toString()+")  " +
+            					 "                       AND (B.PM_REVISION_ID = " +
+            					 "                            (SELECT MAX (X.PM_REVISION_ID) " +
+            					 "                               FROM PM_HEADER X " +
+            					 "                              WHERE X.PM_REF_ID = A.PM_REF_ID) " +
+            					 "                       AND DE_BARCODE LIKE "+searchLike+" ))s ");
 
 
-            			 pstmt.setString(1, searchLike);
-            			 pstmt.setLong(2, lowNumber);
-            			 pstmt.setLong(3, upperNumber);
+            			//pstmt.setString(1, searchLike);
+            			// pstmt.setString(2, searchLike);
+            			// pstmt.setString(3, searchLike);
 
             			 ProjectMemo pmReturned;
-            			 for (rs = pstmt.executeQuery(); rs.next(); returnedResults.add(pmReturned)) {
-            				 FormHelper fh = new FormHelper();
+            			 rs = pstmt.executeQuery();
+            				while(rs.next()) {
             				 pmReturned = new ProjectMemo();
             				 pmReturned.setMemoRef(rs.getString("PM_REF_ID"));
             				 pmReturned.setArtist(rs.getString("ARTIST_NAME"));
@@ -6661,8 +7234,8 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             				 pmReturned.setEditedBy(rs.getString("EDITED_BY"));
             				 pmReturned.setFrom(rs.getString("SUBMIT_BY"));
             				 pmReturned.setDetailId(rs.getString("PM_DETAIL_ID"));
-            				 pmReturned.setProductType(rs.getString("LOWER(PROD_FORMAT_TYPE)"));
-            				 pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
+            				 pmReturned.setProductType(rs.getString("PROD_FORMAT_TYPE"));
+            				 returnedResults.add(pmReturned);
             			 }
 
             			 } catch(Exception e){
@@ -6673,7 +7246,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
                           // NumberFormat.getInstance().parse(searchString);
 
                                searchLike = "%"+searchString+"%";
-                               pstmt = connection.prepareStatement("SELECT * " +
+                              /* pstmt = connection.prepareStatement("SELECT * " +
                                    "  FROM (SELECT ROW_NUMBER () OVER (ORDER BY artist_name, product_title) AS rn, " +
                                    "                   product_title, " +
                                    "                   artist_name, " +
@@ -6855,11 +7428,192 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
                                    "                                         WHERE x.pm_ref_id = a.pm_ref_id) " +
                                    "                             AND LOWER (e.isrc_number) LIKE " +
                                    "                                       LOWER ('"+searchLike+"'))) " +
-                                   " WHERE rn BETWEEN ? AND ?");
+                                   " WHERE rn BETWEEN ? AND ?");*/
+                               pstmt = connection.prepareStatement("SELECT TOP 50 product_title,  " +
+                               "                   artist_name,  " +
+                               "                   pm_ref_id,  " +
+                               "                   pm_detail_id,  " +
+                               "                   is_being_edited,  " +
+                               "                   product_number,  " +
+                               "                   mobile_product_number,  " +
+                               "                   edited_by,  " +
+                               "                   submit_by,  " +
+                               "                   track_num,  " +
+                               "                   track_name,  " +
+                               "                   isrc_number,  " +
+                               "                   PROD_FORMAT_TYPE,  " +
+                               "                   prod_format_description,  " +
+                               "                   PROD_FORMAT_ID,  " +
+                               "                   release_date   " +
+                               "            FROM (  " +
+                               "             SELECT a.product_title,  " +
+                               "                             c.artist_name,  " +
+                               "                             e.pm_ref_id,  " +
+                               "                             e.pm_detail_id,  " +
+                               "                             a.is_being_edited,  " +
+                               "                             a.edited_by,  " +
+                               "                             a.submit_by,  " +
+                               "                             z.grid_number AS product_number,  " +
+                               "                             e.mobile_grid_number AS mobile_product_number,  " +
+                               "                             e.track_num,  " +
+                               "                             e.track_name,  " +
+                               "                             e.isrc_number,  " +
+                               "                             F.PROD_FORMAT_TYPE,  " +
+                               "                             F.PROD_FORMAT_DESC as prod_format_description,  " +
+                               "                             Z.PROD_FORMAT_ID,  " +
+                               "                             z.release_date  " +
+                               "                       FROM pm_header a,  " +
+                               "                             pm_artist c,  " +
+                               "                             pm_label_uk d,  " +
+                               "                             pm_track_listing_digital e,  " +
+                               "                              pm_product_format f,  " +
+                               "                             pm_detail_digital z  " +
+                               "                     WHERE     a.uk_label_grp_id = d.label_id  " +
+                               "                             AND d.label_id in ("+groupsBuffer.toString()+") " +
+                               "                             AND c.artist_id = a.artist_id  " +
+                               "                             AND a.pm_ref_id = e.pm_ref_id  " +
+                               "                             AND a.pm_ref_id = z.pm_ref_id  " +
+                               "                             AND a.pm_revision_id = e.pm_revision_id  " +
+                               "                             AND a.pm_revision_id = z.pm_revision_id  " +
+                               "                             AND z.pm_revision_id = e.pm_revision_id  " +
+                               "                             AND z.pm_detail_id = e.pm_detail_id  " +
+                               "                              AND z.prod_format_id = f.prod_format_id  " +
+                               "                              AND F.PROD_FORMAT_TYPE = 'M'  " +
+                               "                             AND a.pm_revision_id =  " +
+                               "                                       (SELECT MAX (pm_revision_id)  " +
+                               "                                           FROM pm_header x  " +
+                               "                                         WHERE x.pm_ref_id = a.pm_ref_id)  " +
+                               "                             AND LOWER (e.isrc_number) LIKE  " +
+                               "                                       LOWER ('"+searchLike+"')  " +
+                               "                                          " +
+                               "                    UNION  " +
+                               "                     SELECT a.product_title,  " +
+                               "                              c.artist_name,  " +
+                               "                              e.pm_ref_id,  " +
+                               "                              e.pm_detail_id,  " +
+                               "                              a.is_being_edited,  " +
+                               "                              a.edited_by,  " +
+                               "                              a.submit_by,  " +
+                               "                              z.grid_number AS product_number,  " +
+                               "                              e.mobile_grid_number AS mobile_product_number,  " +
+                               "                              e.track_num,  " +
+                               "                              e.track_name,  " +
+                               "                              e.isrc_number,  " +
+                               "                              F.PROD_FORMAT_TYPE,  " +
+                               "                             F.PROD_FORMAT_DESC as prod_format_description,  " +
+                               "                             Z.PROD_FORMAT_ID,  " +
+                               "                             z.release_date  " +
+                               "                        FROM pm_header a,  " +
+                               "                              pm_artist c,  " +
+                               "                              pm_label_uk d,  " +
+                               "                              pm_track_listing_digital e,  " +
+                               "                              pm_product_format f,  " +
+                               "                              pm_detail_digital z  " +
+                               "                      WHERE        a.uk_label_grp_id = d.label_id  " +
+                               "                              AND d.label_id in ("+groupsBuffer.toString()+")   " +
+                               "                                 " +
+                               "                              AND c.artist_id = a.artist_id  " +
+                               "                              AND a.pm_ref_id = e.pm_ref_id  " +
+                               "                              AND a.pm_ref_id = z.pm_ref_id  " +
+                               "                              AND a.pm_revision_id = e.pm_revision_id  " +
+                               "                              AND a.pm_revision_id = z.pm_revision_id  " +
+                               "                              AND z.pm_revision_id = e.pm_revision_id  " +
+                               "                              AND z.pm_detail_id = e.pm_detail_id  " +
+                               "                              AND z.prod_format_id = f.prod_format_id  " +
+                               "                              AND F.PROD_FORMAT_TYPE = 'D'  " +
+                               "                              AND F.PROD_FORMAT_ID not in (718)  " +
+                               "                              AND a.pm_revision_id =  " +
+                               "                                        (SELECT MAX (pm_revision_id)  " +
+                               "                                            FROM pm_header x  " +
+                               "                                          WHERE x.pm_ref_id = a.pm_ref_id)  " +
+                               "                              AND LOWER (e.isrc_number) LIKE  " +
+                               "                                       LOWER ('"+searchLike+"')  " +
+                               "                     UNION  " +
+                               "                     SELECT a.product_title,  " +
+                               "                              c.artist_name,  " +
+                               "                              e.pm_ref_id,  " +
+                               "                              e.pm_detail_id,  " +
+                               "                              a.is_being_edited,  " +
+                               "                              a.edited_by,  " +
+                               "                              a.submit_by,  " +
+                               "                              z.grid_number AS product_number,  " +
+                               "                              null AS mobile_product_number,  " +
+                               "                              e.track_num,  " +
+                               "                              e.track_name,  " +
+                               "                              e.isrc_number,  " +
+                               "                              F.PROD_FORMAT_TYPE,  " +
+                               "                             F.PROD_FORMAT_DESC as prod_format_description,  " +
+                               "                             Z.PROD_FORMAT_ID,  " +
+                               "                             z.release_date  " +
+                               "                        FROM pm_header a,  " +
+                               "                              pm_artist c,  " +
+                               "                              pm_label_uk d,  " +
+                               "                              pm_track_listing_physical e,  " +
+                               "                              pm_product_format f,  " +
+                               "                              pm_detail_digital z  " +
+                               "                      WHERE        a.uk_label_grp_id = d.label_id  " +
+                               "                              AND d.label_id in ("+groupsBuffer.toString()+")   " +
+                               "                                 " +
+                               "                              AND c.artist_id = a.artist_id  " +
+                               "                              AND a.pm_ref_id = e.pm_ref_id  " +
+                               "                              AND a.pm_ref_id = z.pm_ref_id  " +
+                               "                              AND a.pm_revision_id = e.pm_revision_id  " +
+                               "                              AND a.pm_revision_id = z.pm_revision_id  " +
+                               "                              AND z.pm_revision_id = e.pm_revision_id  " +
+                               "                              AND z.pm_detail_id = e.pm_detail_id  " +
+                               "                              AND z.prod_format_id = f.prod_format_id  " +
+                               "                              AND F.PROD_FORMAT_TYPE = 'D'  " +
+                               "                              AND F.PROD_FORMAT_ID in (718)  " +
+                               "                              AND a.pm_revision_id =  " +
+                               "                                        (SELECT MAX (pm_revision_id)  " +
+                               "                                            FROM pm_header x  " +
+                               "                                          WHERE x.pm_ref_id = a.pm_ref_id)  " +
+                               "                              AND LOWER (e.isrc_number) LIKE  " +
+                               "                                       LOWER ('"+searchLike+"')  " +
+                               "                     UNION   " +
+                               "                    SELECT a.product_title,  " +
+                               "                             c.artist_name,  " +
+                               "                             e.pm_ref_id,  " +
+                               "                             e.pm_detail_id,  " +
+                               "                             a.is_being_edited,  " +
+                               "                             a.edited_by,  " +
+                               "                             a.submit_by,  " +
+                               "                             z.catalogue_num AS product_number,  " +
+                               "                             NULL AS mobile_product_number,  " +
+                               "                             e.track_num,  " +
+                               "                             e.track_name,  " +
+                               "                             e.isrc_number,  " +
+                               "                             'P' AS PROD_FORMAT_TYPE,  " +
+                               "                             F.PROD_FORMAT_DESC as prod_format_description,  " +
+                               "                             Z.PROD_FORMAT_ID,  " +
+                               "                             z.release_date  " +
+                               "                       FROM pm_header a,  " +
+                               "                             pm_artist c,  " +
+                               "                             pm_label_uk d,  " +
+                               "                             pm_track_listing_physical e,  " +
+                               "                             pm_product_format f,  " +
+                               "                             pm_detail_physical z  " +
+                               "                     WHERE   a.uk_label_grp_id = d.label_id  " +
+                               "                             AND d.label_id in ("+groupsBuffer.toString()+") " +
+                               "                             AND c.artist_id = a.artist_id  " +
+                               "                             AND a.pm_ref_id = e.pm_ref_id  " +
+                               "                             AND a.pm_ref_id = z.pm_ref_id  " +
+                               "                             AND a.pm_revision_id = e.pm_revision_id  " +
+                               "                             AND a.pm_revision_id = z.pm_revision_id  " +
+                               "                             AND z.pm_revision_id = e.pm_revision_id  " +
+                               "                             AND z.pm_detail_id = e.pm_detail_id  " +
+                               "                             AND z.prod_format_id = f.prod_format_id  " +
+                               "                             AND a.pm_revision_id =  " +
+                               "                                       (SELECT MAX (pm_revision_id)  " +
+                               "                                           FROM pm_header x  " +
+                               "                                         WHERE x.pm_ref_id = a.pm_ref_id)  " +
+                               "                             AND LOWER (e.isrc_number) LIKE  " +
+                               "                                       LOWER ('"+searchLike+"'))s "); 
+
                                  
                                          //pstmt.setString(1, searchLike);
-                                         pstmt.setLong(1, lowNumber);
-                                         pstmt.setLong(2, upperNumber);
+                                         //pstmt.setLong(1, lowNumber);
+                                         //pstmt.setLong(2, upperNumber);
                                          ProjectMemo pmReturned;
                                           for (rs = pstmt.executeQuery(); rs.next(); returnedResults.add(pmReturned)) {
                                                  FormHelper fh = new FormHelper();
@@ -6892,7 +7646,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
                             // NumberFormat.getInstance().parse(searchString);
 
                                  searchLike = "%"+searchString+"%";
-                                 pstmt = connection.prepareStatement("SELECT *  " +
+                               /*  pstmt = connection.prepareStatement("SELECT *  " +
                                 		 "  FROM ( " +
                                 		 "  SELECT ROW_NUMBER () OVER (ORDER BY artist_name, product_title) AS rn,  " +
                                 		 "                   product_title,  " +
@@ -7032,13 +7786,153 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
                                 		 "                                       (SELECT MAX (pm_revision_id)  " +
                                 		 "                                           FROM pm_header x  " +
                                 		 "                                         WHERE x.pm_ref_id = a.pm_ref_id)  " +
-                                		 "                            AND a.PROJECT_NUMBER LIKE ('"+searchLike+"')  )) " +
-                                		 "           WHERE rn BETWEEN ? AND ? " );
+                                		 "                            AND a.PROJECT_NUMBER LIKE ('"+searchLike+"'))) " +
+                                		 "           WHERE rn BETWEEN ? AND ? " );*/
+                                 pstmt = connection.prepareStatement("SELECT top 100  product_title,   " +
+                                 "                   artist_name,   " +
+                                 "                   pm_ref_id,   " +
+                                 "                   pm_detail_id,   " +
+                                 "                   is_being_edited,   " +
+                                 "                   product_number,   " +
+                                 "                   edited_by,   " +
+                                 "                   submit_by,   " +
+                                 "                   PROD_FORMAT_TYPE,   " +
+                                 "                   prod_format_description,   " +
+                                 "                   PROD_FORMAT_ID,   " +
+                                 "                   release_date    " +
+                                 "            FROM (   " +
+                                 "             SELECT a.product_title,   " +
+                                 "                             c.artist_name,   " +
+                                 "                             z.pm_ref_id,   " +
+                                 "                             z.pm_detail_id,   " +
+                                 "                             a.is_being_edited,   " +
+                                 "                             a.edited_by,   " +
+                                 "                             a.submit_by,   " +
+                                 "                             z.grid_number AS product_number,   " +
+                                 "                             F.PROD_FORMAT_TYPE,   " +
+                                 "                             F.PROD_FORMAT_DESC as prod_format_description,   " +
+                                 "                             Z.PROD_FORMAT_ID,   " +
+                                 "                             z.release_date   " +
+                                 "                       FROM pm_header a,   " +
+                                 "                             pm_artist c,   " +
+                                 "                             pm_label_uk d,   " +
+                                 "                             pm_product_format f,   " +
+                                 "                             pm_detail_digital z   " +
+                                 "                     WHERE     a.uk_label_grp_id = d.label_id   " +
+                                 "                             AND d.label_id in ("+groupsBuffer.toString()+") " +
+                                 "                             AND c.artist_id = a.artist_id   " +
+                                 "                             AND a.pm_ref_id = z.pm_ref_id   " +
+                                 "                             AND a.pm_revision_id = z.pm_revision_id   " +
+                                 "                             AND z.prod_format_id = f.prod_format_id   " +
+                                 "                             AND F.PROD_FORMAT_TYPE = 'M'   " +
+                                 "                             AND a.pm_revision_id =   " +
+                                 "                                       (SELECT MAX (pm_revision_id)   " +
+                                 "                                           FROM pm_header x   " +
+                                 "                                         WHERE x.pm_ref_id = a.pm_ref_id)   " +
+                                 "                             AND a.PROJECT_NUMBER LIKE ('"+searchLike+"')                                       " +
+                                 "                    UNION                       " +
+                                 "                     SELECT a.product_title,   " +
+                                 "                              c.artist_name,   " +
+                                 "                              z.pm_ref_id,   " +
+                                 "                              z.pm_detail_id,   " +
+                                 "                              a.is_being_edited,   " +
+                                 "                              a.edited_by,   " +
+                                 "                              a.submit_by,   " +
+                                 "                              z.grid_number AS product_number,    " +
+                                 "                              F.PROD_FORMAT_TYPE,   " +
+                                 "                              F.PROD_FORMAT_DESC as prod_format_description,   " +
+                                 "                              Z.PROD_FORMAT_ID,   " +
+                                 "                              z.release_date   " +
+                                 "                         FROM pm_header a,   " +
+                                 "                              pm_artist c,   " +
+                                 "                              pm_label_uk d,   " +
+                                 "                              pm_product_format f,   " +
+                                 "                              pm_detail_digital z   " +
+                                 "                               WHERE  a.uk_label_grp_id = d.label_id   " +
+                                 "                              AND d.label_id in ("+groupsBuffer.toString()+") " +
+                                 "                              AND c.artist_id = a.artist_id   " +
+                                 "                              AND a.pm_ref_id = z.pm_ref_id                                  " +
+                                 "                              AND a.pm_revision_id = z.pm_revision_id    " +
+                                 "                              AND z.prod_format_id = f.prod_format_id   " +
+                                 "                              AND F.PROD_FORMAT_TYPE = 'D'   " +
+                                 "                              AND F.PROD_FORMAT_ID not in (718)   " +
+                                 "                              AND a.pm_revision_id =   " +
+                                 "                                        (SELECT MAX (pm_revision_id)   " +
+                                 "                                            FROM pm_header x   " +
+                                 "                                          WHERE x.pm_ref_id = a.pm_ref_id)   " +
+                                 "                              AND a.PROJECT_NUMBER LIKE ('"+searchLike+"') " +
+                                 "                     UNION   " +
+                                 "                     SELECT a.product_title,   " +
+                                 "                              c.artist_name,   " +
+                                 "                              e.pm_ref_id,   " +
+                                 "                              e.pm_detail_id,   " +
+                                 "                              a.is_being_edited,   " +
+                                 "                              a.edited_by,   " +
+                                 "                              a.submit_by,   " +
+                                 "                              z.grid_number AS product_number,   " +
+                                 "                              F.PROD_FORMAT_TYPE,   " +
+                                 "                             F.PROD_FORMAT_DESC as prod_format_description,   " +
+                                 "                             Z.PROD_FORMAT_ID,   " +
+                                 "                             z.release_date   " +
+                                 "                        FROM pm_header a,   " +
+                                 "                              pm_artist c,   " +
+                                 "                              pm_label_uk d,   " +
+                                 "                              pm_track_listing_physical e,   " +
+                                 "                              pm_product_format f,   " +
+                                 "                              pm_detail_digital z   " +
+                                 "                       WHERE      a.uk_label_grp_id = d.label_id   " +
+                                 "                              AND d.label_id in ("+groupsBuffer.toString()+") " +
+                                 "                              AND c.artist_id = a.artist_id   " +
+                                 "                              AND a.pm_ref_id = e.pm_ref_id   " +
+                                 "                              AND a.pm_ref_id = z.pm_ref_id   " +
+                                 "                              AND a.pm_revision_id = e.pm_revision_id   " +
+                                 "                              AND a.pm_revision_id = z.pm_revision_id   " +
+                                 "                              AND z.pm_revision_id = e.pm_revision_id   " +
+                                 "                              AND z.pm_detail_id = e.pm_detail_id   " +
+                                 "                              AND z.prod_format_id = f.prod_format_id   " +
+                                 "                              AND F.PROD_FORMAT_TYPE = 'D'   " +
+                                 "                              AND F.PROD_FORMAT_ID in (718)   " +
+                                 "                              AND a.pm_revision_id =   " +
+                                 "                                        (SELECT MAX (pm_revision_id)   " +
+                                 "                                            FROM pm_header x   " +
+                                 "                                          WHERE x.pm_ref_id = a.pm_ref_id)   " +
+                                 "                             AND a.PROJECT_NUMBER LIKE ('"+searchLike+"') " +
+                                 "                     UNION    " +
+                                 "                    SELECT a.product_title,   " +
+                                 "                             c.artist_name,   " +
+                                 "                             z.pm_ref_id,   " +
+                                 "                             z.pm_detail_id,   " +
+                                 "                             a.is_being_edited,   " +
+                                 "                             a.edited_by,   " +
+                                 "                             a.submit_by,   " +
+                                 "                             z.catalogue_num AS product_number,   " +
+                                 "                             'P' AS PROD_FORMAT_TYPE,   " +
+                                 "                             F.PROD_FORMAT_DESC as prod_format_description,   " +
+                                 "                             Z.PROD_FORMAT_ID,   " +
+                                 "                             z.release_date   " +
+                                 "                       FROM pm_header a,   " +
+                                 "                             pm_artist c,   " +
+                                 "                             pm_label_uk d,   " +
+                                 "                             pm_product_format f,   " +
+                                 "                             pm_detail_physical z   " +
+                                 "                     WHERE   a.uk_label_grp_id = d.label_id   " +
+                                 "                             AND d.label_id in ("+groupsBuffer.toString()+") " +
+                                 "                             AND c.artist_id = a.artist_id   " +
+                                 "                             AND a.pm_ref_id = z.pm_ref_id   " +
+                                 "                             AND a.pm_revision_id = z.pm_revision_id   " +
+                                 "                             AND z.prod_format_id = f.prod_format_id   " +
+                                 "                             AND a.pm_revision_id =   " +
+                                 "                                       (SELECT MAX (pm_revision_id)   " +
+                                 "                                           FROM pm_header x   " +
+                                 "                                         WHERE x.pm_ref_id = a.pm_ref_id)   " +
+                                 "                            AND a.PROJECT_NUMBER LIKE ('"+searchLike+"'))s ");
+                                 
+
 
                                    
                                            //pstmt.setString(1, searchLike);
-                                           pstmt.setLong(1, lowNumber);
-                                           pstmt.setLong(2, upperNumber);
+                                           //pstmt.setLong(1, lowNumber);
+                                           //pstmt.setLong(2, upperNumber);
                                            ProjectMemo pmReturned;
                                             for (rs = pstmt.executeQuery(); rs.next(); returnedResults.add(pmReturned)) {
                                                    FormHelper fh = new FormHelper();
@@ -7071,7 +7965,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             				// NumberFormat.getInstance().parse(searchString);
 
             			 	     searchLike = "%"+searchString+"%";
-            				     pstmt = connection.prepareStatement("SELECT * " +
+            				    /* pstmt = connection.prepareStatement("SELECT * " +
             					 "  				FROM (SELECT ROW_NUMBER () OVER (ORDER BY artist_name, product_title) AS rn, " +
             					 "					product_title, " +
             					 "					artist_name, " +
@@ -7129,10 +8023,66 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             					 "										  WHERE x.pm_ref_id = a.pm_ref_id)) " +
             					 "			WHERE LOWER (catalogue_num) LIKE LOWER (?)) " +
             					 " 			WHERE rn BETWEEN ? AND ? "); 
-            			 	          
-            				                pstmt.setString(1, searchLike);
-            				               pstmt.setLong(2, lowNumber);
-            				               pstmt.setLong(3, upperNumber);
+            			 	       */
+            			 	    pstmt = connection.prepareStatement("SELECT TOP 100 product_title,  " +
+            			 	   "					artist_name,  " +
+            			 	   "					pm_ref_id,  " +
+            			 	   "					monis_status,  " +
+            			 	   "					is_being_edited,  " +
+            			 	   "					catalogue_num,  " +
+            			 	   "					edited_by,  " +
+            			 	   "					submit_by,   " +
+            			 	   "                    pm_detail_id  " +
+            			 	   "			 FROM (SELECT a.product_title,  " +
+            			 	   "							  c.artist_name,  " +
+            			 	   "							  b.pm_ref_id,  " +
+            			 	   "							  a.monis_status,  " +
+            			 	   "							  a.is_being_edited,  " +
+            			 	   "							  a.edited_by,  " +
+            			 	   "							  a.submit_by,  " +
+            			 	   "							  b.catalogue_num,  " +
+            			 	   "                              B.PM_DETAIL_ID  " +
+            			 	   "						FROM pm_header a,  " +
+            			 	   "							  pm_detail_physical b,  " +
+            			 	   "							  pm_artist c,  " +
+            			 	   "							  pm_label_uk d  " +
+            			 	   "					  WHERE		a.uk_label_grp_id = d.label_id  " +
+            			 	   "                              AND d.label_id in ("+groupsBuffer.toString()+") " +
+            			 	   "							  AND c.artist_id = a.artist_id  " +
+            			 	   "							  AND a.pm_ref_id = b.pm_ref_id  " +
+            			 	   "							  AND a.pm_revision_id = b.pm_revision_id  " +
+            			 	   "							  AND b.pm_revision_id =  " +
+            			 	   "										(SELECT MAX (pm_revision_id)  " +
+            			 	   "											FROM pm_header x  " +
+            			 	   "										  WHERE x.pm_ref_id = a.pm_ref_id)  " +
+            			 	   "					 UNION  " +
+            			 	   "					 SELECT a.product_title,  " +
+            			 	   "							  c.artist_name,  " +
+            			 	   "							  b.pm_ref_id,  " +
+            			 	   "							  a.monis_status,  " +
+            			 	   "							  a.is_being_edited,  " +
+            			 	   "							  a.edited_by,  " +
+            			 	   "							  a.submit_by,  " +
+            			 	   "							  b.catalogue_num,  " +
+            			 	   "                              B.PM_DETAIL_ID  " +
+            			 	   "						FROM pm_header a,  " +
+            			 	   "							  pm_detail_promos b,  " +
+            			 	   "							  pm_artist c,  " +
+            			 	   "							  pm_label_uk d  " +
+            			 	   "					  WHERE		a.uk_label_grp_id = d.label_id  " +
+            			 	   "                              AND d.label_id in ("+groupsBuffer.toString()+") " +
+            			 	   "							  AND c.artist_id = a.artist_id  " +
+            			 	   "							  AND a.pm_ref_id = b.pm_ref_id  " +
+            			 	   "							  AND a.pm_revision_id = b.pm_revision_id  " +
+            			 	   "							  AND b.pm_revision_id =  " +
+            			 	   "										(SELECT MAX (pm_revision_id)  " +
+            			 	   "											FROM pm_header x  " +
+            			 	   "										  WHERE x.pm_ref_id = a.pm_ref_id)) s " +
+            			 	   "			            WHERE LOWER (catalogue_num) LIKE LOWER ('"+searchLike+"') ORDER BY artist_name, product_title  "); 
+
+            				          //      pstmt.setString(1, searchLike);
+            				          //    pstmt.setLong(2, lowNumber);
+            				          //     pstmt.setLong(3, upperNumber);
 
             			 ProjectMemo pmReturned;
             			 	                for (rs = pstmt.executeQuery(); rs.next(); returnedResults.add(pmReturned)) {
@@ -7144,9 +8094,9 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             				 	                    pmReturned.setCatalogNumber(rs.getString("CATALOGUE_NUM"));
             				 	                    pmReturned.setIsBeingEdited(rs.getString("IS_BEING_EDITED"));
             				 	                    pmReturned.setEditedBy(rs.getString("EDITED_BY"));
-            				 pmReturned.setDetailId(rs.getString("PM_DETAIL_ID"));
+            				 	                    pmReturned.setDetailId(rs.getString("PM_DETAIL_ID"));
             				 	                    pmReturned.setFrom(rs.getString("SUBMIT_BY"));
-            				 	                   pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
+            				 	                    //pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
             			 }
             			 } catch(Exception e){
             				 
@@ -7159,113 +8109,111 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
 
             			 searchLike = (new StringBuilder("%")).append(searchString).append("%").toString();
 
-            			 pstmt = connection.prepareStatement("SELECT * FROM (SELECT ROW_NUMBER () OVER (ORDER BY artist_name, product_title) AS rn, " +
-            					 "					product_title, " +
-            					 "					artist_name, " +
-            					 "					pm_ref_id, " +
-            					 "                   pm_detail_id, "+
-            					 "					monis_status, " +
-            					 "					is_being_edited, " +
-            					 "					grid, " +
-            					 "					prod_format_type, " +
-            					 "					prod_format_id, "+ 
-            					 "					edited_by, " +
-            					 "					submit_by, " +
-            					 "					TRACK_NUM "+
-            					 "			 FROM (SELECT a.product_title, " +
-            					 "							  c.artist_name, " +
-            					 "							  b.pm_ref_id, " +
-            					 " 							  b.pm_detail_id, " +
-            					 "							  b.grid_number AS grid, " +
-            					 "							  a.monis_status, " +
-            					 "							  a.is_being_edited, " +
-            					 "							  a.edited_by, " +
-            					 "							  a.submit_by, " +
-            					 "							  f.prod_format_type, " +
-            					 "							  b.PROD_FORMAT_ID, " +
-            					 "							  NULL AS TRACK_NUM "+
-            					 "						FROM pm_header a, " +
-            					 "							  pm_detail_digital b, " +
-            					 "							  pm_artist c, " +
-            					 "							  pm_label_uk d, " +
-            					 "							  pm_product_format f " +
-            					 "					  WHERE		a.uk_label_grp_id = d.label_id " +
+            			 pstmt = connection.prepareStatement("SELECT TOP 100 product_title, artist_name,  " +
+            					 "					pm_ref_id,  " +
+            					 "                   pm_detail_id,  " +
+            					 "					monis_status,  " +
+            					 "					is_being_edited,  " +
+            					 "					grid,  " +
+            					 "					prod_format_type,  " +
+            					 "					prod_format_id,  " +
+            					 "					edited_by,  " +
+            					 "					submit_by,  " +
+            					 "					TRACK_NUM  " +
+            					 "			 FROM (SELECT a.product_title,  " +
+            					 "							  c.artist_name,  " +
+            					 "							  b.pm_ref_id,  " +
+            					 " 							  b.pm_detail_id,  " +
+            					 "							  b.grid_number AS grid,  " +
+            					 "							  a.monis_status,  " +
+            					 "							  a.is_being_edited,  " +
+            					 "							  a.edited_by,  " +
+            					 "							  a.submit_by,  " +
+            					 "							  f.prod_format_type,  " +
+            					 "							  b.PROD_FORMAT_ID,  " +
+            					 "							  NULL AS TRACK_NUM  " +
+            					 "						FROM pm_header a,  " +
+            					 "							  pm_detail_digital b,  " +
+            					 "							  pm_artist c,  " +
+            					 "							  pm_label_uk d,  " +
+            					 "							  pm_product_format f  " +
+            					 "					  WHERE		a.uk_label_grp_id = d.label_id  " +
+            					 "							  AND d.label_id in ("+groupsBuffer.toString()+")  " +
+            					 "							  AND c.artist_id = a.artist_id  " +
+            					 "							  AND a.pm_ref_id = b.pm_ref_id  " +
+            					 "							  AND b.prod_format_id = f.prod_format_id  " +
+            					 "							  AND a.pm_revision_id = b.pm_revision_id  " +
+            					 "							  AND a.pm_revision_id =  " +
+            					 "										(SELECT MAX (pm_revision_id)  " +
+            					 "											FROM pm_header x  " +
+            					 "										  WHERE x.pm_ref_id = a.pm_ref_id)  " +
+            					 "							  AND LOWER (b.grid_number) LIKE  " +
+            					 "										LOWER ('"+searchLike+"') " +
+            					 "					 UNION  " +
+            					 "					 SELECT a.product_title,  " +
+            					 "							  c.artist_name,  " +
+            					 "							  e.pm_ref_id,  " +
+            					 "							  e.pm_detail_id,  " +
+            					 "							  e.mobile_grid_number AS grid,  " +
+            					 "							  a.monis_status,  " +
+            					 "							  a.is_being_edited,  " +
+            					 "							  a.edited_by,  " +
+            					 "							  a.submit_by,  " +
+            					 "							  'M' AS prod_format_type,  " +
+            					 "							  null,  " +
+            					 "							  E.TRACK_NUM  " +
+            					 "						FROM pm_header a,  " +
+            					 "							  pm_artist c,  " +
+            					 "							  pm_label_uk d,  " +
+            					 "							  pm_track_listing_digital e  " +
+            					 "					  WHERE		a.uk_label_grp_id = d.label_id  " +
             					 "							  AND d.label_id in ("+groupsBuffer.toString()+") " +
-            					 "							  AND c.artist_id = a.artist_id " +
-            					 "							  AND a.pm_ref_id = b.pm_ref_id " +
-            					 "							  AND b.prod_format_id = f.prod_format_id " +
-            					 "							  AND a.pm_revision_id = b.pm_revision_id " +
-            					 "							  AND a.pm_revision_id = " +
-            					 "										(SELECT MAX (pm_revision_id) " +
-            					 "											FROM pm_header x " +
-            					 "										  WHERE x.pm_ref_id = a.pm_ref_id) " +
-            					 "							  AND LOWER (b.grid_number) LIKE " +
-            					 "										LOWER ('"  +searchLike+"')"+
-            					 "					 UNION " +
-            					 "					 SELECT a.product_title, " +
-            					 "							  c.artist_name, " +
-            					 "							  e.pm_ref_id, " +
-            					 "							  e.pm_detail_id, "+
-            					 "							  e.mobile_grid_number AS grid, " +
-            					 "							  a.monis_status, " +
-            					 "							  a.is_being_edited, " +
-            					 "							  a.edited_by, " +
-            					 "							  a.submit_by, " +
-            					 "							  'M' AS prod_format_type, " +
-            					 "							  null, " +
-            					 "							  E.TRACK_NUM "+
-            					 "						FROM pm_header a, " +
-            					 "							  pm_artist c, " +
-            					 "							  pm_label_uk d, " +
-            					 "							  pm_track_listing_digital e " +
-            					 "					  WHERE		a.uk_label_grp_id = d.label_id " +
-            					 "							  AND d.label_id in ("+groupsBuffer.toString()+") " +
-            					 "							  AND c.artist_id = a.artist_id " +
-            					 "							  AND a.pm_ref_id = e.pm_ref_id " +
-            					 "							  AND a.pm_revision_id = e.pm_revision_id " +
-            					 "							  AND a.pm_revision_id = " +
-            					 "										(SELECT MAX (pm_revision_id) " +
-            					 "											FROM pm_header x " +
-            					 "										  WHERE x.pm_ref_id = a.pm_ref_id) " +
-            					 "							  AND LOWER (e.mobile_grid_number) LIKE " +
-            					 "										LOWER  ('"  +searchLike+"')"+
-            					 "					 UNION " +
-            					 "					 SELECT a.product_title, " +
-            					 "							  c.artist_name, " +
-            					 "							  b.pm_ref_id, " +
-            					 "							  b.pm_detail_id, "+
-            					 "							  b.digital_equivalent, " +
-            					 "							  a.monis_status, " +
-            					 "							  a.is_being_edited, " +
-            					 "							  a.edited_by, " +
-            					 "							  a.submit_by, " +
-            					 "							  'DE' AS prod_format_type, " +
-            					 "							  b.PROD_FORMAT_ID, "+
-            					 "							  NULL AS TRACK_NUM "+
-            					 "						FROM pm_header a, " +
-            					 "							  pm_detail_physical b, " +
-            					 "							  pm_artist c, " +
-            					 "							  pm_label_uk d, " +
-            					 "							  pm_product_format f " +
-            					 "					  WHERE		a.uk_label_grp_id = d.label_id " +
-            					 "							  AND d.label_id in ("+groupsBuffer.toString()+") " +
-            					 "							  AND c.artist_id = a.artist_id " +
-            					 "							  AND a.pm_ref_id = b.pm_ref_id " +
-            					 "							  AND b.prod_format_id = f.prod_format_id " +
-            					 "							  AND a.pm_revision_id = b.pm_revision_id " +
-            					 "							  AND a.pm_revision_id = " +
-            					 "										(SELECT MAX (pm_revision_id) " +
-            					 "											FROM pm_header x " +
-            					 "										  WHERE x.pm_ref_id = a.pm_ref_id) " +
-            					 "							  AND LOWER (b.digital_equivalent) LIKE " +
-            					 "										LOWER ('"  +searchLike+"')"+
-            					 "							  AND LOWER (b.digital_equivalent) LIKE 'g%')) " +
-            					 " WHERE rn BETWEEN ? AND ? ");	
+            					 "							  AND c.artist_id = a.artist_id  " +
+            					 "							  AND a.pm_ref_id = e.pm_ref_id  " +
+            					 "							  AND a.pm_revision_id = e.pm_revision_id  " +
+            					 "							  AND a.pm_revision_id =  " +
+            					 "										(SELECT MAX (pm_revision_id)  " +
+            					 "											FROM pm_header x  " +
+            					 "										  WHERE x.pm_ref_id = a.pm_ref_id)  " +
+            					 "							  AND LOWER (e.mobile_grid_number) LIKE  " +
+            					 "										LOWER  ('"+searchLike+"') " +
+            					 "					 UNION  " +
+            					 "					 SELECT a.product_title,  " +
+            					 "							  c.artist_name,  " +
+            					 "							  b.pm_ref_id,  " +
+            					 "							  b.pm_detail_id,  " +
+            					 "							  b.digital_equivalent,  " +
+            					 "							  a.monis_status,  " +
+            					 "							  a.is_being_edited,  " +
+            					 "							  a.edited_by,  " +
+            					 "							  a.submit_by,  " +
+            					 "							  'DE' AS prod_format_type,  " +
+            					 "							  b.PROD_FORMAT_ID,  " +
+            					 "							  NULL AS TRACK_NUM  " +
+            					 "						FROM pm_header a,  " +
+            					 "							  pm_detail_physical b,  " +
+            					 "							  pm_artist c,  " +
+            					 "							  pm_label_uk d,  " +
+            					 "							  pm_product_format f  " +
+            					 "					  WHERE		a.uk_label_grp_id = d.label_id  " +
+            					 "							  AND d.label_id in ("+groupsBuffer.toString()+")  " +
+            					 "							  AND c.artist_id = a.artist_id  " +
+            					 "							  AND a.pm_ref_id = b.pm_ref_id  " +
+            					 "							  AND b.prod_format_id = f.prod_format_id  " +
+            					 "							  AND a.pm_revision_id = b.pm_revision_id  " +
+            					 "							  AND a.pm_revision_id =  " +
+            					 "										(SELECT MAX (pm_revision_id)  " +
+            					 "											FROM pm_header x  " +
+            					 "										  WHERE x.pm_ref_id = a.pm_ref_id)  " +
+            					 "							  AND LOWER (b.digital_equivalent) LIKE  " +
+            					 "										LOWER ('"+searchLike+"') " +
+            					 "							  AND LOWER (b.digital_equivalent) LIKE 'g%')s ORDER BY artist_name, product_title");
 
 
 
-            			 pstmt.setLong(1, lowNumber);
-            			 pstmt.setLong(2, upperNumber);
+
+            			// pstmt.setLong(1, lowNumber);
+            			// pstmt.setLong(2, upperNumber);
 
             			 ProjectMemo pmReturned;
             			 for (rs = pstmt.executeQuery(); rs.next(); returnedResults.add(pmReturned)) {
@@ -7282,7 +8230,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             				 pmReturned.setConfigurationId(rs.getString("PROD_FORMAT_ID"));
             				 pmReturned.setFrom(rs.getString("SUBMIT_BY"));
             				 pmReturned.setTrackNum(rs.getString("TRACK_NUM"));
-            				 pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
+            				 //pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
             			 }
         
 
@@ -7336,7 +8284,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             			 pmReturned.setProductManagerId(rs.getString("PROD_MGR_ID"));
             			 pmReturned.setIsBeingEdited(rs.getString("IS_BEING_EDITED"));
             			 pmReturned.setEditedBy(rs.getString("EDITED_BY"));
-            			 pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
+            			 //pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
             			 if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             				 returnedResults.add(pmReturned);
             				 memoRefsTemp.add(pmReturned.getMemoRef());
@@ -7391,7 +8339,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             			 pmReturned.setProductManagerId(rs.getString("PROD_MGR_ID"));
             			 pmReturned.setIsBeingEdited(rs.getString("IS_BEING_EDITED"));
             			 pmReturned.setEditedBy(rs.getString("EDITED_BY"));
-            			 pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
+            			// pmReturned.setDashboardImage(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
             			 if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             				 returnedResults.add(pmReturned);
             				 memoRefsTemp.add(pmReturned.getMemoRef());
@@ -7457,7 +8405,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             	 Statement statement = null;
             	 Connection connection = null;
             	 artist = null;
-            	 sql = (new StringBuilder(String.valueOf(queryString))).append("'").append(iD).append("'").toString();
+            	 sql = (""+queryString+"'"+iD+"'");
             	 try {
             		 connection = getConnection();
             		 statement = connection.createStatement();
@@ -7899,7 +8847,6 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
              
              public boolean updateHeaderDetails(String pmRef, String pmRevNum, ProjectMemo pm) {
             	 boolean updated;
-            	 ResultSet rs = null;
             	 PreparedStatement pstmt =null;
             	 Connection connection = null;
             	 String updateDraftHeader;
@@ -7985,14 +8932,13 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             		 pstmt.setString(1, pmRef);
             		 pstmt.setString(2, pmRevNum);
             		 int count = 0;
-            		 rs = pstmt.executeQuery();
+            		 pstmt.execute();
             		 updated = true;
 
             	 } catch (Exception e) {
             		 e.printStackTrace();
             	 } finally {
 	                 try {
-	                	 rs.close();
 	                	 pstmt.close();
 	                	 connection.close();
 	                 } catch (SQLException e) {
@@ -8018,8 +8964,8 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             	 try {
             		 connection = getConnection();
             		 statement = connection.createStatement();
-            		 statement.executeQuery(updateDraftHeader);
-            		 updated = true;
+            		 updated = statement.execute(updateDraftHeader);
+            		 
             	 } catch (Exception e) {
             		 e.printStackTrace();
             	 } finally {
@@ -8036,7 +8982,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
              
              
              
-             public boolean updateHeaderPromoFlagInDrafts(String memoRef) {
+           /*  public boolean updateHeaderPromoFlagInDrafts(String memoRef) {
             	 boolean updated;
             	 String updateDraftHeader;
             	 Statement statement = null;
@@ -8062,7 +9008,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             	 return updated;
              }
 
-             
+             */
              
              
              public boolean updateHeaderPhysicalFlagInDrafts(String memoRef) {
@@ -8076,8 +9022,8 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             	 try {
             		 connection = getConnection();
             		 statement = connection.createStatement();
-            		 statement.executeQuery(updateDraftHeader);
-            		 updated = true;
+            		 updated = statement.execute(updateDraftHeader);
+            		 
             	 } catch (Exception e) {
             		 e.printStackTrace();
             	 } finally {
@@ -8263,8 +9209,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
                  } else {
 /* 6136*/            limitedEd = "N";
                  }
-/* 6140*/        updateDraftPhysical = (new StringBuilder("UPDATE PM_DRAFT_PHYSICAL SET RELEASE_DATE = TO_DATE('")).append(physForm.getReleaseDate()).append("','DD/MM/YYYY HH24:MI:SS'), CUST_FEED_RESTRICT_DATE = TO_DATE('")
-                .append(physForm.getCustFeedRestrictDate()).append("', 'DD/MM/YYYY HH24:MI:SS'), ")
+/* 6140*/        updateDraftPhysical = (new StringBuilder("UPDATE PM_DRAFT_PHYSICAL SET RELEASE_DATE = CONVERT(DATETIME,'")).append(physForm.getReleaseDate()).append("'), CUST_FEED_RESTRICT_DATE = CONVERT(DATETIME,'").append(physForm.getCustFeedRestrictDate()).append("'), ")
                 .append("CATALOGUE_NUM ='").append(fh.replaceApostrophesInString(physForm.getCatalogNumber())).append("', ")
                 .append("SUPPLEMENTARY_TITLE='").append(fh.replaceApostrophesInString(physForm.getSupplementaryTitle())).append("', ")
                 .append("TITLE_ADDITIONAL='").append(fh.replaceApostrophesInString(physForm.getAdditionalTitle())).append("', ")
@@ -8373,12 +9318,12 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
                  }
 
 				if (physForm.getRestrictRelease().equals("Y")){		 
-					 restrictDate = "TO_DATE('" + physForm.getRestrictDate() + "', 'DD/MM/YYYY HH24:MI:SS') ,";		 					 
+					 restrictDate = "CONVERT(DATETIME,'" + physForm.getRestrictDate() + "') ,";		 					 
 				} else {
        			     restrictDate = "NULL ,";
        		    }
                 if (physForm.isRestrictCustFeed()){      
-                     custRestrictDate = "TO_DATE('" + physForm.getCustFeedRestrictDate() + "', 'DD/MM/YYYY HH24:MI:SS') ,";                          
+                     custRestrictDate = "CONVERT(DATETIME,'" + physForm.getCustFeedRestrictDate() + "') ,";                          
                } else {
                      custRestrictDate = "NULL ,";
                }
@@ -8404,7 +9349,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
 				System.out.println("Digital flag = "+physForm.getPhysicalIntlRelease());
 				if (physForm.getPhysicalIntlRelease() != null ) {
 /* 6239*/        updateDraftPhysical = ("UPDATE PM_DRAFT_PHYSICAL " +
-										"SET RELEASE_DATE = TO_DATE('"+physForm.getReleaseDate()+"', 'DD/MM/YYYY HH24:MI:SS'), " +
+										"SET RELEASE_DATE = CONVERT(DATETIME,'"+physForm.getReleaseDate()+"'), " +
 										"CUST_FEED_RESTRICT_DATE=" +custRestrictDate+
 										"CATALOGUE_NUM ='"+fh.replaceApostrophesInString(physForm.getCatalogNumber())+"', " +
 										"SUPPLEMENTARY_TITLE ='"+fh.replaceApostrophesInString(physForm.getSupplementaryTitle())+"', " +
@@ -8448,7 +9393,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
 										" AND "+"PM_DETAIL_ID="+pmDetailId).toString();
 				}else{
 					updateDraftPhysical = ("UPDATE PM_DRAFT_PHYSICAL " +
-							"SET RELEASE_DATE = TO_DATE('"+physForm.getReleaseDate()+"', 'DD/MM/YYYY HH24:MI:SS'), " +
+							"SET RELEASE_DATE = CONVERT(DATETIME,'"+physForm.getReleaseDate()+"'), " +
                             "CUST_FEED_RESTRICT_DATE=" +custRestrictDate+
 							"CATALOGUE_NUM ='"+fh.replaceApostrophesInString(physForm.getCatalogNumber())+"', " +
 							"SUPPLEMENTARY_TITLE ='"+fh.replaceApostrophesInString(physForm.getSupplementaryTitle())+"', " +
@@ -8495,7 +9440,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
 /* 6264*/        try {
 /* 6264*/            connection = getConnection();
 /* 6265*/            statement = connection.createStatement();
-/* 6266*/            statement.executeQuery(updateDraftPhysical);
+/* 6266*/            statement.execute(updateDraftPhysical);
 /* 6267*/            updated = true;
                  } catch (Exception e) {
 /* 6269*/            e.printStackTrace();
@@ -8550,75 +9495,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
              }             
 
              
-             
-             
-             
-             
-             
-             public boolean updatePromoDetails(String pmRef, String pmRevNum, String pmFormatId, String pmDetailId, PromoForm promoForm) {
-                 boolean updated;
 
-                 String updateDraftPromo;
-/* 6289*/        updated = false;
-/* 6290*/        PreparedStatement pstmt =null;
-				 Connection connection = null;
-/* 6291*/        FormHelper fh = new FormHelper();
-/* 6293*/        updateDraftPromo = (new StringBuilder("UPDATE PM_DRAFT_PROMOS SET PARTS_DUE_DATE = TO_DATE('")).append(promoForm.getPartsDueDate()).append("', ").append("'DD/MM/YYYY HH24:MI:SS'), ").append("STOCK_REQ_DATE = TO_DATE('").append(promoForm.getStockReqDate()).append("', ").append("'DD/MM/YYYY HH24:MI:SS'), ").append("CATALOGUE_NUM ='").append(fh.replaceApostrophesInString(promoForm.getCatalogNumber())).append("', ").append("PACK_SPEC_COMMENT ='").append(fh.replaceApostrophesInString(promoForm.getPackagingSpec())).append("', ").append("NUM_OF_DISCS ='").append(promoForm.getComponents()).append("', ").append("COMMENTS ='").append(fh.replaceApostrophesInString(promoForm.getPromoComments())).append("' ").append("WHERE PM_REF_ID=").append(pmRef).append("AND PM_REVISION_ID=").append(pmRevNum).append(" AND PROD_FORMAT_ID=").append(pmFormatId).append(" AND PM_DETAIL_ID=").append(pmDetailId).toString();
-/* 6304*/        try {
-/* 6304*/            connection = getConnection();
-/* 6305*/            pstmt = connection.prepareStatement(updateDraftPromo);
-/* 6306*/            pstmt.setString(1, pmRef);
-/* 6307*/            pstmt.setString(2, pmRevNum);
-/* 6308*/            pstmt.setString(3, pmFormatId);
-/* 6309*/            pstmt.executeQuery();
-/* 6310*/            updated = true;
-
-                 }  catch (Exception e) {
-/* 6312*/            e.printStackTrace();
-                 } finally {
-	                 try {
-	                	 pstmt.close();
-	                	 connection.close();
-	                 } catch (SQLException e) {
-	                	 e.printStackTrace();
-	                 }
-                 }	
-/* 6318*/        return updated;
-             }
-
-             
-             
-             public boolean updatePromoDetails(String pmRef, String pmRevNum, String pmDetailId, PromoForm promoForm) {
-            	 boolean updated;
-            	 String updateDraftPromo;
-            	 updated = false;
-            	 FormHelper fh = new FormHelper();
-            	 Statement statement = null;
-            	 Connection connection = null;
-            	 updateDraftPromo = (new StringBuilder("UPDATE PM_DRAFT_PROMOS SET PARTS_DUE_DATE = TO_DATE('")).append(promoForm.getPartsDueDate()).append("', ").append("'DD/MM/YYYY HH24:MI:SS'), ").append("STOCK_REQ_DATE = TO_DATE('").append(promoForm.getStockReqDate()).append("', ").append("'DD/MM/YYYY HH24:MI:SS'), ").append("CATALOGUE_NUM ='").append(fh.replaceApostrophesInString(promoForm.getCatalogNumber())).append("', ").append("LOCAL_CAT_NUM ='").append(fh.replaceApostrophesInString(promoForm.getLocalCatNumber())).append("', ").append("PACK_SPEC_COMMENT ='").append(fh.replaceApostrophesInString(promoForm.getPackagingSpec())).append("', ").append("NUM_OF_DISCS ='").append(promoForm.getComponents()).append("', ").append("COMMENTS ='").append(fh.replaceApostrophesInString(promoForm.getPromoComments())).append("', ").append("PROD_FORMAT_ID ='").append(promoForm.getPromoFormat()).append("' ").append("WHERE PM_REF_ID=").append(pmRef).append(" AND PM_REVISION_ID=").append(pmRevNum).append(" AND PM_DETAIL_ID=").append(pmDetailId).toString();
-            	 try {
-            		 connection = getConnection();
-            		 statement = connection.createStatement();
-            		 statement.executeQuery(updateDraftPromo);
-            		 updated = true;
-
-            	 } catch (Exception e) {
-            		 e.printStackTrace();
-            	 } finally {
-	                 try {
-	                	 statement.close();
-	                	 connection.close();
-	                 } catch (SQLException e) {
-	                	 e.printStackTrace();
-	                 }
-            	 }	
-            	 return updated;
-             }
-
-             
-             
-             
-             
              
              public boolean updateDigitalDetails(String pmRef, String pmRevNum, String pmFormatId, String pmDetailId, DigitalForm digiForm) {
                  boolean updated;
@@ -8677,7 +9554,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
 				 }	
 				 
         		 if (digiForm.getRestrictRelease().equals("Y")){		 
-        			 restrictDate = "TO_DATE('" + digiForm.getRestrictDate() + "', 'DD/MM/YYYY HH24:MI:SS') ,";		         			 
+        			 restrictDate = "CONVERT(DATETIME,'" + digiForm.getRestrictDate() + "') ,";		         			 
         		 } else {
         			 restrictDate = "NULL ,";
         		 }
@@ -8685,7 +9562,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
 
 /* 6402*/        FormHelper fh = new FormHelper();
 /* 6404*/        updateDraftDigital = (new StringBuilder("" +
-		"		 UPDATE PM_DRAFT_DIGITAL SET RELEASE_DATE = TO_DATE('"+digiForm.getReleaseDate())+"', 'DD/MM/YYYY HH24:MI:SS'), " +
+		"		 UPDATE PM_DRAFT_DIGITAL SET RELEASE_DATE = CONVERT(DATETIME,'"+digiForm.getReleaseDate())+"'), " +
 		"		 EXCLUSIVE_TO ='"+fh.replaceApostrophesInString(digiForm.getExclusiveTo()))+"', " +
 		"		 EXCLUSIVE_DETAIL ='"+(fh.replaceApostrophesInString(digiForm.getExclusivityDetails()))+"', " +
 		"		 IS_EXCLUSIVE ='"+exclusive+"', " +
@@ -8703,8 +9580,8 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
 		"		 IS_VID_STREAM='"+digiForm.getVideoStream()+"' ,"+
 		"		 DEALER_PRICE="+dealerPrice+", "+
 		"		 IS_PREVIEW_CLIPS='"+digiForm.getPreviewClips()+"' , " +
-		"		 PREVIEW_REL_DATE = TO_DATE('"+previewReleaseDate+"','DD/MM/YYYY HH24:MI:SS'), "  +
-		"		 AUDIO_STREAM_DATE = TO_DATE('"+altAudioStreamDate+"','DD/MM/YYYY HH24:MI:SS'), "  +		
+		"		 PREVIEW_REL_DATE = CONVERT(DATETIME,'"+previewReleaseDate+"'), "  +
+		"		 AUDIO_STREAM_DATE = CONVERT(DATETIME,'"+altAudioStreamDate+"'), "  +		
 		"		 IS_RINGTONE_APPROVAL='"+ringtoneApproval+"' " +
         "        XML_PUBLISH='"+xmlPublish+"' " +
         "        FULL_PUBLISH='"+fullPublish+"' " +		
@@ -8769,7 +9646,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
              
              
              
-             public boolean insertProjectMessages(DashboardMessage message) {
+         /*    public boolean insertProjectMessages(DashboardMessage message) {
             	 boolean updated;
             	 String updateProjectMessages;
             	 Statement statement = null;
@@ -8799,19 +9676,59 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
 	                 }
             	 }	
             	 return updated;
-             }
+             }*/
 
              
              
              
              
              
-             public boolean updateDigitalDetails(String pmRef, String pmRevNum, String pmDetailId, DigitalForm digiForm, List preOrders) {
+             public boolean insertProjectMessages(DashboardMessage message) {
+				 boolean updated;
+				 String updateProjectMessages;
+				 Statement statement = null;
+				 Connection connection = null;
+				 updated = false;
+				 ProjectMemoUser user = message.getUser();
+				 FormHelper fh = new FormHelper();
+				 updateProjectMessages = (new StringBuilder("INSERT INTO MONIS_SCHEDULE_UPDATE(PM_REF_ID, EDIT_DATE, USER_ID, COMMENTS, MONIS_WORKLOG, COMMENT_DISPLAY) VALUES('"))
+						 .append(message.getMemoRefId()).append("', CURRENT_TIMESTAMP, '")
+						 .append(user.getId()).append("', ")
+						 .append("'").append(fh.replaceApostrophesInString(message.getMessage())).append("', ")
+						 .append("'N', 'Y')").toString();
+			
+				 try {
+					 connection = getConnection();
+					 statement = connection.createStatement();
+					 statement.executeUpdate(updateProjectMessages);
+					 updated = true;
+				 } catch (Exception e) {
+					 e.printStackTrace();
+				 } finally {
+			         try {
+			        	 statement.close();
+			        	 connection.close();
+			         } catch (SQLException e) {
+			        	 e.printStackTrace();
+			         }
+				 }	
+				 return updated;
+			 }
+
+
+			public boolean updateDigitalDetails(String pmRef, String pmRevNum, String pmDetailId, DigitalForm digiForm, List preOrders) {
             	 boolean updated;
             	 String updateDraftDigital;
             	 //String grasSetComplete;
             	 //String dRAClearComplete;
             	 String videoDuration = "";
+            	 String previewReleaseDate = null;
+            	 String altAudioStreamDate = null;
+            	 String restrictDate = null;
+            	 String pullDate = null;
+            	 String pullPartner = null;
+            	 String internationalRelease;
+            	 String digiReleaseDate = null;
             	 Statement statement = null;
             	 Connection connection = null;
             	 updated = false;
@@ -8916,12 +9833,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             	 if (!digiForm.getConfigurationId().equals("711")) {
             		 digiForm.setComboRef("");
             	 }
-            	 String previewReleaseDate = null;
-            	 String altAudioStreamDate = null;
-            	 String restrictDate = null;
-            	 String pullDate = null;
-            	 String pullPartner = null;
-            	 String internationalRelease;
+
 
             	 if (digiForm.getPreOrder().equals("Y")) {
             		// previewReleaseDate = digiForm.getPreOrderDate();
@@ -8932,8 +9844,17 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             	 if (digiForm.getAudioStream().equals("Y")) {
             		 altAudioStreamDate = digiForm.getAltAudioStreamingDate();
             	 }
+            	 
+            	 
+            	if (digiForm.getReleaseDate().equals("")) {
+            		digiReleaseDate = "NULL, ";
+            	} else {
+            		 digiReleaseDate = "CONVERT(DATETIME,'"+digiForm.getReleaseDate()+"'), ";               	
+            	}
+            	 
+            	 
             	 if (digiForm.getPullProduct().equals("Y")) {
-            		 pullDate = "PULL_DATE = TO_DATE('"+digiForm.getPullDate()+"','DD/MM/YYYY HH24:MI:SS'), ";  
+            		 pullDate = "PULL_DATE = CONVERT(DATETIME,'"+digiForm.getPullDate()+"'), ";  
             		 pullPartner = "PULL_PARTNER_ID = "+digiForm.getPullPartner()+", ";
             	 } else {
             		 pullDate = "PULL_DATE = NULL, ";
@@ -8941,7 +9862,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             	 }
             	 
             	 if (digiForm.getRestrictRelease().equals("Y")) {
-            		 restrictDate = "RESTRICT_DATE = TO_DATE('"+digiForm.getRestrictDate()+"','DD/MM/YYYY HH24:MI:SS'), ";   
+            		 restrictDate = "RESTRICT_DATE = CONVERT(DATETIME,'"+digiForm.getRestrictDate()+"'), ";   
             	 } else {
             		 restrictDate = "RESTRICT_DATE = NULL, ";
             	 }
@@ -8951,11 +9872,27 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             	 }
             	 
             	 String d2c = digiForm.getDigitalD2C().equals("") ? null : digiForm.getDigitalD2C(); 
+            	 String dealerPrice = digiForm.getDealerPrice().equals("") ? null : digiForm.getDealerPrice(); 
             	 if(digiForm.getDigitalIntlRelease()!=null){
 	            	 if (previewReleaseDate != null && altAudioStreamDate!= null) {
-	            		 updateDraftDigital = (new StringBuilder("UPDATE PM_DRAFT_DIGITAL SET RELEASE_DATE = TO_DATE('")).append(digiForm.getReleaseDate()).append("','DD/MM/YYYY HH24:MI:SS'), ").append("EXCLUSIVE_TO ='").append(fh.replaceApostrophesInString(digiForm.getExclusiveTo())).append("', ").append("EXCLUSIVE_DETAIL ='").append(fh.replaceApostrophesInString(digiForm.getExclusivityDetails())).append("', ").append("IS_EXCLUSIVE ='").append(exclusive).append("', ").append("IS_NEW_ARTWORK ='").append(digiForm.getArtwork()).append("', ").append("GRID_NUMBER ='").append(fh.replaceApostrophesInString(digiForm.getGridNumber())).append("', ").append("PM_REF_ID=").append(pmRef).append(", ").append("PM_REVISION_ID=").append(pmRevNum).append(", ").append("PROD_FORMAT_ID='").append(digiForm.getConfigurationId()).append("', ").append("COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getComments())).append("' ,").append("SCOPE_COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getScopeComments())).append("' ,").append("IS_INTL_REL ='").append(digiForm.getDigitalIntlRelease()).append("' ,").append("COMBO_REF='").append(fh.replaceApostrophesInString(digiForm.getComboRef())).append("' ,").append("IS_PRE_ORDER='").append(digiForm.getPreOrder()).append("' ,").append("IS_VID_STREAM='").append(digiForm.getVideoStream()).append("' ,").append("IS_AUDIO_STREAM='").append(digiForm.getAudioStream()).append("' ,").append("PREVIEW_CLIPS='").append(digiForm.getPreviewClips()).append("' ,").append("DEALER_PRICE='").append(digiForm.getDealerPrice()).append("' ,")
-	            				// .append("PREVIEW_REL_DATE = TO_DATE('"+previewReleaseDate+"','DD/MM/YYYY HH24:MI:SS'), ")
-	            				 .append("AUDIO_STREAM_DATE = TO_DATE('"+altAudioStreamDate+"','DD/MM/YYYY HH24:MI:SS'), ")
+	            		 updateDraftDigital = (new StringBuilder("UPDATE PM_DRAFT_DIGITAL SET RELEASE_DATE =")).append(digiReleaseDate).append(" EXCLUSIVE_TO ='").append(fh.replaceApostrophesInString(digiForm.getExclusiveTo()))
+	            				 .append("', EXCLUSIVE_DETAIL ='").append(fh.replaceApostrophesInString(digiForm.getExclusivityDetails()))
+	            				 .append("', IS_EXCLUSIVE ='").append(exclusive)
+	            				 .append("', IS_NEW_ARTWORK ='").append(digiForm.getArtwork())
+	            				 .append("', GRID_NUMBER ='").append(fh.replaceApostrophesInString(digiForm.getGridNumber()))
+	            				 .append("', PM_REF_ID=").append(pmRef)
+	            				 .append(",  PM_REVISION_ID=").append(pmRevNum)
+	            				 .append(",  PROD_FORMAT_ID='").append(digiForm.getConfigurationId())
+	            				 .append("', COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getComments()))
+	            				 .append("' ,SCOPE_COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getScopeComments()))
+	            				 .append("' ,IS_INTL_REL ='").append(digiForm.getDigitalIntlRelease())
+	            				 .append("' ,COMBO_REF='").append(fh.replaceApostrophesInString(digiForm.getComboRef()))
+	            				 .append("' ,IS_PRE_ORDER='").append(digiForm.getPreOrder())
+	            				 .append("' ,IS_VID_STREAM='").append(digiForm.getVideoStream())
+	            				 .append("' ,IS_AUDIO_STREAM='").append(digiForm.getAudioStream())
+	            				 .append("' ,PREVIEW_CLIPS='").append(digiForm.getPreviewClips())
+	            				 .append("' ,DEALER_PRICE=").append(dealerPrice).append(" ,")	
+	            				 .append("AUDIO_STREAM_DATE = CONVERT(DATETIME,'"+altAudioStreamDate+"'), ")
 	            				 .append(restrictDate)
 	            				 .append(pullDate)
 	            				 .append(pullPartner)
@@ -8978,8 +9915,9 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
 	            				 .append("WHERE ").append("PM_REF_ID=").append(pmRef).append(" AND ").append("PM_REVISION_ID=").append(pmRevNum).append(" AND ").append("PM_DETAIL_ID=").append(pmDetailId).toString();
 	            	 } else if (previewReleaseDate == null && altAudioStreamDate!= null) {
 
-	            		 updateDraftDigital = (new StringBuilder("UPDATE PM_DRAFT_DIGITAL SET RELEASE_DATE = TO_DATE('")).append(digiForm.getReleaseDate()).append("','DD/MM/YYYY HH24:MI:SS'), ").append("EXCLUSIVE_TO ='").append(fh.replaceApostrophesInString(digiForm.getExclusiveTo())).append("', ").append("EXCLUSIVE_DETAIL ='").append(fh.replaceApostrophesInString(digiForm.getExclusivityDetails())).append("', ").append("IS_EXCLUSIVE ='").append(exclusive).append("', ").append("IS_NEW_ARTWORK ='").append(digiForm.getArtwork()).append("', ").append("GRID_NUMBER ='").append(fh.replaceApostrophesInString(digiForm.getGridNumber())).append("', ").append("PM_REF_ID=").append(pmRef).append(", ").append("PM_REVISION_ID=").append(pmRevNum).append(", ").append("PROD_FORMAT_ID='").append(digiForm.getConfigurationId()).append("', ").append("COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getComments())).append("' ,").append("SCOPE_COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getScopeComments())).append("' ,").append("IS_INTL_REL ='").append(digiForm.getDigitalIntlRelease()).append("' ,").append("COMBO_REF='").append(fh.replaceApostrophesInString(digiForm.getComboRef())).append("' ,").append("IS_PRE_ORDER='").append(digiForm.getPreOrder()).append("' ,").append("IS_VID_STREAM='").append(digiForm.getVideoStream()).append("' ,").append("IS_AUDIO_STREAM='").append(digiForm.getAudioStream()).append("' ,").append("PREVIEW_CLIPS='").append(digiForm.getPreviewClips()).append("' ,").append("DEALER_PRICE='").append(digiForm.getDealerPrice()).append("' ,")
-	            				 .append("AUDIO_STREAM_DATE = TO_DATE('"+altAudioStreamDate+"','DD/MM/YYYY HH24:MI:SS'), PREVIEW_REL_DATE='', ")
+	            		 updateDraftDigital = (new StringBuilder("UPDATE PM_DRAFT_DIGITAL SET RELEASE_DATE =")).append(digiReleaseDate).append(" EXCLUSIVE_TO ='").append(fh.replaceApostrophesInString(digiForm.getExclusiveTo())).append("', ").append("EXCLUSIVE_DETAIL ='").append(fh.replaceApostrophesInString(digiForm.getExclusivityDetails())).append("', ").append("IS_EXCLUSIVE ='").append(exclusive).append("', ").append("IS_NEW_ARTWORK ='").append(digiForm.getArtwork()).append("', ").append("GRID_NUMBER ='").append(fh.replaceApostrophesInString(digiForm.getGridNumber())).append("', ").append("PM_REF_ID=").append(pmRef).append(", ").append("PM_REVISION_ID=").append(pmRevNum).append(", ").append("PROD_FORMAT_ID='").append(digiForm.getConfigurationId()).append("', ").append("COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getComments())).append("' ,").append("SCOPE_COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getScopeComments())).append("' ,").append("IS_INTL_REL ='").append(digiForm.getDigitalIntlRelease()).append("' ,").append("COMBO_REF='").append(fh.replaceApostrophesInString(digiForm.getComboRef())).append("' ,").append("IS_PRE_ORDER='").append(digiForm.getPreOrder()).append("' ,").append("IS_VID_STREAM='").append(digiForm.getVideoStream()).append("' ,").append("IS_AUDIO_STREAM='").append(digiForm.getAudioStream()).append("' ,").append("PREVIEW_CLIPS='").append(digiForm.getPreviewClips()).append("' ,")
+	            				 .append("DEALER_PRICE=").append(dealerPrice).append(" ,")
+	            				 .append("AUDIO_STREAM_DATE = CONVERT(DATETIME,'"+altAudioStreamDate+"'), PREVIEW_REL_DATE=null, ")
 	               				 .append("SUPPLEMENTARY_TITLE='").append(fh.replaceApostrophesInString(digiForm.getSupplementTitle())).append("' ,")
 	            				 .append("TITLE_ADDITIONAL='").append(fh.replaceApostrophesInString(digiForm.getAdditTitle())).append("' ,")
 	            				 .append("D2C=").append(d2c).append(", ")
@@ -9002,8 +9940,9 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
 	            				 .append("WHERE ").append("PM_REF_ID=").append(pmRef).append(" AND ").append("PM_REVISION_ID=").append(pmRevNum).append(" AND ").append("PM_DETAIL_ID=").append(pmDetailId).toString();             	 
 	            	 } else if (previewReleaseDate != null && altAudioStreamDate== null) {
 
-	            		 updateDraftDigital = (new StringBuilder("UPDATE PM_DRAFT_DIGITAL SET RELEASE_DATE = TO_DATE('")).append(digiForm.getReleaseDate()).append("','DD/MM/YYYY HH24:MI:SS'), ").append("EXCLUSIVE_TO ='").append(fh.replaceApostrophesInString(digiForm.getExclusiveTo())).append("', ").append("EXCLUSIVE_DETAIL ='").append(fh.replaceApostrophesInString(digiForm.getExclusivityDetails())).append("', ").append("IS_EXCLUSIVE ='").append(exclusive).append("', ").append("IS_NEW_ARTWORK ='").append(digiForm.getArtwork()).append("', ").append("GRID_NUMBER ='").append(fh.replaceApostrophesInString(digiForm.getGridNumber())).append("', ").append("PM_REF_ID=").append(pmRef).append(", ").append("PM_REVISION_ID=").append(pmRevNum).append(", ").append("PROD_FORMAT_ID='").append(digiForm.getConfigurationId()).append("', ").append("COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getComments())).append("' ,").append("SCOPE_COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getScopeComments())).append("' ,").append("IS_INTL_REL ='").append(digiForm.getDigitalIntlRelease()).append("' ,").append("COMBO_REF='").append(fh.replaceApostrophesInString(digiForm.getComboRef())).append("' ,").append("IS_PRE_ORDER='").append(digiForm.getPreOrder()).append("' ,").append("IS_VID_STREAM='").append(digiForm.getVideoStream()).append("' ,").append("IS_AUDIO_STREAM='").append(digiForm.getAudioStream()).append("' ,").append("PREVIEW_CLIPS='").append(digiForm.getPreviewClips()).append("' ,").append("DEALER_PRICE='").append(digiForm.getDealerPrice()).append("' ,")
-	            				 .append("PREVIEW_REL_DATE = TO_DATE('"+previewReleaseDate+"','DD/MM/YYYY HH24:MI:SS'), AUDIO_STREAM_DATE='', ")
+	            		 updateDraftDigital = (new StringBuilder("UPDATE PM_DRAFT_DIGITAL SET RELEASE_DATE =")).append(digiReleaseDate).append(" EXCLUSIVE_TO ='").append(fh.replaceApostrophesInString(digiForm.getExclusiveTo())).append("', ").append("EXCLUSIVE_DETAIL ='").append(fh.replaceApostrophesInString(digiForm.getExclusivityDetails())).append("', ").append("IS_EXCLUSIVE ='").append(exclusive).append("', ").append("IS_NEW_ARTWORK ='").append(digiForm.getArtwork()).append("', ").append("GRID_NUMBER ='").append(fh.replaceApostrophesInString(digiForm.getGridNumber())).append("', ").append("PM_REF_ID=").append(pmRef).append(", ").append("PM_REVISION_ID=").append(pmRevNum).append(", ").append("PROD_FORMAT_ID='").append(digiForm.getConfigurationId()).append("', ").append("COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getComments())).append("' ,").append("SCOPE_COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getScopeComments())).append("' ,").append("IS_INTL_REL ='").append(digiForm.getDigitalIntlRelease()).append("' ,").append("COMBO_REF='").append(fh.replaceApostrophesInString(digiForm.getComboRef())).append("' ,").append("IS_PRE_ORDER='").append(digiForm.getPreOrder()).append("' ,").append("IS_VID_STREAM='").append(digiForm.getVideoStream()).append("' ,").append("IS_AUDIO_STREAM='").append(digiForm.getAudioStream()).append("' ,").append("PREVIEW_CLIPS='").append(digiForm.getPreviewClips()).append("' ,")
+	            				 .append("DEALER_PRICE=").append(dealerPrice).append(" ,")
+	            				 .append("PREVIEW_REL_DATE = CONVERT(DATETIME,'"+previewReleaseDate+"'), AUDIO_STREAM_DATE=null, ")
 	            				 .append("SUPPLEMENTARY_TITLE='").append(fh.replaceApostrophesInString(digiForm.getSupplementTitle())).append("' ,")
 	            				 .append("TITLE_ADDITIONAL='").append(fh.replaceApostrophesInString(digiForm.getAdditTitle())).append("' ,")
 	            				 .append("D2C=").append(d2c).append(", ")
@@ -9027,7 +9966,10 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
 	
 	            	 }else {
 
-	            		 updateDraftDigital = (new StringBuilder("UPDATE PM_DRAFT_DIGITAL SET RELEASE_DATE = TO_DATE('")).append(digiForm.getReleaseDate()).append("','DD/MM/YYYY HH24:MI:SS'), ").append("EXCLUSIVE_TO ='").append(fh.replaceApostrophesInString(digiForm.getExclusiveTo())).append("', ").append("EXCLUSIVE_DETAIL ='").append(fh.replaceApostrophesInString(digiForm.getExclusivityDetails())).append("', ").append("IS_EXCLUSIVE ='").append(exclusive).append("', ").append("IS_NEW_ARTWORK ='").append(digiForm.getArtwork()).append("', ").append("GRID_NUMBER ='").append(fh.replaceApostrophesInString(digiForm.getGridNumber())).append("', ").append("PM_REF_ID=").append(pmRef).append(", ").append("PM_REVISION_ID=").append(pmRevNum).append(", ").append("PROD_FORMAT_ID='").append(digiForm.getConfigurationId()).append("', ").append("COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getComments())).append("' ,").append("SCOPE_COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getScopeComments())).append("' ,").append("IS_INTL_REL ='").append(digiForm.getDigitalIntlRelease()).append("' ,").append("COMBO_REF='").append(fh.replaceApostrophesInString(digiForm.getComboRef())).append("' ,").append("IS_PRE_ORDER='").append(digiForm.getPreOrder()).append("' ,").append("IS_VID_STREAM='").append(digiForm.getVideoStream()).append("' ,").append("IS_AUDIO_STREAM='").append(digiForm.getAudioStream()).append("' ,").append("PREVIEW_CLIPS='N' ,").append("DEALER_PRICE='").append(digiForm.getDealerPrice()).append("' ,").append("PREVIEW_REL_DATE = '', AUDIO_STREAM_DATE='', ").append("BARCODE='").append(fh.replaceApostrophesInString(digiForm.getDigitalBarcode())).append("' ,")
+	            		 updateDraftDigital = (new StringBuilder("UPDATE PM_DRAFT_DIGITAL SET RELEASE_DATE = ")).append(digiReleaseDate).append(" EXCLUSIVE_TO ='").append(fh.replaceApostrophesInString(digiForm.getExclusiveTo())).append("', ").append("EXCLUSIVE_DETAIL ='").append(fh.replaceApostrophesInString(digiForm.getExclusivityDetails())).append("', ").append("IS_EXCLUSIVE ='").append(exclusive).append("', ").append("IS_NEW_ARTWORK ='").append(digiForm.getArtwork()).append("', ").append("GRID_NUMBER ='").append(fh.replaceApostrophesInString(digiForm.getGridNumber())).append("', ").append("PM_REF_ID=").append(pmRef).append(", ").append("PM_REVISION_ID=").append(pmRevNum).append(", ").append("PROD_FORMAT_ID='").append(digiForm.getConfigurationId()).append("', ").append("COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getComments())).append("' ,").append("SCOPE_COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getScopeComments())).append("' ,").append("IS_INTL_REL ='").append(digiForm.getDigitalIntlRelease()).append("' ,").append("COMBO_REF='").append(fh.replaceApostrophesInString(digiForm.getComboRef())).append("' ,").append("IS_PRE_ORDER='").append(digiForm.getPreOrder()).append("' ,").append("IS_VID_STREAM='").append(digiForm.getVideoStream()).append("' ,").append("IS_AUDIO_STREAM='").append(digiForm.getAudioStream()).append("' ,").append("PREVIEW_CLIPS='N' ,")
+	            				 .append("DEALER_PRICE=").append(dealerPrice).append(" ,")
+	            				 .append("PREVIEW_REL_DATE = null, AUDIO_STREAM_DATE=null, ")
+	            				 .append("BARCODE='").append(fh.replaceApostrophesInString(digiForm.getDigitalBarcode())).append("' ,")
                                  .append("IS_RINGTONE_APPROVAL='").append(ringtoneApproval).append("' ,")
                                  .append("XML_PUBLISH='").append(xmlPublish).append("' ,")
 	            				 .append("IS_IN_GRPS_SCHEDULE='").append(digiForm.getScheduleInGRPS()).append("' ,")                                 
@@ -9051,9 +9993,9 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
 	            	 }
             	 }else{
 	            	 if (previewReleaseDate != null && altAudioStreamDate!= null) {
-	            		 updateDraftDigital = (new StringBuilder("UPDATE PM_DRAFT_DIGITAL SET RELEASE_DATE = TO_DATE('")).append(digiForm.getReleaseDate()).append("','DD/MM/YYYY HH24:MI:SS'), ").append("EXCLUSIVE_TO ='").append(fh.replaceApostrophesInString(digiForm.getExclusiveTo())).append("', ").append("EXCLUSIVE_DETAIL ='").append(fh.replaceApostrophesInString(digiForm.getExclusivityDetails())).append("', ").append("IS_EXCLUSIVE ='").append(exclusive).append("', ").append("IS_NEW_ARTWORK ='").append(digiForm.getArtwork()).append("', ").append("GRID_NUMBER ='").append(fh.replaceApostrophesInString(digiForm.getGridNumber())).append("', ").append("PM_REF_ID=").append(pmRef).append(", ").append("PM_REVISION_ID=").append(pmRevNum).append(", ").append("PROD_FORMAT_ID='").append(digiForm.getConfigurationId()).append("', ").append("COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getComments())).append("' ,").append("SCOPE_COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getScopeComments())).append("' ,").append("COMBO_REF='").append(fh.replaceApostrophesInString(digiForm.getComboRef())).append("' ,").append("IS_PRE_ORDER='").append(digiForm.getPreOrder()).append("' ,").append("IS_VID_STREAM='").append(digiForm.getVideoStream()).append("' ,").append("IS_AUDIO_STREAM='").append(digiForm.getAudioStream()).append("' ,").append("PREVIEW_CLIPS='").append(digiForm.getPreviewClips()).append("' ,").append("DEALER_PRICE='").append(digiForm.getDealerPrice()).append("' ,")
-	            				// .append("PREVIEW_REL_DATE = TO_DATE('"+previewReleaseDate+"','DD/MM/YYYY HH24:MI:SS'), ")
-	            				 .append("AUDIO_STREAM_DATE = TO_DATE('"+altAudioStreamDate+"','DD/MM/YYYY HH24:MI:SS'), ")
+	            		 updateDraftDigital = (new StringBuilder("UPDATE PM_DRAFT_DIGITAL SET RELEASE_DATE =").append(digiReleaseDate).append(" EXCLUSIVE_TO ='").append(fh.replaceApostrophesInString(digiForm.getExclusiveTo())).append("', ").append("EXCLUSIVE_DETAIL ='").append(fh.replaceApostrophesInString(digiForm.getExclusivityDetails())).append("', ").append("IS_EXCLUSIVE ='").append(exclusive).append("', ").append("IS_NEW_ARTWORK ='").append(digiForm.getArtwork()).append("', ").append("GRID_NUMBER ='").append(fh.replaceApostrophesInString(digiForm.getGridNumber())).append("', ").append("PM_REF_ID=").append(pmRef).append(", ").append("PM_REVISION_ID=").append(pmRevNum).append(", ").append("PROD_FORMAT_ID='").append(digiForm.getConfigurationId()).append("', ").append("COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getComments())).append("' ,").append("SCOPE_COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getScopeComments())).append("' ,").append("COMBO_REF='").append(fh.replaceApostrophesInString(digiForm.getComboRef())).append("' ,").append("IS_PRE_ORDER='").append(digiForm.getPreOrder()).append("' ,").append("IS_VID_STREAM='").append(digiForm.getVideoStream()).append("' ,").append("IS_AUDIO_STREAM='").append(digiForm.getAudioStream()).append("' ,").append("PREVIEW_CLIPS='").append(digiForm.getPreviewClips()).append("' ,")
+	            				 .append("DEALER_PRICE=").append(dealerPrice).append(" ,")
+	            				 .append("AUDIO_STREAM_DATE = CONVERT(DATETIME,'"+altAudioStreamDate+"'), ")
 	            				 .append("SUPPLEMENTARY_TITLE='").append(fh.replaceApostrophesInString(digiForm.getSupplementTitle())).append("' ,")
 	            				 .append("TITLE_ADDITIONAL='").append(fh.replaceApostrophesInString(digiForm.getAdditTitle())).append("' ,")
 	            				 .append("D2C=").append(d2c).append(", ")	         
@@ -9073,11 +10015,12 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
                                  .append("FULL_PUBLISH='").append(fullPublish).append("' ,")	 
 	            				 .append("IS_GRAS_CONFIDENTIAL='").append(grasConfidential).append("' ,")
 	            				 .append("IS_EXPLICIT='").append(explicit).append("' ")                                 
-	            				 .append("WHERE ").append("PM_REF_ID=").append(pmRef).append(" AND ").append("PM_REVISION_ID=").append(pmRevNum).append(" AND ").append("PM_DETAIL_ID=").append(pmDetailId).toString();
+	            				 .append("WHERE ").append("PM_REF_ID=").append(pmRef).append(" AND ").append("PM_REVISION_ID=").append(pmRevNum).append(" AND ").append("PM_DETAIL_ID=").append(pmDetailId).toString());
 	            	 } else if (previewReleaseDate == null && altAudioStreamDate!= null) {
 
-	            		 updateDraftDigital = (new StringBuilder("UPDATE PM_DRAFT_DIGITAL SET RELEASE_DATE = TO_DATE('")).append(digiForm.getReleaseDate()).append("','DD/MM/YYYY HH24:MI:SS'), ").append("EXCLUSIVE_TO ='").append(fh.replaceApostrophesInString(digiForm.getExclusiveTo())).append("', ").append("EXCLUSIVE_DETAIL ='").append(fh.replaceApostrophesInString(digiForm.getExclusivityDetails())).append("', ").append("IS_EXCLUSIVE ='").append(exclusive).append("', ").append("IS_NEW_ARTWORK ='").append(digiForm.getArtwork()).append("', ").append("GRID_NUMBER ='").append(fh.replaceApostrophesInString(digiForm.getGridNumber())).append("', ").append("PM_REF_ID=").append(pmRef).append(", ").append("PM_REVISION_ID=").append(pmRevNum).append(", ").append("PROD_FORMAT_ID='").append(digiForm.getConfigurationId()).append("', ").append("COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getComments())).append("' ,").append("SCOPE_COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getScopeComments())).append("' ,").append("COMBO_REF='").append(fh.replaceApostrophesInString(digiForm.getComboRef())).append("' ,").append("IS_PRE_ORDER='").append(digiForm.getPreOrder()).append("' ,").append("IS_VID_STREAM='").append(digiForm.getVideoStream()).append("' ,").append("IS_AUDIO_STREAM='").append(digiForm.getAudioStream()).append("' ,").append("PREVIEW_CLIPS='").append(digiForm.getPreviewClips()).append("' ,").append("DEALER_PRICE='").append(digiForm.getDealerPrice()).append("' ,")
-	            				 .append("AUDIO_STREAM_DATE = TO_DATE('"+altAudioStreamDate+"','DD/MM/YYYY HH24:MI:SS'), PREVIEW_REL_DATE='', ")
+	            		 updateDraftDigital = (new StringBuilder("UPDATE PM_DRAFT_DIGITAL SET RELEASE_DATE = ")).append(digiReleaseDate).append(" EXCLUSIVE_TO ='").append(fh.replaceApostrophesInString(digiForm.getExclusiveTo())).append("', ").append("EXCLUSIVE_DETAIL ='").append(fh.replaceApostrophesInString(digiForm.getExclusivityDetails())).append("', ").append("IS_EXCLUSIVE ='").append(exclusive).append("', ").append("IS_NEW_ARTWORK ='").append(digiForm.getArtwork()).append("', ").append("GRID_NUMBER ='").append(fh.replaceApostrophesInString(digiForm.getGridNumber())).append("', ").append("PM_REF_ID=").append(pmRef).append(", ").append("PM_REVISION_ID=").append(pmRevNum).append(", ").append("PROD_FORMAT_ID='").append(digiForm.getConfigurationId()).append("', ").append("COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getComments())).append("' ,").append("SCOPE_COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getScopeComments())).append("' ,").append("COMBO_REF='").append(fh.replaceApostrophesInString(digiForm.getComboRef())).append("' ,").append("IS_PRE_ORDER='").append(digiForm.getPreOrder()).append("' ,").append("IS_VID_STREAM='").append(digiForm.getVideoStream()).append("' ,").append("IS_AUDIO_STREAM='").append(digiForm.getAudioStream()).append("' ,").append("PREVIEW_CLIPS='").append(digiForm.getPreviewClips()).append("' ,")
+	            				 .append("DEALER_PRICE=").append(dealerPrice).append(" ,")
+	            				 .append("AUDIO_STREAM_DATE = CONVERT(DATETIME,'"+altAudioStreamDate+"'), PREVIEW_REL_DATE=null, ")
 	            				 .append("SUPPLEMENTARY_TITLE='").append(fh.replaceApostrophesInString(digiForm.getSupplementTitle())).append("' ,")
 	            				 .append("TITLE_ADDITIONAL='").append(fh.replaceApostrophesInString(digiForm.getAdditTitle())).append("' ,")
 	            				 .append("D2C=").append(d2c).append(", ")				
@@ -9100,8 +10043,9 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
 	            				 .append("WHERE ").append("PM_REF_ID=").append(pmRef).append(" AND ").append("PM_REVISION_ID=").append(pmRevNum).append(" AND ").append("PM_DETAIL_ID=").append(pmDetailId).toString();             	 
 	            	 } else if (previewReleaseDate != null && altAudioStreamDate== null) {
 
-	            		 updateDraftDigital = (new StringBuilder("UPDATE PM_DRAFT_DIGITAL SET RELEASE_DATE = TO_DATE('")).append(digiForm.getReleaseDate()).append("','DD/MM/YYYY HH24:MI:SS'), ").append("EXCLUSIVE_TO ='").append(fh.replaceApostrophesInString(digiForm.getExclusiveTo())).append("', ").append("EXCLUSIVE_DETAIL ='").append(fh.replaceApostrophesInString(digiForm.getExclusivityDetails())).append("', ").append("IS_EXCLUSIVE ='").append(exclusive).append("', ").append("IS_NEW_ARTWORK ='").append(digiForm.getArtwork()).append("', ").append("GRID_NUMBER ='").append(fh.replaceApostrophesInString(digiForm.getGridNumber())).append("', ").append("PM_REF_ID=").append(pmRef).append(", ").append("PM_REVISION_ID=").append(pmRevNum).append(", ").append("PROD_FORMAT_ID='").append(digiForm.getConfigurationId()).append("', ").append("COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getComments())).append("' ,").append("SCOPE_COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getScopeComments())).append("' ,").append("COMBO_REF='").append(fh.replaceApostrophesInString(digiForm.getComboRef())).append("' ,").append("IS_PRE_ORDER='").append(digiForm.getPreOrder()).append("' ,").append("IS_VID_STREAM='").append(digiForm.getVideoStream()).append("' ,").append("IS_AUDIO_STREAM='").append(digiForm.getAudioStream()).append("' ,").append("PREVIEW_CLIPS='").append(digiForm.getPreviewClips()).append("' ,").append("DEALER_PRICE='").append(digiForm.getDealerPrice()).append("' ,")
-	            				 .append("PREVIEW_REL_DATE = TO_DATE('"+previewReleaseDate+"','DD/MM/YYYY HH24:MI:SS'), AUDIO_STREAM_DATE='', ")
+	            		 updateDraftDigital = (new StringBuilder("UPDATE PM_DRAFT_DIGITAL SET RELEASE_DATE = ")).append(digiReleaseDate).append(" EXCLUSIVE_TO ='").append(fh.replaceApostrophesInString(digiForm.getExclusiveTo())).append("', ").append("EXCLUSIVE_DETAIL ='").append(fh.replaceApostrophesInString(digiForm.getExclusivityDetails())).append("', ").append("IS_EXCLUSIVE ='").append(exclusive).append("', ").append("IS_NEW_ARTWORK ='").append(digiForm.getArtwork()).append("', ").append("GRID_NUMBER ='").append(fh.replaceApostrophesInString(digiForm.getGridNumber())).append("', ").append("PM_REF_ID=").append(pmRef).append(", ").append("PM_REVISION_ID=").append(pmRevNum).append(", ").append("PROD_FORMAT_ID='").append(digiForm.getConfigurationId()).append("', ").append("COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getComments())).append("' ,").append("SCOPE_COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getScopeComments())).append("' ,").append("COMBO_REF='").append(fh.replaceApostrophesInString(digiForm.getComboRef())).append("' ,").append("IS_PRE_ORDER='").append(digiForm.getPreOrder()).append("' ,").append("IS_VID_STREAM='").append(digiForm.getVideoStream()).append("' ,").append("IS_AUDIO_STREAM='").append(digiForm.getAudioStream()).append("' ,").append("PREVIEW_CLIPS='").append(digiForm.getPreviewClips()).append("' ,")
+	            				 .append("DEALER_PRICE=").append(dealerPrice).append(" ,")
+	            				 .append("PREVIEW_REL_DATE = CONVERT(DATETIME,'"+previewReleaseDate+"'), AUDIO_STREAM_DATE=null, ")
 	            				 .append("SUPPLEMENTARY_TITLE='").append(fh.replaceApostrophesInString(digiForm.getSupplementTitle())).append("' ,")
 	            				 .append("TITLE_ADDITIONAL='").append(fh.replaceApostrophesInString(digiForm.getAdditTitle())).append("' ,")
 	            				 .append("D2C=").append(d2c).append(", ")
@@ -9125,7 +10069,10 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
 	
 	            	 }else {
 
-	            		 updateDraftDigital = (new StringBuilder("UPDATE PM_DRAFT_DIGITAL SET RELEASE_DATE = TO_DATE('")).append(digiForm.getReleaseDate()).append("','DD/MM/YYYY HH24:MI:SS'), ").append("EXCLUSIVE_TO ='").append(fh.replaceApostrophesInString(digiForm.getExclusiveTo())).append("', ").append("EXCLUSIVE_DETAIL ='").append(fh.replaceApostrophesInString(digiForm.getExclusivityDetails())).append("', ").append("IS_EXCLUSIVE ='").append(exclusive).append("', ").append("IS_NEW_ARTWORK ='").append(digiForm.getArtwork()).append("', ").append("GRID_NUMBER ='").append(fh.replaceApostrophesInString(digiForm.getGridNumber())).append("', ").append("PM_REF_ID=").append(pmRef).append(", ").append("PM_REVISION_ID=").append(pmRevNum).append(", ").append("PROD_FORMAT_ID='").append(digiForm.getConfigurationId()).append("', ").append("COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getComments())).append("' ,").append("SCOPE_COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getScopeComments())).append("' ,").append("COMBO_REF='").append(fh.replaceApostrophesInString(digiForm.getComboRef())).append("' ,").append("IS_PRE_ORDER='").append(digiForm.getPreOrder()).append("' ,").append("IS_VID_STREAM='").append(digiForm.getVideoStream()).append("' ,").append("IS_AUDIO_STREAM='").append(digiForm.getAudioStream()).append("' ,").append("PREVIEW_CLIPS='N' ,").append("DEALER_PRICE='").append(digiForm.getDealerPrice()).append("' ,").append("PREVIEW_REL_DATE = '', AUDIO_STREAM_DATE='', ").append("BARCODE='").append(fh.replaceApostrophesInString(digiForm.getDigitalBarcode())).append("' ,")	            		         
+	            		 updateDraftDigital = (new StringBuilder("UPDATE PM_DRAFT_DIGITAL SET RELEASE_DATE =")).append(digiReleaseDate).append(" EXCLUSIVE_TO ='").append(fh.replaceApostrophesInString(digiForm.getExclusiveTo())).append("', ").append("EXCLUSIVE_DETAIL ='").append(fh.replaceApostrophesInString(digiForm.getExclusivityDetails())).append("', ").append("IS_EXCLUSIVE ='").append(exclusive).append("', ").append("IS_NEW_ARTWORK ='").append(digiForm.getArtwork()).append("', ").append("GRID_NUMBER ='").append(fh.replaceApostrophesInString(digiForm.getGridNumber())).append("', ").append("PM_REF_ID=").append(pmRef).append(", ").append("PM_REVISION_ID=").append(pmRevNum).append(", ").append("PROD_FORMAT_ID='").append(digiForm.getConfigurationId()).append("', ").append("COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getComments())).append("' ,").append("SCOPE_COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getScopeComments())).append("' ,").append("COMBO_REF='").append(fh.replaceApostrophesInString(digiForm.getComboRef())).append("' ,").append("IS_PRE_ORDER='").append(digiForm.getPreOrder()).append("' ,").append("IS_VID_STREAM='").append(digiForm.getVideoStream()).append("' ,").append("IS_AUDIO_STREAM='").append(digiForm.getAudioStream()).append("' ,").append("PREVIEW_CLIPS='N' ,")
+	            				 .append("DEALER_PRICE=").append(dealerPrice).append(" ,")
+	            				 .append("PREVIEW_REL_DATE = null, AUDIO_STREAM_DATE=null, ")
+	            				 .append("BARCODE='").append(fh.replaceApostrophesInString(digiForm.getDigitalBarcode())).append("' ,")	            		         
                                  .append("IS_RINGTONE_APPROVAL='").append(ringtoneApproval).append("' ,")
                                  .append("XML_PUBLISH='").append(xmlPublish).append("' ,")
 	            				 .append("IS_IN_GRPS_SCHEDULE='").append(digiForm.getScheduleInGRPS()).append("' ,")                                 
@@ -9209,7 +10156,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             	 } else {
             		 exclusive = "N";
             	 }
-            	 updateDraftDigital = (new StringBuilder("UPDATE PM_DRAFT_DIGITAL SET RELEASE_DATE = TO_DATE('")).append(digiForm.getReleaseDate()).append("', ").append("'DD/MM/YYYY HH24:MI:SS'), ").append("EXCLUSIVE_TO ='").append(fh.replaceApostrophesInString(digiForm.getExclusiveTo())).append("', ").append("EXCLUSIVE_DETAIL ='").append(fh.replaceApostrophesInString(digiForm.getExclusivityDetails())).append("', ").append("IS_NEW_ARTWORK ='").append(digiForm.getArtwork()).append("', ").append("GRID_NUMBER ='").append(fh.replaceApostrophesInString(digiForm.getGridNumber())).append("', ").append("PM_REF_ID=").append(pmRef).append(", ").append("PM_REVISION_ID=").append(pmRevNum).append(", ").append("PROD_FORMAT_ID=").append(pmFormatId).append(", ").append("', ").append("BARCODE='").append(fh.replaceApostrophesInString(digiForm.getDigitalBarcode())).append("' ,").append("COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getComments())).append("', ").append("SCOPE_COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getScopeComments())).append("' WHERE ").append("PM_REF_ID = ? AND ").append("PM_REVISION_ID = ? AND ").append("PM_DETAIL_ID = ? AND ").append("PROD_FORMAT_ID = ?").toString();
+            	 updateDraftDigital = (new StringBuilder("UPDATE PM_DRAFT_DIGITAL SET RELEASE_DATE = CONVERT(DATETIME,'")).append(digiForm.getReleaseDate()).append("'), EXCLUSIVE_TO ='").append(fh.replaceApostrophesInString(digiForm.getExclusiveTo())).append("', ").append("EXCLUSIVE_DETAIL ='").append(fh.replaceApostrophesInString(digiForm.getExclusivityDetails())).append("', ").append("IS_NEW_ARTWORK ='").append(digiForm.getArtwork()).append("', ").append("GRID_NUMBER ='").append(fh.replaceApostrophesInString(digiForm.getGridNumber())).append("', ").append("PM_REF_ID=").append(pmRef).append(", ").append("PM_REVISION_ID=").append(pmRevNum).append(", ").append("PROD_FORMAT_ID=").append(pmFormatId).append(", ").append("', ").append("BARCODE='").append(fh.replaceApostrophesInString(digiForm.getDigitalBarcode())).append("' ,").append("COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getComments())).append("', ").append("SCOPE_COMMENTS ='").append(fh.replaceApostrophesInString(digiForm.getScopeComments())).append("' WHERE ").append("PM_REF_ID = ? AND ").append("PM_REVISION_ID = ? AND ").append("PM_DETAIL_ID = ? AND ").append("PROD_FORMAT_ID = ?").toString();
             	 try {
             		 connection = getConnection();
             		 pstmt = connection.prepareStatement(updateDraftDigital);
@@ -9449,7 +10396,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
 /* 6790*/        tracks = null;
 /* 6791*/        Track tr = null;
 
-/* 6794*/        returnTracksFromDB = (new StringBuilder("SELECT * FROM PM_DRAFT_DIGITAL_TRACKS WHERE PM_REF_ID=")).append(pmRef).append(" ").append("AND PM_REVISION_ID=").append(pmRevNum).append(" ").append("AND PM_DETAIL_ID =").append(detailId).append(" ORDER BY TRACK_ORDER ASC").toString();
+/* 6794*/        returnTracksFromDB = "SELECT * FROM PM_DRAFT_DIGITAL_TRACKS WHERE PM_REF_ID="+pmRef+"AND PM_REVISION_ID="+pmRevNum+"AND PM_DETAIL_ID ="+detailId+" ORDER BY TRACK_ORDER ASC";
 /* 6799*/        try {
 /* 6799*/            connection = getConnection();
 /* 6800*/            statement = connection.createStatement();
@@ -10445,40 +11392,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
 
              
              
-             
-             
-             
-             
-             public boolean deletePromoFormat(String memoRef, String revisionID, String detailId) {
-            	 boolean deleted;
-            	 ResultSet rs = null;
-            	 Statement statement = null;
-            	 Connection connection = null;
-            	 String sql;
-            	 deleted = false;
-
-            	 sql = (new StringBuilder("DELETE FROM PM_DRAFT_PROMOS WHERE PM_REF_ID = ")).append(memoRef).append(" AND PM_REVISION_ID = ").append(revisionID).append(" AND PM_DETAIL_ID = ").append(detailId).toString();
-
-            	 try {
-            		 connection = getConnection();
-            		 statement = connection.createStatement();
-            		 rs = statement.executeQuery(sql);
-            		 deleted = true;
-            	 } catch (Exception e) {
-            		 e.printStackTrace();
-            	 } finally {
-         		 	try{
-        		 		rs.close();
-        		 		statement.close();
-        		 		connection.close();
-	                } catch (SQLException e) {
-	                	 e.printStackTrace();
-	                }         	
-            	}
-            	 return deleted;
-             }
-
-             
+           
              
              
              
@@ -10486,7 +11400,6 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
              public boolean deletePhysicalFormat(String memoRef, String revisionID, String detailId) {
             	 boolean deleted;
             	 String sql;                 
-            	 ResultSet rs = null;
             	 Statement statement = null;
             	 Connection connection = null;
             	 deleted = false;
@@ -10494,13 +11407,12 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             	 try {
             		 connection = getConnection();
             		 statement = connection.createStatement();
-            		 rs = statement.executeQuery(sql);
+            		 statement.execute(sql);
             		 deleted = true;
             	 }catch (Exception e) {
             		 e.printStackTrace();
             	 } finally {
          		 	try{
-        		 		rs.close();
         		 		statement.close();
         		 		connection.close();
 	                } catch (SQLException e) {
@@ -10516,7 +11428,6 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
              
              public boolean deleteDigitalFormat(String memoRef, String revisionID, String detailId) {
             	 boolean deleted;
-            	 ResultSet rs = null;
             	 Statement statement = null;
             	 Connection connection = null;
             	 String sql;
@@ -10526,13 +11437,12 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             	 try {
             		 connection = getConnection();
             		 statement = connection.createStatement();
-            		 rs = statement.executeQuery(sql);
+            		 statement.execute(sql);
             		 deleted = true;
             	 } catch (Exception e) {
             		 e.printStackTrace();
             	 } finally {
          		 	try{
-        		 		rs.close();
         		 		statement.close();
         		 		connection.close();
 	                } catch (SQLException e) {
@@ -10584,7 +11494,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             					 formatAndRelDate.setFormatType("digital");
             				 }
             			 formatAndRelDate.setPmemoFormat(getStringFromId(rs.getString("PROD_FORMAT_ID"), "SELECT PROD_FORMAT_DESC FROM PM_PRODUCT_FORMAT WHERE PROD_FORMAT_ID = ", connection));
-            			 formatAndRelDate.setUnattachedReportFlag(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
+            			// formatAndRelDate.setUnattachedReportFlag(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
             		 }
 
             	 } catch (Exception e) {
@@ -10605,7 +11515,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
              
              
              
-             public ArrayList getAllUnmatchedDigitalEquivalents(String pmID) {
+            /* public ArrayList getAllUnmatchedDigitalEquivalents(String pmID) {
             	 ArrayList unmatchedDigitalEquivsList;
             	 unmatchedDigitalEquivsList = null;
             	 FormHelper fh = new FormHelper();
@@ -10639,13 +11549,13 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
 	                }			
             	 }
             	 return unmatchedDigitalEquivsList;
-             }
+             }*/
 
              
              
              
              
-             public ArrayList getNewAllUnmatchedDigitalEquivalents(String pmID) {
+            /* public ArrayList getNewAllUnmatchedDigitalEquivalents(String pmID) {
             	 ArrayList unmatchedDigitalEquivsList;
             	 FormHelper fh;
             	 ResultSet rs = null;
@@ -10680,7 +11590,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
 	                }
             	 }
             	 return unmatchedDigitalEquivsList;
-             }
+             }*/
 
              
              
@@ -10710,7 +11620,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             			 formatAndRelDate.setPmemoReleaseDate(rs.getDate("RELEASE_DATE"));
             			 formatAndRelDate.setPmemoFormat(format);
             			 formatAndRelDate.setFormatType("mobile");
-            			 formatAndRelDate.setUnattachedReportFlag(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
+            			// formatAndRelDate.setUnattachedReportFlag(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
             		 }
 
             	 } catch (Exception e) {
@@ -10795,7 +11705,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             			 formatAndRelDate.setPmemoReleaseDate(rs.getDate("RELEASE_DATE"));
             			 formatAndRelDate.setPmemoFormat(format);
             			 formatAndRelDate.setFormatType("mobile");
-            			 formatAndRelDate.setUnattachedReportFlag(fh.assignDashboardIndexPageImage(rs.getString("MONIS_STATUS")));
+            			
             		 }
 
             	 } catch (Exception e) {
@@ -10816,246 +11726,9 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
              
              
              
-             public ArrayList getAllPromoCatNums(String pmID) {
-            	 ArrayList promoReportItemsList; 
-            	 promoReportItemsList = null;
-            	 ResultSet rs = null;
-            	 PreparedStatement pstmt =null;
-            	 Connection connection = null;
-            	 try {
-            		 connection = getConnection();
-            		 pstmt = connection.prepareStatement(RETURN_PROMO_CAT_NUM_LIST);
-            		 pstmt.setString(1, pmID);
-            		 promoReportItemsList = new ArrayList();
-            		 ArrayList dashItem;
-            		 for (rs = pstmt.executeQuery(); rs.next(); promoReportItemsList.add(dashItem)) {
-            			 dashItem = new ArrayList();
-            			 dashItem.add(rs.getString("CATALOGUE_NUM"));
-            			 dashItem.add(null);
-            			 dashItem.add(null);
-            			 dashItem.add(getStringFromId(rs.getString("PROD_FORMAT_ID"), "SELECT PROD_FORMAT_DESC FROM PM_PRODUCT_FORMAT WHERE PROD_FORMAT_ID = ", connection));
-            			 dashItem.add("promos");
-            			 dashItem.add(rs.getString("PM_DETAIL_ID"));
-            		 }
-
-            	 } catch (Exception e) {
-            		 e.printStackTrace();
-            	 } finally {
-          		 	try{
-         		 		rs.close();
-         		 		pstmt.close();
-         		 		connection.close();
- 	                } catch (SQLException e) {
- 	                	 e.printStackTrace();
- 	                }	
-            	 }	
-            	 return promoReportItemsList;
-             }
 
              
-             
-             
-             
-             public DashboardReport getAllDigitalEquivalentDashboardReports(String dashCatId) {
-                 DashboardReport dashboardReport;
 
-                 FormHelper fh;
-                 String sql;
-/* 8053*/        dashboardReport = null;
-				 ResultSet rs = null;
-				 Statement statement = null;
-				 Connection connection = null;
-/* 8056*/        fh = new FormHelper();
-/* 8057*/        sql = (new StringBuilder("SELECT * FROM MONIS_SCHEDULE WHERE CAT_IT_CD = TRIM('")).append(fh.replaceApostrophesInString(dashCatId)).append("')AND LOAD_DATE =(SELECT MAX(LOAD_DATE) FROM MONIS_SCHEDULE)").toString();
-/* 8060*/        try {
-/* 8060*/            connection = getConnection();
-/* 8062*/            statement = connection.createStatement();
-/* 8063*/            ArrayList dashboardReports = new ArrayList();
-/* 8064*/            for (rs = statement.executeQuery(sql); rs.next(); dashboardReport.setDigitalSchedulingOverallFlag(fh.deriveDigitalSchedulingOverallFlagForDashboard(dashboardReport.getProdOnEOMImage()))) {
-/* 8067*/                dashboardReport = new DashboardReport();
-/* 8068*/                dashboardReport.setFormatType("digital");
-/* 8069*/                dashboardReport.setCatItemId(rs.getString("CAT_IT_CD"));
-/* 8070*/                dashboardReport.setArtist(rs.getString("ARTIST"));
-/* 8071*/                dashboardReport.setTitle(rs.getString("TITLE"));
-/* 8072*/                dashboardReport.setReleaseDate(rs.getDate("REL_DATE_SORT"));
-/* 8073*/                dashboardReport.setDigitalReleaseDate(rs.getDate("DIG_REL_DATE"));
-/* 8074*/                dashboardReport.setRepOwner(rs.getString("REP_OWNER"));
-/* 8075*/                dashboardReport.setRepOwnerCountry(rs.getString("REP_OWNER_COUNTRY"));
-/* 8076*/                dashboardReport.setInitiatorName(rs.getString("INITIATOR_NAME"));
-/* 8077*/                dashboardReport.setLabelCopyPlanDate(rs.getDate("LABEL_COPY_P"));
-/* 8078*/                dashboardReport.setLabelCopyActualDate(rs.getDate("LABEL_COPY_ACTUAL"));
-/* 8079*/                dashboardReport.setLabelCopyImage(fh.assignDashboardImage(rs.getString("LABEL_COPY_MAP")));
-/* 8080*/                dashboardReport.setCfg(rs.getString("CFG"));
-/* 8081*/                dashboardReport.setGloresForecastPlanDate(rs.getDate("GLORES_FORECAST_P"));
-/* 8082*/                dashboardReport.setGloresForecastActualDate(rs.getDate("GLORES_FORECAST_ACTUAL"));
-/* 8083*/                dashboardReport.setGloresForecastImage(fh.assignDashboardImage(rs.getString("GLORES_FORECAST_MAP")));
-/* 8084*/                dashboardReport.setProdOnEOMPlanDate(rs.getDate("PROD_ON_EOMA_P"));
-/* 8085*/                dashboardReport.setProdOnEOMActualDate(rs.getDate("PROD_ON_EOMA_ACTUAL"));
-/* 8086*/                dashboardReport.setProdOnEOMImage(fh.assignDashboardImage(rs.getString("PROD_ON_EOMA_MAP")));
-/* 8087*/                dashboardReport.setApproveProdMasterPlanDate(rs.getDate("APRV_PROD_MAST_P"));
-/* 8088*/                dashboardReport.setApproveProdMasterActualDate(rs.getDate("APRV_PROD_MAST_ACTUAL"));
-/* 8089*/                dashboardReport.setApproveProdMasterImage(fh.assignDashboardImage(rs.getString("APRV_PROD_MAST_MAP")));
-/* 8090*/                dashboardReport.setApproveProdArtworkPlanDate(rs.getDate("APRV_PROD_ART_P"));
-/* 8091*/                dashboardReport.setApproveProdArtworkActualDate(rs.getDate("APRV_PROD_ART_ACTUAL"));
-/* 8092*/                dashboardReport.setApproveProdArtworkImage(fh.assignDashboardImage(rs.getString("APRV_PROD_ART_MAP")));
-/* 8093*/                dashboardReport.setQtySheetPlanDate(rs.getDate("QUANTITY_SHEET_P"));
-/* 8094*/                dashboardReport.setQtySheetActualDate(rs.getDate("QUANTITY_SHEET_ACTUAL"));
-/* 8095*/                dashboardReport.setPackagingImage(fh.assignDashboardImage(rs.getString("PACKAGING_MAP")));
-/* 8096*/                dashboardReport.setPackagingPlanDate(rs.getDate("PACKAGING_P"));
-/* 8097*/                dashboardReport.setPackagingActualDate(rs.getDate("PACKAGING_ACTUAL"));
-/* 8098*/                dashboardReport.setQtySheetImage(fh.assignDashboardImage(rs.getString("QUANTITY_SHEET_MAP")));
-/* 8099*/                dashboardReport.setAllInitOrdersRcvdPlanDate(rs.getDate("ALL_INIT_ORD_RCVD_P"));
-/* 8100*/                dashboardReport.setAllInitOrdersRcvdActualDate(rs.getDate("ALL_INIT_ORD_RCVD_ACTUAL"));
-/* 8101*/                dashboardReport.setAllInitOrdersRcvdImage(fh.assignDashboardImage(rs.getString("ALL_INIT_ORD_RCVD_MAP")));
-/* 8102*/                dashboardReport.setDigitalRightsClearedPlanDate(rs.getDate("DIG_RIGHT_CLEARED_P"));
-/* 8103*/                dashboardReport.setDigitalRightsClearedActualDate(rs.getDate("DIG_RIGHT_CLEARED_ACTUAL"));
-/* 8104*/                dashboardReport.setDigitalRightsClearedImage(fh.assignDashboardImage(rs.getString("DIG_RIGHT_CLEARED_MAP")));
-/* 8105*/                dashboardReport.setInstructionToPrepareAOMAPlanDate(rs.getDate("INST_PREP_AOMA_P"));
-/* 8106*/                dashboardReport.setInstructionToPrepareAOMAActualDate(rs.getDate("INST_PREP_AOMA_ACTUAL"));
-/* 8107*/                dashboardReport.setInstructionToPrepareAOMAImage(fh.assignDashboardImage(rs.getString("INST_PREP_AOMA_MAP")));
-/* 8108*/                dashboardReport.setSuccessfulAOMARegistrationPlanDate(rs.getDate("SCSFUL_AOMA_REG_P"));
-/* 8109*/                dashboardReport.setSuccessfulAOMARegistrationActualDate(rs.getDate("SCSFUL_AOMA_REG_ACTUAL"));
-/* 8110*/                dashboardReport.setSuccessfulAOMARegistrationImage(fh.assignDashboardImage(rs.getString("SCSFUL_AOMA_REG_MAP")));
-/* 8111*/                dashboardReport.setProductionReadyPlanDate(rs.getDate("PROD_READY_P"));
-/* 8112*/                dashboardReport.setProductionReadyActualDate(rs.getDate("PROD_READY_ACTUAL"));
-/* 8113*/                dashboardReport.setProductionReadyImage(fh.assignDashboardImage(rs.getString("PROD_READY_MAP")));
-/* 8114*/                dashboardReport.setInitialManufOrderShippedPlanDate(rs.getDate("INIT_MFG_ORD_SHIP_P"));
-/* 8115*/                dashboardReport.setInitialManufOrderShippedActualDate(rs.getDate("INIT_MFG_ORD_SHIP_ACTUAL"));
-/* 8116*/                dashboardReport.setInitialManufOrderShippedImage(fh.assignDashboardImage(rs.getString("INIT_MFG_ORD_SHIP_MAP")));
-/* 8117*/                dashboardReport.setInitialOrderAtManufacturerPlanDate(rs.getDate("INIT_ORD_DISTR_P"));
-/* 8118*/                dashboardReport.setInitialOrderAtManufacturerActualDate(rs.getDate("INIT_ORD_DISTR_ACTUAL"));
-/* 8119*/                dashboardReport.setInitialOrderAtManufacturerImage(fh.assignDashboardImage(rs.getString("INIT_ORD_DISTR_MAP")));
-/* 8120*/                dashboardReport.setProdReadyForDigiDistbnPlanDate(rs.getDate("PROD_DIGI_DISTR_P"));
-/* 8121*/                dashboardReport.setProdReadyForDigiDistbnActualDate(rs.getDate("PROD_DIGI_DISTR_ACTUAL"));
-/* 8122*/                dashboardReport.setProdReadyForDigiDistbnImage(fh.assignDashboardImage(rs.getString("PROD_DIGI_DISTR_MAP")));
-/* 8123*/                dashboardReport.setPartsOverallFlag(fh.derivePartsOverallFlagForDashboard(dashboardReport.getApproveProdMasterImage(), dashboardReport.getApproveProdArtworkImage(), dashboardReport.getProductionReadyImage(), dashboardReport.getProdReadyForDigiDistbnImage(), dashboardReport.getInstructionToPrepareAOMAImage(), dashboardReport.getSuccessfulAOMARegistrationImage()));
-/* 8124*/                dashboardReport.setOrdersOverallFlag(fh.deriveOrdersOverallFlagForDashboard(dashboardReport.getAllInitOrdersRcvdImage(), dashboardReport.getQtySheetImage(), dashboardReport.getInitialManufOrderShippedImage(), dashboardReport.getInitialOrderAtManufacturerImage()));
-/* 8125*/                dashboardReport.setPreparationOverallFlag(fh.derivePreparationOverallFlagForDashboard(dashboardReport.getPackagingImage(), dashboardReport.getGloresForecastImage()));
-/* 8128*/                dashboardReport.setLabelCopyOverallFlag(fh.deriveLabelCopyOverallFlagForDashboard(dashboardReport.getLabelCopyImage()));
-/* 8129*/                dashboardReport.setDigitalRightsOverallFlag(fh.deriveDigitalRightsOverallFlagForDashboard(dashboardReport.getDigitalRightsClearedImage()));
-                     }
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				} finally {
-         		 	try{
-        		 		rs.close();
-        		 		statement.close();
-        		 		connection.close();
-	                } catch (SQLException e) {
-	                	 e.printStackTrace();
-	                }	
-				}
-				return dashboardReport;
-             }
-
-             
-             
-             
-             
-             
-             public DashboardReportNew getNewAllDigitalEquivalentDashboardReports(String dashCatId, String countryCode) {
-                 DashboardReportNew dashboardReport;
-                 ResultSet rs = null;
-                 Statement statement = null;
-                 Connection connection = null;
-                 FormHelper fh;
-                 String sql;
-/* 8159*/        dashboardReport = null;
-/* 8162*/        fh = new FormHelper();
-/* 8163*/        sql = "SELECT * FROM DAILY_DASH D, DAILY_DASH_CSS C, PM_DETAIL_PHYSICAL P  WHERE D.PRODUCT_NUMBER = TRIM('"+fh.replaceApostrophesInString(dashCatId)+"') " +
-					   "AND D.PRODUCT_NUMBER = P.DIGITAL_EQUIVALENT " +
-					   "AND D.PRODUCT_NUMBER = C.PRODUCT_NUMBER " +
-					   "AND D.LOAD_DATE =(SELECT MAX(LOAD_DATE) FROM DAILY_DASH) " +
-					   "AND P.MONIS_STATUS <> 'F' " +
-					   "AND TRIM(D.COUNTRY) = '"+countryCode+"' " +
-					   "AND P.pm_revision_id = (SELECT MAX(pm_revision_id) " +
-					   "FROM pm_header x  WHERE x.pm_ref_id = P.pm_ref_id )";
-/* 8183*/        try {
-/* 8183*/            connection = getConnection();
-/* 8186*/            statement = connection.createStatement();
-/* 8187*/            ArrayList dashboardReports = new ArrayList();
-/* 8188*/            for (rs = statement.executeQuery(sql); rs.next(); dashboardReport.setOrdersOverallFlag(fh.deriveOrdersOverallFlagForDashboard(dashboardReport.getManufOrderPlacedImage(), dashboardReport.getQtySheetImage(), dashboardReport.getManufOrderShippedImage(), dashboardReport.getManufOrderAtDistImage()))) {
-/* 8193*/                dashboardReport = new DashboardReportNew();
-/* 8196*/                dashboardReport.setFormatType("digital");
-/* 8198*/                dashboardReport = new DashboardReportNew();
-/* 8203*/                dashboardReport.setCatItemId(rs.getString("PRODUCT_NUMBER"));
-/* 8204*/                dashboardReport.setArtist(rs.getString("ARTIST"));
-/* 8205*/                dashboardReport.setTitle(rs.getString("TITLE"));
-/* 8206*/                dashboardReport.setCfg(rs.getString("PRODUCT_TYPE"));
-/* 8208*/                dashboardReport.setDashPreOrderDate(rs.getDate("PRE_ORDER_DATE"));
-/* 8209*/                dashboardReport.setDashReleaseDate(rs.getDate("RELEASE_DATE"));
-/* 8210*/                dashboardReport.setRepOwner(rs.getString("REPERTOIRE_OWNER"));
-/* 8214*/                dashboardReport.setPackagingImage(fh.assignDashboardImage(rs.getString("COLOR_PACKG")));
-/* 8215*/                dashboardReport.setPackagingPlanDate(rs.getDate("DUE_DATE_PACKG"));
-/* 8216*/                dashboardReport.setPackagingActualDate(rs.getDate("ACT_DATE_PACKG"));
-/* 8218*/                dashboardReport.setQtySheetImage(fh.assignDashboardImage(rs.getString("COLOR_QSHEET")));
-/* 8219*/                dashboardReport.setQtySheetPlanDate(rs.getDate("DUE_DATE_QSHEET"));
-/* 8220*/                dashboardReport.setQtySheetActualDate(rs.getDate("ACT_DATE_QSHEET"));
-/* 8222*/                dashboardReport.setApproveProdMasterImage(fh.assignDashboardImage(rs.getString("COLOR_PRODMAST")));
-/* 8223*/                dashboardReport.setApproveProdMasterPlanDate(rs.getDate("DUE_DATE_PRODMAST"));
-/* 8224*/                dashboardReport.setApproveProdMasterActualDate(rs.getDate("ACT_DATE_PRODMAST"));
-/* 8226*/                dashboardReport.setApproveProdArtworkImage(fh.assignDashboardImage(rs.getString("COLOR_PRODART")));
-/* 8227*/                dashboardReport.setApproveProdArtworkPlanDate(rs.getDate("DUE_DATE_PRODART"));
-/* 8228*/                dashboardReport.setApproveProdArtworkActualDate(rs.getDate("ACT_DATE_PRODART"));
-/* 8263*/                dashboardReport.setGloresForecastImage(fh.assignDashboardImage(rs.getString("COLOR_09")));
-/* 8264*/                dashboardReport.setGloresForecastPlanDate(rs.getDate("DUE_DATE_09"));
-/* 8265*/                dashboardReport.setGloresForecastActualDate(rs.getDate("ACT_DATE_09"));
-/* 8267*/                dashboardReport.setPreparationOverallFlag(fh.deriveNewPreparationOverallFlagForDashboard(dashboardReport.getPackagingImage(), dashboardReport.getGloresForecastImage()));
-/* 8272*/                dashboardReport.setLabelCopyImage(fh.assignDashboardImage(rs.getString("COLOR_01")));
-/* 8273*/                dashboardReport.setLabelCopyPlanDate(rs.getDate("DUE_DATE_01"));
-/* 8274*/                dashboardReport.setLabelCopyActualDate(rs.getDate("ACT_DATE_01"));
-/* 8276*/                dashboardReport.setLabelCopyOverallFlag(fh.deriveLabelCopyOverallFlagForDashboard(dashboardReport.getLabelCopyImage()));
-/* 8279*/                dashboardReport.setDigitalRightsClearedImage(fh.assignDashboardImage(rs.getString("COLOR_03")));
-/* 8280*/                dashboardReport.setDigitalRightsClearedPlanDate(rs.getDate("DUE_DATE_03"));
-/* 8281*/                dashboardReport.setDigitalRightsClearedActualDate(rs.getDate("ACT_DATE_03"));
-/* 8283*/                dashboardReport.setDigitalRightsOverallFlag(fh.deriveDigitalRightsOverallFlagForDashboard(dashboardReport.getDigitalRightsClearedImage()));
-/* 8286*/                dashboardReport.setInstructionToPrepareAOMAImage(fh.assignDashboardImage(rs.getString("COLOR_20")));
-/* 8287*/                dashboardReport.setInstructionToPrepareAOMAPlanDate(rs.getDate("DUE_DATE_20"));
-/* 8288*/                dashboardReport.setInstructionToPrepareAOMAActualDate(rs.getDate("ACT_DATE_20"));
-/* 8290*/                dashboardReport.setAOMAMasterRegImage(fh.assignDashboardImage(rs.getString("COLOR_16")));
-/* 8291*/                dashboardReport.setAOMAMasterRegPlanDate(rs.getDate("DUE_DATE_16"));
-/* 8292*/                dashboardReport.setAOMAMasterRegActualDate(rs.getDate("ACT_DATE_16"));
-/* 8294*/                dashboardReport.setAOMAArtworkRegImage(fh.assignDashboardImage(rs.getString("COLOR_15")));
-/* 8295*/                dashboardReport.setAOMAArtworkRegPlanDate(rs.getDate("DUE_DATE_15"));
-/* 8296*/                dashboardReport.setAOMAArtworkRegActualDate(rs.getDate("ACT_DATE_15"));
-/* 8298*/                dashboardReport.setProductionReadyImage(fh.assignDashboardImage(rs.getString("COLOR_21")));
-/* 8299*/                dashboardReport.setProductionReadyPlanDate(rs.getDate("DUE_DATE_21"));
-/* 8300*/                dashboardReport.setProductionReadyActualDate(rs.getDate("ACT_DATE_21"));
-/* 8302*/                dashboardReport.setPartsOverallFlag(fh.deriveNewPartsOverallFlagForDashboard(dashboardReport.getApproveProdMasterImage(), dashboardReport.getApproveProdArtworkImage(), dashboardReport.getInstructionToPrepareAOMAImage(), dashboardReport.getAOMAMasterRegImage(), dashboardReport.getAOMAArtworkRegImage(), dashboardReport.getProductionReadyImage()));
-/* 8311*/                dashboardReport.setMMDSCompleteImage(fh.assignDashboardImage(rs.getString("COLOR_26")));
-/* 8312*/                dashboardReport.setMMDSCompletePlanDate(rs.getDate("DUE_DATE_26"));
-/* 8313*/                dashboardReport.setMMDSCompleteActualDate(rs.getDate("ACT_DATE_26"));
-/* 8315*/                dashboardReport.setMobileOverallFlag(dashboardReport.getMMDSCompleteImage());
-/* 8319*/                dashboardReport.setManufOrderPlacedImage(fh.assignDashboardImage(rs.getString("COLOR_10")));
-/* 8320*/                dashboardReport.setManufOrderPlacedPlanDate(rs.getDate("DUE_DATE_10"));
-/* 8321*/                dashboardReport.setManufOrderPlacedActualDate(rs.getDate("ACT_DATE_10"));
-/* 8323*/                dashboardReport.setManufOrderShippedImage(fh.assignDashboardImage(rs.getString("COLOR_12")));
-/* 8324*/                dashboardReport.setManufOrderShippedPlanDate(rs.getDate("DUE_DATE_12"));
-/* 8325*/                dashboardReport.setManufOrderShippedActualDate(rs.getDate("ACT_DATE_12"));
-/* 8327*/                dashboardReport.setManufOrderAtDistImage(fh.assignDashboardImage(rs.getString("COLOR_13")));
-/* 8328*/                dashboardReport.setManufOrderAtDistPlanDate(rs.getDate("DUE_DATE_13"));
-/* 8329*/                dashboardReport.setManufOrderAtDistActualDate(rs.getDate("ACT_DATE_13"));
-                     }
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				} finally {
-         		 	try{
-        		 		rs.close();
-        		 		statement.close();
-        		 		connection.close();
-	                } catch (SQLException e) {
-	                	 e.printStackTrace();
-	                }
-				}	
-			return dashboardReport;
-             }
-
-             
-             
-             
-             
              
              
              public ArrayList getAllDigitalEquivalentNumbers(String refId) {
@@ -11515,7 +12188,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
 
              
              
-             public ArrayList getAllMobileGNums(String pmID) {
+        /*     public ArrayList getAllMobileGNums(String pmID) {
             	 ArrayList mobileReportItemsList;
 				 ResultSet rs = null;
 				 PreparedStatement pstmt =null;
@@ -11552,7 +12225,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
  	                }
             	 }
             	 return mobileReportItemsList;
-             }
+             }*/
 
              
              
@@ -11629,392 +12302,9 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
              
              
              
-             
-             public DashboardReport getDashboardReportFromCatId(String dashCatId, Date releaseDate, String format, String formatType) {
-                 DashboardReport dashboardReport;
-                 ResultSet rs = null;
-                 PreparedStatement pstmt =null;
-                 Connection connection = null;
-/* 8641*/        dashboardReport = null;
-
-/* 8645*/        try {
-/* 8645*/            connection = getConnection();
-/* 8649*/            pstmt = connection.prepareStatement(RETURN_NEW_DASHBOARD_REPORT);
-/* 8650*/            pstmt.setString(1, dashCatId);
-/* 8651*/            FormHelper fh = new FormHelper();
-/* 8652*/            String labelCopyImage = "";
-/* 8653*/            for (rs = pstmt.executeQuery(); rs.next(); dashboardReport.setDigitalSchedulingOverallFlag(fh.deriveDigitalSchedulingOverallFlagForDashboard(dashboardReport.getProdOnEOMImage()))) {
-/* 8656*/                dashboardReport = new DashboardReport();
-/* 8657*/                dashboardReport.setPmemoFormat(format);
-/* 8658*/                dashboardReport.setPmemoReleaseDate(releaseDate);
-/* 8659*/                dashboardReport.setFormatType(formatType);
-/* 8660*/                dashboardReport.setCatItemId(rs.getString("CAT_IT_CD"));
-/* 8661*/                dashboardReport.setArtist(rs.getString("ARTIST"));
-/* 8662*/                dashboardReport.setTitle(rs.getString("TITLE"));
-/* 8663*/                dashboardReport.setReleaseDate(rs.getDate("REL_DATE_SORT"));
-/* 8664*/                dashboardReport.setDigitalReleaseDate(rs.getDate("DIG_REL_DATE"));
-/* 8665*/                dashboardReport.setRepOwner(rs.getString("REP_OWNER"));
-/* 8666*/                dashboardReport.setRepOwnerCountry(rs.getString("REP_OWNER_COUNTRY"));
-/* 8667*/                dashboardReport.setInitiatorName(rs.getString("INITIATOR_NAME"));
-/* 8668*/                dashboardReport.setLabelCopyPlanDate(rs.getDate("LABEL_COPY_P"));
-/* 8669*/                dashboardReport.setLabelCopyActualDate(rs.getDate("LABEL_COPY_ACTUAL"));
-/* 8670*/                dashboardReport.setLabelCopyImage(fh.assignDashboardImage(rs.getString("LABEL_COPY_MAP")));
-/* 8671*/                dashboardReport.setCfg(rs.getString("CFG"));
-/* 8672*/                dashboardReport.setGloresForecastPlanDate(rs.getDate("GLORES_FORECAST_P"));
-/* 8673*/                dashboardReport.setGloresForecastActualDate(rs.getDate("GLORES_FORECAST_ACTUAL"));
-/* 8674*/                dashboardReport.setGloresForecastImage(fh.assignDashboardImage(rs.getString("GLORES_FORECAST_MAP")));
-/* 8675*/                dashboardReport.setProdOnEOMPlanDate(rs.getDate("PROD_ON_EOMA_P"));
-/* 8676*/                dashboardReport.setProdOnEOMActualDate(rs.getDate("PROD_ON_EOMA_ACTUAL"));
-/* 8677*/                dashboardReport.setProdOnEOMImage(fh.assignDashboardImage(rs.getString("PROD_ON_EOMA_MAP")));
-/* 8678*/                dashboardReport.setApproveProdMasterPlanDate(rs.getDate("APRV_PROD_MAST_P"));
-/* 8679*/                dashboardReport.setApproveProdMasterActualDate(rs.getDate("APRV_PROD_MAST_ACTUAL"));
-/* 8680*/                dashboardReport.setApproveProdMasterImage(fh.assignDashboardImage(rs.getString("APRV_PROD_MAST_MAP")));
-/* 8681*/                dashboardReport.setApproveProdArtworkPlanDate(rs.getDate("APRV_PROD_ART_P"));
-/* 8682*/                dashboardReport.setApproveProdArtworkActualDate(rs.getDate("APRV_PROD_ART_ACTUAL"));
-/* 8683*/                dashboardReport.setApproveProdArtworkImage(fh.assignDashboardImage(rs.getString("APRV_PROD_ART_MAP")));
-/* 8684*/                dashboardReport.setQtySheetPlanDate(rs.getDate("QUANTITY_SHEET_P"));
-/* 8685*/                dashboardReport.setQtySheetActualDate(rs.getDate("QUANTITY_SHEET_ACTUAL"));
-/* 8686*/                dashboardReport.setPackagingImage(fh.assignDashboardImage(rs.getString("PACKAGING_MAP")));
-/* 8687*/                dashboardReport.setPackagingPlanDate(rs.getDate("PACKAGING_P"));
-/* 8688*/                dashboardReport.setPackagingActualDate(rs.getDate("PACKAGING_ACTUAL"));
-/* 8689*/                dashboardReport.setQtySheetImage(fh.assignDashboardImage(rs.getString("QUANTITY_SHEET_MAP")));
-/* 8690*/                dashboardReport.setAllInitOrdersRcvdPlanDate(rs.getDate("ALL_INIT_ORD_RCVD_P"));
-/* 8691*/                dashboardReport.setAllInitOrdersRcvdActualDate(rs.getDate("ALL_INIT_ORD_RCVD_ACTUAL"));
-/* 8692*/                dashboardReport.setAllInitOrdersRcvdImage(fh.assignDashboardImage(rs.getString("ALL_INIT_ORD_RCVD_MAP")));
-/* 8693*/                dashboardReport.setDigitalRightsClearedPlanDate(rs.getDate("DIG_RIGHT_CLEARED_P"));
-/* 8694*/                dashboardReport.setDigitalRightsClearedActualDate(rs.getDate("DIG_RIGHT_CLEARED_ACTUAL"));
-/* 8695*/                dashboardReport.setDigitalRightsClearedImage(fh.assignDashboardImage(rs.getString("DIG_RIGHT_CLEARED_MAP")));
-/* 8696*/                dashboardReport.setInstructionToPrepareAOMAPlanDate(rs.getDate("INST_PREP_AOMA_P"));
-/* 8697*/                dashboardReport.setInstructionToPrepareAOMAActualDate(rs.getDate("INST_PREP_AOMA_ACTUAL"));
-/* 8698*/                dashboardReport.setInstructionToPrepareAOMAImage(fh.assignDashboardImage(rs.getString("INST_PREP_AOMA_MAP")));
-/* 8699*/                dashboardReport.setSuccessfulAOMARegistrationPlanDate(rs.getDate("SCSFUL_AOMA_REG_P"));
-/* 8700*/                dashboardReport.setSuccessfulAOMARegistrationActualDate(rs.getDate("SCSFUL_AOMA_REG_ACTUAL"));
-/* 8701*/                dashboardReport.setSuccessfulAOMARegistrationImage(fh.assignDashboardImage(rs.getString("SCSFUL_AOMA_REG_MAP")));
-/* 8702*/                dashboardReport.setProductionReadyPlanDate(rs.getDate("PROD_READY_P"));
-/* 8703*/                dashboardReport.setProductionReadyActualDate(rs.getDate("PROD_READY_ACTUAL"));
-/* 8704*/                dashboardReport.setProductionReadyImage(fh.assignDashboardImage(rs.getString("PROD_READY_MAP")));
-/* 8705*/                dashboardReport.setInitialManufOrderShippedPlanDate(rs.getDate("INIT_MFG_ORD_SHIP_P"));
-/* 8706*/                dashboardReport.setInitialManufOrderShippedActualDate(rs.getDate("INIT_MFG_ORD_SHIP_ACTUAL"));
-/* 8707*/                dashboardReport.setInitialManufOrderShippedImage(fh.assignDashboardImage(rs.getString("INIT_MFG_ORD_SHIP_MAP")));
-/* 8708*/                dashboardReport.setInitialOrderAtManufacturerPlanDate(rs.getDate("INIT_ORD_DISTR_P"));
-/* 8709*/                dashboardReport.setInitialOrderAtManufacturerActualDate(rs.getDate("INIT_ORD_DISTR_ACTUAL"));
-/* 8710*/                dashboardReport.setInitialOrderAtManufacturerImage(fh.assignDashboardImage(rs.getString("INIT_ORD_DISTR_MAP")));
-/* 8711*/                dashboardReport.setProdReadyForDigiDistbnPlanDate(rs.getDate("PROD_DIGI_DISTR_P"));
-/* 8712*/                dashboardReport.setProdReadyForDigiDistbnActualDate(rs.getDate("PROD_DIGI_DISTR_ACTUAL"));
-/* 8713*/                dashboardReport.setProdReadyForDigiDistbnImage(fh.assignDashboardImage(rs.getString("PROD_DIGI_DISTR_MAP")));
-/* 8714*/                dashboardReport.setPartsOverallFlag(fh.derivePartsOverallFlagForDashboard(dashboardReport.getApproveProdMasterImage(), dashboardReport.getApproveProdArtworkImage(), dashboardReport.getProductionReadyImage(), dashboardReport.getProdReadyForDigiDistbnImage(), dashboardReport.getInstructionToPrepareAOMAImage(), dashboardReport.getSuccessfulAOMARegistrationImage()));
-/* 8720*/                dashboardReport.setOrdersOverallFlag(fh.deriveOrdersOverallFlagForDashboard(dashboardReport.getAllInitOrdersRcvdImage(), dashboardReport.getQtySheetImage(), dashboardReport.getInitialManufOrderShippedImage(), dashboardReport.getInitialOrderAtManufacturerImage()));
-/* 8721*/                dashboardReport.setPreparationOverallFlag(fh.derivePreparationOverallFlagForDashboard(dashboardReport.getPackagingImage(), dashboardReport.getGloresForecastImage()));
-/* 8724*/                dashboardReport.setLabelCopyOverallFlag(fh.deriveLabelCopyOverallFlagForDashboard(dashboardReport.getLabelCopyImage()));
-/* 8725*/                dashboardReport.setDigitalRightsOverallFlag(fh.deriveDigitalRightsOverallFlagForDashboard(dashboardReport.getDigitalRightsClearedImage()));
-                     }                 
-				} catch (Exception e) {
-					e.printStackTrace();
-				} finally {
-         		 	try{
-        		 		rs.close();
-        		 		pstmt.close();
-        		 		connection.close();
-	                } catch (SQLException e) {
-	                	 e.printStackTrace();
-	                }
-				}	
-			return dashboardReport;
-             }
 
              
-             
-             public DashboardReportNew getNewDashboardReportFromCatId(String dashCatId, String countryCode, Date releaseDate, Date preOrderDate, String format, String formatType) {
-                 DashboardReportNew dashboardReport;                
-   
-/* 8750*/        dashboardReport = null;
-/* 8752*/        ResultSet rs = null;
-				 PreparedStatement pstmt =null;
-				 Connection connection = null;
-/* 8754*/        try {
-/* 8754*/            connection = getConnection();
-/* 8758*/            pstmt = connection.prepareStatement(RETURN_AMENDED_DASHBOARD_REPORT);
-/* 8759*/            pstmt.setString(1, dashCatId);
-/* 8759*/            pstmt.setString(2, countryCode);
-/* 8760*/            FormHelper fh = new FormHelper();
-/* 8761*/            String labelCopyImage = "";
-/* 8762*/            for (rs = pstmt.executeQuery(); rs.next(); dashboardReport.setOrdersOverallFlag(fh.deriveOrdersOverallFlagForDashboard(dashboardReport.getManufOrderPlacedImage(), dashboardReport.getQtySheetImage(), dashboardReport.getManufOrderShippedImage(), dashboardReport.getManufOrderAtDistImage()))) {
-/* 8766*/                dashboardReport = new DashboardReportNew();
-/* 8770*/                dashboardReport.setPmemoFormat(format);
-/* 8771*/                dashboardReport.setPmemoReleaseDate(releaseDate);
-/* 8772*/                dashboardReport.setPmemoPreOrderDate(preOrderDate);
-/* 8773*/                dashboardReport.setFormatType(formatType);
-/* 8779*/                dashboardReport.setCatItemId(rs.getString("PRODUCT_NUMBER"));
-/* 8780*/                dashboardReport.setArtist(rs.getString("ARTIST"));
-/* 8781*/                dashboardReport.setTitle(rs.getString("TITLE"));
-/* 8782*/                dashboardReport.setCfg(rs.getString("PRODUCT_TYPE"));
-/* 8783*/                dashboardReport.setRepOwner(rs.getString("REPERTOIRE_OWNER"));
-/* 8784*/                dashboardReport.setDashPreOrderDate(rs.getDate("PRE_ORDER_DATE"));
-/* 8785*/                dashboardReport.setDashReleaseDate(rs.getDate("RELEASE_DATE"));
-/* 8789*/                dashboardReport.setPackagingImage(fh.assignDashboardImage(rs.getString("COLOR_PACKG")));
-/* 8790*/                dashboardReport.setPackagingPlanDate(rs.getDate("DUE_DATE_PACKG"));
-/* 8791*/                dashboardReport.setPackagingActualDate(rs.getDate("ACT_DATE_PACKG"));
-/* 8793*/                dashboardReport.setQtySheetImage(fh.assignDashboardImage(rs.getString("COLOR_QSHEET")));
-/* 8794*/                dashboardReport.setQtySheetPlanDate(rs.getDate("DUE_DATE_QSHEET"));
-/* 8795*/                dashboardReport.setQtySheetActualDate(rs.getDate("ACT_DATE_QSHEET"));
-/* 8797*/                dashboardReport.setApproveProdMasterImage(fh.assignDashboardImage(rs.getString("COLOR_PRODMAST")));
-/* 8798*/                dashboardReport.setApproveProdMasterPlanDate(rs.getDate("DUE_DATE_PRODMAST"));
-/* 8799*/                dashboardReport.setApproveProdMasterActualDate(rs.getDate("ACT_DATE_PRODMAST"));
-/* 8801*/                dashboardReport.setApproveProdArtworkImage(fh.assignDashboardImage(rs.getString("COLOR_PRODART")));
-/* 8802*/                dashboardReport.setApproveProdArtworkPlanDate(rs.getDate("DUE_DATE_PRODART"));
-/* 8803*/                dashboardReport.setApproveProdArtworkActualDate(rs.getDate("ACT_DATE_PRODART"));
-/* 8812*/                dashboardReport.setGloresForecastImage(fh.assignDashboardImage(rs.getString("COLOR_09")));
-/* 8813*/                dashboardReport.setGloresForecastPlanDate(rs.getDate("DUE_DATE_09"));
-/* 8814*/                dashboardReport.setGloresForecastActualDate(rs.getDate("ACT_DATE_09"));
-/* 8816*/                dashboardReport.setPreparationOverallFlag(fh.deriveNewPreparationOverallFlagForDashboard(dashboardReport.getPackagingImage(), dashboardReport.getGloresForecastImage()));
-/* 8821*/                dashboardReport.setLabelCopyImage(fh.assignDashboardImage(rs.getString("COLOR_01")));
-/* 8822*/                dashboardReport.setLabelCopyPlanDate(rs.getDate("DUE_DATE_01"));
-/* 8823*/                dashboardReport.setLabelCopyActualDate(rs.getDate("ACT_DATE_01"));
-/* 8825*/                dashboardReport.setLabelCopyOverallFlag(fh.deriveLabelCopyOverallFlagForDashboard(dashboardReport.getLabelCopyImage()));
-/* 8828*/                dashboardReport.setDigitalRightsClearedImage(fh.assignDashboardImage(rs.getString("COLOR_03")));
-/* 8829*/                dashboardReport.setDigitalRightsClearedPlanDate(rs.getDate("DUE_DATE_03"));
-/* 8830*/                dashboardReport.setDigitalRightsClearedActualDate(rs.getDate("ACT_DATE_03"));
-/* 8832*/                dashboardReport.setDigitalRightsOverallFlag(fh.deriveDigitalRightsOverallFlagForDashboard(dashboardReport.getDigitalRightsClearedImage()));
-/* 8836*/                dashboardReport.setInstructionToPrepareAOMAImage(fh.assignDashboardImage(rs.getString("COLOR_20")));
-/* 8837*/                dashboardReport.setInstructionToPrepareAOMAPlanDate(rs.getDate("DUE_DATE_20"));
-/* 8838*/                dashboardReport.setInstructionToPrepareAOMAActualDate(rs.getDate("ACT_DATE_20"));
-/* 8840*/                dashboardReport.setAOMAMasterRegImage(fh.assignDashboardImage(rs.getString("COLOR_16")));
-/* 8841*/                dashboardReport.setAOMAMasterRegPlanDate(rs.getDate("DUE_DATE_16"));
-/* 8842*/                dashboardReport.setAOMAMasterRegActualDate(rs.getDate("ACT_DATE_16"));
-/* 8844*/                dashboardReport.setAOMAArtworkRegImage(fh.assignDashboardImage(rs.getString("COLOR_15")));
-/* 8845*/                dashboardReport.setAOMAArtworkRegPlanDate(rs.getDate("DUE_DATE_15"));
-/* 8846*/                dashboardReport.setAOMAArtworkRegActualDate(rs.getDate("ACT_DATE_15"));
-/* 8848*/                dashboardReport.setProductionReadyImage(fh.assignDashboardImage(rs.getString("COLOR_21")));
-/* 8849*/                dashboardReport.setProductionReadyPlanDate(rs.getDate("DUE_DATE_21"));
-/* 8850*/                dashboardReport.setProductionReadyActualDate(rs.getDate("ACT_DATE_21"));
-/* 8852*/                dashboardReport.setPartsOverallFlag(fh.deriveNewPartsOverallFlagForDashboard(dashboardReport.getApproveProdMasterImage(), dashboardReport.getApproveProdArtworkImage(), dashboardReport.getInstructionToPrepareAOMAImage(), dashboardReport.getAOMAMasterRegImage(), dashboardReport.getAOMAArtworkRegImage(), dashboardReport.getProductionReadyImage()));
-/* 8861*/                dashboardReport.setMMDSCompleteImage(fh.assignDashboardImage(rs.getString("COLOR_26")));
-/* 8862*/                dashboardReport.setMMDSCompletePlanDate(rs.getDate("DUE_DATE_26"));
-/* 8863*/                dashboardReport.setMMDSCompleteActualDate(rs.getDate("ACT_DATE_26"));
-/* 8865*/                dashboardReport.setMobileOverallFlag(dashboardReport.getMMDSCompleteImage());
-/* 8869*/                dashboardReport.setManufOrderPlacedImage(fh.assignDashboardImage(rs.getString("COLOR_10")));
-/* 8870*/                dashboardReport.setManufOrderPlacedPlanDate(rs.getDate("DUE_DATE_10"));
-/* 8871*/                dashboardReport.setManufOrderPlacedActualDate(rs.getDate("ACT_DATE_10"));
-/* 8873*/                dashboardReport.setManufOrderShippedImage(fh.assignDashboardImage(rs.getString("COLOR_12")));
-/* 8874*/                dashboardReport.setManufOrderShippedPlanDate(rs.getDate("DUE_DATE_12"));
-/* 8875*/                dashboardReport.setManufOrderShippedActualDate(rs.getDate("ACT_DATE_12"));
-/* 8877*/                dashboardReport.setManufOrderAtDistImage(fh.assignDashboardImage(rs.getString("COLOR_13")));
-/* 8878*/                dashboardReport.setManufOrderAtDistPlanDate(rs.getDate("DUE_DATE_13"));
-/* 8879*/                dashboardReport.setManufOrderAtDistActualDate(rs.getDate("ACT_DATE_13"));
-                     }
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-     		 	try{
-    		 		rs.close();
-    		 		pstmt.close();
-    		 		connection.close();
-                } catch (SQLException e) {
-                	 e.printStackTrace();
-                }
-			}
-        return dashboardReport;
-        }
-
-             public DashboardReport getArchivedInPlanningDashboardReportFromCatId(String dashCatId, Date releaseDate, String format, String formatType) {
-                 DashboardReport dashboardReport;
-/* 8905*/        dashboardReport = null;
-			 	 ResultSet rs = null;
-			     PreparedStatement pstmt =null;
-				 Connection connection = null;
-/* 8909*/        try {
-/* 8909*/            connection = getConnection();
-/* 8912*/            pstmt = connection.prepareStatement(RETURN_ARCHIVED_IN_PLANNING_DASHBOARD_REPORT);
-/* 8913*/            pstmt.setString(1, dashCatId);
-/* 8914*/            pstmt.setString(2, dashCatId);
-/* 8915*/            pstmt.setString(3, dashCatId);
-/* 8916*/            pstmt.setString(4, dashCatId);
-/* 8917*/            pstmt.setString(5, dashCatId);
-/* 8918*/            pstmt.setString(6, dashCatId);
-/* 8919*/            pstmt.setString(7, dashCatId);
-/* 8920*/            FormHelper fh = new FormHelper();
-/* 8921*/            String labelCopyImage = "";
-/* 8922*/            for (rs = pstmt.executeQuery(); rs.next(); dashboardReport.setInitiatorName(rs.getString("INITIATOR_NAME"))) {
-/* 8925*/                dashboardReport = new DashboardReport();
-/* 8926*/                dashboardReport.setPmemoFormat(format);
-/* 8927*/                dashboardReport.setPmemoReleaseDate(releaseDate);
-/* 8928*/                dashboardReport.setFormatType(formatType);
-/* 8929*/                dashboardReport.setCatItemId(rs.getString("CAT_IT_CD"));
-/* 8930*/                dashboardReport.setArtist(rs.getString("ARTIST"));
-/* 8931*/                dashboardReport.setTitle(rs.getString("TITLE"));
-/* 8932*/                dashboardReport.setReleaseDate(rs.getDate("REL_DATE_SORT"));
-/* 8933*/                dashboardReport.setDigitalReleaseDate(rs.getDate("DIG_REL_DATE"));
-/* 8934*/                dashboardReport.setRepOwner(rs.getString("REP_OWNER"));
-/* 8935*/                dashboardReport.setUnattachedReportFlag("dashboardAmber");
-/* 8936*/                dashboardReport.setRepOwnerCountry(rs.getString("REP_OWNER_COUNTRY"));
-                     }            
-                 
-				} catch (Exception e) {
-					e.printStackTrace();
-				} finally {
-         		 	try{
-        		 		rs.close();
-        		 		pstmt.close();
-        		 		connection.close();
-	                } catch (SQLException e) {
-	                	 e.printStackTrace();
-	                }
-				}		
-				return dashboardReport;
-             }
-
-             
-             
-             
-             
-             
-             public DashboardReportNew getNewArchivedInPlanningDashboardReportFromCatId(String dashCatId, Date preOrderDate, Date releaseDate, String format, String formatType) {
-            	 DashboardReportNew dashboardReport;
-            	 ResultSet rs = null;
-            	 PreparedStatement pstmt =null;
-            	 Connection connection = null;
-            	 dashboardReport = null;
-            	 try {
-            		 connection = getConnection();
-            		 pstmt = connection.prepareStatement(RETURN_ARCHIVED_IN_PLANNING_DASHBOARD_REPORT);
-            		 pstmt.setString(1, dashCatId);
-            		 pstmt.setString(2, dashCatId);
-            		 pstmt.setString(3, dashCatId);
-            		 pstmt.setString(4, dashCatId);
-            		 pstmt.setString(5, dashCatId);
-            		 pstmt.setString(6, dashCatId);
-            		 pstmt.setString(7, dashCatId);
-            		 FormHelper fh = new FormHelper();
-            		 String labelCopyImage = "";
-            		 for (rs = pstmt.executeQuery(); rs.next(); dashboardReport.setUnattachedReportFlag("dashboardAmber")) {
-            			 dashboardReport = new DashboardReportNew();
-            			 dashboardReport.setPmemoFormat(format);
-            			 dashboardReport.setPmemoPreOrderDate(preOrderDate);
-            			 dashboardReport.setPmemoReleaseDate(releaseDate);
-            			 dashboardReport.setFormatType(formatType);
-            			 dashboardReport.setCatItemId(rs.getString("CAT_IT_CD"));
-            			 dashboardReport.setArtist(rs.getString("ARTIST"));
-            			 dashboardReport.setTitle(rs.getString("TITLE"));
-            			 dashboardReport.setRepOwner(rs.getString("REP_OWNER"));
-            		 }
-
-            	 } catch (Exception e) {
-            		 e.printStackTrace();
-            	 } finally {
-          		 	try{
-         		 		rs.close();
-         		 		pstmt.close();
-         		 		connection.close();
- 	                } catch (SQLException e) {
- 	                	 e.printStackTrace();
- 	                }     	 
-            	 }
-            	 return dashboardReport;
-             }
-
-             
-             
-             
-             
-             public DashboardReport getArchivedDashboardReportFromCatId(String dashCatId, Date releaseDate, String format, String formatType) {
-                 DashboardReport dashboardReport;
-                 
-/* 9013*/        dashboardReport = null;
-				 ResultSet rs = null;
-				 PreparedStatement pstmt =null;
-				 Connection connection = null;
-/* 9017*/        try {
-/* 9017*/            connection = getConnection();
-/* 9020*/            pstmt = connection.prepareStatement(RETURN_ARCHIVED_DASHBOARD_REPORT);
-/* 9021*/            pstmt.setString(1, dashCatId);
-/* 9022*/            pstmt.setString(2, dashCatId);
-/* 9023*/            pstmt.setString(3, dashCatId);
-/* 9024*/            pstmt.setString(4, dashCatId);
-/* 9025*/            pstmt.setString(5, dashCatId);
-/* 9026*/            pstmt.setString(6, dashCatId);
-/* 9027*/            pstmt.setString(7, dashCatId);
-/* 9028*/            FormHelper fh = new FormHelper();
-/* 9029*/            String labelCopyImage = "";
-/* 9030*/            for (rs = pstmt.executeQuery(); rs.next(); dashboardReport.setDigitalSchedulingOverallFlag(fh.deriveDigitalSchedulingOverallFlagForDashboard(dashboardReport.getProdOnEOMImage()))) {
-/* 9033*/                dashboardReport = new DashboardReport();
-/* 9034*/                dashboardReport.setPmemoFormat(format);
-/* 9035*/                dashboardReport.setPmemoReleaseDate(releaseDate);
-/* 9036*/                dashboardReport.setFormatType(formatType);
-/* 9037*/                dashboardReport.setCatItemId(rs.getString("CAT_IT_CD"));
-/* 9038*/                dashboardReport.setArtist(rs.getString("ARTIST"));
-/* 9039*/                dashboardReport.setTitle(rs.getString("TITLE"));
-/* 9040*/                dashboardReport.setReleaseDate(rs.getDate("REL_DATE_SORT"));
-/* 9041*/                dashboardReport.setDigitalReleaseDate(rs.getDate("DIG_REL_DATE"));
-/* 9042*/                dashboardReport.setRepOwner(rs.getString("REP_OWNER"));
-/* 9043*/                dashboardReport.setRepOwnerCountry(rs.getString("REP_OWNER_COUNTRY"));
-/* 9044*/                dashboardReport.setInitiatorName(rs.getString("INITIATOR_NAME"));
-/* 9045*/                dashboardReport.setLabelCopyPlanDate(rs.getDate("LABEL_COPY_P"));
-/* 9046*/                dashboardReport.setLabelCopyActualDate(rs.getDate("LABEL_COPY_ACTUAL"));
-/* 9047*/                dashboardReport.setLabelCopyImage(fh.assignDashboardImage(rs.getString("LABEL_COPY_MAP")));
-/* 9048*/                dashboardReport.setCfg(rs.getString("CFG"));
-/* 9049*/                dashboardReport.setGloresForecastPlanDate(rs.getDate("GLORES_FORECAST_P"));
-/* 9050*/                dashboardReport.setGloresForecastActualDate(rs.getDate("GLORES_FORECAST_ACTUAL"));
-/* 9051*/                dashboardReport.setGloresForecastImage(fh.assignDashboardImage(rs.getString("GLORES_FORECAST_MAP")));
-/* 9052*/                dashboardReport.setProdOnEOMPlanDate(rs.getDate("PROD_ON_EOMA_P"));
-/* 9053*/                dashboardReport.setProdOnEOMActualDate(rs.getDate("PROD_ON_EOMA_ACTUAL"));
-/* 9054*/                dashboardReport.setProdOnEOMImage(fh.assignDashboardImage(rs.getString("PROD_ON_EOMA_MAP")));
-/* 9055*/                dashboardReport.setApproveProdMasterPlanDate(rs.getDate("APRV_PROD_MAST_P"));
-/* 9056*/                dashboardReport.setApproveProdMasterActualDate(rs.getDate("APRV_PROD_MAST_ACTUAL"));
-/* 9057*/                dashboardReport.setApproveProdMasterImage(fh.assignDashboardImage(rs.getString("APRV_PROD_MAST_MAP")));
-/* 9058*/                dashboardReport.setApproveProdArtworkPlanDate(rs.getDate("APRV_PROD_ART_P"));
-/* 9059*/                dashboardReport.setApproveProdArtworkActualDate(rs.getDate("APRV_PROD_ART_ACTUAL"));
-/* 9060*/                dashboardReport.setApproveProdArtworkImage(fh.assignDashboardImage(rs.getString("APRV_PROD_ART_MAP")));
-/* 9061*/                dashboardReport.setQtySheetPlanDate(rs.getDate("QUANTITY_SHEET_P"));
-/* 9062*/                dashboardReport.setQtySheetActualDate(rs.getDate("QUANTITY_SHEET_ACTUAL"));
-/* 9063*/                dashboardReport.setPackagingImage(fh.assignDashboardImage(rs.getString("PACKAGING_MAP")));
-/* 9064*/                dashboardReport.setPackagingPlanDate(rs.getDate("PACKAGING_P"));
-/* 9065*/                dashboardReport.setPackagingActualDate(rs.getDate("PACKAGING_ACTUAL"));
-/* 9066*/                dashboardReport.setQtySheetImage(fh.assignDashboardImage(rs.getString("QUANTITY_SHEET_MAP")));
-/* 9067*/                dashboardReport.setAllInitOrdersRcvdPlanDate(rs.getDate("ALL_INIT_ORD_RCVD_P"));
-/* 9068*/                dashboardReport.setAllInitOrdersRcvdActualDate(rs.getDate("ALL_INIT_ORD_RCVD_ACTUAL"));
-/* 9069*/                dashboardReport.setAllInitOrdersRcvdImage(fh.assignDashboardImage(rs.getString("ALL_INIT_ORD_RCVD_MAP")));
-/* 9070*/                dashboardReport.setDigitalRightsClearedPlanDate(rs.getDate("DIG_RIGHT_CLEARED_P"));
-/* 9071*/                dashboardReport.setDigitalRightsClearedActualDate(rs.getDate("DIG_RIGHT_CLEARED_ACTUAL"));
-/* 9072*/                dashboardReport.setDigitalRightsClearedImage(fh.assignDashboardImage(rs.getString("DIG_RIGHT_CLEARED_MAP")));
-/* 9073*/                dashboardReport.setInstructionToPrepareAOMAPlanDate(rs.getDate("INST_PREP_AOMA_P"));
-/* 9074*/                dashboardReport.setInstructionToPrepareAOMAActualDate(rs.getDate("INST_PREP_AOMA_ACTUAL"));
-/* 9075*/                dashboardReport.setInstructionToPrepareAOMAImage(fh.assignDashboardImage(rs.getString("INST_PREP_AOMA_MAP")));
-/* 9076*/                dashboardReport.setSuccessfulAOMARegistrationPlanDate(rs.getDate("SCSFUL_AOMA_REG_P"));
-/* 9077*/                dashboardReport.setSuccessfulAOMARegistrationActualDate(rs.getDate("SCSFUL_AOMA_REG_ACTUAL"));
-/* 9078*/                dashboardReport.setSuccessfulAOMARegistrationImage(fh.assignDashboardImage(rs.getString("SCSFUL_AOMA_REG_MAP")));
-/* 9079*/                dashboardReport.setProductionReadyPlanDate(rs.getDate("PROD_READY_P"));
-/* 9080*/                dashboardReport.setProductionReadyActualDate(rs.getDate("PROD_READY_ACTUAL"));
-/* 9081*/                dashboardReport.setProductionReadyImage(fh.assignDashboardImage(rs.getString("PROD_READY_MAP")));
-/* 9082*/                dashboardReport.setInitialManufOrderShippedPlanDate(rs.getDate("INIT_MFG_ORD_SHIP_P"));
-/* 9083*/                dashboardReport.setInitialManufOrderShippedActualDate(rs.getDate("INIT_MFG_ORD_SHIP_ACTUAL"));
-/* 9084*/                dashboardReport.setInitialManufOrderShippedImage(fh.assignDashboardImage(rs.getString("INIT_MFG_ORD_SHIP_MAP")));
-/* 9085*/                dashboardReport.setInitialOrderAtManufacturerPlanDate(rs.getDate("INIT_ORD_DISTR_P"));
-/* 9086*/                dashboardReport.setInitialOrderAtManufacturerActualDate(rs.getDate("INIT_ORD_DISTR_ACTUAL"));
-/* 9087*/                dashboardReport.setInitialOrderAtManufacturerImage(fh.assignDashboardImage(rs.getString("INIT_ORD_DISTR_MAP")));
-/* 9088*/                dashboardReport.setProdReadyForDigiDistbnPlanDate(rs.getDate("PROD_DIGI_DISTR_P"));
-/* 9089*/                dashboardReport.setProdReadyForDigiDistbnActualDate(rs.getDate("PROD_DIGI_DISTR_ACTUAL"));
-/* 9090*/                dashboardReport.setProdReadyForDigiDistbnImage(fh.assignDashboardImage(rs.getString("PROD_DIGI_DISTR_MAP")));
-/* 9091*/                dashboardReport.setPartsOverallFlag(fh.derivePartsOverallFlagForDashboard(dashboardReport.getApproveProdMasterImage(), dashboardReport.getApproveProdArtworkImage(), dashboardReport.getProductionReadyImage(), dashboardReport.getProdReadyForDigiDistbnImage(), dashboardReport.getInstructionToPrepareAOMAImage(), dashboardReport.getSuccessfulAOMARegistrationImage()));
-/* 9097*/                dashboardReport.setOrdersOverallFlag(fh.deriveOrdersOverallFlagForDashboard(dashboardReport.getAllInitOrdersRcvdImage(), dashboardReport.getQtySheetImage(), dashboardReport.getInitialManufOrderShippedImage(), dashboardReport.getInitialOrderAtManufacturerImage()));
-/* 9098*/                dashboardReport.setPreparationOverallFlag(fh.derivePreparationOverallFlagForDashboard(dashboardReport.getPackagingImage(), dashboardReport.getGloresForecastImage()));
-/* 9101*/                dashboardReport.setLabelCopyOverallFlag(fh.deriveLabelCopyOverallFlagForDashboard(dashboardReport.getLabelCopyImage()));
-/* 9102*/                dashboardReport.setDigitalRightsOverallFlag(fh.deriveDigitalRightsOverallFlagForDashboard(dashboardReport.getDigitalRightsClearedImage()));
-                     }
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-     		 	try{
-    		 		rs.close();
-    		 		pstmt.close();
-    		 		connection.close();
-                } catch (SQLException e) {
-                	 e.printStackTrace();
-                }
-			}	
-			return dashboardReport;
-            }
+        
 
              
              
@@ -12175,301 +12465,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
          }
 
          
-         
-         
-             public DashboardReport getArchivedDigitalEquivalentDashboardReportFromCatId(String dashCatId) {
-                 DashboardReport dashboardReport;
-/* 9356*/        dashboardReport = null;
-/* 9358*/        ResultSet rs = null;
-				 PreparedStatement pstmt =null;
-				 Connection connection = null;
-/* 9360*/        try {
-/* 9360*/            connection = getConnection();
-/* 9363*/            pstmt = connection.prepareStatement(RETURN_ARCHIVED_DIGITAL_EQUIVALENTS_DASHBOARD_REPORT);
-/* 9364*/            pstmt.setString(1, dashCatId);
-/* 9365*/            pstmt.setString(2, dashCatId);
-/* 9366*/            pstmt.setString(3, dashCatId);
-/* 9367*/            FormHelper fh = new FormHelper();
-/* 9368*/            String labelCopyImage = "";
-/* 9369*/            for (rs = pstmt.executeQuery(); rs.next(); dashboardReport.setDigitalSchedulingOverallFlag(fh.deriveDigitalSchedulingOverallFlagForDashboard(dashboardReport.getProdOnEOMImage()))) {
-/* 9373*/                dashboardReport = new DashboardReport();
-/* 9374*/                dashboardReport.setPmemoFormat(rs.getString("CFG"));
-/* 9375*/                dashboardReport.setPmemoReleaseDate(rs.getDate("REL_DATE_SORT"));
-/* 9376*/                dashboardReport.setFormatType("digital");
-/* 9377*/                dashboardReport.setCatItemId(rs.getString("CAT_IT_CD"));
-/* 9378*/                dashboardReport.setArtist(rs.getString("ARTIST"));
-/* 9379*/                dashboardReport.setTitle(rs.getString("TITLE"));
-/* 9380*/                dashboardReport.setReleaseDate(rs.getDate("REL_DATE_SORT"));
-/* 9381*/                dashboardReport.setDigitalReleaseDate(rs.getDate("DIG_REL_DATE"));
-/* 9382*/                dashboardReport.setRepOwner(rs.getString("REP_OWNER"));
-/* 9383*/                dashboardReport.setRepOwnerCountry(rs.getString("REP_OWNER_COUNTRY"));
-/* 9384*/                dashboardReport.setInitiatorName(rs.getString("INITIATOR_NAME"));
-/* 9385*/                dashboardReport.setLabelCopyPlanDate(rs.getDate("LABEL_COPY_P"));
-/* 9386*/                dashboardReport.setLabelCopyActualDate(rs.getDate("LABEL_COPY_ACTUAL"));
-/* 9387*/                dashboardReport.setLabelCopyImage(fh.assignDashboardImage(rs.getString("LABEL_COPY_MAP")));
-/* 9388*/                dashboardReport.setCfg(rs.getString("CFG"));
-/* 9389*/                dashboardReport.setGloresForecastPlanDate(rs.getDate("GLORES_FORECAST_P"));
-/* 9390*/                dashboardReport.setGloresForecastActualDate(rs.getDate("GLORES_FORECAST_ACTUAL"));
-/* 9391*/                dashboardReport.setGloresForecastImage(fh.assignDashboardImage(rs.getString("GLORES_FORECAST_MAP")));
-/* 9392*/                dashboardReport.setProdOnEOMPlanDate(rs.getDate("PROD_ON_EOMA_P"));
-/* 9393*/                dashboardReport.setProdOnEOMActualDate(rs.getDate("PROD_ON_EOMA_ACTUAL"));
-/* 9394*/                dashboardReport.setProdOnEOMImage(fh.assignDashboardImage(rs.getString("PROD_ON_EOMA_MAP")));
-/* 9395*/                dashboardReport.setApproveProdMasterPlanDate(rs.getDate("APRV_PROD_MAST_P"));
-/* 9396*/                dashboardReport.setApproveProdMasterActualDate(rs.getDate("APRV_PROD_MAST_ACTUAL"));
-/* 9397*/                dashboardReport.setApproveProdMasterImage(fh.assignDashboardImage(rs.getString("APRV_PROD_MAST_MAP")));
-/* 9398*/                dashboardReport.setApproveProdArtworkPlanDate(rs.getDate("APRV_PROD_ART_P"));
-/* 9399*/                dashboardReport.setApproveProdArtworkActualDate(rs.getDate("APRV_PROD_ART_ACTUAL"));
-/* 9400*/                dashboardReport.setApproveProdArtworkImage(fh.assignDashboardImage(rs.getString("APRV_PROD_ART_MAP")));
-/* 9401*/                dashboardReport.setQtySheetPlanDate(rs.getDate("QUANTITY_SHEET_P"));
-/* 9402*/                dashboardReport.setQtySheetActualDate(rs.getDate("QUANTITY_SHEET_ACTUAL"));
-/* 9403*/                dashboardReport.setPackagingImage(fh.assignDashboardImage(rs.getString("PACKAGING_MAP")));
-/* 9404*/                dashboardReport.setPackagingPlanDate(rs.getDate("PACKAGING_P"));
-/* 9405*/                dashboardReport.setPackagingActualDate(rs.getDate("PACKAGING_ACTUAL"));
-/* 9406*/                dashboardReport.setQtySheetImage(fh.assignDashboardImage(rs.getString("QUANTITY_SHEET_MAP")));
-/* 9407*/                dashboardReport.setAllInitOrdersRcvdPlanDate(rs.getDate("ALL_INIT_ORD_RCVD_P"));
-/* 9408*/                dashboardReport.setAllInitOrdersRcvdActualDate(rs.getDate("ALL_INIT_ORD_RCVD_ACTUAL"));
-/* 9409*/                dashboardReport.setAllInitOrdersRcvdImage(fh.assignDashboardImage(rs.getString("ALL_INIT_ORD_RCVD_MAP")));
-/* 9410*/                dashboardReport.setDigitalRightsClearedPlanDate(rs.getDate("DIG_RIGHT_CLEARED_P"));
-/* 9411*/                dashboardReport.setDigitalRightsClearedActualDate(rs.getDate("DIG_RIGHT_CLEARED_ACTUAL"));
-/* 9412*/                dashboardReport.setDigitalRightsClearedImage(fh.assignDashboardImage(rs.getString("DIG_RIGHT_CLEARED_MAP")));
-/* 9413*/                dashboardReport.setInstructionToPrepareAOMAPlanDate(rs.getDate("INST_PREP_AOMA_P"));
-/* 9414*/                dashboardReport.setInstructionToPrepareAOMAActualDate(rs.getDate("INST_PREP_AOMA_ACTUAL"));
-/* 9415*/                dashboardReport.setInstructionToPrepareAOMAImage(fh.assignDashboardImage(rs.getString("INST_PREP_AOMA_MAP")));
-/* 9416*/                dashboardReport.setSuccessfulAOMARegistrationPlanDate(rs.getDate("SCSFUL_AOMA_REG_P"));
-/* 9417*/                dashboardReport.setSuccessfulAOMARegistrationActualDate(rs.getDate("SCSFUL_AOMA_REG_ACTUAL"));
-/* 9418*/                dashboardReport.setSuccessfulAOMARegistrationImage(fh.assignDashboardImage(rs.getString("SCSFUL_AOMA_REG_MAP")));
-/* 9419*/                dashboardReport.setProductionReadyPlanDate(rs.getDate("PROD_READY_P"));
-/* 9420*/                dashboardReport.setProductionReadyActualDate(rs.getDate("PROD_READY_ACTUAL"));
-/* 9421*/                dashboardReport.setProductionReadyImage(fh.assignDashboardImage(rs.getString("PROD_READY_MAP")));
-/* 9422*/                dashboardReport.setInitialManufOrderShippedPlanDate(rs.getDate("INIT_MFG_ORD_SHIP_P"));
-/* 9423*/                dashboardReport.setInitialManufOrderShippedActualDate(rs.getDate("INIT_MFG_ORD_SHIP_ACTUAL"));
-/* 9424*/                dashboardReport.setInitialManufOrderShippedImage(fh.assignDashboardImage(rs.getString("INIT_MFG_ORD_SHIP_MAP")));
-/* 9425*/                dashboardReport.setInitialOrderAtManufacturerPlanDate(rs.getDate("INIT_ORD_DISTR_P"));
-/* 9426*/                dashboardReport.setInitialOrderAtManufacturerActualDate(rs.getDate("INIT_ORD_DISTR_ACTUAL"));
-/* 9427*/                dashboardReport.setInitialOrderAtManufacturerImage(fh.assignDashboardImage(rs.getString("INIT_ORD_DISTR_MAP")));
-/* 9428*/                dashboardReport.setProdReadyForDigiDistbnPlanDate(rs.getDate("PROD_DIGI_DISTR_P"));
-/* 9429*/                dashboardReport.setProdReadyForDigiDistbnActualDate(rs.getDate("PROD_DIGI_DISTR_ACTUAL"));
-/* 9430*/                dashboardReport.setProdReadyForDigiDistbnImage(fh.assignDashboardImage(rs.getString("PROD_DIGI_DISTR_MAP")));
-/* 9431*/                dashboardReport.setPartsOverallFlag(fh.derivePartsOverallFlagForDashboard(dashboardReport.getApproveProdMasterImage(), dashboardReport.getApproveProdArtworkImage(), dashboardReport.getProductionReadyImage(), dashboardReport.getProdReadyForDigiDistbnImage(), dashboardReport.getInstructionToPrepareAOMAImage(), dashboardReport.getSuccessfulAOMARegistrationImage()));
-/* 9437*/                dashboardReport.setOrdersOverallFlag(fh.deriveOrdersOverallFlagForDashboard(dashboardReport.getAllInitOrdersRcvdImage(), dashboardReport.getQtySheetImage(), dashboardReport.getInitialManufOrderShippedImage(), dashboardReport.getInitialOrderAtManufacturerImage()));
-/* 9438*/                dashboardReport.setPreparationOverallFlag(fh.derivePreparationOverallFlagForDashboard(dashboardReport.getPackagingImage(), dashboardReport.getGloresForecastImage()));
-/* 9441*/                dashboardReport.setLabelCopyOverallFlag(fh.deriveLabelCopyOverallFlagForDashboard(dashboardReport.getLabelCopyImage()));
-/* 9442*/                dashboardReport.setDigitalRightsOverallFlag(fh.deriveDigitalRightsOverallFlagForDashboard(dashboardReport.getDigitalRightsClearedImage()));
-                     }
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-     		 	try{
-    		 		rs.close();
-    		 		pstmt.close();
-    		 		connection.close();
-                } catch (SQLException e) {
-                	 e.printStackTrace();
-                }	
-			}
-			return dashboardReport;
-             }
-
-             
-             
-             
-             public String getProjectDashboardImageFromRefId(String refId) {
-            	 String dashboardImage;
-            	 ResultSet rs = null;
-            	 PreparedStatement pstmt =null;
-            	 Connection connection = null;
-            	 dashboardImage = null;
-            	 try {
-            		 connection = getConnection();
-            		 pstmt = connection.prepareStatement("SELECT MONIS_STATUS FROM PM_HEADER WHERE PM_REF_ID=?");
-            		 pstmt.setString(1, refId);
-            		 for (rs = pstmt.executeQuery(); rs.next();) {
-            			 dashboardImage = rs.getString("MONIS_STATUS");
-            		 }
-            	 } catch (Exception e) {
-            		 e.printStackTrace();
-            	 } finally {
-          		 	try{
-         		 		rs.close();
-         		 		pstmt.close();
-         		 		connection.close();
- 	                } catch (SQLException e) {
- 	                	 e.printStackTrace();
- 	                }			
-            	 }
-            	 return dashboardImage;
-             }
-
-             
-             
-             
-             public String getUnmatchedDashboardProductImage(String refId, String formatType, String format, String detailID) {
-            	 String dashboardImage;
-            	 String sql;
-            	 ResultSet rs = null;
-            	 Statement statement = null;
-            	 Connection connection = null;
-            	 dashboardImage = null;
-            	 sql = (new StringBuilder("SELECT * FROM PM_DETAIL_")).append(formatType).append(" b ").append("WHERE b.PM_REF_ID=").append(refId).append(" ").append("AND B.PM_DETAIL_ID=").append(detailID).append(" ").append("AND B.pm_revision_id = (SELECT MAX(pm_revision_id) ").append("FROM  pm_header x ").append("WHERE x.pm_ref_id = B.pm_ref_id )").toString();
-
-            	 try {
-            		 connection = getConnection();
-            		 statement = connection.createStatement();
-            		 for (rs = statement.executeQuery(sql); rs.next();) {
-            			 dashboardImage = rs.getString("MONIS_STATUS");
-            		 }
-
-            	 } catch (Exception e) {
-            		 e.printStackTrace();
-            	 } finally {
-          		 	try{
-         		 		rs.close();
-         		 		statement.close();
-         		 		connection.close();
- 	                } catch (SQLException e) {
- 	                	 e.printStackTrace();
- 	                }
-            	 }	
-            	 return dashboardImage;
-             }
-
-             
-             
-             
-             
-             
-             
-             public ProductionConsoleItem getProductionConsoleItemFromCatId(String catId, Date releaseDate, String format, String formatType) {
-                 ProductionConsoleItem pcItem;                 
-/* 9529*/        pcItem = null;
-  	   			 ResultSet rs = null;
-				 PreparedStatement pstmt =null;
-				 Connection connection = null;
-/* 9533*/        try {
-/* 9533*/            connection = getConnection();
-/* 9535*/            pstmt = connection.prepareStatement(RETURN_NEW_DASHBOARD_REPORT);
-/* 9536*/            pstmt.setString(1, catId);
-/* 9537*/            for (rs = pstmt.executeQuery(); rs.next(); pcItem.setPackagingActualDate(rs.getDate("PACKAGING_ACTUAL"))) {
-/* 9540*/                pcItem = new ProductionConsoleItem();
-/* 9541*/                pcItem.setPmemoFormat(format);
-/* 9542*/                pcItem.setPmemoReleaseDate(releaseDate);
-/* 9543*/                pcItem.setFormatType(formatType);
-/* 9544*/                pcItem.setCfg(rs.getString("CFG"));
-/* 9545*/                pcItem.setCatItemId(rs.getString("CAT_IT_CD"));
-/* 9546*/                pcItem.setArtist(rs.getString("ARTIST"));
-/* 9547*/                pcItem.setTitle(rs.getString("TITLE"));
-/* 9548*/                pcItem.setReleaseDate(rs.getDate("REL_DATE_SORT"));
-/* 9549*/                pcItem.setApproveProdMasterActualDate(rs.getDate("APRV_PROD_MAST_ACTUAL"));
-/* 9550*/                pcItem.setApproveProdArtworkActualDate(rs.getDate("APRV_PROD_ART_ACTUAL"));
-/* 9551*/                pcItem.setQtySheetActualDate(rs.getDate("QUANTITY_SHEET_ACTUAL"));
-                     }
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				} finally {
-         		 	try{
-        		 		rs.close();
-        		 		pstmt.close();
-        		 		connection.close();
-	                } catch (SQLException e) {
-	                	 e.printStackTrace();
-	                }		
-				}
-			return pcItem;
-             }
-
-             
-             
-             
-             
-             public ProductionConsoleItem getProductionConsoleItemFromCatId(String catId, Date preOrderDate, Date releaseDate, String format, String formatType, String countryCode) {
-                 ProductionConsoleItem pcItem;
-/* 9571*/        pcItem = null;
-				 ResultSet rs = null;
-				 PreparedStatement pstmt =null;
-				 Connection connection = null;
-/* 9575*/        try {
-/* 9575*/            connection = getConnection();
-/* 9577*/            pstmt = connection.prepareStatement(RETURN_AMENDED_DASHBOARD_REPORT);
-/* 9578*/            pstmt.setString(1, catId);
-					 pstmt.setString(2, countryCode);
-/* 9579*/            for (rs = pstmt.executeQuery(); rs.next(); pcItem.setPackagingActualDate(rs.getDate("ACT_DATE_PACKG"))) {
-/* 9581*/                pcItem = new ProductionConsoleItem();
-/* 9582*/                pcItem.setPmemoFormat(format);
-/* 9583*/                pcItem.setPmemoPreOrderdate(preOrderDate);
-/* 9584*/                pcItem.setPmemoReleaseDate(releaseDate);
-/* 9585*/                pcItem.setFormatType(formatType);
-/* 9586*/                pcItem.setCfg(rs.getString("CONFIGURATION"));
-/* 9587*/                pcItem.setCatItemId(rs.getString("PRODUCT_NUMBER"));
-/* 9588*/                pcItem.setArtist(rs.getString("ARTIST"));
-/* 9589*/                pcItem.setTitle(rs.getString("TITLE"));
-/* 9590*/                pcItem.setDashPreOrderDate(rs.getDate("PRE_ORDER_DATE"));
-/* 9591*/                pcItem.setReleaseDate(rs.getDate("RELEASE_DATE"));
-/* 9592*/                pcItem.setApproveProdMasterActualDate(rs.getDate("ACT_DATE_PRODMAST"));
-/* 9593*/                pcItem.setApproveProdArtworkActualDate(rs.getDate("ACT_DATE_PRODART"));
-/* 9594*/                pcItem.setQtySheetActualDate(rs.getDate("ACT_DATE_QSHEET"));
-                     }
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				} finally {
-         		 	try{
-        		 		rs.close();
-        		 		pstmt.close();
-        		 		connection.close();
-	                } catch (SQLException e) {
-	                	 e.printStackTrace();
-	                }
-				}
-			return pcItem;
-             }
-
-             
-             
-             
-             
-             
-             public ProductionConsoleItem getProductionConsoleItemFromCatId(String catId, String countryCode) {
-                 ProductionConsoleItem pcItem;
-                 ResultSet rs = null;
-                 PreparedStatement pstmt =null;
-                 Connection connection = null;
-        		 pcItem = null;
-	        try {
-	            connection = getConnection();
-	            pstmt = connection.prepareStatement(RETURN_NEW_PROD_CONSOLE_REPORT);
-	            pstmt.setString(1, catId);
-	            pstmt.setString(2, countryCode);
-	            for (rs = pstmt.executeQuery(); rs.next(); pcItem.setPackagingActualDate(rs.getDate("ACT_DATE_PACKG"))) {
-	                pcItem = new ProductionConsoleItem();
-	                pcItem.setFormatType("digital");
-	                pcItem.setCfg(rs.getString("CONFIGURATION"));
-	                pcItem.setCatItemId(rs.getString("PRODUCT_NUMBER"));
-	                pcItem.setArtist(rs.getString("ARTIST"));
-	                pcItem.setTitle(rs.getString("TITLE"));
-	                pcItem.setReleaseDate(rs.getDate("RELEASE_DATE"));
-			        pcItem.setDashPreOrderDate(rs.getDate("PRE_ORDER_DATE"));
-	                pcItem.setApproveProdMasterActualDate(rs.getDate("ACT_DATE_PRODMAST"));
-	                pcItem.setApproveProdArtworkActualDate(rs.getDate("ACT_DATE_PRODART"));
-	                pcItem.setQtySheetActualDate(rs.getDate("ACT_DATE_QSHEET"));
-                     }
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				} finally{
-         		 	try{
-        		 		rs.close();
-        		 		pstmt.close();
-        		 		connection.close();
-	                } catch (SQLException e) {
-	                	 e.printStackTrace();
-	                }
-				}	
-				return pcItem;
-             } 
-
-             
+      
              
              
              
@@ -12540,7 +12536,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
              
              
              
-             public boolean catIdNotInCurrentMonisReport(String dashCatId) {
+           /*  public boolean catIdNotInCurrentMonisReport(String dashCatId) {
             	 boolean rowReturned;
             	 ResultSet rs = null;
             	 PreparedStatement pstmt =null;
@@ -12570,13 +12566,13 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
  	                }
             	 }	
             	 return rowReturned;
-             }
+             }*/
 
              
              
              
              
-             public boolean productNumberNotInDailyDashReport(String dashCatId, String countryCode) {
+           /*  public boolean productNumberNotInDailyDashReport(String dashCatId, String countryCode) {
             	 boolean rowReturned;
             	 rowReturned = false;
             	 ResultSet rs = null;
@@ -12606,7 +12602,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
  	                }
             	 }	
             	 return rowReturned;
-             }
+             }*/
 
              
              
@@ -12698,7 +12694,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             	 Connection connection = null;
             	 String returnProdComments;
             	 comments = null;
-            	 returnProdComments = "SELECT * FROM ( " +
+            	/* returnProdComments = "SELECT * FROM ( " +
             			 "select D.COMMENTS, D.PM_REVISION_ID, NVL(H.EDIT_DATE,H.SUBMIT_DATE)AS EDIT_DATE, U.FIRST_NAME|| ' '||  U.LAST_NAME AS USER_NAME, " +
             			 "row_number() over (partition by D.COMMENTS order by D.PM_REVISION_ID ASC) as RNK " +
             			 "FROM PM_DETAIL_DIGITAL D, PM_HEADER H, PM_SECURITY_USER U " +
@@ -12708,7 +12704,19 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             			 "and H.PM_REVISION_ID = D.PM_REVISION_ID " +
             			 "AND U.LOGON_NAME = H.EDITED_BY " +
             			 "AND D.PM_DETAIL_ID = ? ) " +
-            			 "WHERE RNK = 1 ORDER BY PM_REVISION_ID DESC"; 
+            			 "WHERE RNK = 1 ORDER BY PM_REVISION_ID DESC"; */
+            	 
+            	 returnProdComments = "SELECT * FROM( " +
+            			 "select D.COMMENTS, D.PM_REVISION_ID, ISNULL(H.EDIT_DATE,H.SUBMIT_DATE)AS EDIT_DATE, U.FIRST_NAME+ ' '+  U.LAST_NAME AS USER_NAME,  " +
+            			 "row_number() over (partition by D.COMMENTS order by D.PM_REVISION_ID ASC) AS RNK  " +
+            			 "FROM PM_DETAIL_DIGITAL D, PM_HEADER H, PM_SECURITY_USER U  " +
+            			 "WHERE D.PM_REF_ID = ?  " +
+            			 "AND H.PM_REF_ID = ?  " +
+            			 "AND H.PM_REF_ID = D.PM_REF_ID  " +
+            			 "and H.PM_REVISION_ID = D.PM_REVISION_ID  " +
+            			 "AND U.LOGON_NAME = H.EDITED_BY  " +
+            			 "AND D.PM_DETAIL_ID = ?) INLINEVIEW_1 where RNK = 1 ORDER BY PM_REVISION_ID desc ";
+
 
 
             	 try {
@@ -12840,7 +12848,8 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             	 Connection connection = null;
             	 String returnProdComments;
             	 comments = null;
-            	 returnProdComments = "SELECT * FROM ( " +
+            	 returnProdComments = 
+            			 /*"SELECT * FROM ( " +
             			 "select P.COMMENTS, P.PM_REVISION_ID, NVL(H.EDIT_DATE,H.SUBMIT_DATE)AS EDIT_DATE, U.FIRST_NAME|| ' '||  U.LAST_NAME AS USER_NAME, " +
             			 "row_number() over (partition by P.COMMENTS order by P.PM_REVISION_ID ASC) as RNK " +
             			 "FROM PM_DETAIL_PHYSICAL P, PM_HEADER H, PM_SECURITY_USER U " +
@@ -12850,8 +12859,19 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             			 "and H.PM_REVISION_ID = P.PM_REVISION_ID " +
             			 "AND U.LOGON_NAME = H.EDITED_BY " +
             			 "AND P.PM_DETAIL_ID = ? ) " +
-            			 "WHERE RNK = 1 ORDER BY PM_REVISION_ID DESC"; 
-
+            			 "WHERE RNK = 1 ORDER BY PM_REVISION_ID DESC"; */
+            	 "SELECT * FROM( " +
+            	 "select D.COMMENTS, D.PM_REVISION_ID, ISNULL(H.EDIT_DATE,H.SUBMIT_DATE)AS EDIT_DATE, U.FIRST_NAME+ ' '+  U.LAST_NAME AS USER_NAME,  " +
+            	 "row_number() over (partition by D.COMMENTS order by D.PM_REVISION_ID ASC) AS RNK  " +
+            	 "FROM PM_DETAIL_PHYSICAL D, PM_HEADER H, PM_SECURITY_USER U  " +
+            	 "WHERE D.PM_REF_ID = ?  " +
+            	 "AND H.PM_REF_ID = ?  " +
+            	 "AND H.PM_REF_ID = D.PM_REF_ID  " +
+            	 "and H.PM_REVISION_ID = D.PM_REVISION_ID  " +
+            	 "AND U.LOGON_NAME = H.EDITED_BY  " +
+            	 "AND D.PM_DETAIL_ID = ?) INLINEVIEW_1 where RNK = 1 ORDER BY PM_REVISION_ID desc "; 
+            	 
+            	 
 
             	 try {
             		 connection = getConnection();
@@ -12891,7 +12911,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             	 Connection connection = null;
             	 String returnProdComments;
             	 comments = null;
-            	 returnProdComments = "SELECT * FROM ( " +
+            	 returnProdComments = /*"SELECT * FROM ( " +
             			 "select D.SCOPE_COMMENTS, D.PM_REVISION_ID, NVL(H.EDIT_DATE,H.SUBMIT_DATE)AS EDIT_DATE, U.FIRST_NAME|| ' '||  U.LAST_NAME AS USER_NAME, " +
             			 "row_number() over (partition by D.SCOPE_COMMENTS order by D.PM_REVISION_ID ASC) as RNK " +
             			 "FROM PM_DETAIL_DIGITAL D, PM_HEADER H, PM_SECURITY_USER U " +
@@ -12902,7 +12922,20 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             			 "AND U.LOGON_NAME = H.EDITED_BY " +
             			 "AND D.PM_DETAIL_ID = ? " +
             			 "AND SCOPE_COMMENTS IS NOT NULL) " +
-            			 "WHERE RNK = 1 ORDER BY PM_REVISION_ID DESC"; 
+            			 "WHERE RNK = 1 ORDER BY PM_REVISION_ID DESC"; */
+            	 "SELECT * FROM( " +
+    			 "select D.SCOPE_COMMENTS, D.PM_REVISION_ID, ISNULL(H.EDIT_DATE,H.SUBMIT_DATE)AS EDIT_DATE, U.FIRST_NAME+ ' '+  U.LAST_NAME AS USER_NAME,  " +
+    			 "row_number() over (partition by D.SCOPE_COMMENTS order by D.PM_REVISION_ID ASC) AS RNK  " +
+    			 "FROM PM_DETAIL_DIGITAL D, PM_HEADER H, PM_SECURITY_USER U  " +
+    			 "WHERE D.PM_REF_ID = ?  " +
+    			 "AND H.PM_REF_ID = ?  " +
+    			 "AND H.PM_REF_ID = D.PM_REF_ID  " +
+    			 "and H.PM_REVISION_ID = D.PM_REVISION_ID  " +
+    			 "AND U.LOGON_NAME = H.EDITED_BY  " +
+    			 "AND SCOPE_COMMENTS IS NOT NULL " +
+    			 "AND D.PM_DETAIL_ID = ?) INLINEVIEW_1 where RNK = 1 ORDER BY PM_REVISION_ID desc ";
+            	 
+            	 
 
 
             	 try {
@@ -12943,7 +12976,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             	 Connection connection = null;
             	 String returnProdComments;
             	 comments = null;
-            	 returnProdComments = "SELECT * FROM ( " +
+            	 returnProdComments = /*"SELECT * FROM ( " +
             			 "select P.SCOPE_COMMENTS, P.PM_REVISION_ID, NVL(H.EDIT_DATE,H.SUBMIT_DATE)AS EDIT_DATE, U.FIRST_NAME|| ' '||  U.LAST_NAME AS USER_NAME, " +
             			 "row_number() over (partition by P.SCOPE_COMMENTS order by P.PM_REVISION_ID ASC) as RNK " +
             			 "FROM PM_DETAIL_PHYSICAL P, PM_HEADER H, PM_SECURITY_USER U " +
@@ -12954,7 +12987,18 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
             			 "AND U.LOGON_NAME = H.EDITED_BY " +
             			 "AND P.PM_DETAIL_ID = ? " +
             			 "AND SCOPE_COMMENTS IS NOT NULL) " +
-            			 "WHERE RNK = 1 ORDER BY PM_REVISION_ID DESC"; 
+            			 "WHERE RNK = 1 ORDER BY PM_REVISION_ID DESC"; */
+                    	 "SELECT * FROM( " +
+            			 "select D.SCOPE_COMMENTS, D.PM_REVISION_ID, ISNULL(H.EDIT_DATE,H.SUBMIT_DATE)AS EDIT_DATE, U.FIRST_NAME+ ' '+  U.LAST_NAME AS USER_NAME,  " +
+            			 "row_number() over (partition by D.SCOPE_COMMENTS order by D.PM_REVISION_ID ASC) AS RNK  " +
+            			 "FROM PM_DETAIL_PHYSICAL D, PM_HEADER H, PM_SECURITY_USER U  " +
+            			 "WHERE D.PM_REF_ID = ?  " +
+            			 "AND H.PM_REF_ID = ?  " +
+            			 "AND H.PM_REF_ID = D.PM_REF_ID  " +
+            			 "and H.PM_REVISION_ID = D.PM_REVISION_ID  " +
+            			 "AND U.LOGON_NAME = H.EDITED_BY  " +
+            			 "AND SCOPE_COMMENTS IS NOT NULL " +
+            			 "AND D.PM_DETAIL_ID = ?) INLINEVIEW_1 where RNK = 1 ORDER BY PM_REVISION_ID desc ";
 
 
             	 try {
@@ -13771,8 +13815,8 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
                   pstmt.setString(1, memoRef);
                   pstmt.setString(2, revisionID);
                   pstmt.setString(3, detailId);
-                  pstmt.executeQuery();
-                  deleted = true;
+                  deleted = pstmt.execute();
+                 //deleted = true;
 
               } catch (SQLException e) {
                   e.printStackTrace();                
@@ -13799,12 +13843,12 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
               
               
               sql = "INSERT INTO PM_DRAFT_PREORDERS(PM_REF_ID, PM_REVISION_ID, PM_DETAIL_ID, START_DATE, PREVIEW_CLIPS, PM_PARTNER_ID )VALUES("+
-              memoRef+", "+revisionId+", "+detailId+", TO_DATE('" + preorder.getPreOrderDate() + "', " + "'DD/MM/YYYY HH24:MI:SS'), '"+preorder.getPreviewClips()+"', "+preorder.getPartner()+" )";
+              memoRef+", "+revisionId+", "+detailId+", CONVERT(DATETIME, '" + preorder.getPreOrderDate() + "'), '"+preorder.getPreviewClips()+"', "+preorder.getPartner()+" )";
               System.out.println(sql);
                   try {
                       connection = getConnection();
                       statement = connection.createStatement();
-                      statement.executeQuery(sql);
+                      statement.execute(sql);
                      
   
                   } catch (SQLException e) {
@@ -13949,7 +13993,7 @@ if (!memoRefsTemp.contains(pmReturned.getMemoRef())) {
                   pstmt.setString(1, memoRefAsString);
                  
                   for (rs = pstmt.executeQuery(); rs.next(); ) {                                                          
-                    latestRevisionNumber = rs.getString("MAX(PM_REVISION_ID)");                                        
+                    latestRevisionNumber = rs.getString(1);                                        
                   }
 
               } catch (Exception e) {

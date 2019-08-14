@@ -146,12 +146,12 @@ public class ReturnSinglePageSummaryAction extends Action {
 			
 	            physicalDetails = (LinkedHashMap) fh.getPhysicalDetailsForPMForView(pm.getMemoRef(), revisionId, session);	          
 	            digitalDetails = (LinkedHashMap)fh.getDigitalDetailsForPMForView(pm.getMemoRef(), revisionId, session);	            
-	            promoDetails = (LinkedHashMap)fh.getPromoDetailsForPMForView(pm.getMemoRef(), revisionId, session);
+	           // promoDetails = (LinkedHashMap)fh.getPromoDetailsForPMForView(pm.getMemoRef(), revisionId, session);
 	            
 	            
  
 	            request.setAttribute("physicalDetails", physicalDetails);
-	            request.setAttribute("promoDetails", promoDetails);
+	            //request.setAttribute("promoDetails", promoDetails);
 	            request.setAttribute("digitalDetails", digitalDetails);
 	           // request.setAttribute("digitalpreOrders", preOrders);
 	            request.setAttribute("projectMessagesList", projectMessagesList);

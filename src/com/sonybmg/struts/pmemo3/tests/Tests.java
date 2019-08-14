@@ -87,11 +87,11 @@ public class Tests implements Runnable {
 					log.info(Thread.currentThread().toString()+"Loop "+i+ " - Getting all digital format details for memo "+count);
 				/*5*/	fh.getAllProjectMessages(count+"");
 					log.info(Thread.currentThread().toString()+"Loop "+i+ " - Getting all project messages for memo "+count);
-				/*6*/	cssDAO.getAllPhysicalMemoDetails(count+"");
+				/*6*	cssDAO.getAllPhysicalMemoDetails(count+"");
 					log.info(Thread.currentThread().toString()+"Loop "+i+ " - Getting all CSS physical details for memo "+count);				
-				/*7*/	cssDAO.getAllDigitalMemoDetails(count+"");
+				/*7*	cssDAO.getAllDigitalMemoDetails(count+"");
 					log.info(Thread.currentThread().toString()+"Loop "+i+ " - Getting all CSS digital details for memo "+count);	
-				/*8*/	cssDAO.getAllMobileMemoDetails(count+"");
+				/*8*	cssDAO.getAllMobileMemoDetails(count+"");
 					log.info(Thread.currentThread().toString()+"Loop "+i+ " - Getting all CSS mobile details for memo "+count);	
 
 				try {

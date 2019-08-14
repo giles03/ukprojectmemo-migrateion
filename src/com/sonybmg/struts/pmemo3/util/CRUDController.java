@@ -57,13 +57,7 @@ import com.sonybmg.struts.pmemo3.model.PreOrder;
           lstCustomer.add(mapIter.next());
         }
         
-        
-       
-      } /*else{
-            
-        lstCustomer = DataManipulation.getAllPreOrders("8000", "1");
-        session.setAttribute("preOrderObject", lstCustomer);
-      }*/
+      } 
       //Convert Java Object to Json
        gson = new Gson();
       JsonElement element = gson.toJsonTree(lstCustomer, new TypeToken<List<PreOrder>>() {}.getType());
@@ -71,7 +65,8 @@ import com.sonybmg.struts.pmemo3.model.PreOrder;
       String listData=jsonArray.toString();
        
       //Return Json in the format required by jTable plugin
-      listData="{\"Result\":\"OK\",\"Records\":"+listData+"}";    
+       listData ="{\"Result\":\"OK\",\"Records\":"+listData+"}"; 
+      //listData="{\"Result\":\"OK\",\"Records\":[{\"preOrderNumber\":1,\"partner\":\"5\",\"preOrderDate\":\"2015-08-07\",\"previewClips\":\"N\"}]}";
       response.setContentType("application/json");
       response.getWriter().print(listData);
       System.out.println(listData);
@@ -83,21 +78,6 @@ import com.sonybmg.struts.pmemo3.model.PreOrder;
      } else if(action.equals("create") || action.equals("update")){
        mapCustomer = (HashMap) session.getAttribute("preOrderMap");
            PreOrder preOrder=new PreOrder();
-         /*  if(request.getParameter("preOrderNumber")!=null){      
-             String preOrderNumberAsString = request.getParameter("preOrderNumber");
-             int preOrderNumber = Integer.parseInt(preOrderNumberAsString);
-             preOrder.setPreOrderNumber(preOrderNumber);
-          } else {
-            preOrder.setPreOrderNumber(1);
-                
-            int count=0;    
-            for(Integer key : mapCustomer.keySet()) {
-              
-              if (key>count){ 
-                count=key;
-              }
-            }*/
-           // preOrder.setPreOrderNumber(count+1);
             if(request.getParameter("preOrderNumber")!=null){      
               String preOrderNumber = request.getParameter("preOrderNumber");
               Integer pONum = new Integer(preOrderNumber);
@@ -178,9 +158,7 @@ import com.sonybmg.struts.pmemo3.model.PreOrder;
            }else if(action.equals("delete")){//Delete record
              mapCustomer = (HashMap<Integer, PreOrder>) session.getAttribute("preOrderMap");
              
-          //   mapCustomer.clear();
-             
-          //   session.setAttribute( "preOrderMap", mapCustomer );
+
             try{
             if(request.getParameter("preOrderNumber")!=null){
               String preOrderNumberAsString = request.getParameter("preOrderNumber");

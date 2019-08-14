@@ -693,7 +693,7 @@ function openDiv(anchor){
 						<img src="/pmemo3/images/tickmark.jpg" border='0'>
 					</td>
 				</tr>
-				<%} if ((pm2.getAgeRating() == null)|| (pm2.getAgeRating().equals(""))) {
+				<%} if ((pm2.getAgeRating() == null) || (pm2.getAgeRating().equals("")) || (pm2.getAgeRating().equals("0"))) {
 							// Do nothing					
 			 	  } else {
 			 		 String ageRating = pmDAO.getStringFromId(pm2.getAgeRating(), "SELECT AGE_RATING_DESC FROM PM_AGE_RATING WHERE AGE_RATING_ID="); 
@@ -706,7 +706,7 @@ function openDiv(anchor){
 						<b><%= ageRating %></b>		  			
 					</td>
 				</tr>								
-				<%}if (pm2.getRestrictDate() != null) {
+				<%}if (pm2.getRestrictDate() != null)  {
 							modifiedRestrictDate = "";
 							Date restrictDate = java.sql.Date.valueOf(pm2.getRestrictDate().substring(0, 10));
 							modifiedRestrictDate = dateFormat.format(restrictDate);

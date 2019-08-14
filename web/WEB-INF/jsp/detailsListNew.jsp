@@ -31,7 +31,7 @@
 	<link rel="STYLESHEET" href="/pmemo3/css/tooltip.css" type="text/css" >		
 	<script type="text/javascript">
         function confirmation(){
-                return confirm("Are you sure to delete this format?");
+                return confirm("Are you sure you want to delete this format?");
          } 
                   
         function digiEquivIncomplete(){

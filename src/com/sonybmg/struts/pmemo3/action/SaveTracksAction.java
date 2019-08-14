@@ -171,45 +171,9 @@ public class SaveTracksAction extends Action {
 				
 				forward = "newDigitalFromEdit";
 				
-				
-				
-/*
- * ------------------------------------------------------------------------------------------------------------------
- * Editing Promo Track
- */
-				
-		}  else if((pm.getPromoDetailId()!=null) && (pm.getPromoDetailId()!="")){	
-					fh = new FormHelper();
-					if (fh.tracksExistForPromoFormat(pm.getMemoRef(), pm.getRevisionID(), pm.getPromoDetailId())) {
-						fh.deleteAssociatedPromoTracks(pm.getMemoRef(), pm.getRevisionID(), pm.getPromoDetailId());
-					}
-					if (session.getAttribute("projectMemo") != null) {
-						pm = (ProjectMemo)session.getAttribute("projectMemo");
-					}
-					Track track = new Track();
-					count = 0;
-					if (session.getAttribute("trackList") != null) {
-						list = (ArrayList)session.getAttribute("trackList");
-						if (list.size() < 1) {
-							list = null;
-						}
-					}
-					if (list != null) {
-						tracksToSave = (ArrayList)session.getAttribute("trackList");
-						Track trackToSave;
-						for (Iterator iter = tracksToSave.iterator(); iter.hasNext(); fh.savePromoTrack(pm, trackToSave)) {
-							trackToSave = (Track)iter.next();
 							
-						}
-						
-						session.setAttribute("trackList", list);
-					}
-
-					productFormats = fh.getPromoProductFormat(productType);
-					forward = "newPromoFromEdit";	
-		}
-		
-//remove project Memo session data
+		} 
+			//remove project Memo session data
 			session.setAttribute("projectMemo", null);
 			request.setAttribute("productFormats", productFormats);
 			request.setAttribute("projectMemo", pm);
@@ -230,7 +194,7 @@ public class SaveTracksAction extends Action {
              //Can user edit the GRAS Set Complete and DRA Clearance Complete checkboxes?
              if((localProduct) && (user.getId().equals("yearw01") |  
                  user.getId().equals("giles03") |
-                 user.getId().equals("wijes01") | 
+                 user.getId().equals("gain002") | 
                  user.getId().equals("robe081") |
                  user.getId().equals("tier012") |
                  user.getId().equals("baxk003") |

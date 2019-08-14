@@ -652,45 +652,13 @@ function showHideCustFeedDates(){
 								<html:checkbox property="restrictCustFeed" onclick="showHideCustFeedDates()"></html:checkbox>
 								
 							</div>
-							<div id="custFeedDates" class="outline"
-								style='display: none; align: left'>
-								<span
-									style='white-space: nowrap; font-size: 12; padding-right: 47px'><b>DATE: 
-										</b> </span>
+							<div id="custFeedDates" style='display: none; align: left'>
+								<span style='white-space: nowrap; font-size: 12; padding-right: 47px'><b>DATE:</b> </span>
 								<html:text property="custFeedRestrictDate" size="16"  readonly="true" style="background: #A9D0F5; text-align:center;"/>
 								<a href="#" onClick="cal.select(document.forms['<%=formName%>'].custFeedRestrictDate,'anchor4','dd-MMM-yyyy'); return false;" name="anchor4" ID="anchor4" title="Press 'Ctrl' and click with mouse">SELECT</a>
 								<div style="color: red; white-space: nowrap; font-size: 14">
 									<html:errors property="custFeedRestrictDate" />
-								</div> 
-
-								<%--<span
-									style='white-space: nowrap; font-size: 12; padding-right: 11px'><b>TRACKLISTING
-										</b> </span>
-								<html:text property="tracklistingRestrictDate" size="16"  readonly="true" style="background: #A9D0F5; text-align:center;"/>
-								<a href="#" onClick="cal.select(document.forms['<%=formName%>'].tracklistingRestrictDate,'anchor2','dd-MMM-yyyy'); return false;" name="anchor2" ID="anchor2" title="Press 'Ctrl' and click with mouse">SELECT</a>
-								<div style="color: red; white-space: nowrap; font-size: 14">
-									<html:errors property="tracklistingRestrictDate" />
-								</div>
-								
-								<span
-									style='white-space: nowrap; font-size: 12; padding-right: 33px'><b>COVER ART
-										</b> </span>
-								<html:text property="coverArtDate" size="16"  readonly="true" style="background: #A9D0F5; text-align:center;"/>
-								<a href="#" onClick="cal.select(document.forms['<%=formName%>'].coverArtDate,'anchor3','dd-MMM-yyyy'); return false;" name="anchor3" ID="anchor3" title="Press 'Ctrl' and click with mouse">SELECT</a>
-								<div style="color: red; white-space: nowrap; font-size: 14">
-									<html:errors property="coverArtDate" />
-								</div>
-								
-								
-								<span
-									style='white-space: nowrap; font-size: 12; padding-right: 47px'><b>SNIPPETS
-										</b> </span>
-								<html:text property="snippetsDate" size="16"  readonly="true" style="background: #A9D0F5; text-align:center;"/>
-								<a href="#" onClick="cal.select(document.forms['<%=formName%>'].snippetsDate,'anchor4','dd-MMM-yyyy'); return false;" name="anchor4" ID="anchor4" title="Press 'Ctrl' and click with mouse">SELECT</a>
-								<div style="color: red; white-space: nowrap; font-size: 14">
-									<html:errors property="snippetsDate" />
-								</div> --%>
-								
+								</div> 								
 							</div>
 							<div>
 								<span style='white-space: nowrap; font-size: 14'>EXPLICIT? :</span>
@@ -725,7 +693,7 @@ function showHideCustFeedDates(){
 					</html:select>
 					<br/><br/>			
 					<span id='restrictDateSection' style='display: none;'> 
-						Restrict until : <html:text property="restrictDate" size="16" style="background: red; text-align:center; plain:true; color:#FFFFFF" /> 
+						Restrict until : <html:text property="restrictDate" size="14" style="background: red; text-align:center; plain:true; color:#FFFFFF" /> 
 							<a href="#" onclick="cal.select(document.forms['physicalForm'].restrictDate,'anchorRestrictDate','dd-MMM-yyyy'); return false;" name="anchorRestrictDate" ID="anchorRestrictDate" title="Press 'Ctrl' and click with mouse">SELECT</a>
 								<div style="color: red">
 									<html:errors property="restrictDate" />
@@ -973,9 +941,9 @@ function showHideCustFeedDates(){
     		
     			<td align="center">	
 					
-					<html:submit property="button" style="font-size: 16px;font-weight: 500; width: 115px">Save</html:submit>&nbsp;&nbsp;&nbsp;
+					<html:submit property="button" style="font-size: 16px;font-weight: 500; width: 50px; text-align:center">Save</html:submit>&nbsp;&nbsp;&nbsp;
 
-					<html:submit property="button"  style="font-size: 16px; font-weight: 500; width: 130px">Update Tracks</html:submit>
+					<html:submit property="button" style="font-size: 16px; font-weight: 500; width: 120px; text-align:center">Update Tracks</html:submit>
    			
 				</td>
 			</tr>

@@ -84,7 +84,7 @@ public class AddNewPhysicalAction extends Action {
                     user.getId().equals("palm049") |
                     user.getId().equals("robe081") |
                     user.getId().equals("woo0001") |
-                    user.getId().equals("wijes01"))){
+                    user.getId().equals("gain002"))){
                   
                   request.setAttribute("canEdit", true);
                   

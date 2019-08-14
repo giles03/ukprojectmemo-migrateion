@@ -312,7 +312,7 @@ public class FormHelper {
             	return ProjectMemoFactoryDAO.getInstance().getAllPhysicalDraftsForView(memoRef);
             }
 
-            public Map getPromoDetailsForPMForView(String memoRef, String revisionId, HttpSession session) {
+         /*  public Map getPromoDetailsForPMForView(String memoRef, String revisionId, HttpSession session) {
             	pmDAO = ProjectMemoFactoryDAO.getInstance();
             	Map promoList = null;
             	if (session.getAttribute("searchingDrafts") != null && session.getAttribute("searchingDrafts").equals("true")) {
@@ -326,7 +326,7 @@ public class FormHelper {
             public Map getPromoDraftsForPMForView(String memoRef, String revisionId, HttpSession session) {
 
             	return ProjectMemoFactoryDAO.getInstance().getAllPromoDraftsForView(memoRef);
-            }
+            }*/
 
             public Map getDigitalDetailsForPMForView(String memoRef, String revisionId, HttpSession session) {
             	pmDAO = ProjectMemoFactoryDAO.getInstance();
@@ -617,13 +617,13 @@ public class FormHelper {
             
             
 
-            public void savePromoTrack(ProjectMemo pm, Track trackToSave) {
+          /*  public void savePromoTrack(ProjectMemo pm, Track trackToSave) {
             	tDAO = TrackFactoryDAO.getInstance();   
             	if((trackToSave.getTrackName()==null) ||(trackToSave.getTrackName().equals(""))){
             		trackToSave.setTrackName("tbc");
             	}
             	tDAO.insertPromoTrack(pm, trackToSave);
-            }
+            }*/
 
             public boolean updateHeaderDetails(String pmRef, String pmRevNo, HeaderForm hForm) {
             	boolean isUpdated = false;
@@ -675,7 +675,7 @@ public class FormHelper {
             	pmDAO.updateHeaderDigitalFlagInDrafts(pmRef);
             }
 
-            public boolean updatePromoDetails(String pmRef, String pmRevNo, String pmFormatId, String detailId, PromoForm promoForm) {
+        /*    public boolean updatePromoDetails(String pmRef, String pmRevNo, String pmFormatId, String detailId, PromoForm promoForm) {
             	boolean isUpdated = false;
             	pmDAO = ProjectMemoFactoryDAO.getInstance();            	
             	
@@ -685,7 +685,7 @@ public class FormHelper {
 
             public void updatePromoHeaderFlagToTrue(String pmRef) {
             	pmDAO.updateHeaderPromoFlagInDrafts(pmRef);
-            }
+            }*/
 
             public ArrayList getPhysicalTracks(String memoRef, String revId, String format, String detailId) {
             	ArrayList tracks = new ArrayList();
@@ -751,9 +751,8 @@ public class FormHelper {
     	        pmDAO = ProjectMemoFactoryDAO.getInstance();
     	        tracks = pmDAO.getPreOrderTrackList(memoRef, revId, detailId);				
 	       return tracks;
-        }                
-            
-            
+            }      
+     
 
             public ArrayList getPromoTracks(String memoRef, String revId, String format, String detailId) {
             	ArrayList tracks = new ArrayList();
@@ -933,25 +932,19 @@ public class FormHelper {
             	Map digiMap = (LinkedHashMap)pmDAO.getAllDigitalDraftsForEditFormatsPage(pm.getMemoRef());
             	request.setAttribute("existingDigitalFormats", digiMap);
             	request.setAttribute("digitaldetails", digiMap);
-            	/**Map promoMap = (LinkedHashMap) pmDAO.getAllPromoDraftsForView(pm.getMemoRef());
-            	request.setAttribute("promoDetails", promoMap);
-            	request.setAttribute("existingPromoFormats", promoMap);**/
             }
             
             public void returnAllDetailFormatsToEdit(ProjectMemo pm, HttpServletRequest request) {
             	pmDAO = ProjectMemoFactoryDAO.getInstance();
-            	//Map physMap = (LinkedHashMap) pmDAO.getAllPhysicalDraftsForView(pm.getMemoRef());
             	Map physMap = (LinkedHashMap) pmDAO.getAllPhysicalDetailsForLandingPage(pm.getMemoRef());
             	request.setAttribute("existingPhysicalFormats", physMap);
             	request.setAttribute("physicaldetails", physMap);
-            	//Map digiMap = (LinkedHashMap)pmDAO.getAllDigitalDraftsForEditFormatsPage(pm.getMemoRef());
             	Map digiMap = (LinkedHashMap)pmDAO.getAllDigitalDetailsForLandingPage(pm.getMemoRef());
             	request.setAttribute("existingDigitalFormats", digiMap);
             	request.setAttribute("digitaldetails", digiMap);
-            /**	Map promoMap = (LinkedHashMap) pmDAO.getAllPromoDraftsForView(pm.getMemoRef());
-            	request.setAttribute("promoDetails", promoMap);
-            	request.setAttribute("existingPromoFormats", promoMap);**/
             }
+            
+ 
                         
             
             public boolean isProductIG(ProjectMemo pm){
@@ -1365,7 +1358,7 @@ public class FormHelper {
             	updatePhysicalHeaderFlagToTrue(pm.getMemoRef());
             }
 
-            public void updatePromoDetails(String memoRef, String revisionID, String promoDetailId, PromoForm promoForm) {
+            /*    public void updatePromoDetails(String memoRef, String revisionID, String promoDetailId, PromoForm promoForm) {
             	pmDAO = ProjectMemoFactoryDAO.getInstance();       		
             	pmDAO.updatePromoDetails(memoRef, revisionID, promoDetailId, promoForm);
             }
@@ -1373,26 +1366,11 @@ public class FormHelper {
             public void insertPromoDetails(ProjectMemo pm) {
 				pmDAO.insertPromoDetails(pm);
 				updatePromoHeaderFlagToTrue(pm.getMemoRef());
-            }
+            }*/
 
             
             
-            public boolean deletePromoFormat(String memoRef, String revisionNo, String detailId) {
-            	
-            	boolean isDeleted = false;
-            	
-            	try{
-            	pmDAO = ProjectMemoFactoryDAO.getInstance();
-            	tDAO = new TrackDAO();
-            	tDAO.deleteTracksForPromoFormat(memoRef, revisionNo, detailId);
-            	pmDAO.deletePromoFormat(memoRef, revisionNo, detailId);            	
-				isDeleted = true;
-				
-            	}catch(Exception e){
-            	e.printStackTrace();	
-            	}
-            	return isDeleted;
-            }
+        
 
             
             
@@ -1505,23 +1483,23 @@ public class FormHelper {
             
             
 
-            public HashMap getCatNumsForDashboard(String refId) {
+          /*  public HashMap getCatNumsForDashboard(String refId) {
             	HashMap map = new HashMap();
             	ArrayList catAndGridNums = null;            	
             	pmDAO = ProjectMemoFactoryDAO.getInstance();
             	tDAO = TrackFactoryDAO.getInstance();
             	catAndGridNums = new ArrayList();
-            	ArrayList promoReports = pmDAO.getAllPromoCatNums(refId);
+            	//ArrayList promoReports = pmDAO.getAllPromoCatNums(refId);
             	ArrayList physReports = pmDAO.getAllPhysCatNums(refId);
             	ArrayList digiGReports = pmDAO.getAllDigiGNums(refId);
             	ArrayList mobileGReports = pmDAO.getAllMobileGNums(refId);
             	
             	
             	
-            	Iterator promosIter = promoReports.iterator();
-            	while(promosIter.hasNext()){
-            		catAndGridNums.add(promosIter.next());
-            	}
+            	//Iterator promosIter = promoReports.iterator();
+            	//while(promosIter.hasNext()){
+            	//	catAndGridNums.add(promosIter.next());
+            	//}
             	Iterator physIter = physReports.iterator();
             	while(physIter.hasNext()){
             		catAndGridNums.add(physIter.next());
@@ -1542,12 +1520,12 @@ public class FormHelper {
             	map.put(countryCode, catAndGridNums);
             	return map;
             }
-            
+            */
             
     /*
      * Query takes the refId for a project and queries all detail tables for formats in that project
      * which have no cat id yet assigned and returns a list of 'unassigned' Dashboard Objects accordingly
-     */     
+     *     
 
             public ArrayList getUnassignedFormatsForDashboard(String refId) {
             	pmDAO = ProjectMemoFactoryDAO.getInstance();
@@ -1578,10 +1556,10 @@ public class FormHelper {
             	}
 
             	
-    /*
+    
      * Now return any unmatched digital equivalent category ids and add these to the list
      * we are building.
-     */                 	
+                      	
             	ArrayList digitalEquivalents = pmDAO.getAllUnmatchedDigitalEquivalents(refId);
             	if (digitalEquivalents.size() > 0) {
             		addArrayListToResults(unassignedList, digitalEquivalents);
@@ -1592,7 +1570,7 @@ public class FormHelper {
             /*
              * Query takes the refId for a project and queries all detail tables for formats in that project
              * which have no cat id yet assigned and returns a list of 'unassigned' Dashboard Objects accordingly
-             */     
+             *     
 
                     public ArrayList getNewUnassignedFormatsForDashboard(String refId) {
                     	pmDAO = ProjectMemoFactoryDAO.getInstance();
@@ -1622,7 +1600,7 @@ public class FormHelper {
             // Return list of digital equivalents with unnassigned G Nums. Create entries for each as T.B.C dashboard items
         	// to include in PLANNING	
              
-        	/*
+        	*
         	 *  * ****************FOLLOWING NOW COMMENTED-OUT FOLLOWING CHANGE TO DIGITAL EQUIVALENT FUNCTIONALITY********************
         	 
         	
@@ -1650,7 +1628,7 @@ public class FormHelper {
 		            unassignedList.add(unmatchedDEReport);
 		          }
         	
-        	*/
+        	*
                     	
                     	
                     	return unassignedList;
@@ -1660,7 +1638,7 @@ public class FormHelper {
             /*
              * Query takes the refId for a project and queries all detail tables for formats in that project
              * which have no cat id yet assigned and returns a list of 'unassigned' Dashboard Objects accordingly
-             */     
+             *     
 
                 public ArrayList getMobileProductsWithAssignedGNumbers(String refId) {
                 	pmDAO = ProjectMemoFactoryDAO.getInstance();
@@ -1699,7 +1677,7 @@ public class FormHelper {
             	return dashboardList;
             }
             
-            
+            */
             
             
             
@@ -1729,7 +1707,7 @@ public class FormHelper {
             /*
              * Need to return an ArrayList of dashboardReports for all items in the dashboardItemsList
              * as well as the digital Equivalent
-             */
+             *
             public ArrayList getMatchedDashboardDetailObjects(HashMap dashboardItemsList) {
             	pmDAO = ProjectMemoFactoryDAO.getInstance();
 				ArrayList dashboardReportList = null;
@@ -1769,7 +1747,7 @@ public class FormHelper {
             /*
              * Need to return an ArrayList of dashboardReports for all items in the dashboardItemsList
              * as well as the digital Equivalent
-             */
+             *
             public ArrayList getMatchedArchivedDashboardDetailObjects(ArrayList dashboardItemsList) {
             	pmDAO = ProjectMemoFactoryDAO.getInstance();
 				ArrayList dashboardReportList = null;
@@ -1798,7 +1776,7 @@ public class FormHelper {
             
             
             
-            
+            */
             
              
             
@@ -1827,7 +1805,7 @@ public class FormHelper {
 		            
                     
             
-            
+            /*
             public ArrayList getArchivedDigitalEquivalentsForDashboard(String refId){
             	
             	pmDAO = ProjectMemoFactoryDAO.getInstance();
@@ -1883,7 +1861,7 @@ public class FormHelper {
 					
                 }
 		return dashboardReportList;
-            }  
+            }  *
             
             
                     
@@ -1937,7 +1915,7 @@ public class FormHelper {
             /*
              * Pass a Memo Ref to derive all associated Digital Equivalents for that ref Id
              * and then return a production console Item for each returned digital equivalent.
-             */
+             *
             public ArrayList getMatchedDigiEquivsProductionConsoleObjects(String refId) {
             	pmDAO = ProjectMemoFactoryDAO.getInstance();
             	ArrayList digiEquivalentsList = null;
@@ -1948,7 +1926,7 @@ public class FormHelper {
             	
             	/*
             	 * return all digital equivalent cat ids associated with this ref ID
-            	 */
+            	 *
             	if(pmDAO.getAllDigitalEquivalentNumbers(refId)!=null){
             		digiEquivalentsList= pmDAO.getAllDigitalEquivalentNumbers(refId);
             		
@@ -1961,7 +1939,7 @@ public class FormHelper {
             		/*
             		 * Iterate through each cat id and return an associated Production Console
             		 * Item from the Monis Table. Return this to the page for display/ updating.
-            		 */    
+            		 *    
             		while (digiEquivsIter.hasNext() )  {           		           		
             			item = (String) digiEquivsIter.next(); 
             			//if(item!=null && pmDAO.catIdInMonisReport(item)){
@@ -1987,7 +1965,7 @@ public class FormHelper {
      * Query takes a list of all category numbers associated with a particular project(dashboardList), 
      * the refId for that project and returns a list of DashboardReport objects which cannot be found 
      * in the Monis table 
-     */
+     *
             
             public ArrayList getUnmatchedDashboardObjects(ArrayList dashboardList, String refId) {
             	pmDAO = ProjectMemoFactoryDAO.getInstance();
@@ -2008,13 +1986,13 @@ public class FormHelper {
 					
 	/* as the product is not in the Monis table, the dashboard image for this product needs to be 
 	 * derived from the Detail table in Memo
-	 */  
+	 * 
 					String dashboardFlag = getUnmatchedDashboardProductImage(refId, formatType, format, detailID);
 			
 	/*
 	 *  make sure the category ID isn't null - these relate to the 
 	 * 'unassignedFormatsList' so make sure not to count them twice
-	 */		
+	 *	
 					
 				if ((dashCatId!=null) && (!pmDAO.catIdInMonisReport(dashCatId))) {
 	                DashboardReportNew unattachedProductReport = new DashboardReportNew();
@@ -2071,15 +2049,15 @@ public class FormHelper {
 					String formatType = (String)dbItem.get(4);
 					String detailID = (String)dbItem.get(5);
 					
-	/* as the product is not in the Monis table, the dashboard image for this product needs to be 
+	* as the product is not in the Monis table, the dashboard image for this product needs to be 
 	 * derived from the Detail table in Memo
-	 */  
+	 *  
 					String dashboardFlag = getUnmatchedDashboardProductImage(refId, formatType, format, detailID);
 			
-	/*
+	*
 	 *  make sure the category ID isn't null - these relate to the 
 	 * 'unassignedFormatsList' so make sure not to count them twice
-	 */		
+	 *	
 				
     // Include products in DAILY-DASH BUT not in latest feed
 				//if ((dashCatId!=null) && (!pmDAO.catIdInMonisReport(dashCatId))) {
@@ -2189,7 +2167,7 @@ public class FormHelper {
 				
 					/*
 					 * if ANY symbols are RED return RED
-					 */
+					 *
 					
                 } else if (productionMasterApproved.equals("dashboardRed") | 
 					productionArtworkApproved.equals("dashboardRed") |
@@ -2201,7 +2179,7 @@ public class FormHelper {
 						trafficLightImage = "dashboardRed";
 						/*
 						 * if ANY symbols are AMBER return AMBER
-						 */
+						 *
                 } else  if (productionMasterApproved.equals("dashboardAmber") | 
 					productionArtworkApproved.equals("dashboardAmber") |
 					digiProductionReady.equals("dashboardAmber") |
@@ -2212,7 +2190,7 @@ public class FormHelper {
                 		trafficLightImage = "dashboardAmber";
         				/*
     					 * if ANY symbols are THUMB return THUMB 
-    					 */	
+    					 *	
                 } else if (productionMasterApproved.equals("dashboardGreenBAKthumbs") | 
 					productionArtworkApproved.equals("dashboardGreenBAKthumbs") | 
 					digiProductionReady.equals("dashboardGreenBAKthumbs") |
@@ -2223,7 +2201,7 @@ public class FormHelper {
 						trafficLightImage = "dashboardGreenBAKthumbs";
 					/*
 					 * if ALL symbols are NA return N/A 
-					 */
+					 *
                 } else if (productionMasterApproved.equals("dashboardNA") && 
 					productionArtworkApproved.equals("dashboardNA") &&
 					digiProductionReady.equals("dashboardNA") &&
@@ -2394,7 +2372,7 @@ public class FormHelper {
 				  
           	/*
           	 * Just returning the same symbol
-          	 */
+          	 *
             	return trafficLightImage;
             }
             
@@ -2405,7 +2383,7 @@ public class FormHelper {
 				  
             	/*
               	 * Just returning the same symbol
-              	 */
+              	 *
             	
             	return trafficLightImage;
             }
@@ -2464,7 +2442,7 @@ public class FormHelper {
             	ArrayList dashboardMessagesList = null;
             	dashboardMessagesList = pmDAO.getAllDashboardMessages(refId);
             	return dashboardMessagesList;
-            }
+            }*/
             
             public List getAllProjectMessages(String refId) {
             	        pmDAO = ProjectMemoFactoryDAO.getInstance();
@@ -2530,7 +2508,7 @@ public class FormHelper {
 
             
             
-            
+            /*
             
             public String getProjectDashboardImageFromRefId(String refId) {
             	String trafficLightImage = "";
@@ -2545,7 +2523,7 @@ public class FormHelper {
                        
            /*
             * New methodS to update DAILY_DASH_CSS rather than MONIS_SCHEDULE for Production Console
-            */
+            *
            public boolean updateDailyDashCss(String refId, String dashActualDateColumn, String dashColorMapColumn){
         	   
         	   pmDAO = ProjectMemoFactoryDAO.getInstance();
@@ -2575,7 +2553,7 @@ public class FormHelper {
         	 
         	   return updated;
         	   
-           } 
+           } */
            
            
            public String getNextAvailableArtistId(){
@@ -2616,7 +2594,7 @@ public class FormHelper {
    
            }
            
-           
+           /*
            public boolean dashboardItemsExistInBothLists(ArrayList a, ArrayList b){
 			
         	   
@@ -2686,7 +2664,7 @@ public class FormHelper {
         	   }
         	   return itemDuplicated;
            }
-           
+           */
        
            public String getCurrentlyEditingRevisionId(int memoRef){
         	   
@@ -2744,15 +2722,10 @@ public class FormHelper {
              boolean preOrdersUpdated =false;
              pmDAO = ProjectMemoFactoryDAO.getInstance();
             
-             /**TODO
-              * delete any existing pre-orders that were previously entered against this detail id 
-              */
              pmDAO.deletePreorders(memoRef, revisionId, detailId);
              
              
-             /**TODO
-              * write the preorder data to the db. 
-              */
+          
             
             Iterator iter = preorders.iterator();
             int count = 1;
@@ -2928,17 +2901,12 @@ public class FormHelper {
                 cssDetail.setCssID(cssID);
                 cssDetail.setDetailId(po.getDigitalDetailId());
                 cssDetail.setMemoRef(pmRefId);
-                cssDetail.setSuppTitle(po.getSupplementTitle());
-                
+                cssDetail.setSuppTitle(po.getSupplementTitle());              
                 cssDAO.updateDigitalSupplementaryTitleInCSS(cssDetail);    
               }
-              
-              
+                            
             }
-            
-            
-            
-            
+                 
           return false;
           }
           
@@ -2969,7 +2937,6 @@ public class FormHelper {
                 try {
                   cssID = cssDAO.getNextSequenceValue("SEQ_CSS_ID");
                 } catch (SQLException e) {
-                  // TODO Auto-generated catch block
                   e.printStackTrace();
                 }
                                 
@@ -2977,7 +2944,6 @@ public class FormHelper {
                 cssDetail.setDetailId(po.getDigitalDetailId());
                 cssDetail.setMemoRef(pmRefId);
                 cssDetail.setTrackNum(po.getTrackNum());
-               // cssDetail.setSuppTitle(po.getSupplementTitle());
                 cssDAO.insertMobileCSSID(cssDetail);    
                                   
               }
@@ -2995,7 +2961,6 @@ public class FormHelper {
             cssDetail = new CSSDetail();
             cssDAO = new CSSDAO();
             
-            // return an arraylist of detail ids committed in this action
             
             ArrayList digitDetails = pmDAO.getAllPhysicalDetailsForCSSUpdate(pmRefId);
             Iterator iter = digitDetails.iterator();

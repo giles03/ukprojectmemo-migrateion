@@ -98,7 +98,7 @@ public class AddNewDigitalAction extends Action {
                 //Can user edit the GRAS Set Complete and DRA Clearance Complete checkboxes?
                 if((localProduct) && (user.getId().equals("yearw01") |  
                     user.getId().equals("giles03") |
-                    user.getId().equals("wijes01") |  
+                    user.getId().equals("gain002") |  
                     user.getId().equals("robe081") |
                     user.getId().equals("tier012") |
                     user.getId().equals("baxk003") |

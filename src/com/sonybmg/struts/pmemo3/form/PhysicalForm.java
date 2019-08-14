@@ -562,7 +562,7 @@ public class PhysicalForm extends ActionForm {
 	                          user.getId().equals("palm049") |
 	                          user.getId().equals("howm001") |
 	                          user.getId().equals("woo0001") |
-	                          user.getId().equals("wijes01")))){
+	                          user.getId().equals("gain002")))){
 					errors.add("scheduleInGRPS", new ActionError("physical.error.scheduleInGRPS.blank"));					
 				}
 								

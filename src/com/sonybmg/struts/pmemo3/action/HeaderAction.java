@@ -100,10 +100,9 @@ public class HeaderAction extends Action {
 			pm.setGrasConfidentialProject(headerForm.isGrasConfidentialProject());
 			pm.setForwardPlanner(headerForm.isForwardPlanner());
 			pm.setGclsNumber(headerForm.getGclsNumber());
-			//pm.setMarketingLabel(headerForm.getMarketingLabel());
 			pm.setProjectNumber(headerForm.getProjectNumber());
 			pm.setUsLabel(headerForm.getUsLabel());
-			pm.setMarketingLabel("");
+			pm.setMarketingLabel("NULL");
 			pm.setSplitRepOwner(headerForm.getSplitRepOwner());
 			pm.setuSProductManagerId(headerForm.getuSProductManagerId());
 			request.setAttribute("searchString", pm.getMemoRef());	

@@ -102,7 +102,7 @@ public class AddNewPhysicalFromEditAction extends Action {
 			pm.setPhysComments(physForm.getComments());
 			pm.setPhysScopeComments(physForm.getScopeComments());
 			pm.setPhysReleaseDate(physForm.getReleaseDate());
-			pm.setPhysCatalogNumber(physForm.getCatalogNumber());
+			pm.setPhysCatalogNumber(physForm.getCatalogNumber());		
 			pm.setPhysicalBarcode(physForm.getPhysicalBarcode());
 			pm.setPhysLocalCatNumber(physForm.getLocalCatNumber());
 			pm.setPhysPriceLine(physForm.getPriceLine());
@@ -194,7 +194,8 @@ public class AddNewPhysicalFromEditAction extends Action {
 	/*
 	 *  else we are just updating an existing detailID so we don't want to insert a new format
 	 */
-				} else if((physForm.getDigiEquivCheck().equals("Y")) && (!pm.getAssociatedDigitalFormatDetailId().equals(""))){
+				} else if((physForm.getDigiEquivCheck().equals("Y")) && 
+						((!pm.getAssociatedDigitalFormatDetailId().equals("")) && (pm.getAssociatedDigitalFormatDetailId()!=null)) && (!pm.getAssociatedDigitalFormatDetailId().equals("0"))){
 						newDigiEquivRequired = false;
 						
 						//pm.setAssociatedDigitalFormatDetailId(physForm.getDetailId());
@@ -203,7 +204,8 @@ public class AddNewPhysicalFromEditAction extends Action {
 
 					
 					
-				} else if((physForm.getDigiEquivCheck().equals("Y")) && ( pm.getAssociatedDigitalFormatDetailId().equals(""))){
+				} else if((physForm.getDigiEquivCheck().equals("Y")) && 
+						(( pm.getAssociatedDigitalFormatDetailId().equals("")) || (pm.getAssociatedDigitalFormatDetailId()==null))|| (pm.getAssociatedDigitalFormatDetailId().equals("0"))){
 					newDigiEquivRequired = true;									
 					fh.updatePhysicalDetails(pm.getMemoRef(),pm.getRevisionID(), pm.getPhysicalDetailId(), physForm);
 					request.setAttribute("prodType", "718");
@@ -222,7 +224,7 @@ public class AddNewPhysicalFromEditAction extends Action {
 			 * Check whether we need to delete a pre-existing associated PM_DETAIL_LINK
 			 */
 						
-					if(!pm.getAssociatedDigitalFormatDetailId().equals("")){
+					if((!pm.getAssociatedDigitalFormatDetailId().equals("")) || (pm.getAssociatedDigitalFormatDetailId()==null)){
 					
 						fh.deleteAssociatedDigitalFormatLink(pm.getMemoRef(), pm.getRevisionID(), pm.getPhysicalDetailId());
 						fh.deleteDigitalFormat(pm.getMemoRef(), pm.getRevisionID(), pm.getAssociatedDigitalFormatDetailId());

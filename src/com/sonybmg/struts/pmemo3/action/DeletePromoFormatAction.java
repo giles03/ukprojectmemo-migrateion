@@ -26,46 +26,8 @@ public class DeletePromoFormatAction extends Action {
 		
 		
 		
-		/*
-		 * clear the promoform of any details currently in session.
-		 */	
-		PromoForm promoForm = (PromoForm)form;		
+	
 		
-		HttpSession session = request.getSession();
-		String memoRef = request.getParameter("memoRef");
-		String formatId = request.getParameter("formatId");
-		String revNo = request.getParameter("revNo");
-		String detailId = request.getParameter("detailId");
-		boolean formatDeleted;
-		FormHelper fh = null;
-		String forward="";
-		
-		
-		
-		fh = new FormHelper();
-		
-		formatDeleted = fh.deletePromoFormat(memoRef, revNo, detailId);
-		
-		if(formatDeleted){
-			
-			boolean formatsExist = fh.checkForRelatedFormats(memoRef, Consts.DRAFT_PROMO_TABLE);
-			
-				if(formatsExist == false){ 
-					fh.updatePromoHeaderFlagToFalse(memoRef);
-				}
-				ProjectMemo pm = new ProjectMemo();
-				pm.setMemoRef(memoRef);
-				pm.setRevisionID(revNo);
-				pm.setTitle(fh.getTitleFromRefId(memoRef));
-				request.setAttribute("projectMemo", pm);
-			
-			forward="confirm";
-		}
-		else{
-			
-			forward="cancel"; 	
-		}
-		
-		return mapping.findForward(forward);
+		return mapping.findForward(null);
 	}
 }

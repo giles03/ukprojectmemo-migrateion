@@ -369,14 +369,7 @@ function clearSearch(){
 								<td class="ic">
 									<%=memo.getLocalLabel()%>
 								</td>
-								<!--  <td class="ic">
-									<html:link action="/dashboardHeaderReports.do" name="paramsName">
-				
-										
-									<img src="/pmemo3/images/<%=fh.assignDashboardIndexPageImage(memo.getDashboardImage())%>.gif" border='0'> 
-										
-									</html:link>
-								</td>-->
+
 
 							</tr>
 							<%}%>
