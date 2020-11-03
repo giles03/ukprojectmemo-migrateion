@@ -27,7 +27,7 @@ background:url(/pmemo3/images/background2.jpg) no-repeat;
 	<br>	
   <body style="max-width:1250px;">
 	<!-- <a href="/pmemo3/enter.do"><img src="/pmemo3/images/logoSonyBMG.gif" border='0'></a>-->
-	<a href="/pmemo3/enter.do"><img src="/pmemo3/images/myMemo3.jpg" border='0'></a>
+		<left><a href="/pmemo3/enter.do"><img src="/pmemo3/images/SonyMusicLogo_09_RGB_Smaller.png" border='0'></a></left>
 	<br>
 	<br>
 
@@ -44,7 +44,7 @@ background:url(/pmemo3/images/background2.jpg) no-repeat;
 	<br>
 	<strong><span style='text-align:center; color:red; size:18;'>&nbsp;&nbsp;&nbsp;THE APPLICATION HAS ENCOUNTERED AN ERROR&nbsp;&nbsp;&nbsp;</span></strong>
 	<br><br><br>
-	&nbsp;&nbsp;&nbsp;One Stop Shop have been notified and this matter is being investigated.&nbsp;&nbsp;&nbsp; 
+	&nbsp;&nbsp;&nbsp;UK Apps have been notified and this matter is being investigated.&nbsp;&nbsp;&nbsp; 
 	<br><br><br><br><br><br>
 	</td>
 	</tr>

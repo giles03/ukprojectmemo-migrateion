@@ -110,8 +110,9 @@ public class ViewPMDetailsAction extends Action {
 				         		pm.getDistributionRights().equals("28"))) && (pm.getLocalOrInternational().equals("Y")) 
 		         														  && (pm.getProductManagerId().equals("gran016"))) {
 		         			pm.setUsLabel("zz019");	
-		         		} else if (pm.getDistributionRights().equals("7")){
-		         			pm.setUsLabel("");	
+		         	/**following two lines removed following discussion with Fiona Cameron 29/6/20  **/
+		         	//	} else if (pm.getDistributionRights().equals("7")){
+		         	//		pm.setUsLabel("");	
 		         		}  else{
 		         			pm.setUsLabel(editHeaderForm.getUsLabel());	
 		         		}

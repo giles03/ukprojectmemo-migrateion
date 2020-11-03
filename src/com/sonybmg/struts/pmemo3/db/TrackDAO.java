@@ -28,7 +28,7 @@ public class TrackDAO extends PMDAO {
 					t.setPreOrderOnlyFlag("");
 				}
                 if (t.getTrackName() != null) {
-                	trackName = fh.replaceApostrophesInString(t.getTrackName());
+                	trackName = fh.insertNullIfEmptyString(fh.replaceApostrophesInString(t.getTrackName()));
                 }
                 if (pmDAO.isProductInMobile(pm.getConfigurationId())) {
                 	sql = "INSERT INTO PM_DRAFT_DIGITAL_TRACKS" +
@@ -45,19 +45,19 @@ public class TrackDAO extends PMDAO {
                 		  "MONIS_STATUS, " +
                 		  "CSS_DIGITAL_ID, "+
                 		  "MOBILE_GRID_NUMBER )" +
-                          "VALUES("+t.getTrackNumber()+", '"
-                		  +trackName+"', '"
-                          +fh.replaceApostrophesInString(t.getComments())+"', '"
-                          +fh.replaceApostrophesInString(t.getDspComments())+"', "
+                          "VALUES("+t.getTrackNumber()+", "
+                		  +trackName+", "
+                          +fh.insertNullIfEmptyString(fh.replaceApostrophesInString(t.getComments()))+", "
+                          +fh.insertNullIfEmptyString(fh.replaceApostrophesInString(t.getDspComments()))+", "
                           +pm.getMemoRef()+", "
                           +pm.getRevisionID()+", "
-                          +pm.getDigitalDetailId()+", '"
-                          +fh.replaceApostrophesInString(t.getIsrcNumber())+"', "
+                          +pm.getDigitalDetailId()+", "
+                          +fh.insertNullIfEmptyString(fh.replaceApostrophesInString(t.getIsrcNumber()))+", "
                           +t.getTrackOrder()+", '"
                           +t.getPreOrderOnlyFlag()+"', '"
                           +t.getMonisStatus()+"', '"
-                          +t.getCssDigitalId()+"', '"                                                  
-                          +fh.replaceApostrophesInString(t.getGridNumber())+"') ";
+                          +t.getCssDigitalId()+"', "                                                  
+                          +fh.insertNullIfEmptyString(fh.replaceApostrophesInString(t.getGridNumber()))+") ";
                 } else {
                 	sql = "INSERT INTO PM_DRAFT_DIGITAL_TRACKS" +
 						  "(TRACK_NUM, " +
@@ -69,18 +69,17 @@ public class TrackDAO extends PMDAO {
 						  "PM_DETAIL_ID, " +
 						  "ISRC_NUMBER, " +
 						  "TRACK_ORDER, " +
-						  "PRE_ORDER_ONLY, " +
-						  "MOBILE_GRID_NUMBER )" +
-						  "VALUES("+t.getTrackNumber()+", '"
-						  +trackName+"', '"
-						  +fh.replaceApostrophesInString(t.getComments())+"', '"
-						  +fh.replaceApostrophesInString(t.getDspComments())+"', "
+						  "PRE_ORDER_ONLY)" +
+						  "VALUES("+t.getTrackNumber()+", "
+						  +trackName+", "
+						  +fh.insertNullIfEmptyString(fh.replaceApostrophesInString(t.getComments()))+", "
+						  +fh.insertNullIfEmptyString(fh.replaceApostrophesInString(t.getDspComments()))+", "
 						  +pm.getMemoRef()+", " 
 						  +pm.getRevisionID()+", "
-						  +pm.getDigitalDetailId()+", '"
-						  +fh.replaceApostrophesInString(t.getIsrcNumber())+"', "
+						  +pm.getDigitalDetailId()+", "
+						  +fh.insertNullIfEmptyString(fh.replaceApostrophesInString(t.getIsrcNumber()))+", "
 						  +t.getTrackOrder()+", '"
-						  +t.getPreOrderOnlyFlag()+"', '')";						  
+						  +t.getPreOrderOnlyFlag()+"')";						  
                 }					
 				try {
 					connection = getConnection();
@@ -115,21 +114,20 @@ public class TrackDAO extends PMDAO {
               }
               
               if (t.getDigiEquivComments() != null) {
-                digiEquivComments = fh.replaceApostrophesInString(t.getDigiEquivComments());
+                digiEquivComments = fh.insertNullIfEmptyString(fh.replaceApostrophesInString(t.getDigiEquivComments()));
               }   
               
               if (t.getDigiEquivDSPComments() != null) {
-            	  digiEquivDSPComments = fh.replaceApostrophesInString(t.getDigiEquivDSPComments());
+            	  digiEquivDSPComments = fh.insertNullIfEmptyString(fh.replaceApostrophesInString(t.getDigiEquivDSPComments()));
                 }
                             
-              sql = "UPDATE PM_DRAFT_PHYSICAL_TRACKS SET DE_COMMENTS ='"+digiEquivComments+ 
-            		"', DSP_COMMENTS ='"+digiEquivDSPComments+ 
-                    "' WHERE PM_REF_ID='"+t.getMemoRef()+
+              sql = "UPDATE PM_DRAFT_PHYSICAL_TRACKS SET DE_COMMENTS ="+digiEquivComments+ 
+            		", DSP_COMMENTS ="+digiEquivDSPComments+ 
+                    " WHERE PM_REF_ID='"+t.getMemoRef()+
                     "' AND PM_REVISION_ID='"+t.getMemoRevisionId()+
                     "' AND PM_DETAIL_ID='"+t.getDetailId()+
                     "' AND TRACK_NUM='"+t.getTrackNumber()+"'";
                  
-              System.out.println(sql);
               try {
                   connection = getConnection();
                   statement = connection.createStatement();
@@ -189,16 +187,18 @@ public class TrackDAO extends PMDAO {
             	if (t.getTrackName() != null) {
             		trackName = fh.replaceApostrophesInString(t.getTrackName());
             	}
-            	sql = (new StringBuilder("INSERT INTO PM_DRAFT_PHYSICAL_TRACKS(TRACK_NUM, TRACK_NAME, COMMENTS, DE_COMMENTS, DSP_COMMENTS, PM_REF_ID, PM_REVISION_ID, PM_DETAIL_ID, ISRC_NUMBER, TRACK_ORDER )VALUES(")).append(t.getTrackNumber()).append(",").append("'").append(trackName).append("', ").append("'").append(fh.replaceApostrophesInString(t.getComments())).append("', ")
-            			.append("'").append(fh.replaceApostrophesInString(t.getDigiEquivComments())).append("', ")
-            			.append("'").append(fh.replaceApostrophesInString(t.getDigiEquivDSPComments())).append("', ")
-            			.append(pm.getMemoRef()).append(",")
-            			.append(t.getMemoRevisionId())
-            			.append(",")
-            			.append(pm.getPhysicalDetailId())
-            			.append(", '").append(fh.replaceApostrophesInString(t.getIsrcNumber())).append("', ")
-            			.append(t.getTrackOrder())
-            			.append(") ").toString();            	
+            	sql = "INSERT INTO PM_DRAFT_PHYSICAL_TRACKS(TRACK_NUM, TRACK_NAME, COMMENTS, DE_COMMENTS, DSP_COMMENTS, PM_REF_ID, PM_REVISION_ID, PM_DETAIL_ID, ISRC_NUMBER, TRACK_ORDER) VALUES("+
+            			t.getTrackNumber()+","+
+            			fh.insertNullIfEmptyString(trackName)+","+
+            			fh.insertNullIfEmptyString(fh.replaceApostrophesInString(t.getComments()))+","+
+            			fh.insertNullIfEmptyString(fh.replaceApostrophesInString(t.getDigiEquivComments()))+", "+
+            			fh.insertNullIfEmptyString(fh.replaceApostrophesInString(t.getDigiEquivDSPComments()))+", "+
+            			pm.getMemoRef()+", "+
+            			t.getMemoRevisionId()+", "+
+            			pm.getPhysicalDetailId()+", "+
+            			fh.insertNullIfEmptyString(fh.replaceApostrophesInString(t.getIsrcNumber()))+", "+
+            			 t.getTrackOrder()+")";
+            			          	
 	            	try {
 	            		connection = getConnection();
 	            		statement = connection.createStatement();
@@ -295,14 +295,14 @@ public class TrackDAO extends PMDAO {
               PreparedStatement pstmt =null;
               Connection connection = null;
 
-              sql = "UPDATE PM_DRAFT_PHYSICAL_TRACKS T SET T.DE_COMMENTS = T.COMMENTS WHERE T.PM_REF_ID=? AND T.PM_REVISION_ID = ? AND T.PM_DETAIL_ID= ?";
+              sql = "UPDATE PM_DRAFT_PHYSICAL_TRACKS SET DE_COMMENTS = COMMENTS WHERE PM_REF_ID=? AND PM_REVISION_ID = ? AND PM_DETAIL_ID= ?";
               try {
                   connection = getConnection();
                   pstmt = connection.prepareStatement(sql);
                   pstmt.setString(1, memoRef);
                   pstmt.setString(2, revisionID);
                   pstmt.setString(3, detailId);
-                  pstmt.executeQuery(); 
+                  pstmt.execute(); 
               }  catch (SQLException e) {
                   e.printStackTrace();                    
               } finally{                  

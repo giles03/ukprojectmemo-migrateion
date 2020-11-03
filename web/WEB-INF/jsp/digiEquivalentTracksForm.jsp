@@ -61,7 +61,8 @@ background:url(/pmemo3/images/background2.jpg) no-repeat;
   
 	 <strong>TRACKLISTING - Add/ Edit Details</strong>	
 	<br><br>
-	<left><a href="/pmemo3/enter.do"><img src="/pmemo3/images/myMemo3.jpg" border='0'></a></left>
+	<left><a href="/pmemo3/enter.do"><img src="/pmemo3/images/SonyMusicLogo_09_RGB_Smaller.png" border='0'></a></left>
+	
 	<br>
 	<br>
  	 <%String currentForm = "";
@@ -162,10 +163,11 @@ background:url(/pmemo3/images/background2.jpg) no-repeat;
 		   				<html:text property="isrcNumber" size="18" maxlength="20" disabled="true" value="<%=track.getIsrcNumber()%>"></html:text>
 		   			</td>
 		   			<td>		   		
-		   				<html:text property="digiEquivComments" size="33" maxlength="400" value="<%= track.getDigiEquivComments() %>" onchange="submit();"></html:text>		   			
+		   				<html:text style="border-style: 1; width:100%" property="digiEquivComments" size="33" maxlength="400" value="<%= track.getDigiEquivComments() %>" onchange="submit();"></html:text>		   			
 		   			</td>
 			   		<td>		   		
-		   				<html:text property="digiEquivDSPComments" size="33" maxlength="400" value="<%= track.getDigiEquivDSPComments() %>" onchange="submit();"></html:text>		   			
+		   				<html:text style="border-style: 1; width:100%" property="digiEquivDSPComments" size="33" maxlength="400" value="<%= track.getDigiEquivDSPComments() %>" onchange="submit();"></html:text>		
+		   				   			
 		   			</td>		   							
 		   					   							
 		   		</tr>		   		

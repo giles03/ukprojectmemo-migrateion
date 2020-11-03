@@ -10,7 +10,7 @@
 	<property name="webinf.dir" value="WEB-INF" />
 	<property name="deploy.dir" value="deployNew" />
 	<property name="config.dir" value="config" />
-	<property name="UAT" value="memo-test.smeukapps.com" />
+	<property name="UAT" value="memo-uat.smeukapps.com" />
 	<property name="PROD" value="memo.smeukapps.com" />
 
 	<presetdef name="javac">

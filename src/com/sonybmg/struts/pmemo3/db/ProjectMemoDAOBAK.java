@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 
 
 
-public class ProjectMemoDAO extends PMDAO {
+public class ProjectMemoDAOBAK extends PMDAO {
 
              public static String RETURN_PM_SUMMARY_DETAILS = "SELECT PM_HEADER.PM_REF_ID, PM_HEADER.SUBMIT_DATE, PM_DETAIL_HEADER.PRODUCT_TITLE, PM_ARTIST.ARTIST_NAME, PM_LABEL.LABEL_DESC FROM PM_HEADER, PM_ARTIST, PM_LABEL WHERE PM_HEADER.ARTIST_ID = PM_ARTIST.ARTIST_ID AND PM_HEADER.LOCAL_LABEL_ID = PM_LABEL.LABEL_ID AND PM_HEADER.PM_REF_ID = ? AND PM_HEADER.MONIS_STATUS NOT IN 'F'";
              public static String RETURN_DASHBOARD_REPORT = "SELECT * FROM monis_schedule WHERE CAT_IT_CD = ? AND cat_it_cd IN (\t\tSELECT  catalogue_num FROM   pm_detail_physical A WHERE   pm_revision_id = (SELECT   MAX (pm_revision_id)FROM   pm_header b WHERE   A.pm_ref_id = b.pm_ref_id)AND catalogue_num IS NOT NULL AND monis_status != 'F' UNION \t\tSELECT catalogue_num FROM   pm_detail_promos A WHERE   pm_revision_id = (SELECT   MAX (pm_revision_id) FROM   pm_header b WHERE   A.pm_ref_id = b.pm_ref_id) AND catalogue_num IS NOT NULL AND monis_status != 'F' UNION \t\tSELECT grid_number FROM   pm_detail_digital A WHERE   pm_revision_id = (SELECT   MAX (pm_revision_id) FROM   pm_header b WHERE   A.pm_ref_id = b.pm_ref_id) AND grid_number IS NOT NULL AND monis_status != 'F')AND TRUNC(LOAD_DATE) = (SELECT MAX(TRUNC(LOAD_DATE)) FROM monis_schedule)";

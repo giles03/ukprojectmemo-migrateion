@@ -35,10 +35,10 @@ public class EnterAction extends Action {
 	   
         
         
-        HashMap searchOptions = new LinkedHashMap(); 			
+        HashMap searchOptions = new LinkedHashMap(); 
+		searchOptions.put("refId", "Memo Ref");
 		searchOptions.put("artist", "Artist");
 		searchOptions.put("title", "Title");
-		searchOptions.put("refId", "Memo Ref");
 		searchOptions.put("catNum", "Catalogue Number");
 		searchOptions.put("gridNum", "G Number");
 		searchOptions.put("barcode", "Barcode");
@@ -119,6 +119,9 @@ public class EnterAction extends Action {
 		
 		if (userRole.equals("Create")) {		
 			ArrayList creatorHeaderSummary = fh.getAllUsersPMs(pmUser.getId(), userGroups);
+			if(creatorHeaderSummary.size()<1) {
+				creatorHeaderSummary = fh.getAllEditorPMs(userGroups);
+			}
 			iter = creatorHeaderSummary.iterator();
 			//ArrayList creatorRedHeaderSummary = fh.getAllRedCreatorPMs(pmUser.getId());
 			//redIter = creatorRedHeaderSummary.iterator();

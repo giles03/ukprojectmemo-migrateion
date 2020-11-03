@@ -144,7 +144,7 @@ public class AddNewPhysicalFromEditAction extends Action {
 				pm.setRestrictDate("");	
 			}
 			
-			pm.setPhysDigitalEquivalent(physForm.getDigiEquivCheck().equals("N") ? "" : physForm.getDigitalEquivalent());
+			pm.setPhysDigitalEquivalent(physForm.getDigiEquivCheck().equals("N") ? null : physForm.getDigitalEquivalent());
 			
 			if(physForm.isRestrictCustFeed()){
 			  pm.setCustFeedRestrictDate(physForm.getCustFeedRestrictDate());
@@ -153,9 +153,6 @@ public class AddNewPhysicalFromEditAction extends Action {
 			  physForm.setCustFeedRestrictDate("");
 			}
 			 
-			if(physForm.getDigiEquivCheck().equals("N")){
-				physForm.setAssociatedDigitalFormatDetailId("");
-			}
 			pm.setPhysDigitalEquivBarcode(physForm.getDigitalEquivBarcode());
 			pm.setPhysicalIntlRelease(physForm.getPhysicalIntlRelease());
 

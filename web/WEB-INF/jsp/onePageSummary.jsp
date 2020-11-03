@@ -648,34 +648,15 @@ td.mobiletracks
 		<ul style="list-style-type: none; text-align:center;">
 
 		<li>
-		<!-- <span style='width:155px; padding-left:75px; text-align:left;text-decoration: underline;vertical-align: middle'>	
-		<html:link action="/dashboardHeaderReports.do" name="paramsName">	
-			Dashboard : 
-		</html:link>
-		</span>	
-		
-		
-		<html:link action="/dashboardHeaderReports.do" name="paramsName">			
-			<img src="/pmemo3/images/<fh.assignDashboardIndexPageImage(pMemo.getDashboardImage())%>.gif" border='0' align="bottom"> 						
-		</html:link>
-		 -->
 
 		<%	if (prodAccess.equals("Y")) {%>
 						
 
 					 	<a href="http://@@@/css/?searchId=<%=pMemo.getMemoRef()%>&id=<%=user.getUserId()%>">
 						<img src="/pmemo3/images/ProductionAngels2.jpg" border='0'></a>
-	
-				
-		<%} else {%>
-				
 
-		
-		
 		<%}
 		
-	
-
 		String editor = pMemo.getEditedBy();
 
 					if (fh.isMemoCurrentlyBeingEdited(pMemo.getMemoRef()).equals("Y")
@@ -732,13 +713,6 @@ td.mobiletracks
 	<br>
 	<br>
 	<a name="jumpHere"> </a>
-<%-- 
-	<strong><u><a href="javascript:showhide('PromoDetails');">PROMO FORMATS</a></u></strong>
-	<div id="PromoDetails">
-		<jsp:include page="includes/promoDetailViewIncl.jsp" /> 
-	</div>
-	<br>
-	<br> --%>	
 
 <script>
 //window.onload=function(){

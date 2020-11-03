@@ -355,8 +355,11 @@ div.tracks {
 											<span id="premierTime" style='display: none;font-size: 15; float:right;'>
 											&nbsp;&nbsp;&nbsp;
 											PREMIER TIME:
-											<html:text property="videoPremierTime" maxlength="10" size="10" style="width:60px;"></html:text>																						
-											</span>									
+											<html:text property="videoPremierTime" maxlength="10" size="10" style="width:60px;"></html:text>																																		
+											<span style="color: red">
+													<html:errors property="videoPremierTime" />									
+											</span>	
+											</span>							
 							    			<span id="bitlength" style='display: none;float:right; font-size: 15; padding-left: 20px'><STRONG>BIT RATE</STRONG>&nbsp;&nbsp;
 											<html:select property="bitRate" style="width:90px;">
 							    				<html:option value=""></html:option>

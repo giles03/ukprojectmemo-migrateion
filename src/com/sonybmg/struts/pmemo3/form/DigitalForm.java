@@ -6,6 +6,7 @@
 package com.sonybmg.struts.pmemo3.form;
 
 import java.io.IOException;
+import java.util.regex.*; 
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -531,7 +532,9 @@ public class DigitalForm extends ActionForm {
 					errors.add("configurationId", new ActionError("digital.error.format.missing"));
                 }
 				
-				
+				if (!(isValidTime(videoPremierTime))) {
+					errors.add("videoPremierTime", new ActionError("digital.error.premiertime.wrong"));
+                }			
 				
 
 		/*
@@ -774,6 +777,32 @@ public class DigitalForm extends ActionForm {
 				
 				return errors;
             }
+	
+    // Function to validate the time in 24-hour format 
+    public static boolean isValidTime(String time) 
+    { 
+  
+        // Regex to check valid time in 24-hour format. 
+        String regex = "([01]?[0-9]|2[0-3]):[0-5][0-9]"; 
+  
+        // Compile the ReGex 
+        Pattern p = Pattern.compile(regex); 
+  
+        // If the time is empty 
+        // return false 
+        if (time == null || time.equals("")) { 
+            return true; 
+        } 
+  
+        // Pattern class contains matcher() method 
+        // to find matching between given time 
+        // and regular expression. 
+        Matcher m = p.matcher(time); 
+  
+        // Return if the time 
+        // matched the ReGex 
+        return m.matches(); 
+    } 
 
             public void reset(ActionMapping actionmapping, HttpServletRequest httpservletrequest) {
             	

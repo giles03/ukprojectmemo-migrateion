@@ -66,7 +66,7 @@
 			} 
 			iter = (Iterator)request.getAttribute("myRecentProjectsIterator");
 			editIter = (Iterator)request.getAttribute("myLockedProjectsIterator");
-			redIter = (Iterator)request.getAttribute("myRedProjectsIterator");
+		//	redIter = (Iterator)request.getAttribute("myRedProjectsIterator");
 			
 
 			
@@ -317,18 +317,19 @@ function clearSearch(){
 						<table width="592px" border="0" style="table-layout: fixed;">
 							<%HashMap params = null;
 			 
-
+			
 			while (iter.hasNext()) {
 				ProjectMemo memo = (ProjectMemo) iter.next();
-
+				String modifiedDateSubmitted = null;
+				if(memo.getDateSubmitted()!=null){
 				Date date = java.sql.Date.valueOf(memo.getDateSubmitted()
 						.substring(0, 10));
 
 				DateFormat dateFormat = DateFormat.getDateInstance();
 				SimpleDateFormat sf = (SimpleDateFormat) dateFormat;
 				sf.applyPattern("dd-MMMM-yyyy");
-				String modifiedDateSubmitted = dateFormat.format(date);
-
+				modifiedDateSubmitted = dateFormat.format(date);
+				}
 				if (recentProjBg) {
 					recentProjBg = false;
 
@@ -339,21 +340,21 @@ function clearSearch(){
 					<tr style="background: #E3E4FA;"> 	
 				<%}%>
 			<td class="ica">
-
-
-									<%params = new HashMap();
-
-				//params.put("searchType", "refId");
+	
+				<% 
+				params = new HashMap();
 				params.put("searchString", memo.getMemoRef());
 				params.put("artist", memo.getArtist());
 				params.put("title", memo.getTitle());
 				params.put("pageNumber", "1");
 				pageContext.setAttribute("paramsName", params);
-
+				
 				%>
 							
 									<html:link action="/pmSearchRefId.do" name="paramsName">
+									
 										<%=memo.getMemoRef()%>
+										
 									</html:link>
 							
 								</td>
@@ -361,13 +362,19 @@ function clearSearch(){
 									<%=modifiedDateSubmitted%>
 								</td>
 								<td class="ic">
+								
 									<%=memo.getArtist()%>
+								
 								</td>
 								<td class="ic">
+								
 									<%=memo.getTitle()%>
+								
 								</td>
 								<td class="ic">
+								
 									<%=memo.getLocalLabel()%>
+								
 								</td>
 
 
@@ -421,7 +428,11 @@ function clearSearch(){
 			
 
 			while (editIter.hasNext()) {
+				
 				ProjectMemo lockedMemo = (ProjectMemo) editIter.next();
+				if (lockedMemo.getMemoRef()!=null){
+				String modifiedDateSubmitted = null; 
+				if(lockedMemo.getDateSubmitted()!=null){
 
 				Date date = java.sql.Date.valueOf(lockedMemo.getDateSubmitted()
 						.substring(0, 10));
@@ -429,8 +440,8 @@ function clearSearch(){
 				DateFormat dateFormat = DateFormat.getDateInstance();
 				SimpleDateFormat sf = (SimpleDateFormat) dateFormat;
 				sf.applyPattern("dd-MMMM-yyyy");
-				String modifiedDateSubmitted = dateFormat.format(date);
-
+				modifiedDateSubmitted = dateFormat.format(date);
+				} 
 				if (lockedProjBg) {
 					lockedProjBg = false;
 
@@ -440,8 +451,9 @@ function clearSearch(){
 					lockedProjBg = true;%>		
 				<tr style="background: #E3E4FA;"> 	
 			<% }%>
-										<td class="ica">
+				<td class="ica">
 				<% editingParams = new HashMap();
+				
 				editingParams.put("searchString", lockedMemo.getMemoRef());
 				params.put("searchType", "refId");
 				editingParams.put("artist", lockedMemo.getArtist());
@@ -451,6 +463,7 @@ function clearSearch(){
 				%>
 									
 								<html:link action="/listDetails.do" name="editingParamsName">
+								
 	 								<%=lockedMemo.getMemoRef()%> 
 								</html:link>
 									
@@ -496,7 +509,7 @@ function clearSearch(){
 								 <%}} %>
 								</td>
 							</tr>
-							<%}%>
+							<%}}%>
 						</table>
 
 					</div>

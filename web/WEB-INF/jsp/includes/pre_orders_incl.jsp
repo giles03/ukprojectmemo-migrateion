@@ -1,5 +1,4 @@
-
-<%@ page language="java"%>
+==<%@ page language="java"%>
 <%@page
 	import="com.sonybmg.struts.pmemo3.model.*,java.util.*,java.text.*, com.sonybmg.struts.pmemo3.util.*"%>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-bean"
@@ -14,14 +13,10 @@
 	prefix="template"%>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-nested"
 	prefix="nested"%>
-
 <link href="css/jqueryui/jtable_jqueryui.css" rel="stylesheet"
 	type="text/css" />
 <link href="css/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
 <link href="css/validationEngine.jquery.css" rel="stylesheet" type="text/css" />
-<!-- <link href="css/jquery-ui-1.10.4.custom.css" rel="stylesheet" type="text/css" /> -->
-
-<!-- Include jTable script file. -->
 <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
 <script src="js/jquery-ui-1.10.4.custom.js" type="text/javascript"></script>
 <script src="js/jquery.jtable.js" type="text/javascript"></script>
@@ -46,7 +41,7 @@
 	                partner: {
 	                    title: 'Partner Name',
 	                    width: '35%',
-	                    options: { '0': 'Please Select', '2': 'Amazon',  '1': 'iTunes', '5': 'Google', '11': 'Google Qobuz' , '7': 'iTunes Amazon Google', '8': 'iTunes Amazon' , '9': 'iTunes Amazon Google Qobuz', '10': 'Google Qobuz' , '11': 'iTunes Amazon Qobuz', '12': 'Amazon Google Qobuz', '13': 'Qobuz', '16': 'Amazon Qobuz' }
+	                    options: { '0': 'Please Select', '2': 'Amazon',  '1': 'iTunes', '5': 'Google', '7': 'iTunes Amazon Google', '8': 'iTunes Amazon' , '9': 'iTunes Amazon Google Qobuz', '10': 'Google Qobuz' , '11': 'iTunes Amazon Qobuz', '12': 'Amazon Google Qobuz', '13': 'Qobuz', '14': 'Amazon Google', '15': 'Google iTunes','16': 'Google iTunes Qobuz', '17': 'Amazon Qobuz' }
 	                },
 	                preOrderDate: {
 	                    title: 'Start Date',
