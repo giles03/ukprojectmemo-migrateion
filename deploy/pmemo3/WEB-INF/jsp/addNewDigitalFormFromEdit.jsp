@@ -704,7 +704,7 @@ div.tracks {
 <br><br>
 <div style="float:right;">
 <fieldset style="border-top-style: none; border:thin solid #A9D0F5;width:290px;margin-right: 15px">
-				<legend style="text-decoration: underline;font-weight: bold;font-size: 14; text-align: center;">
+				<legend style="text-decoration: underline;font-weight: bold;font-size: 12; text-align: center;">
 					RESTRICT FROM AMPLIFIED SCHEDULE?
 				</legend>
 			<ul>
@@ -776,7 +776,9 @@ div.tracks {
 			    <span style='white-space: nowrap;font-size: 14'>
 			    	 COMMENTS:</span>
 			    <%} %> <br>
+			    <%if(!detailId.equals("1")){ %>
 			    	<a href=# onclick="window.open('viewProductCommentsAction.do?memoRef=<%=memoRef%>&detailId=<%=detailId%>&format=digital', '_blank', 'location=yes,height=370,width=950,scrollbars=yes,status=yes');"><span style='font-size: 12;'><u>Comments History</u></span></a>
+			    <% } %>
 			    </td>
 			    <td>	
 			    	<html:textarea property="comments" style="width:400px;font-size: 14" rows="4" onkeydown="limitText(digitalForm.comments,digitalForm.countdown,400);" onkeyup="limitText(digitalForm.comments,digitalForm.countdown,400);">
@@ -792,7 +794,9 @@ div.tracks {
 				<td valign="top">
 			    <span style='white-space: nowrap;font-size: 14'>
 			    SCOPE <br> COMMENTS:</span>	<br>
+			    <%if(!detailId.equals("1")){ %>
 			    <a href=# onclick="window.open('viewScopeCommentsAction.do?memoRef=<%=memoRef%>&detailId=<%=detailId%>&format=digital', '_blank', 'location=yes,height=370,width=950,scrollbars=yes,status=yes');"><span style='font-size: 12;'><u>Comments History</u></span></a>
+			    <%} %>
 			    </td>
 			    <td>				    
 			    	<html:textarea property="scopeComments" style="width:400px;font-size: 14" rows="4" onkeydown="limitText(digitalForm.scopeComments,digitalForm.scopecountdown,400);" onkeyup="limitText(digitalForm.scopeComments,digitalForm.scopecountdown,400);">							   
