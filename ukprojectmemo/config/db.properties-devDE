@@ -1,0 +1,5 @@
+datasource.jndi.name=jdbc/PMEMODS
+datasource.url=jdbc:oracle:thin:@degtlun5082.server.arvato-systems.de:1481:DBOTMRS1
+datasource.username=PMEMO2
+datasource.password=6SP.25RC
+            

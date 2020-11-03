@@ -1,0 +1,2769 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowViewLayout Version="1.2">
+  <StrutsActivity path="/enter.do" location="9460,486" dimension="274,88" />
+  <StrutsActivity path="/index.do" location="1013,6620" dimension="276,88" />
+  <StrutsActivity path="/plan.do" location="650,50" dimension="276,88" />
+  <StrutsActivity path="/commitDrafts.do" location="8997,1240" dimension="313,88" />
+  <StrutsActivity path="/addDashboardMessageToSummaryPage.do" location="650,2150" dimension="342,88" />
+  <StrutsActivity path="/addDashboardMessageToDetailPage.do" location="1250,2150" dimension="342,88" />
+  <StrutsActivity path="/addProjectMessage.do" location="1550,1350" dimension="324,88" />
+  <StrutsActivity path="/deleteDraft.do" location="10088,1240" dimension="322,88" />
+  <StrutsActivity path="/nextPage.do" location="1010,6977" dimension="283,88" />
+  <StrutsActivity path="/nextEditPage.do" location="7199,2461" dimension="316,88" />
+  <StrutsActivity path="/listDetails.do" location="3350,1150" dimension="296,88" />
+  <StrutsActivity path="/returnToDetailsPage.do" location="896,7594" dimension="325,88" />
+  <StrutsActivity path="/editPhysicalDraft.do" location="6106,2014" dimension="329,88" />
+  <StrutsActivity path="/copyPhysicalFormat.do" location="50,2250" dimension="345,88" />
+  <StrutsActivity path="/editPromoDraft.do" location="1794,2014" dimension="321,88" />
+  <StrutsActivity path="/copyPromoFormat.do" location="2750,2250" dimension="337,88" />
+  <StrutsActivity path="/editDigitalDraft.do" location="7919,2014" dimension="320,88" />
+  <StrutsActivity path="/copyDigitalFormat.do" location="650,2350" dimension="336,88" />
+  <StrutsActivity path="/completeDigital.do" location="5261,6977" dimension="277,88" />
+  <StrutsActivity path="/addAnotherDigitalFormat.do" location="5345,6620" dimension="277,88" />
+  <StrutsActivity path="/addAnotherPromoFormat.do" location="4925,4215" dimension="278,88" />
+  <StrutsActivity path="/addNewPromoFormat.do" location="2215,2014" dimension="318,88" />
+  <StrutsActivity path="/addNewDigitalFormat.do" location="7502,2014" dimension="317,88" />
+  <StrutsActivity path="/addNewPhysicalFormat.do" location="5680,2014" dimension="326,88" />
+  <StrutsActivity path="/addAnotherPhysicalFormat.do" location="3704,5866" dimension="286,88" />
+  <StrutsActivity path="/nextFormFromDigital.do" location="1230,3365" dimension="324,88" />
+  <StrutsActivity path="/nextFormFromPromo.do" location="2979,5866" dimension="325,88" />
+  <StrutsActivity path="/nextFormFromPhysical.do" location="2372,5866" dimension="333,88" />
+  <StrutsActivity path="/completePromo.do" location="3365,3772" dimension="278,88" />
+  <StrutsActivity path="/completePhysical.do" location="4051,6283" dimension="286,88" />
+  <StrutsActivity path="/completeNewFormatPhysical.do" location="6494,6620" dimension="286,88" />
+  <StrutsActivity path="/completeNewPhysicalFromEdit.do" location="5830,2461" dimension="368,88" />
+  <StrutsActivity path="/completeNewFormatDigital.do" location="5947,3365" dimension="277,88" />
+  <StrutsActivity path="/completeNewDigitalFromEdit.do" location="7481,4742" dimension="359,88" />
+  <StrutsActivity path="/completeNewFormatPromo.do" location="3973,4215" dimension="278,88" />
+  <StrutsActivity path="/completeNewPromoFromEdit.do" location="2201,4215" dimension="360,88" />
+  <StrutsActivity path="/addEditTracks.do" location="5107,5359" dimension="316,88" />
+  <StrutsActivity path="/addTracks.do" location="2678,2014" dimension="279,88" />
+  <StrutsActivity path="/addNewTrack.do" location="950,1950" dimension="314,88" />
+  <StrutsActivity path="/addNewPreOrderTrack.do" location="2450,2450" dimension="358,88" />
+  <StrutsActivity path="/saveTracks.do" location="50,2050" dimension="303,88" />
+  <StrutsActivity path="/cancelTrackEdit.do" location="3050,2050" dimension="327,88" />
+  <StrutsActivity path="/deleteTrack.do" location="1429,5866" dimension="310,88" />
+  <StrutsActivity path="/editTrack.do" location="4850,5866" dimension="297,88" />
+  <StrutsActivity path="/editPreOrderTrack.do" location="1850,2450" dimension="341,88" />
+  <StrutsActivity path="/editQtySheet.do" location="3350,2250" dimension="331,88" />
+  <StrutsActivity path="/editQtySheetItem.do" location="50,2450" dimension="353,88" />
+  <StrutsActivity path="/addNewQtySheetItemAction.do" location="1250,2450" dimension="356,88" />
+  <StrutsActivity path="/deleteAllTracks.do" location="4429,5866" dimension="321,88" />
+  <StrutsActivity path="/editPMHeader.do" location="6537,1657" dimension="315,88" />
+  <StrutsActivity path="/returnSinglePageView.do" location="3050,1850" dimension="377,88" />
+  <StrutsActivity path="/editPMHeaderFromIndex.do" location="6952,1657" dimension="367,88" />
+  <StrutsActivity path="/editPMPhysical.do" location="5964,2898" dimension="318,88" />
+  <StrutsActivity path="/editPMDigital.do" location="6345,5359" dimension="309,88" />
+  <StrutsActivity path="/editPMPromo.do" location="4924,4742" dimension="310,88" />
+  <StrutsActivity path="/pmSearch.do" location="10923,188" dimension="281,88" />
+  <StrutsActivity path="/pmSearchRefId.do" location="650,1650" dimension="308,88" />
+  <StrutsActivity path="/nextSearchPage.do" location="950,1450" dimension="281,88" />
+  <StrutsActivity path="/updatePaginationConstant.do" location="2150,1450" dimension="281,88" />
+  <StrutsActivity path="/dashboardHeaderReports.do" location="11304,188" dimension="338,88" />
+  <StrutsActivity path="/dashboardReports.do" location="5944,188" dimension="338,88" />
+  <StrutsActivity path="/userReports.do" location="1550,1550" dimension="308,88" />
+  <StrutsActivity path="/rcaReports.do" location="1550,550" dimension="307,88" />
+  <StrutsActivity path="/dashboardReportsLabelCopy.do" location="6695,188" dimension="338,88" />
+  <StrutsActivity path="/dashboardReportsRights.do" location="9326,188" dimension="338,88" />
+  <StrutsActivity path="/dashboardReportsParts.do" location="11742,188" dimension="338,88" />
+  <StrutsActivity path="/dashboardReportsSchedule.do" location="8304,188" dimension="338,88" />
+  <StrutsActivity path="/dashboardReportsOrders.do" location="7866,188" dimension="338,88" />
+  <StrutsActivity path="/pmDraftSearch.do" location="10517,188" dimension="306,88" />
+  <StrutsActivity path="/viewAllFormats.do" location="350,550" dimension="316,88" />
+  <StrutsActivity path="/viewAllPhysicalPMs.do" location="0,7727" dimension="316,88" />
+  <StrutsActivity path="/viewAllPromoPMs.do" location="361,7727" dimension="316,88" />
+  <StrutsActivity path="/viewAllDigitalPMs.do" location="722,7727" dimension="316,88" />
+  <StrutsActivity path="/updateProductionConsole.do" location="2150,1050" dimension="337,88" />
+  <StrutsActivity path="/loginPrompt.do" location="6229,486" dimension="307,88" />
+  <StrutsActivity path="/login.do" location="6877,903" dimension="273,88" />
+  <StrutsActivity path="/deleteCookie.do" location="7023,486" dimension="311,88" />
+  <StrutsActivity path="/logout.do" location="7434,486" dimension="281,88" />
+  <StrutsActivity path="/deletePhysicalFormat.do" location="0,1240" dimension="351,88" />
+  <StrutsActivity path="/deletePromoFormat.do" location="451,1240" dimension="343,88" />
+  <StrutsActivity path="/deleteDigitalFormat.do" location="894,1240" dimension="342,88" />
+  <StrutsActivity path="/updateApproveProdMasterDate.do" location="1550,1150" dimension="402,88" />
+  <StrutsActivity path="/updateDeleteProdMasterDate.do" location="950,650" dimension="406,88" />
+  <StrutsActivity path="/updateApproveProdArtworkDate.do" location="2750,1150" dimension="407,88" />
+  <StrutsActivity path="/updateDeleteProdArtworkDate.do" location="50,1650" dimension="411,88" />
+  <StrutsActivity path="/updateApproveQtySheetDate.do" location="2150,1250" dimension="352,88" />
+  <StrutsActivity path="/updateDeleteQtySheetDate.do" location="3050,1550" dimension="397,88" />
+  <StrutsActivity path="/updateApprovePackagingDate.do" location="2150,650" dimension="395,88" />
+  <StrutsActivity path="/updateDeletePackagingDate.do" location="2750,650" dimension="399,88" />
+  <StrutsActivity path="/updateMonitoringPoints.do" location="1550,750" dimension="332,88" />
+  <StrutsActivity path="/saveNewDefaultPassword.do" location="2450,1850" dimension="374,88" />
+  <StrutsActivity path="/createNewUser.do" location="9834,486" dimension="324,88" />
+  <StrutsActivity path="/changePassword.do" location="6848,1240" dimension="331,88" />
+  <StrutsActivity path="/showUsersAndRoles.do" location="8544,1657" dimension="346,88" />
+  <StrutsActivity path="/updateUserRoles.do" location="8552,2014" dimension="331,88" />
+  <StrutsActivity path="/addArtist.do" location="2750,1350" dimension="335,88" />
+  <StrutsActivity path="/updateArtist.do" location="50,1450" dimension="335,88" />
+  <StrutsActivity path="/changeDefaultPassword.do" location="50,1850" dimension="366,88" />
+  <StrutsActivity path="/passwordForm.do" location="2150,1650" dimension="338,88" />
+  <StrutsActivity path="/requestNewPassword.do" location="1250,1750" dimension="362,88" />
+  <StrutsActivity path="/admin.do" location="10625,486" dimension="277,88" />
+  <StrutsActivity path="/addDigitalPlanProduct.do" location="3050,2450" dimension="322,88" />
+  <StrutsActivity path="/openDigPlanProdPage.do" location="650,2550" dimension="355,88" />
+  <StrutsActivity path="/checkPlanning.do" location="950,850" dimension="317,88" />
+  <StrutsActivity path="/linkToDigiFormat.do" location="50,850" dimension="329,88" />
+  <StrutsActivity path="/linkToPhysFormat.do" location="2150,850" dimension="350,88" />
+  <StrutsActivity path="/linkToPromoFormat.do" location="2750,850" dimension="342,88" />
+  <StrutsActivity path="/emailLink.do" location="3650,2450" dimension="348,88" />
+  <StrutsActivity path="/onePageLink.do" location="1550,2650" dimension="344,88" />
+  <StrutsActivity path="/returnCSS.do" location="3650,1950" dimension="367,88" />
+  <StrutsActivity path="/submitCSS.do" location="3650,2650" dimension="299,88" />
+  <StrutsActivity path="/WEB-INF/jsp/login.jsp" location="6944,754" dimension="138,49" />
+  <StrutsActivity path="/WEB-INF/jsp/index.jsp" location="6844,1508" dimension="142,49" />
+  <StrutsActivity path="/WEB-INF/jsp/headerNew.jsp" location="1066,6828" dimension="171,49" />
+  <StrutsActivity path="/WEB-INF/jsp/planForm.jsp" location="650,1550" dimension="160,49" />
+  <StrutsActivity path="/WEB-INF/jsp/errors/commitDraftsError.jsp" location="9696,1508" dimension="236,49" />
+  <StrutsActivity path="/WEB-INF/jsp/errors/commitDraftsError2.jsp" location="650,2050" dimension="242,49" />
+  <StrutsActivity path="/WEB-INF/jsp/detailsList.jsp" location="4200,7425" dimension="163,49" />
+  <StrutsActivity path="/popUp.jsp" location="12141,207" dimension="82,49" />
+  <StrutsActivity path="/WEB-INF/jsp/dashboardHeaderResults.jsp" location="11498,505" dimension="237,49" />
+  <StrutsActivity path="/WEB-INF/jsp/dashboardResults.jsp" location="5927,505" dimension="202,49" />
+  <StrutsActivity path="/WEB-INF/jsp/editHeaderForm.jsp" location="6568,1845" dimension="193,49" />
+  <StrutsActivity path="/WEB-INF/jsp/addNewPhysicalFormFromEdit.jsp" location="5884,2312" dimension="259,49" />
+  <StrutsActivity path="/WEB-INF/jsp/addNewPromoFormFromEdit.jsp" location="2256,2312" dimension="251,49" />
+  <StrutsActivity path="/WEB-INF/jsp/addNewDigitalFormFromEdit.jsp" location="7535,2312" dimension="250,49" />
+  <StrutsActivity path="/WEB-INF/jsp/promoForm.jsp" location="3511,3603" dimension="170,49" />
+  <StrutsActivity path="/WEB-INF/jsp/tracksForm.jsp" location="5086,5717" dimension="169,49" />
+  <StrutsActivity path="/WEB-INF/jsp/addNewDigitalFormat.jsp" location="6128,3196" dimension="218,49" />
+  <StrutsActivity path="/WEB-INF/jsp/digitalForm.jsp" location="5400,6828" dimension="168,49" />
+  <StrutsActivity path="/WEB-INF/jsp/editPromoForm.jsp" location="5055,4453" dimension="188,49" />
+  <StrutsActivity path="/WEB-INF/jsp/physicalForm.jsp" location="4105,6134" dimension="178,49" />
+  <StrutsActivity path="/WEB-INF/jsp/saveAnotherDigital.jsp" location="1288,3196" dimension="207,49" />
+  <StrutsActivity path="/WEB-INF/jsp/saveAnotherPromo.jsp" location="3037,5717" dimension="208,49" />
+  <StrutsActivity path="/WEB-INF/jsp/saveAnotherPhysical.jsp" location="2430,5717" dimension="216,49" />
+  <StrutsActivity path="commitDrafts.do" location="3490,3960" dimension="118,75" />
+  <StrutsActivity path="/WEB-INF/jsp/addNewPromoFormat.jsp" location="5083,3973" dimension="219,49" />
+  <StrutsActivity path="/WEB-INF/jsp/addNewPhysicalFormat.jsp" location="6580,6471" dimension="227,49" />
+  <StrutsActivity path="/WEB-INF/jsp/editPhysicalForm.jsp" location="5979,2669" dimension="196,49" />
+  <StrutsActivity path="/WEB-INF/jsp/editDigitalForm.jsp" location="6162,5010" dimension="187,49" />
+  <StrutsActivity path="/WEB-INF/jsp/physicalFormReadOnly.jsp" location="1931,2312" dimension="225,49" />
+  <StrutsActivity path="/WEB-INF/jsp/quantitySheetForm.jsp" location="1250,2350" dimension="208,49" />
+  <StrutsActivity path="/WEB-INF/jsp/onePageSummary.jsp" location="650,1950" dimension="202,49" />
+  <StrutsActivity path="/WEB-INF/jsp/headerSummary.jsp" location="7082,1845" dimension="194,49" />
+  <StrutsActivity path="/WEB-INF/jsp/searchResults.jsp" location="6983,5717" dimension="183,49" />
+  <StrutsActivity path="/" location="11098,505" dimension="33,49" />
+  <StrutsActivity path="/WEB-INF/jsp/dashboardHeaderResultsNew.jsp" location="3350,1750" dimension="258,49" />
+  <StrutsActivity path="/WEB-INF/jsp/dashboardResultsNew.jsp" location="1250,1650" dimension="223,49" />
+  <StrutsActivity path="/WEB-INF/jsp/userReports.jsp" location="2750,1550" dimension="175,49" />
+  <StrutsActivity path="/WEB-INF/jsp/rcaReports.jsp" location="3350,1450" dimension="169,49" />
+  <StrutsActivity path="/WEB-INF/jsp/includes/dashboard/labelCopyDetail.jsp" location="6636,505" dimension="287,49" />
+  <StrutsActivity path="/WEB-INF/jsp/includes/dashboard/rightsDetail.jsp" location="10258,505" dimension="267,49" />
+  <StrutsActivity path="/WEB-INF/jsp/includes/dashboard/partsDetail.jsp" location="11863,505" dimension="265,49" />
+  <StrutsActivity path="/WEB-INF/jsp/includes/dashboard/scheduleDetail.jsp" location="8248,505" dimension="282,49" />
+  <StrutsActivity path="/WEB-INF/jsp/includes/dashboard/ordersDetail.jsp" location="7815,505" dimension="271,49" />
+  <StrutsActivity path="/WEB-INF/jsp/physicalDetails.jsp" location="65,7915" dimension="186,49" />
+  <StrutsActivity path="/WEB-INF/jsp/promoDetails.jsp" location="430,7915" dimension="178,49" />
+  <StrutsActivity path="/WEB-INF/jsp/digitalDetails.jsp" location="792,7915" dimension="176,49" />
+  <StrutsActivity path="/WEB-INF/jsp/admin/productionConsole.jsp" location="2750,1050" dimension="237,49" />
+  <StrutsActivity path="/WEB-INF/jsp/admin/admin.jsp" location="8833,2312" dimension="176,49" />
+  <StrutsActivity path="/WEB-INF/jsp/changePassword.jsp" location="6915,1091" dimension="197,49" />
+  <StrutsActivity path="/WEB-INF/jsp/detailList.jsp" location="543,1091" dimension="158,49" />
+  <StrutsActivity path="/WEB-INF/jsp/admin/create_new_user.jsp" location="9938,754" dimension="232,49" />
+  <StrutsActivity path="/WEB-INF/jsp/admin/show_users_and_roles.jsp" location="8588,1845" dimension="258,49" />
+  <StrutsActivity path="/WEB-INF/jsp/admin/addArtist.jsp" location="650,1450" dimension="192,49" />
+  <StrutsActivity path="/WEB-INF/jsp/admin/changeDefaultPassword.jsp" location="650,1850" dimension="264,49" />
+  <StrutsActivity path="/WEB-INF/jsp/admin/reset_password.jsp" location="2750,1750" dimension="225,49" />
+  <StrutsActivity path="/WEB-INF/jsp/admin/passwordSent.jsp" location="3050,1750" dimension="216,49" />
+  <StrutsActivity path="/digiPlanFormats.jsp" location="50,2650" dimension="126,49" />
+  <StrutsActivity path="/WEB-INF/jsp/css.jsp" location="2750,2650" dimension="131,49" />
+  <StrutsActivity path="/WEB-INF/jsp/TracksForm.jsp" location="1994,1845" dimension="171,49" />
+  <StrutsActivity path="/listDetails" location="3350,1350" dimension="78,49" />
+  <StrutsActivity path="/result.jsp" location="2750,1650" dimension="78,49" />
+  <StrutsActivity path="/s" location="1850,1750" dimension="38,49" />
+  <StrutsActivity path="/WEB-INF/jsp/errors/openDraftsError.jsp" location="1550,2350" dimension="227,49" />
+  <StrutsActivity path="/p" location="1850,1850" dimension="39,49" />
+  <StrutsActivity path="/WEB-INF/jsp/errors/openDraftsError2.jsp" location="3650,1350" dimension="233,49" />
+  <StrutsActivity path="/WEB-INF/jsp/errors/oDraftsError2.jsp" location="3650,1450" dimension="215,49" />
+  <StrutsActivity path="/completeNewPhysicalFromEdit" location="3650,1550" dimension="177,49" />
+  <StrutsActivity path="/completeNewDigitalFromEdit" location="3650,1650" dimension="168,49" />
+  <StrutsActivity path="/WEB-INF/jsp/d.jsp" location="3650,1850" dimension="122,49" />
+  <StrutsActivity path="/linkToFormat" location="1550,1950" dimension="94,49" />
+  <StrutsActivity path="/returnCSS2.do" location="2150,2650" dimension="300,88" />
+  <StrutsActivity path="/WEB-INF/jsp/cSSresultsList.jsp" location="3050,2650" dimension="181,49" />
+  <StrutsActivity path="/returnCSSDetail.do" />
+  <StrutsActivity path="/WEB-INF/jsp/cssDetail.jsp" />
+  <StrutsTransition id="/WEB-INF/jsp/login.jsp,null,/login.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6983,803" />
+      <AbsolutePoint location="6983,903" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPhysical.do,editPromoForm,/WEB-INF/jsp/editPromoForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5964,2943" />
+      <AbsolutePoint location="3903,2943" />
+      <AbsolutePoint location="3903,4486" />
+      <AbsolutePoint location="5055,4486" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/emailLink.do,login,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3824,2538" />
+      <AbsolutePoint location="3824,2594" />
+      <AbsolutePoint location="9380,2594" />
+      <AbsolutePoint location="9380,569" />
+      <AbsolutePoint location="9460,569" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPromoDraft.do,success,/WEB-INF/jsp/addNewPromoFormFromEdit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1954,2102" />
+      <AbsolutePoint location="1954,2117" />
+      <AbsolutePoint location="2351,2117" />
+      <AbsolutePoint location="2351,2312" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/detailList.jsp,null,/deletePhysicalFormat.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="543,1115" />
+      <AbsolutePoint location="175,1115" />
+      <AbsolutePoint location="175,1240" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/pmSearch.do,login,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="10938,276" />
+      <AbsolutePoint location="10938,321" />
+      <AbsolutePoint location="9627,321" />
+      <AbsolutePoint location="9627,486" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/returnCSSDetail.do,home,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="9597,530" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateDeleteProdArtworkDate.do,login,/WEB-INF/jsp/index.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="453,1738" />
+      <AbsolutePoint location="453,2773" />
+      <AbsolutePoint location="6885,2773" />
+      <AbsolutePoint location="6885,1557" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeNewFormatPhysical.do,saveFormatRtnToEditScreen,/WEB-INF/jsp/editPhysicalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6494,6664" />
+      <AbsolutePoint location="5875,6664" />
+      <AbsolutePoint location="5875,2693" />
+      <AbsolutePoint location="5979,2693" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dashboardReports.do,login,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6113,276" />
+      <AbsolutePoint location="6113,351" />
+      <AbsolutePoint location="9537,351" />
+      <AbsolutePoint location="9537,486" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/returnCSS2.do,login,/WEB-INF/jsp/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2150,2694" />
+      <AbsolutePoint location="2140,2694" />
+      <AbsolutePoint location="2140,778" />
+      <AbsolutePoint location="6944,778" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/copyPromoFormat.do,success,/WEB-INF/jsp/addNewPromoFormFromEdit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2918,2250" />
+      <AbsolutePoint location="2918,2117" />
+      <AbsolutePoint location="2411,2117" />
+      <AbsolutePoint location="2411,2312" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/checkPlanning.do,popUp,/popUp.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1267,894" />
+      <AbsolutePoint location="1932,894" />
+      <AbsolutePoint location="1932,-25" />
+      <AbsolutePoint location="12212,-25" />
+      <AbsolutePoint location="12212,207" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeNewDigitalFromEdit.do,complete,/WEB-INF/jsp/detailsList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="7840,4786" />
+      <AbsolutePoint location="7850,4786" />
+      <AbsolutePoint location="7850,7467" />
+      <AbsolutePoint location="4363,7467" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeNewPhysicalFromEdit.do,addTracks,/WEB-INF/jsp/tracksForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5845,2549" />
+      <AbsolutePoint location="5845,5492" />
+      <AbsolutePoint location="5200,5492" />
+      <AbsolutePoint location="5200,5717" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/plan.do,success,/WEB-INF/jsp/planForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="857,138" />
+      <AbsolutePoint location="857,1574" />
+      <AbsolutePoint location="810,1574" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPhysical.do,addNewPhysicalFormat,/WEB-INF/jsp/addNewPhysicalFormat.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6237,2986" />
+      <AbsolutePoint location="6237,3003" />
+      <AbsolutePoint location="6759,3003" />
+      <AbsolutePoint location="6759,6471" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/admin/reset_password.jsp,null,/requestNewPassword.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2821,1799" />
+      <AbsolutePoint location="2821,1832" />
+      <AbsolutePoint location="1612,1832" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addTracks.do,newPhysicalFromEdit,/WEB-INF/jsp/addNewPhysicalFormFromEdit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2957,2095" />
+      <AbsolutePoint location="3020,2095" />
+      <AbsolutePoint location="3020,1714" />
+      <AbsolutePoint location="6021,1714" />
+      <AbsolutePoint location="6021,2312" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/linkToPromoFormat.do,viewPage,/returnSinglePageView.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2750,912" />
+      <AbsolutePoint location="2560,912" />
+      <AbsolutePoint location="2560,1647" />
+      <AbsolutePoint location="3287,1647" />
+      <AbsolutePoint location="3287,1850" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/index.do,success,/WEB-INF/jsp/headerNew.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1151,6708" />
+      <AbsolutePoint location="1151,6828" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/saveTracks.do,newPhysicalFromEdit,/WEB-INF/jsp/addNewPhysicalFormFromEdit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="50,2094" />
+      <AbsolutePoint location="-135,2094" />
+      <AbsolutePoint location="-135,1015" />
+      <AbsolutePoint location="6051,1015" />
+      <AbsolutePoint location="6051,2312" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deleteCookie.do,success,/WEB-INF/jsp/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="7056,574" />
+      <AbsolutePoint location="7056,754" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPhysical.do,physicalForm,/WEB-INF/jsp/physicalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6083,2986" />
+      <AbsolutePoint location="6083,3211" />
+      <AbsolutePoint location="3749,3211" />
+      <AbsolutePoint location="3749,5284" />
+      <AbsolutePoint location="4164,5284" />
+      <AbsolutePoint location="4164,6134" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/commitDrafts.do,success,/WEB-INF/jsp/index.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="9093,1328" />
+      <AbsolutePoint location="9093,1554" />
+      <AbsolutePoint location="6986,1554" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addTracks.do,newPromoFromEdit,/WEB-INF/jsp/addNewPromoFormFromEdit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2678,2058" />
+      <AbsolutePoint location="2548,2058" />
+      <AbsolutePoint location="2548,2353" />
+      <AbsolutePoint location="2507,2353" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPromo.do,recordUpdated,/WEB-INF/jsp/editPromoForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5149,4742" />
+      <AbsolutePoint location="5149,4502" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/index.jsp,null,/index.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6937,1557" />
+      <AbsolutePoint location="6937,5194" />
+      <AbsolutePoint location="1151,5194" />
+      <AbsolutePoint location="1151,6620" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMDigital.do,promoForm,/WEB-INF/jsp/promoForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6552,5359" />
+      <AbsolutePoint location="6552,3528" />
+      <AbsolutePoint location="3665,3528" />
+      <AbsolutePoint location="3665,3603" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/emailLink.do,editPhysicalForm,/linkToPhysFormat.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3998,2472" />
+      <AbsolutePoint location="4889,2472" />
+      <AbsolutePoint location="4889,985" />
+      <AbsolutePoint location="2325,985" />
+      <AbsolutePoint location="2325,938" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateUserRoles.do,login,/WEB-INF/jsp/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="8552,2058" />
+      <AbsolutePoint location="8473,2058" />
+      <AbsolutePoint location="8473,590" />
+      <AbsolutePoint location="7066,590" />
+      <AbsolutePoint location="7066,754" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/editHeaderForm.jsp,null,/editPromoDraft.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6664,1845" />
+      <AbsolutePoint location="6664,1814" />
+      <AbsolutePoint location="1967,1814" />
+      <AbsolutePoint location="1967,2014" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addNewQtySheetItemAction.do,success,/WEB-INF/jsp/quantitySheetForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1354,2450" />
+      <AbsolutePoint location="1354,2399" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeNewPromoFromEdit.do,complete,/WEB-INF/jsp/detailsList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2201,4259" />
+      <AbsolutePoint location="2191,4259" />
+      <AbsolutePoint location="2191,7449" />
+      <AbsolutePoint location="4200,7449" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/index.jsp,null,/showUsersAndRoles.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6977,1508" />
+      <AbsolutePoint location="6977,1465" />
+      <AbsolutePoint location="8559,1465" />
+      <AbsolutePoint location="8559,1657" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/nextPage.do,showDetails,/WEB-INF/jsp/detailsList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1293,7021" />
+      <AbsolutePoint location="4203,7021" />
+      <AbsolutePoint location="4203,7425" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/quantitySheetForm.jsp,null,/addNewQtySheetItemAction.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1428,2399" />
+      <AbsolutePoint location="1428,2450" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addNewPhysicalFormat.do,success,/WEB-INF/jsp/addNewPhysicalFormFromEdit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5991,2102" />
+      <AbsolutePoint location="5991,2312" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMDigital.do,newFormat,/WEB-INF/jsp/addNewDigitalFormat.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6489,5359" />
+      <AbsolutePoint location="6489,4170" />
+      <AbsolutePoint location="6299,4170" />
+      <AbsolutePoint location="6299,3245" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/pmSearch.do,results,/WEB-INF/jsp/searchResults.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="11063,276" />
+      <AbsolutePoint location="11063,5741" />
+      <AbsolutePoint location="7166,5741" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPhysical.do,promoForm,/WEB-INF/jsp/promoForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5964,2925" />
+      <AbsolutePoint location="3566,2925" />
+      <AbsolutePoint location="3566,3603" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewAllFormats.do,showDetails,/WEB-INF/jsp/physicalDetails.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="508,638" />
+      <AbsolutePoint location="508,953" />
+      <AbsolutePoint location="4412,953" />
+      <AbsolutePoint location="4412,7890" />
+      <AbsolutePoint location="188,7890" />
+      <AbsolutePoint location="188,7915" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPhysical.do,newFormat,/WEB-INF/jsp/addNewPhysicalFormat.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6113,2986" />
+      <AbsolutePoint location="6113,3091" />
+      <AbsolutePoint location="6699,3091" />
+      <AbsolutePoint location="6699,6471" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/linkToPhysFormat.do,createDraftError,/pmSearch.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2500,894" />
+      <AbsolutePoint location="2710,894" />
+      <AbsolutePoint location="2710,65" />
+      <AbsolutePoint location="11085,65" />
+      <AbsolutePoint location="11085,188" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPhysical.do,addNewPromoFormat,/WEB-INF/jsp/addNewPromoFormat.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5964,2973" />
+      <AbsolutePoint location="5158,2973" />
+      <AbsolutePoint location="5158,3973" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/nextFormFromDigital.do,complete,/WEB-INF/jsp/detailsList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1392,3453" />
+      <AbsolutePoint location="1392,7449" />
+      <AbsolutePoint location="4200,7449" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editQtySheetItem.do,success,/WEB-INF/jsp/quantitySheetForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="403,2494" />
+      <AbsolutePoint location="1058,2494" />
+      <AbsolutePoint location="1058,2354" />
+      <AbsolutePoint location="1250,2354" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/passwordForm.do,success,/WEB-INF/jsp/admin/reset_password.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2319,1738" />
+      <AbsolutePoint location="2319,1774" />
+      <AbsolutePoint location="2750,1774" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/requestNewPassword.do,passwordReset,/WEB-INF/jsp/admin/passwordSent.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1518,1750" />
+      <AbsolutePoint location="1518,1748" />
+      <AbsolutePoint location="3158,1748" />
+      <AbsolutePoint location="3158,1750" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/commitDrafts.do,digiEquivIncomplete,/returnToDetailsPage.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="9213,1328" />
+      <AbsolutePoint location="9213,7668" />
+      <AbsolutePoint location="1221,7668" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dashboardReportsLabelCopy.do,results,/WEB-INF/jsp/includes/dashboard/labelCopyDetail.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6779,276" />
+      <AbsolutePoint location="6779,505" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completePromo.do,newFormat,/WEB-INF/jsp/addNewPromoFormat.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3643,3838" />
+      <AbsolutePoint location="5128,3838" />
+      <AbsolutePoint location="5128,3973" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/cancelTrackEdit.do,promoForm,/WEB-INF/jsp/addNewPromoFormFromEdit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3050,2094" />
+      <AbsolutePoint location="3044,2094" />
+      <AbsolutePoint location="3044,1502" />
+      <AbsolutePoint location="4462,1502" />
+      <AbsolutePoint location="4462,2542" />
+      <AbsolutePoint location="2399,2542" />
+      <AbsolutePoint location="2399,2361" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/detailList.jsp,null,/deleteDigitalFormat.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="701,1115" />
+      <AbsolutePoint location="1065,1115" />
+      <AbsolutePoint location="1065,1240" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/login.do,admin,/WEB-INF/jsp/admin/admin.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="7150,948" />
+      <AbsolutePoint location="8939,948" />
+      <AbsolutePoint location="8939,2312" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPromo.do,promoForm,/WEB-INF/jsp/promoForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4924,4786" />
+      <AbsolutePoint location="2102,4786" />
+      <AbsolutePoint location="2102,3649" />
+      <AbsolutePoint location="3511,3649" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/linkToPhysFormat.do,viewPage,/returnSinglePageView.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2150,894" />
+      <AbsolutePoint location="1991,894" />
+      <AbsolutePoint location="1991,1959" />
+      <AbsolutePoint location="3238,1959" />
+      <AbsolutePoint location="3238,1938" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewAllPhysicalPMs.do,showDetails,/WEB-INF/jsp/physicalDetails.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="158,7815" />
+      <AbsolutePoint location="158,7915" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/copyDigitalFormat.do,success,/WEB-INF/jsp/addNewDigitalFormFromEdit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="986,2384" />
+      <AbsolutePoint location="1028,2384" />
+      <AbsolutePoint location="1028,3061" />
+      <AbsolutePoint location="7660,3061" />
+      <AbsolutePoint location="7660,2361" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deletePhysicalFormat.do,cancel,/WEB-INF/jsp/index.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="43,1328" />
+      <AbsolutePoint location="43,2863" />
+      <AbsolutePoint location="6915,2863" />
+      <AbsolutePoint location="6915,1557" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/pmSearchRefId.do,fromEmail,/,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="958,1714" />
+      <AbsolutePoint location="2129,1714" />
+      <AbsolutePoint location="2129,620" />
+      <AbsolutePoint location="11114,620" />
+      <AbsolutePoint location="11114,554" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/saveNewDefaultPassword.do,success,/WEB-INF/jsp/admin/admin.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2637,1938" />
+      <AbsolutePoint location="2637,1948" />
+      <AbsolutePoint location="8921,1948" />
+      <AbsolutePoint location="8921,2312" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPhysical.do,digitalForm,/WEB-INF/jsp/digitalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6282,2912" />
+      <AbsolutePoint location="10760,2912" />
+      <AbsolutePoint location="10760,6783" />
+      <AbsolutePoint location="5514,6783" />
+      <AbsolutePoint location="5514,6828" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPromo.do,addNewPhysicalFormat,/WEB-INF/jsp/addNewPhysicalFormat.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5032,4830" />
+      <AbsolutePoint location="5032,5314" />
+      <AbsolutePoint location="6669,5314" />
+      <AbsolutePoint location="6669,6471" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dashboardReportsRights.do,login,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="9597,276" />
+      <AbsolutePoint location="9597,486" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completePhysical.do,newFormat,/WEB-INF/jsp/addNewPhysicalFormat.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4203,6371" />
+      <AbsolutePoint location="4203,6495" />
+      <AbsolutePoint location="6580,6495" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeNewFormatPromo.do,completePM,/WEB-INF/jsp/detailsList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4251,4259" />
+      <AbsolutePoint location="4373,4259" />
+      <AbsolutePoint location="4373,7453" />
+      <AbsolutePoint location="4363,7453" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/openDigPlanProdPage.do,forward,/digiPlanFormats.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="650,2594" />
+      <AbsolutePoint location="113,2594" />
+      <AbsolutePoint location="113,2650" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPhysical.do,success,/WEB-INF/jsp/editPhysicalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6047,2898" />
+      <AbsolutePoint location="6047,2718" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/saveTracks.do,newDigitalFromEdit,/WEB-INF/jsp/addNewDigitalFormFromEdit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="353,2117" />
+      <AbsolutePoint location="1181,2117" />
+      <AbsolutePoint location="1181,4378" />
+      <AbsolutePoint location="7690,4378" />
+      <AbsolutePoint location="7690,2361" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateApproveProdMasterDate.do,login,/WEB-INF/jsp/index.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1751,1150" />
+      <AbsolutePoint location="1751,841" />
+      <AbsolutePoint location="6845,841" />
+      <AbsolutePoint location="6845,1508" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeDigital.do,completePM,/WEB-INF/jsp/detailsList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5399,7065" />
+      <AbsolutePoint location="5399,7860" />
+      <AbsolutePoint location="4311,7860" />
+      <AbsolutePoint location="4311,7474" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dashboardReportsSchedule.do,results,/WEB-INF/jsp/includes/dashboard/scheduleDetail.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="8389,276" />
+      <AbsolutePoint location="8389,505" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMHeader.do,edit,/WEB-INF/jsp/editHeaderForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6694,1745" />
+      <AbsolutePoint location="6694,1845" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPhysical.do,addNewDigitalFormat,/WEB-INF/jsp/addNewDigitalFormat.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6143,2986" />
+      <AbsolutePoint location="6143,3196" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMDigital.do,physicalForm,/WEB-INF/jsp/physicalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6517,5447" />
+      <AbsolutePoint location="6517,5999" />
+      <AbsolutePoint location="4266,5999" />
+      <AbsolutePoint location="4266,6134" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateUserRoles.do,success,/WEB-INF/jsp/admin/admin.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="8868,2102" />
+      <AbsolutePoint location="8868,2312" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/detailsList.jsp,null,/copyPromoFormat.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4281,7474" />
+      <AbsolutePoint location="4281,8039" />
+      <AbsolutePoint location="2918,8039" />
+      <AbsolutePoint location="2918,2338" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/tracksForm.jsp,null,/editPreOrderTrack.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5114,5717" />
+      <AbsolutePoint location="5114,5678" />
+      <AbsolutePoint location="2020,5678" />
+      <AbsolutePoint location="2020,2538" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/tracksForm.jsp,null,/deleteAllTracks.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5086,5763" />
+      <AbsolutePoint location="4556,5763" />
+      <AbsolutePoint location="4556,5866" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMHeaderFromIndex.do,edit,/WEB-INF/jsp/editHeaderForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="7037,1745" />
+      <AbsolutePoint location="7037,1869" />
+      <AbsolutePoint location="6761,1869" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMDigital.do,editPromoForm,/WEB-INF/jsp/editPromoForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6484,5359" />
+      <AbsolutePoint location="6484,4477" />
+      <AbsolutePoint location="5243,4477" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/detailsList.jsp,null,/addProjectMessage.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4200,7471" />
+      <AbsolutePoint location="532,7471" />
+      <AbsolutePoint location="532,1394" />
+      <AbsolutePoint location="1550,1394" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/onePageLink.do,viewPage,/returnSinglePageView.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1780,2650" />
+      <AbsolutePoint location="1780,1953" />
+      <AbsolutePoint location="3228,1953" />
+      <AbsolutePoint location="3228,1938" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/returnCSS.do,search,/WEB-INF/jsp/css.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4013,2038" />
+      <AbsolutePoint location="4013,2624" />
+      <AbsolutePoint location="2823,2624" />
+      <AbsolutePoint location="2823,2650" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addEditTracks.do,login,/WEB-INF/jsp/tracksForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5153,5447" />
+      <AbsolutePoint location="5153,5717" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMDigital.do,searchResults,/WEB-INF/jsp/searchResults.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6654,5403" />
+      <AbsolutePoint location="7037,5403" />
+      <AbsolutePoint location="7037,5717" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/nextEditPage.do,error,/WEB-INF/jsp/errors/commitDraftsError.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="7515,2505" />
+      <AbsolutePoint location="9814,2505" />
+      <AbsolutePoint location="9814,1557" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/detailsList.jsp,null,/editPhysicalDraft.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4281,7425" />
+      <AbsolutePoint location="4281,6416" />
+      <AbsolutePoint location="6729,6416" />
+      <AbsolutePoint location="6729,2058" />
+      <AbsolutePoint location="6435,2058" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMDigital.do,addNewDigitalFormat,/WEB-INF/jsp/addNewDigitalFormat.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6462,5359" />
+      <AbsolutePoint location="6462,4667" />
+      <AbsolutePoint location="6269,4667" />
+      <AbsolutePoint location="6269,3245" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dashboardHeaderReports.do,login,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="11379,276" />
+      <AbsolutePoint location="11379,351" />
+      <AbsolutePoint location="9657,351" />
+      <AbsolutePoint location="9657,486" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addTracks.do,editPromoReturn,/WEB-INF/jsp/editPromoForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2817,2102" />
+      <AbsolutePoint location="2817,2216" />
+      <AbsolutePoint location="4634,2216" />
+      <AbsolutePoint location="4634,4460" />
+      <AbsolutePoint location="5055,4460" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/pmSearchRefId.do,results,/WEB-INF/jsp/searchResults.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="650,1694" />
+      <AbsolutePoint location="468,1694" />
+      <AbsolutePoint location="468,3747" />
+      <AbsolutePoint location="7097,3747" />
+      <AbsolutePoint location="7097,5717" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/detailList.jsp,null,/deletePromoFormat.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="622,1140" />
+      <AbsolutePoint location="622,1240" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/nextFormFromPhysical.do,complete,/WEB-INF/jsp/detailsList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2538,5954" />
+      <AbsolutePoint location="2538,7129" />
+      <AbsolutePoint location="4590,7129" />
+      <AbsolutePoint location="4590,7427" />
+      <AbsolutePoint location="4363,7427" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deleteDigitalFormat.do,cancel,/WEB-INF/jsp/index.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="947,1328" />
+      <AbsolutePoint location="947,1541" />
+      <AbsolutePoint location="6844,1541" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeNewFormatPromo.do,saveFormatRtnToEditScreen,/WEB-INF/jsp/editPromoForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4129,4303" />
+      <AbsolutePoint location="4129,4477" />
+      <AbsolutePoint location="5055,4477" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addDigitalPlanProduct.do,forward,/WEB-INF/jsp/planForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3211,2538" />
+      <AbsolutePoint location="3211,2642" />
+      <AbsolutePoint location="646,2642" />
+      <AbsolutePoint location="646,1592" />
+      <AbsolutePoint location="650,1592" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dashboardHeaderReports.do,results,/WEB-INF/jsp/dashboardHeaderResultsNew.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="11451,276" />
+      <AbsolutePoint location="11451,1787" />
+      <AbsolutePoint location="3608,1787" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/headerNew.jsp,null,/nextPage.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1151,6877" />
+      <AbsolutePoint location="1151,6977" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPhysicalDraft.do,success,/WEB-INF/jsp/addNewPhysicalFormFromEdit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6121,2102" />
+      <AbsolutePoint location="6121,2312" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPhysical.do,addTracks,/WEB-INF/jsp/tracksForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5964,2907" />
+      <AbsolutePoint location="3149,2907" />
+      <AbsolutePoint location="3149,5462" />
+      <AbsolutePoint location="5136,5462" />
+      <AbsolutePoint location="5136,5717" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMDigital.do,success,/WEB-INF/jsp/editDigitalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6390,5359" />
+      <AbsolutePoint location="6390,5104" />
+      <AbsolutePoint location="6315,5104" />
+      <AbsolutePoint location="6315,5059" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/linkToDigiFormat.do,editForm,/WEB-INF/jsp/addNewDigitalFormFromEdit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="236,850" />
+      <AbsolutePoint location="236,520" />
+      <AbsolutePoint location="4062,520" />
+      <AbsolutePoint location="4062,2265" />
+      <AbsolutePoint location="7630,2265" />
+      <AbsolutePoint location="7630,2312" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPhysical.do,searchResults,/WEB-INF/jsp/searchResults.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6282,2972" />
+      <AbsolutePoint location="7119,2972" />
+      <AbsolutePoint location="7119,5717" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/editPhysicalForm.jsp,null,/editPMPhysical.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6157,2718" />
+      <AbsolutePoint location="6157,2898" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/returnSinglePageView.do,login,/WEB-INF/jsp/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3427,1906" />
+      <AbsolutePoint location="6334,1906" />
+      <AbsolutePoint location="6334,800" />
+      <AbsolutePoint location="6944,800" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addProjectMessage.do,error,/popUp.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1874,1394" />
+      <AbsolutePoint location="2650,1394" />
+      <AbsolutePoint location="2650,35" />
+      <AbsolutePoint location="12182,35" />
+      <AbsolutePoint location="12182,207" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/submitCSS.do,search,/WEB-INF/jsp/css.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3796,2738" />
+      <AbsolutePoint location="3796,3905" />
+      <AbsolutePoint location="2815,3905" />
+      <AbsolutePoint location="2815,2699" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addTracks.do,promoReturn,/WEB-INF/jsp/promoForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2801,2014" />
+      <AbsolutePoint location="2801,1989" />
+      <AbsolutePoint location="3592,1989" />
+      <AbsolutePoint location="3592,2083" />
+      <AbsolutePoint location="4193,2083" />
+      <AbsolutePoint location="4193,3320" />
+      <AbsolutePoint location="3596,3320" />
+      <AbsolutePoint location="3596,3603" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMDigital.do,editDigitalForm,/WEB-INF/jsp/editDigitalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6345,5403" />
+      <AbsolutePoint location="6255,5403" />
+      <AbsolutePoint location="6255,5059" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/changeDefaultPassword.do,login,/WEB-INF/jsp/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="50,1894" />
+      <AbsolutePoint location="-73,1894" />
+      <AbsolutePoint location="-73,741" />
+      <AbsolutePoint location="6978,741" />
+      <AbsolutePoint location="6978,754" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deletePhysicalFormat.do,confirm,/returnToDetailsPage.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,1284" />
+      <AbsolutePoint location="-105,1284" />
+      <AbsolutePoint location="-105,7668" />
+      <AbsolutePoint location="896,7668" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPromo.do,newFormat,/WEB-INF/jsp/addNewPromoFormat.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5040,4742" />
+      <AbsolutePoint location="5040,4318" />
+      <AbsolutePoint location="5218,4318" />
+      <AbsolutePoint location="5218,4022" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completePhysical.do,completePM,/WEB-INF/jsp/detailsList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4251,6371" />
+      <AbsolutePoint location="4251,7425" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listDetails.do,showDetails,/WEB-INF/jsp/detailsList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3646,1194" />
+      <AbsolutePoint location="4352,1194" />
+      <AbsolutePoint location="4352,7425" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/css.jsp,null,/submitCSS.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2845,2699" />
+      <AbsolutePoint location="2845,2714" />
+      <AbsolutePoint location="3650,2714" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/requestNewPassword.do,login,/WEB-INF/jsp/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1476,1750" />
+      <AbsolutePoint location="1476,747" />
+      <AbsolutePoint location="6956,747" />
+      <AbsolutePoint location="6956,754" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/showUsersAndRoles.do,login,/WEB-INF/jsp/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="8717,1657" />
+      <AbsolutePoint location="8717,665" />
+      <AbsolutePoint location="7076,665" />
+      <AbsolutePoint location="7076,754" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPromo.do,detailsList,/WEB-INF/jsp/detailsList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4924,4786" />
+      <AbsolutePoint location="4392,4786" />
+      <AbsolutePoint location="4392,7456" />
+      <AbsolutePoint location="4363,7456" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addAnotherPromoFormat.do,success,/WEB-INF/jsp/editPromoForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5149,4303" />
+      <AbsolutePoint location="5149,4453" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/changePassword.jsp,null,/changePassword.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="7013,1140" />
+      <AbsolutePoint location="7013,1240" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addEditTracks.do,success,/WEB-INF/jsp/tracksForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5170,5447" />
+      <AbsolutePoint location="5170,5717" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/planForm.jsp,null,/openDigPlanProdPage.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="650,1574" />
+      <AbsolutePoint location="614,1574" />
+      <AbsolutePoint location="614,2264" />
+      <AbsolutePoint location="999,2264" />
+      <AbsolutePoint location="999,2550" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/userReports.do,results,/WEB-INF/jsp/userReports.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1858,1574" />
+      <AbsolutePoint location="2750,1574" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deleteAllTracks.do,success,/WEB-INF/jsp/physicalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4429,5910" />
+      <AbsolutePoint location="4224,5910" />
+      <AbsolutePoint location="4224,6134" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateApproveProdMasterDate.do,success,/updateProductionConsole.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1952,1194" />
+      <AbsolutePoint location="2258,1194" />
+      <AbsolutePoint location="2258,1138" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/enter.do,success,/WEB-INF/jsp/index.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="9734,530" />
+      <AbsolutePoint location="9809,530" />
+      <AbsolutePoint location="9809,1365" />
+      <AbsolutePoint location="6967,1365" />
+      <AbsolutePoint location="6967,1508" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/nextSearchPage.do,results,/WEB-INF/jsp/searchResults.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1090,1450" />
+      <AbsolutePoint location="1090,1341" />
+      <AbsolutePoint location="11998,1341" />
+      <AbsolutePoint location="11998,5759" />
+      <AbsolutePoint location="7166,5759" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/saveTracks.do,newPromoFromEdit,/WEB-INF/jsp/addNewPromoFormFromEdit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="353,2074" />
+      <AbsolutePoint location="562,2074" />
+      <AbsolutePoint location="562,1914" />
+      <AbsolutePoint location="2180,1914" />
+      <AbsolutePoint location="2180,2354" />
+      <AbsolutePoint location="2256,2354" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deleteAllTracks.do,login,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4506,5866" />
+      <AbsolutePoint location="4506,3151" />
+      <AbsolutePoint location="9627,3151" />
+      <AbsolutePoint location="9627,574" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMHeaderFromIndex.do,search,/WEB-INF/jsp/headerSummary.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="7179,1745" />
+      <AbsolutePoint location="7179,1845" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPhysical.do,editDigitalForm,/WEB-INF/jsp/editDigitalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6282,2942" />
+      <AbsolutePoint location="7274,2942" />
+      <AbsolutePoint location="7274,5034" />
+      <AbsolutePoint location="6349,5034" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deleteDraft.do,error,/WEB-INF/jsp/errors/commitDraftsError.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="10249,1328" />
+      <AbsolutePoint location="10249,1532" />
+      <AbsolutePoint location="9932,1532" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/tracksForm.jsp,null,/addNewTrack.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5092,5717" />
+      <AbsolutePoint location="5092,4905" />
+      <AbsolutePoint location="1118,4905" />
+      <AbsolutePoint location="1118,2038" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeNewFormatPhysical.do,newFormat,/WEB-INF/jsp/addNewPhysicalFormat.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6693,6620" />
+      <AbsolutePoint location="6693,6520" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeNewFormatPromo.do,newFormat,/WEB-INF/jsp/addNewPromoFormat.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4013,4215" />
+      <AbsolutePoint location="4013,3997" />
+      <AbsolutePoint location="5083,3997" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/tracksForm.jsp,null,/saveTracks.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5132,5766" />
+      <AbsolutePoint location="5132,5841" />
+      <AbsolutePoint location="562,5841" />
+      <AbsolutePoint location="562,2165" />
+      <AbsolutePoint location="201,2165" />
+      <AbsolutePoint location="201,2138" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/physicalForm.jsp,null,/completePhysical.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4254,6183" />
+      <AbsolutePoint location="4254,6283" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/nextSearchPage.do,fromEmail,/,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1231,1494" />
+      <AbsolutePoint location="2021,1494" />
+      <AbsolutePoint location="2021,822" />
+      <AbsolutePoint location="10938,822" />
+      <AbsolutePoint location="10938,529" />
+      <AbsolutePoint location="11098,529" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/admin/show_users_and_roles.jsp,null,/updateUserRoles.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="8717,1894" />
+      <AbsolutePoint location="8717,2014" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completePromo.do,commitNewPromo,commitDrafts.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3549,3860" />
+      <AbsolutePoint location="3549,3960" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/showUsersAndRoles.do,success,/WEB-INF/jsp/admin/show_users_and_roles.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="8717,1745" />
+      <AbsolutePoint location="8717,1845" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateApproveQtySheetDate.do,login,/WEB-INF/jsp/index.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2502,1294" />
+      <AbsolutePoint location="6741,1294" />
+      <AbsolutePoint location="6741,1387" />
+      <AbsolutePoint location="6915,1387" />
+      <AbsolutePoint location="6915,1508" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addTracks.do,login,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2735,2102" />
+      <AbsolutePoint location="2735,2445" />
+      <AbsolutePoint location="9597,2445" />
+      <AbsolutePoint location="9597,574" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/admin/create_new_user.jsp,null,/createNewUser.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="10084,754" />
+      <AbsolutePoint location="10084,574" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeNewPhysicalFromEdit.do,newFormat,/WEB-INF/jsp/addNewPhysicalFormFromEdit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6013,2461" />
+      <AbsolutePoint location="6013,2361" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/copyPhysicalFormat.do,success,/WEB-INF/jsp/addNewPhysicalFormFromEdit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="395,2294" />
+      <AbsolutePoint location="2608,2294" />
+      <AbsolutePoint location="2608,2353" />
+      <AbsolutePoint location="5884,2353" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPhysical.do,recordUpdated,/WEB-INF/jsp/editPhysicalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6077,2898" />
+      <AbsolutePoint location="6077,2718" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/pmDraftSearch.do,results,/WEB-INF/jsp/searchResults.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="10610,276" />
+      <AbsolutePoint location="10610,3410" />
+      <AbsolutePoint location="7141,3410" />
+      <AbsolutePoint location="7141,5717" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addTracks.do,digitalReturn,/WEB-INF/jsp/digitalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2957,2065" />
+      <AbsolutePoint location="2990,2065" />
+      <AbsolutePoint location="2990,1677" />
+      <AbsolutePoint location="3564,1677" />
+      <AbsolutePoint location="3564,1265" />
+      <AbsolutePoint location="5637,1265" />
+      <AbsolutePoint location="5637,6930" />
+      <AbsolutePoint location="5484,6930" />
+      <AbsolutePoint location="5484,6877" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeNewFormatDigital.do,nextPromo,/WEB-INF/jsp/promoForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5947,3409" />
+      <AbsolutePoint location="3626,3409" />
+      <AbsolutePoint location="3626,3603" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/changePassword.do,success,/WEB-INF/jsp/index.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6945,1328" />
+      <AbsolutePoint location="6945,1508" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateApproveQtySheetDate.do,success,/updateProductionConsole.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2288,1250" />
+      <AbsolutePoint location="2288,1138" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addDashboardMessageToSummaryPage.do,error,/popUp.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="992,2194" />
+      <AbsolutePoint location="1088,2194" />
+      <AbsolutePoint location="1088,5582" />
+      <AbsolutePoint location="12212,5582" />
+      <AbsolutePoint location="12212,256" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateApproveProdArtworkDate.do,success,/updateProductionConsole.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2953,1150" />
+      <AbsolutePoint location="2953,1114" />
+      <AbsolutePoint location="2487,1114" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deleteDraft.do,success,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="10088,1314" />
+      <AbsolutePoint location="9711,1314" />
+      <AbsolutePoint location="9711,574" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/editHeaderForm.jsp,null,/nextEditPage.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6669,1894" />
+      <AbsolutePoint location="6669,2505" />
+      <AbsolutePoint location="7199,2505" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/createNewUser.do,success,/WEB-INF/jsp/admin/create_new_user.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="10054,574" />
+      <AbsolutePoint location="10054,754" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/onePageLink.do,editPromoForm,/linkToPromoFormat.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1692,2738" />
+      <AbsolutePoint location="1692,3468" />
+      <AbsolutePoint location="5252,3468" />
+      <AbsolutePoint location="5252,1114" />
+      <AbsolutePoint location="3002,1114" />
+      <AbsolutePoint location="3002,938" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/submitCSS.do,login,/WEB-INF/jsp/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3949,2666" />
+      <AbsolutePoint location="8305,2666" />
+      <AbsolutePoint location="8305,778" />
+      <AbsolutePoint location="7082,778" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/nextSearchPage.do,login,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1231,1464" />
+      <AbsolutePoint location="1401,1464" />
+      <AbsolutePoint location="1401,471" />
+      <AbsolutePoint location="9477,471" />
+      <AbsolutePoint location="9477,486" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/detailsList.jsp,null,/returnToDetailsPage.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4221,7474" />
+      <AbsolutePoint location="4221,7608" />
+      <AbsolutePoint location="1221,7608" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/linkToPromoFormat.do,editForm,/WEB-INF/jsp/addNewPromoFormFromEdit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2750,894" />
+      <AbsolutePoint location="2740,894" />
+      <AbsolutePoint location="2740,1792" />
+      <AbsolutePoint location="2200,1792" />
+      <AbsolutePoint location="2200,2336" />
+      <AbsolutePoint location="2256,2336" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/pmDraftSearch.do,login,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="10517,262" />
+      <AbsolutePoint location="9779,262" />
+      <AbsolutePoint location="9779,500" />
+      <AbsolutePoint location="9734,500" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addNewDigitalFormat.do,success,/WEB-INF/jsp/addNewDigitalFormFromEdit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="7690,2102" />
+      <AbsolutePoint location="7690,2312" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addDashboardMessageToDetailPage.do,success,/dashboardReports.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1592,2164" />
+      <AbsolutePoint location="4133,2164" />
+      <AbsolutePoint location="4133,232" />
+      <AbsolutePoint location="5944,232" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateProductionConsole.do,success,/WEB-INF/jsp/admin/productionConsole.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2487,1074" />
+      <AbsolutePoint location="2750,1074" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dashboardReportsLabelCopy.do,login,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6864,188" />
+      <AbsolutePoint location="6864,-85" />
+      <AbsolutePoint location="9717,-85" />
+      <AbsolutePoint location="9717,486" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeNewPhysicalFromEdit.do,completeDigitalEquivalent,/addNewDigitalFormat.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5869,2461" />
+      <AbsolutePoint location="5869,2295" />
+      <AbsolutePoint location="7660,2295" />
+      <AbsolutePoint location="7660,2102" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editTrack.do,login,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5147,5932" />
+      <AbsolutePoint location="9671,5932" />
+      <AbsolutePoint location="9671,574" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/returnSinglePageView.do,home,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3427,1932" />
+      <AbsolutePoint location="9545,1932" />
+      <AbsolutePoint location="9545,574" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPromo.do,editPhysicalForm,/WEB-INF/jsp/editPhysicalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4924,4769" />
+      <AbsolutePoint location="4814,4769" />
+      <AbsolutePoint location="4814,2710" />
+      <AbsolutePoint location="5979,2710" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addNewPromoFormat.do,success,/WEB-INF/jsp/addNewPromoFormFromEdit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2381,2102" />
+      <AbsolutePoint location="2381,2312" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPromo.do,deleteRecord,/WEB-INF/jsp/editPromoForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5079,4742" />
+      <AbsolutePoint location="5079,4502" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/login.do,changePassword,/WEB-INF/jsp/changePassword.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="7013,991" />
+      <AbsolutePoint location="7013,1091" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeNewFormatPhysical.do,completePM,/WEB-INF/jsp/detailsList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6655,6708" />
+      <AbsolutePoint location="6655,7772" />
+      <AbsolutePoint location="4341,7772" />
+      <AbsolutePoint location="4341,7474" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateDeletePackagingDate.do,login,/WEB-INF/jsp/index.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3149,717" />
+      <AbsolutePoint location="7242,717" />
+      <AbsolutePoint location="7242,1510" />
+      <AbsolutePoint location="6986,1510" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateApproveProdArtworkDate.do,login,/WEB-INF/jsp/index.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3100,1238" />
+      <AbsolutePoint location="3100,1414" />
+      <AbsolutePoint location="6885,1414" />
+      <AbsolutePoint location="6885,1508" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/tracksForm.jsp,null,/deleteTrack.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5200,5766" />
+      <AbsolutePoint location="5200,6930" />
+      <AbsolutePoint location="1584,6930" />
+      <AbsolutePoint location="1584,5954" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/index.jsp,null,/editPMHeaderFromIndex.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6967,1557" />
+      <AbsolutePoint location="6967,1657" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addDashboardMessageToDetailPage.do,error,/popUp.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1592,2194" />
+      <AbsolutePoint location="12182,2194" />
+      <AbsolutePoint location="12182,256" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/cancelTrackEdit.do,physicalForm,/WEB-INF/jsp/addNewPhysicalFormFromEdit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3213,2138" />
+      <AbsolutePoint location="3213,2383" />
+      <AbsolutePoint location="5983,2383" />
+      <AbsolutePoint location="5983,2361" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addDashboardMessageToSummaryPage.do,success,/dashboardHeaderReports.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="992,2164" />
+      <AbsolutePoint location="1211,2164" />
+      <AbsolutePoint location="1211,4607" />
+      <AbsolutePoint location="11473,4607" />
+      <AbsolutePoint location="11473,276" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completePromo.do,addTracks,/WEB-INF/jsp/tracksForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3475,3860" />
+      <AbsolutePoint location="3475,5758" />
+      <AbsolutePoint location="5086,5758" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/addNewPromoFormFromEdit.jsp,null,/completeNewPromoFromEdit.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2381,2361" />
+      <AbsolutePoint location="2381,2624" />
+      <AbsolutePoint location="2465,2624" />
+      <AbsolutePoint location="2465,4215" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/returnCSS2.do,home,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2300,2738" />
+      <AbsolutePoint location="2300,4070" />
+      <AbsolutePoint location="9649,4070" />
+      <AbsolutePoint location="9649,574" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateDeleteProdMasterDate.do,success,/updateProductionConsole.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1282,738" />
+      <AbsolutePoint location="1282,1076" />
+      <AbsolutePoint location="2150,1076" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/nextEditPage.do,showDetails,/WEB-INF/jsp/detailsList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="7357,2549" />
+      <AbsolutePoint location="7357,7290" />
+      <AbsolutePoint location="4329,7290" />
+      <AbsolutePoint location="4329,7425" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completePhysical.do,nextDigital,/WEB-INF/jsp/digitalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4185,6371" />
+      <AbsolutePoint location="4185,6852" />
+      <AbsolutePoint location="5400,6852" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/commitDrafts.do,commitDraftError,/WEB-INF/jsp/errors/commitDraftsError2.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="9123,1328" />
+      <AbsolutePoint location="9123,2813" />
+      <AbsolutePoint location="592,2813" />
+      <AbsolutePoint location="592,2074" />
+      <AbsolutePoint location="650,2074" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updatePaginationConstant.do,login,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2431,1454" />
+      <AbsolutePoint location="3202,1454" />
+      <AbsolutePoint location="3202,411" />
+      <AbsolutePoint location="9507,411" />
+      <AbsolutePoint location="9507,486" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/nextFormFromPromo.do,complete,/WEB-INF/jsp/detailsList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3141,5954" />
+      <AbsolutePoint location="3141,7427" />
+      <AbsolutePoint location="4200,7427" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMDigital.do,detailsList,/WEB-INF/jsp/detailsList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6345,5403" />
+      <AbsolutePoint location="6335,5403" />
+      <AbsolutePoint location="6335,7464" />
+      <AbsolutePoint location="4363,7464" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/nextFormFromPhysical.do,physical,/WEB-INF/jsp/physicalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2560,5954" />
+      <AbsolutePoint location="2560,6228" />
+      <AbsolutePoint location="4194,6228" />
+      <AbsolutePoint location="4194,6183" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/emailLink.do,viewPage,/returnSinglePageView.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3824,2450" />
+      <AbsolutePoint location="3824,2053" />
+      <AbsolutePoint location="3386,2053" />
+      <AbsolutePoint location="3386,1938" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeNewPhysicalFromEdit.do,saveFormatRtnToEditScreen,/WEB-INF/jsp/editPhysicalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6077,2549" />
+      <AbsolutePoint location="6077,2669" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/index.jsp,null,/plan.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6844,1523" />
+      <AbsolutePoint location="5815,1523" />
+      <AbsolutePoint location="5815,95" />
+      <AbsolutePoint location="926,95" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/editDigitalForm.jsp,null,/editPMDigital.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6239,5010" />
+      <AbsolutePoint location="6239,4965" />
+      <AbsolutePoint location="6420,4965" />
+      <AbsolutePoint location="6420,5359" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/login.do,login,/WEB-INF/jsp/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="7013,903" />
+      <AbsolutePoint location="7013,803" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/onePageLink.do,editPhysicalForm,/linkToPhysFormat.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1670,2738" />
+      <AbsolutePoint location="1670,3578" />
+      <AbsolutePoint location="4556,3578" />
+      <AbsolutePoint location="4556,130" />
+      <AbsolutePoint location="2566,130" />
+      <AbsolutePoint location="2566,872" />
+      <AbsolutePoint location="2500,872" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMDigital.do,digitalForm,/WEB-INF/jsp/digitalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6479,5447" />
+      <AbsolutePoint location="6479,6896" />
+      <AbsolutePoint location="5514,6896" />
+      <AbsolutePoint location="5514,6877" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/linkToPhysFormat.do,editForm,/WEB-INF/jsp/addNewPhysicalFormFromEdit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2325,850" />
+      <AbsolutePoint location="2325,757" />
+      <AbsolutePoint location="6069,757" />
+      <AbsolutePoint location="6069,2312" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/nextFormFromDigital.do,physical,/WEB-INF/jsp/physicalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1414,3453" />
+      <AbsolutePoint location="1414,6158" />
+      <AbsolutePoint location="4105,6158" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/nextFormFromDigital.do,promo,/WEB-INF/jsp/promoForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1554,3409" />
+      <AbsolutePoint location="3526,3409" />
+      <AbsolutePoint location="3526,3603" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dashboardReportsOrders.do,login,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="8101,276" />
+      <AbsolutePoint location="8101,865" />
+      <AbsolutePoint location="9513,865" />
+      <AbsolutePoint location="9513,574" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/pmSearchRefId.do,login,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="857,1650" />
+      <AbsolutePoint location="857,1641" />
+      <AbsolutePoint location="9519,1641" />
+      <AbsolutePoint location="9519,574" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/linkToDigiFormat.do,viewPage,/returnSinglePageView.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="50,894" />
+      <AbsolutePoint location="-51,894" />
+      <AbsolutePoint location="-51,2242" />
+      <AbsolutePoint location="3380,2242" />
+      <AbsolutePoint location="3380,1938" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/returnCSSDetail.do,login,/WEB-INF/jsp/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="7013,778" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addTracks.do,editDigitalReturn,/WEB-INF/jsp/editDigitalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2827,2102" />
+      <AbsolutePoint location="2827,2141" />
+      <AbsolutePoint location="5365,2141" />
+      <AbsolutePoint location="5365,5034" />
+      <AbsolutePoint location="6162,5034" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateMonitoringPoints.do,fail,/WEB-INF/jsp/index.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1882,796" />
+      <AbsolutePoint location="4982,796" />
+      <AbsolutePoint location="4982,1553" />
+      <AbsolutePoint location="6844,1553" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dashboardReports.do,results,/WEB-INF/jsp/dashboardResultsNew.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5944,262" />
+      <AbsolutePoint location="1371,262" />
+      <AbsolutePoint location="1371,1650" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/saveAnotherDigital.jsp,null,/nextFormFromDigital.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1392,3245" />
+      <AbsolutePoint location="1392,3365" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeDigital.do,addTracks,/WEB-INF/jsp/tracksForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5261,7021" />
+      <AbsolutePoint location="5230,7021" />
+      <AbsolutePoint location="5230,5766" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/digitalForm.jsp,null,/completeDigital.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5454,6877" />
+      <AbsolutePoint location="5454,6977" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/submitCSS.do,home,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3949,2693" />
+      <AbsolutePoint location="5588,2693" />
+      <AbsolutePoint location="5588,1224" />
+      <AbsolutePoint location="9779,1224" />
+      <AbsolutePoint location="9779,560" />
+      <AbsolutePoint location="9734,560" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeDigital.do,newFormat,/WEB-INF/jsp/addNewDigitalFormat.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5538,7021" />
+      <AbsolutePoint location="8383,7021" />
+      <AbsolutePoint location="8383,3220" />
+      <AbsolutePoint location="6346,3220" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/cancelTrackEdit.do,digitalForm,/WEB-INF/jsp/addNewDigitalFormFromEdit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3183,2138" />
+      <AbsolutePoint location="3183,2383" />
+      <AbsolutePoint location="2853,2383" />
+      <AbsolutePoint location="2853,2565" />
+      <AbsolutePoint location="7630,2565" />
+      <AbsolutePoint location="7630,2361" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMDigital.do,deleteRecord,/WEB-INF/jsp/editDigitalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6345,5373" />
+      <AbsolutePoint location="6285,5373" />
+      <AbsolutePoint location="6285,5059" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completePromo.do,completePM,/WEB-INF/jsp/detailsList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3643,3816" />
+      <AbsolutePoint location="6052,3816" />
+      <AbsolutePoint location="6052,7449" />
+      <AbsolutePoint location="4363,7449" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deleteTrack.do,success,/WEB-INF/jsp/physicalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1606,5954" />
+      <AbsolutePoint location="1606,6258" />
+      <AbsolutePoint location="4224,6258" />
+      <AbsolutePoint location="4224,6183" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deleteDigitalFormat.do,confirm,/returnToDetailsPage.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="905,1240" />
+      <AbsolutePoint location="905,351" />
+      <AbsolutePoint location="4765,351" />
+      <AbsolutePoint location="4765,7380" />
+      <AbsolutePoint location="1058,7380" />
+      <AbsolutePoint location="1058,7594" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/emailLink.do,editDigiForm,/linkToDigiFormat.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3998,2494" />
+      <AbsolutePoint location="5050,2494" />
+      <AbsolutePoint location="5050,542" />
+      <AbsolutePoint location="266,542" />
+      <AbsolutePoint location="266,850" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/logout.do,success,/WEB-INF/jsp/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="7574,574" />
+      <AbsolutePoint location="7574,865" />
+      <AbsolutePoint location="7073,865" />
+      <AbsolutePoint location="7073,803" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeNewFormatPhysical.do,nextDigital,/WEB-INF/jsp/digitalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6637,6708" />
+      <AbsolutePoint location="6637,6852" />
+      <AbsolutePoint location="5568,6852" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/quantitySheetForm.jsp,null,/editQtySheetItem.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1354,2350" />
+      <AbsolutePoint location="1354,2319" />
+      <AbsolutePoint location="402,2319" />
+      <AbsolutePoint location="402,2450" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deletePromoFormat.do,confirm,/returnToDetailsPage.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="502,1328" />
+      <AbsolutePoint location="502,2365" />
+      <AbsolutePoint location="-75,2365" />
+      <AbsolutePoint location="-75,7638" />
+      <AbsolutePoint location="896,7638" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editQtySheet.do,success,/WEB-INF/jsp/quantitySheetForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3526,2338" />
+      <AbsolutePoint location="3526,3320" />
+      <AbsolutePoint location="1151,3320" />
+      <AbsolutePoint location="1151,2384" />
+      <AbsolutePoint location="1250,2384" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewAllDigitalPMs.do,showDetails,/WEB-INF/jsp/digitalDetails.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="880,7815" />
+      <AbsolutePoint location="880,7915" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/tracksForm.jsp,null,/addNewPreOrderTrack.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5152,5766" />
+      <AbsolutePoint location="5152,6089" />
+      <AbsolutePoint location="2720,6089" />
+      <AbsolutePoint location="2720,2538" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateArtist.do,success,/WEB-INF/jsp/admin/addArtist.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="385,1474" />
+      <AbsolutePoint location="650,1474" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/userReports.do,login,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1550,1574" />
+      <AbsolutePoint location="1518,1574" />
+      <AbsolutePoint location="1518,5" />
+      <AbsolutePoint location="9687,5" />
+      <AbsolutePoint location="9687,486" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/detailsList.jsp,null,/copyPhysicalFormat.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4221,7425" />
+      <AbsolutePoint location="4221,6753" />
+      <AbsolutePoint location="15,6753" />
+      <AbsolutePoint location="15,2294" />
+      <AbsolutePoint location="50,2294" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editDigitalDraft.do,success,/WEB-INF/jsp/addNewDigitalFormFromEdit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="8079,2102" />
+      <AbsolutePoint location="8079,2336" />
+      <AbsolutePoint location="7785,2336" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/returnCSS.do,home,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4017,1973" />
+      <AbsolutePoint location="9567,1973" />
+      <AbsolutePoint location="9567,574" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/admin.do,success,/WEB-INF/jsp/admin/admin.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="10763,574" />
+      <AbsolutePoint location="10763,2336" />
+      <AbsolutePoint location="9009,2336" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dashboardReportsRights.do,results,/WEB-INF/jsp/includes/dashboard/rightsDetail.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="9664,232" />
+      <AbsolutePoint location="10391,232" />
+      <AbsolutePoint location="10391,505" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateDeleteProdArtworkDate.do,success,/updateProductionConsole.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="273,1650" />
+      <AbsolutePoint location="273,1614" />
+      <AbsolutePoint location="1312,1614" />
+      <AbsolutePoint location="1312,1115" />
+      <AbsolutePoint location="2150,1115" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/pmSearch.do,fromEmail,/,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="11114,276" />
+      <AbsolutePoint location="11114,505" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPromo.do,editDigitalForm,/WEB-INF/jsp/editDigitalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5062,4830" />
+      <AbsolutePoint location="5062,5052" />
+      <AbsolutePoint location="6162,5052" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateDeleteQtySheetDate.do,login,/WEB-INF/jsp/index.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3447,1606" />
+      <AbsolutePoint location="6845,1606" />
+      <AbsolutePoint location="6845,1557" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeNewFormatDigital.do,saveFormatRtnToEditScreen,/WEB-INF/jsp/editDigitalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6209,3453" />
+      <AbsolutePoint location="6209,5010" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPromo.do,editPromoForm,/WEB-INF/jsp/editPromoForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5132,4742" />
+      <AbsolutePoint location="5132,4502" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeNewPhysicalFromEdit.do,complete,/WEB-INF/jsp/detailsList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5944,2549" />
+      <AbsolutePoint location="5944,7561" />
+      <AbsolutePoint location="4359,7561" />
+      <AbsolutePoint location="4359,7474" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMDigital.do,addNewPromoFormat,/WEB-INF/jsp/addNewPromoFormat.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6506,5359" />
+      <AbsolutePoint location="6506,3997" />
+      <AbsolutePoint location="5302,3997" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/onePageLink.do,editDigiForm,/linkToDigiFormat.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1722,2738" />
+      <AbsolutePoint location="1722,5404" />
+      <AbsolutePoint location="4726,5404" />
+      <AbsolutePoint location="4726,-85" />
+      <AbsolutePoint location="184,-85" />
+      <AbsolutePoint location="184,850" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeNewFormatPromo.do,addTracks,/WEB-INF/jsp/tracksForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4112,4303" />
+      <AbsolutePoint location="4112,5811" />
+      <AbsolutePoint location="5102,5811" />
+      <AbsolutePoint location="5102,5766" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPhysical.do,editPhysicalForm,/WEB-INF/jsp/editPhysicalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6140,2898" />
+      <AbsolutePoint location="6140,2718" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPromo.do,searchResults,/WEB-INF/jsp/searchResults.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5226,4742" />
+      <AbsolutePoint location="5226,4554" />
+      <AbsolutePoint location="7067,4554" />
+      <AbsolutePoint location="7067,5717" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/nextPage.do,error,/WEB-INF/jsp/errors/commitDraftsError.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1151,7065" />
+      <AbsolutePoint location="1151,7200" />
+      <AbsolutePoint location="9844,7200" />
+      <AbsolutePoint location="9844,1557" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeNewFormatPhysical.do,addTracks,/WEB-INF/jsp/tracksForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6565,6620" />
+      <AbsolutePoint location="6565,5741" />
+      <AbsolutePoint location="5255,5741" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateProductionConsole.do,login,/WEB-INF/jsp/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2318,1050" />
+      <AbsolutePoint location="2318,1037" />
+      <AbsolutePoint location="7607,1037" />
+      <AbsolutePoint location="7607,800" />
+      <AbsolutePoint location="7082,800" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/rcaReports.do,login,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1703,550" />
+      <AbsolutePoint location="1703,321" />
+      <AbsolutePoint location="9567,321" />
+      <AbsolutePoint location="9567,486" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addTracks.do,newDigitalFromEdit,/WEB-INF/jsp/addNewDigitalFormFromEdit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2831,2014" />
+      <AbsolutePoint location="2831,1836" />
+      <AbsolutePoint location="6484,1836" />
+      <AbsolutePoint location="6484,2336" />
+      <AbsolutePoint location="7535,2336" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPhysical.do,detailsList,/WEB-INF/jsp/detailsList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6123,2986" />
+      <AbsolutePoint location="6123,7460" />
+      <AbsolutePoint location="4363,7460" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/enter.do,login,/WEB-INF/jsp/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="9460,530" />
+      <AbsolutePoint location="9162,530" />
+      <AbsolutePoint location="9162,756" />
+      <AbsolutePoint location="7082,756" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPromo.do,addNewDigitalFormat,/WEB-INF/jsp/addNewDigitalFormat.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5234,4786" />
+      <AbsolutePoint location="6239,4786" />
+      <AbsolutePoint location="6239,3245" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/saveAnotherPhysical.jsp,null,/nextFormFromPhysical.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2538,5766" />
+      <AbsolutePoint location="2538,5866" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dashboardReportsSchedule.do,login,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="8559,276" />
+      <AbsolutePoint location="8559,513" />
+      <AbsolutePoint location="9460,513" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/passwordForm.do,login,/WEB-INF/jsp/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2488,1692" />
+      <AbsolutePoint location="2686,1692" />
+      <AbsolutePoint location="2686,645" />
+      <AbsolutePoint location="7038,645" />
+      <AbsolutePoint location="7038,754" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addTracks.do,physicalReturn,/WEB-INF/jsp/physicalFormReadOnly.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2705,2102" />
+      <AbsolutePoint location="2705,2383" />
+      <AbsolutePoint location="2043,2383" />
+      <AbsolutePoint location="2043,2361" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addTracks.do,editPhysicalReturn,/WEB-INF/jsp/editPhysicalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2957,2023" />
+      <AbsolutePoint location="3532,2023" />
+      <AbsolutePoint location="3532,2117" />
+      <AbsolutePoint location="8687,2117" />
+      <AbsolutePoint location="8687,2693" />
+      <AbsolutePoint location="6175,2693" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateMonitoringPoints.do,success,/dashboardHeaderReports.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1872,750" />
+      <AbsolutePoint location="1872,-55" />
+      <AbsolutePoint location="11473,-55" />
+      <AbsolutePoint location="11473,188" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/addNewDigitalFormat.jsp,null,/completeNewFormatDigital.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6143,3245" />
+      <AbsolutePoint location="6143,3365" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/editHeaderForm.jsp,null,/editDigitalDraft.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6724,1845" />
+      <AbsolutePoint location="6724,1765" />
+      <AbsolutePoint location="8071,1765" />
+      <AbsolutePoint location="8071,2014" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addArtist.do,success,/WEB-INF/jsp/admin/admin.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2917,1350" />
+      <AbsolutePoint location="2917,1332" />
+      <AbsolutePoint location="8921,1332" />
+      <AbsolutePoint location="8921,2312" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/addNewPhysicalFormFromEdit.jsp,null,/completeNewPhysicalFromEdit.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6043,2361" />
+      <AbsolutePoint location="6043,2461" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/loginPrompt.do,login,/WEB-INF/jsp/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6382,574" />
+      <AbsolutePoint location="6382,865" />
+      <AbsolutePoint location="6961,865" />
+      <AbsolutePoint location="6961,803" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/saveAnotherPromo.jsp,null,/nextFormFromPromo.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3141,5766" />
+      <AbsolutePoint location="3141,5866" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/detailsList.jsp,null,/copyDigitalFormat.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4203,7474" />
+      <AbsolutePoint location="4203,7519" />
+      <AbsolutePoint location="622,7519" />
+      <AbsolutePoint location="622,2395" />
+      <AbsolutePoint location="650,2395" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/rcaReports.do,results,/WEB-INF/jsp/rcaReports.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1857,590" />
+      <AbsolutePoint location="3322,590" />
+      <AbsolutePoint location="3322,1484" />
+      <AbsolutePoint location="3350,1484" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addAnotherPhysicalFormat.do,success,/WEB-INF/jsp/physicalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3990,5910" />
+      <AbsolutePoint location="4129,5910" />
+      <AbsolutePoint location="4129,6134" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeNewDigitalFromEdit.do,addTracks,/WEB-INF/jsp/tracksForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="7660,4830" />
+      <AbsolutePoint location="7660,5537" />
+      <AbsolutePoint location="5218,5537" />
+      <AbsolutePoint location="5218,5717" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listDetails.do,createDraftError,/pmSearch.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3646,1164" />
+      <AbsolutePoint location="11003,1164" />
+      <AbsolutePoint location="11003,276" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/login.do,success,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="7150,926" />
+      <AbsolutePoint location="9491,926" />
+      <AbsolutePoint location="9491,574" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/dashboardHeaderResults.jsp,null,/addDashboardMessageToSummaryPage.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="11616,505" />
+      <AbsolutePoint location="11616,381" />
+      <AbsolutePoint location="-21,381" />
+      <AbsolutePoint location="-21,2194" />
+      <AbsolutePoint location="650,2194" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dashboardReportsParts.do,login,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="11848,276" />
+      <AbsolutePoint location="11848,948" />
+      <AbsolutePoint location="9733,948" />
+      <AbsolutePoint location="9733,574" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPromo.do,success,/WEB-INF/jsp/editPromoForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5166,4742" />
+      <AbsolutePoint location="5166,4502" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/editPromoForm.jsp,null,/editPMPromo.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5196,4502" />
+      <AbsolutePoint location="5196,4742" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateDeleteQtySheetDate.do,success,/updateProductionConsole.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3050,1614" />
+      <AbsolutePoint location="2710,1614" />
+      <AbsolutePoint location="2710,1224" />
+      <AbsolutePoint location="2318,1224" />
+      <AbsolutePoint location="2318,1138" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editTrack.do,success,/WEB-INF/jsp/physicalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4998,5954" />
+      <AbsolutePoint location="4998,6158" />
+      <AbsolutePoint location="4283,6158" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deletePromoFormat.do,cancel,/WEB-INF/jsp/index.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="562,1328" />
+      <AbsolutePoint location="562,1547" />
+      <AbsolutePoint location="6844,1547" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/index.jsp,null,/editPMHeader.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6863,1557" />
+      <AbsolutePoint location="6863,1701" />
+      <AbsolutePoint location="6852,1701" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/returnCSS.do,login,/WEB-INF/jsp/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4017,1963" />
+      <AbsolutePoint location="6180,1963" />
+      <AbsolutePoint location="6180,796" />
+      <AbsolutePoint location="6944,796" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPromo.do,digitalForm,/WEB-INF/jsp/digitalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5234,4816" />
+      <AbsolutePoint location="5992,4816" />
+      <AbsolutePoint location="5992,6753" />
+      <AbsolutePoint location="5484,6753" />
+      <AbsolutePoint location="5484,6828" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewAllPromoPMs.do,showDetails,/WEB-INF/jsp/promoDetails.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="519,7815" />
+      <AbsolutePoint location="519,7915" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dashboardReportsOrders.do,results,/WEB-INF/jsp/includes/dashboard/ordersDetail.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="7950,276" />
+      <AbsolutePoint location="7950,505" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/addNewPromoFormat.jsp,null,/completeNewFormatPromo.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5188,4022" />
+      <AbsolutePoint location="5188,4110" />
+      <AbsolutePoint location="4062,4110" />
+      <AbsolutePoint location="4062,4215" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/tracksForm.jsp,null,/addTracks.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5086,5723" />
+      <AbsolutePoint location="4674,5723" />
+      <AbsolutePoint location="4674,1848" />
+      <AbsolutePoint location="2841,1848" />
+      <AbsolutePoint location="2841,2014" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMDigital.do,recordUpdated,/WEB-INF/jsp/editDigitalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6345,5433" />
+      <AbsolutePoint location="6225,5433" />
+      <AbsolutePoint location="6225,5059" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/dashboardResults.jsp,null,/addDashboardMessageToDetailPage.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5927,542" />
+      <AbsolutePoint location="5158,542" />
+      <AbsolutePoint location="5158,2414" />
+      <AbsolutePoint location="1473,2414" />
+      <AbsolutePoint location="1473,2238" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updatePaginationConstant.do,fromEmail,/,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2431,1523" />
+      <AbsolutePoint location="5725,1523" />
+      <AbsolutePoint location="5725,1995" />
+      <AbsolutePoint location="11249,1995" />
+      <AbsolutePoint location="11249,529" />
+      <AbsolutePoint location="11131,529" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completePhysical.do,addTracks,/WEB-INF/jsp/tracksForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4337,6327" />
+      <AbsolutePoint location="5170,6327" />
+      <AbsolutePoint location="5170,5766" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateApprovePackagingDate.do,success,/updateProductionConsole.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2517,738" />
+      <AbsolutePoint location="2517,1194" />
+      <AbsolutePoint location="2348,1194" />
+      <AbsolutePoint location="2348,1138" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMDigital.do,editPhysicalForm,/WEB-INF/jsp/editPhysicalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6583,5359" />
+      <AbsolutePoint location="6583,2710" />
+      <AbsolutePoint location="6175,2710" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/emailLink.do,editPromoForm,/linkToPromoFormat.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3998,2524" />
+      <AbsolutePoint location="5528,2524" />
+      <AbsolutePoint location="5528,865" />
+      <AbsolutePoint location="3092,865" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeDigital.do,nextPromo,/WEB-INF/jsp/promoForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5261,7051" />
+      <AbsolutePoint location="3658,7051" />
+      <AbsolutePoint location="3658,3652" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updatePaginationConstant.do,results,/enter.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2431,1484" />
+      <AbsolutePoint location="3262,1484" />
+      <AbsolutePoint location="3262,695" />
+      <AbsolutePoint location="9465,695" />
+      <AbsolutePoint location="9465,574" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPromo.do,addNewPromoFormat,/WEB-INF/jsp/addNewPromoFormat.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5234,4756" />
+      <AbsolutePoint location="5258,4756" />
+      <AbsolutePoint location="5258,4022" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeNewPromoFromEdit.do,addTracks,/WEB-INF/jsp/tracksForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2561,4259" />
+      <AbsolutePoint location="3826,4259" />
+      <AbsolutePoint location="3826,5741" />
+      <AbsolutePoint location="5086,5741" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/linkToPromoFormat.do,createDraftError,/pmSearch.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3032,938" />
+      <AbsolutePoint location="3032,1065" />
+      <AbsolutePoint location="10968,1065" />
+      <AbsolutePoint location="10968,276" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addAnotherDigitalFormat.do,success,/WEB-INF/jsp/digitalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5454,6708" />
+      <AbsolutePoint location="5454,6828" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/onePageLink.do,createDraftError,/pmSearch.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1722,2738" />
+      <AbsolutePoint location="1722,3260" />
+      <AbsolutePoint location="11033,3260" />
+      <AbsolutePoint location="11033,276" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateArtist.do,login,/WEB-INF/jsp/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="50,1494" />
+      <AbsolutePoint location="-83,1494" />
+      <AbsolutePoint location="-83,284" />
+      <AbsolutePoint location="7008,284" />
+      <AbsolutePoint location="7008,754" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateApprovePackagingDate.do,login,/WEB-INF/jsp/index.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2347,650" />
+      <AbsolutePoint location="2347,298" />
+      <AbsolutePoint location="8761,298" />
+      <AbsolutePoint location="8761,1532" />
+      <AbsolutePoint location="6986,1532" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateDeletePackagingDate.do,success,/updateProductionConsole.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2750,694" />
+      <AbsolutePoint location="2620,694" />
+      <AbsolutePoint location="2620,1165" />
+      <AbsolutePoint location="2378,1165" />
+      <AbsolutePoint location="2378,1138" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeNewFormatPhysical.do,nextPromo,/WEB-INF/jsp/promoForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6494,6694" />
+      <AbsolutePoint location="5755,6694" />
+      <AbsolutePoint location="5755,3697" />
+      <AbsolutePoint location="3626,3697" />
+      <AbsolutePoint location="3626,3652" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/admin.do,login,/WEB-INF/jsp/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="10760,574" />
+      <AbsolutePoint location="10760,887" />
+      <AbsolutePoint location="7043,887" />
+      <AbsolutePoint location="7043,803" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/changeDefaultPassword.do,success,/WEB-INF/jsp/admin/changeDefaultPassword.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="416,1874" />
+      <AbsolutePoint location="650,1874" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/addNewPhysicalFormat.jsp,null,/completeNewFormatPhysical.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6723,6520" />
+      <AbsolutePoint location="6723,6620" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listDetails.do,login,/WEB-INF/jsp/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3498,1150" />
+      <AbsolutePoint location="3498,778" />
+      <AbsolutePoint location="6944,778" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/detailsList.jsp,null,/commitDrafts.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4363,7471" />
+      <AbsolutePoint location="9153,7471" />
+      <AbsolutePoint location="9153,1328" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/tracksForm.jsp,null,/cancelTrackEdit.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5255,5719" />
+      <AbsolutePoint location="5472,5719" />
+      <AbsolutePoint location="5472,2234" />
+      <AbsolutePoint location="3476,2234" />
+      <AbsolutePoint location="3476,2109" />
+      <AbsolutePoint location="3377,2109" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dashboardReportsParts.do,results,/WEB-INF/jsp/includes/dashboard/partsDetail.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="11995,276" />
+      <AbsolutePoint location="11995,505" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/addNewDigitalFormFromEdit.jsp,null,/completeNewDigitalFromEdit.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="7720,2361" />
+      <AbsolutePoint location="7720,4742" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPromo.do,addTracks,/WEB-INF/jsp/tracksForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5079,4830" />
+      <AbsolutePoint location="5079,5741" />
+      <AbsolutePoint location="5086,5741" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/returnSinglePageView.do,search,/WEB-INF/jsp/onePageSummary.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3269,1850" />
+      <AbsolutePoint location="3269,1741" />
+      <AbsolutePoint location="929,1741" />
+      <AbsolutePoint location="929,1974" />
+      <AbsolutePoint location="852,1974" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeNewFormatDigital.do,newFormat,/WEB-INF/jsp/addNewDigitalFormat.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6209,3365" />
+      <AbsolutePoint location="6209,3245" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/promoForm.jsp,null,/completePromo.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3596,3652" />
+      <AbsolutePoint location="3596,3772" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPromo.do,physicalForm,/WEB-INF/jsp/physicalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4924,4816" />
+      <AbsolutePoint location="2276,4816" />
+      <AbsolutePoint location="2276,6198" />
+      <AbsolutePoint location="4164,6198" />
+      <AbsolutePoint location="4164,6183" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMPhysical.do,deleteRecord,/WEB-INF/jsp/editPhysicalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6123,2898" />
+      <AbsolutePoint location="6123,2718" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addArtist.do,error,/WEB-INF/jsp/errors/commitDraftsError.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3085,1432" />
+      <AbsolutePoint location="9814,1432" />
+      <AbsolutePoint location="9814,1508" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateDeleteProdMasterDate.do,login,/WEB-INF/jsp/index.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1153,650" />
+      <AbsolutePoint location="1153,232" />
+      <AbsolutePoint location="3958,232" />
+      <AbsolutePoint location="3958,1465" />
+      <AbsolutePoint location="6863,1465" />
+      <AbsolutePoint location="6863,1508" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/admin/addArtist.jsp,null,/addArtist.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="809,1450" />
+      <AbsolutePoint location="809,411" />
+      <AbsolutePoint location="3172,411" />
+      <AbsolutePoint location="3172,1384" />
+      <AbsolutePoint location="3085,1384" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/createNewUser.do,login,/WEB-INF/jsp/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="9930,574" />
+      <AbsolutePoint location="9930,761" />
+      <AbsolutePoint location="7082,761" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/returnCSSDetail.do,search,/WEB-INF/jsp/cssDetail.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/returnCSS2.do,search,/WEB-INF/jsp/cSSresultsList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2450,2736" />
+      <AbsolutePoint location="3141,2736" />
+      <AbsolutePoint location="3141,2699" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addProjectMessage.do,success,/nextEditPage.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1874,1364" />
+      <AbsolutePoint location="2069,1364" />
+      <AbsolutePoint location="2069,441" />
+      <AbsolutePoint location="7357,441" />
+      <AbsolutePoint location="7357,2461" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completePhysical.do,nextPromo,/WEB-INF/jsp/promoForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4298,6283" />
+      <AbsolutePoint location="4298,3627" />
+      <AbsolutePoint location="3681,3627" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/tracksForm.jsp,null,/editTrack.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="5255,5763" />
+      <AbsolutePoint location="6422,5763" />
+      <AbsolutePoint location="6422,5910" />
+      <AbsolutePoint location="5147,5910" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMDigital.do,addTracks,/WEB-INF/jsp/tracksForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6499,5447" />
+      <AbsolutePoint location="6499,5981" />
+      <AbsolutePoint location="5252,5981" />
+      <AbsolutePoint location="5252,5766" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeNewFormatDigital.do,addTracks,/WEB-INF/jsp/tracksForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6085,3453" />
+      <AbsolutePoint location="6085,5642" />
+      <AbsolutePoint location="5240,5642" />
+      <AbsolutePoint location="5240,5717" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/commitDrafts.do,error,/WEB-INF/jsp/errors/commitDraftsError.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="9243,1328" />
+      <AbsolutePoint location="9243,1532" />
+      <AbsolutePoint location="9696,1532" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPMDigital.do,addNewPhysicalFormat,/WEB-INF/jsp/addNewPhysicalFormat.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6639,5447" />
+      <AbsolutePoint location="6639,6471" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completeNewFormatDigital.do,completePM,/WEB-INF/jsp/detailsList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="6103,3453" />
+      <AbsolutePoint location="6103,6571" />
+      <AbsolutePoint location="4311,6571" />
+      <AbsolutePoint location="4311,7425" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/nextFormFromPromo.do,physical,/WEB-INF/jsp/physicalForm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3163,5954" />
+      <AbsolutePoint location="3163,6029" />
+      <AbsolutePoint location="4112,6029" />
+      <AbsolutePoint location="4112,6134" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/returnToDetailsPage.do,showDetails,/WEB-INF/jsp/detailsList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1221,7638" />
+      <AbsolutePoint location="4251,7638" />
+      <AbsolutePoint location="4251,7474" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/linkToDigiFormat.do,createDraftError,/pmSearch.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="214,850" />
+      <AbsolutePoint location="214,175" />
+      <AbsolutePoint location="11063,175" />
+      <AbsolutePoint location="11063,188" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+</FlowViewLayout>
+

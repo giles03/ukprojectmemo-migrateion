@@ -1,0 +1,196 @@
+html {
+    display:table; 
+}
+
+
+body{
+	font-family:Times New Roman;
+    max-width:1250px
+	
+}	
+
+
+#displaybox_2 #main {
+	padding: 20px;
+}
+
+#topmsg {
+	font-weight: bold;
+}
+
+
+
+
+
+div.outline
+{
+    background-color: #FCFCFC;
+    border-width: 1px; 
+    border-style: SOLID; 
+    border-color: blue;  
+}
+
+div.hidden
+{
+display:none;
+}
+
+
+table
+{
+}
+
+td
+{
+}
+
+td.mobiletracks
+{
+    
+    border-width: 1px 1px 0 0;
+    border-style: solid;   
+    padding-left: 1;  
+}
+
+
+td.tracks
+{
+    
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    margin: 1;    
+    padding-left: 3;
+    background-color: #F3F3F3;
+}
+
+td.list_header 
+{
+	align:left;
+	font-size: 10px;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+td.myRecentProjects
+{
+	width:605px;
+	align:left
+}
+
+
+td.ih 
+{
+    width:"100px";
+    color: gray;    
+    font-weight: bold; 
+    font-size: 12px;  
+    text-align: center;
+  	text-decoration: underline;
+}
+ 
+td.iha {
+    width:"75px";
+    color: gray;
+    font-weight: bold; 
+    font-size: 12px;  
+    text-align: center;
+	text-decoration: underline;    
+  
+ }
+
+.ih 
+{
+    width:"100px";
+    color: gray;    
+    font-weight: bold; 
+    font-size: 12px;  
+    text-align: center;
+  	text-decoration: underline;
+}
+ 
+.iha {
+    width:"60px";
+    color: gray;
+    font-weight: bold; 
+    font-size: 12px;  
+    text-align: left;
+	text-decoration: underline;    
+  
+ }
+
+.ic {
+    width:"100px";
+    font-size: 11px;  
+    text-align: center;
+    vertical-align: middle;
+}
+ 
+.ic2 {
+    width:"115px";
+    font-size: 11px;  
+    text-align: center     
+}
+ 
+.ica {
+    width:"60px";
+    font-size: 11px;  
+    text-align: center;
+    vertical-align: middle;
+}
+
+.red_bg{
+	background-color: #F52F2C;	
+	color:blue;
+}
+ 
+td.ic {
+    width:"100px";
+    font-size: 11px;  
+    text-align: center     
+}
+ 
+td.ic2 {
+    width:"115px";
+    font-size: 11px;  
+    text-align: center     
+}
+ 
+td.ica {
+    width:"75px";
+    font-size: 11px;  
+    text-align: center
+}
+ 
+
+#dateAdvice {
+	display:none;
+	color:red;
+	font-size:12px  
+}
+ 
+table.feedback
+{
+ width:90%;
+ align:center;
+ 
+}
+ 
+#myProjectsContent
+{
+ height: 200;  
+ overflow: auto ;
+ overflow-x:hidden
+}
+
+ul
+{
+ list-style-type: none;
+ margin: 0;
+ padding: 0; 
+}
+
+li{
+margin: auto;
+}	
+
+ 

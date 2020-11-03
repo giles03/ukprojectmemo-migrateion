@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources> 
+    <datasource> 
+        <jndi-name>java:/PMEMODS</jndi-name> 
+        <connection-url>jdbc:oracle:thin:@degtlun5082.server.arvato-systems.de:1480:DBOPMRS1</connection-url> 
+        <driver-class>oracle.jdbc.OracleDriver</driver-class> 
+        <user-name>PMEMO2</user-name> 
+        <password>pm2013emo</password> 
+    </datasource> 
+</datasources> 

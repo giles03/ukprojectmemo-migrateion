@@ -1,0 +1,5 @@
+datasource.jndi.name=jdbc/PMEMO2
+datasource.url=jdbc:oracle:thin:@lonsbmeora003:1521:dev1
+datasource.username=PMEMO2_UAT
+datasource.password=pmemouat
+            
